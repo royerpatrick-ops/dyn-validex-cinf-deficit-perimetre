@@ -1,0 +1,106 @@
+{
+  "schema": "dyn-cinf-tail-is-v0.2",
+  "status": "NUMERICAL_ESTIMATE_NOT_CERTIFIED",
+  "quantity": "aG(a)",
+  "distribution": "uniform + truncated Cauchy, importance weights",
+  "rng": "numpy.default_rng",
+  "configuration": {
+    "output": "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/tail.json",
+    "n": 200000,
+    "a_min": 3.6,
+    "a_max": 12.0,
+    "points": 9,
+    "seed": 500,
+    "p_unif": 0.25,
+    "sig_fac": 4.0,
+    "max_ranks": null,
+    "check": false
+  },
+  "rows": [
+    {
+      "a": 3.6,
+      "aG": 0.010816323988166577,
+      "aG_mc_se": 0.0003847133328894037,
+      "n": 200000,
+      "seed": 500,
+      "ranks": 7,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 4.184680872694973,
+      "aG": 0.007804207846242017,
+      "aG_mc_se": 0.0003502534428328099,
+      "n": 200000,
+      "seed": 501,
+      "ranks": 11,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 4.864320557305323,
+      "aG": 0.005453089870494557,
+      "aG_mc_se": 0.0003141496684629023,
+      "n": 200000,
+      "seed": 502,
+      "ranks": 16,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 5.654341443003485,
+      "aG": 0.003927301704534292,
+      "aG_mc_se": 0.00028669879979190024,
+      "n": 200000,
+      "seed": 503,
+      "ranks": 24,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 6.572670690061994,
+      "aG": 0.0023819008289889493,
+      "aG_mc_se": 0.00024086675299756836,
+      "n": 200000,
+      "seed": 504,
+      "ranks": 37,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 7.640147033118138,
+      "aG": 0.0014821182532603024,
+      "aG_mc_se": 0.00020379248587766883,
+      "n": 200000,
+      "seed": 505,
+      "ranks": 57,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 8.880993653907424,
+      "aG": 0.0014215530444937662,
+      "aG_mc_se": 0.0002170691408356147,
+      "n": 200000,
+      "seed": 506,
+      "ranks": 89,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 10.323367853897734,
+      "aG": 0.0015548328366506306,
+      "aG_mc_se": 0.00024318965465968951,
+      "n": 200000,
+      "seed": 507,
+      "ranks": 139,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    },
+    {
+      "a": 12.0,
+      "aG": 0.0007059055066318454,
+      "aG_mc_se": 0.00017678951893048314,
+      "n": 200000,
+      "seed": 508,
+      "ranks": 217,
+      "variance_resolution": "EMPIRICAL_ONLY"
+    }
+  ],
+  "uncertainty_statement": "SE empirique de cc*w, MC seule; elle ne borne pas l'erreur globale ni l'extrapolation. Un SE nul sur zéro événement ne prouve pas une variance nulle.",
+  "integral": "not computed",
+  "continuation_beyond_last_point": "not certified",
+  "corrective_validation_use": "CLI_SANITY_ONLY; reduced sample sizes; does not replace historical scientific estimates."
+}

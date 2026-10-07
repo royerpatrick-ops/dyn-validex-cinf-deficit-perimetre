@@ -1,0 +1,334 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,tabularx,array,enumitem}
+\usepackage[margin=23mm,headheight=14pt]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue,citecolor=MidnightBlue]{hyperref}
+\hypersetup{pdftitle={A candidate leading constant for the perimeter deficit of randomized integer convex hulls},pdfauthor={Patrick Royer},pdfsubject={Distinct corrective research note v0.2; conjectural leading coefficient}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=*,nosep}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Patrick Royer | Research note}
+\fancyhead[R]{\small Corrective v0.2}
+\fancyfoot[L]{\small Conjectural global law; local numerical checks}
+\fancyfoot[R]{\small \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newtheorem{proposition}{Conditional proposition}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Cmodel}{C_{\mathrm{model}}}
+\newcommand{\Cvoid}{C_{\mathrm{void}}}
+\title{\vspace{-12mm}\textbf{A candidate leading constant for the perimeter deficit of randomized integer convex hulls}}
+\author{Patrick Royer\\\small Independent researcher, unaffiliated, France}
+\date{7 October 2026 | Distinct corrective version 0.2}
+\begin{document}
+\maketitle
+\vspace{-5mm}
+\begin{abstract}
+For a smooth planar convex body of positive curvature, we propose a candidate leading coefficient in the expected perimeter deficit of its randomized integer convex hull. An explicit parabolic row model suggests the improper integral $\Cmodel=(6/\pi^2)\int_0^\infty aG(a)\,da$, estimated at about $0.719$. The transfer from this local model to the finite-radius lattice problem remains conjectural. Local quadrature and Monte Carlo checks agree, and a related vertex-count calculation agrees with a published benchmark under a tail approximation. The quoted numerical range depends on extrapolation choices and is neither a rigorous enclosure nor a global confidence interval. A fitted second-order correction is retained as exploratory evidence only. This note presents a conjecture and a route for checking it, not a proof.
+\end{abstract}
+
+\section{Setting and the leading conjecture}
+Let $K\subset\R^2$ be a compact convex body with nonempty interior, $C^3$ boundary and strictly positive curvature $\kappa$. Write
+\[
+ I_\alpha(K)=\int_{\partial K}\kappa^\alpha\,ds.
+\]
+For the unit disc, $I_\alpha=2\pi$. Let $\rho(\theta)$ be rotation through an angle $\theta$, and let
+\[
+ L=\rho(\theta)(\Z^2+t),\qquad
+ \theta\sim\mathrm{Unif}[0,2\pi),\quad
+ t\sim\mathrm{Unif}[0,1)^2,
+\]
+independently. Using $[0,\pi/2)$ instead of $[0,2\pi)$ gives the same law. For sufficiently large $R$, define
+\[
+ Q_R=\operatorname{conv}(L\cap RK),\qquad
+ \Delta(R)=P(RK)-P(Q_R).
+\]
+
+\textbf{Leading conjecture.} The local integral below is finite and there is a universal coefficient $C_\infty=\Cmodel$ such that
+\begin{equation}\label{eq:leading}
+ \E\Delta(R)=C_\infty I_{4/3}(K)R^{-1/3}+o(R^{-1/3}).
+\end{equation}
+Here $\Cmodel$ is the candidate defined by the ideal local model; equality with the asymptotic coefficient of the original problem is part of the conjecture. The working numerical estimate is $\Cmodel\approx0.719$, with model-dependent uncertainty detailed in Section~\ref{sec:numerics}.
+
+Ngoc and Reitzner establish the asymptotic \emph{order} of the expected mean-width deficit in the smooth setting \cite{NR}. In the plane, $P=\pi W$ under their mean-width normalization, so the order is $R^{-1/3}$. This does not establish the existence of the normalized limit, its curvature formula, or its exact coefficient. The sources examined for this corrective do not establish the proposed coefficient; priority and completeness of the literature search remain open.
+
+The earlier two-term fit is separated from \eqref{eq:leading}. It is discussed in Section~\ref{sec:second}, without asserting an $o(R^{-1/2})$ remainder. Three levels of claim are kept distinct: exact identities \emph{inside the specified local model}; numerical checks on finite domains; and an unproved transfer to the global lattice asymptotic.
+
+\section{The local row model and an exact finite-domain calculation}
+Fix $a>0$. Let $\delta,s,\beta$ be independent and uniform on $[0,1/a)$, $[0,a)$ and $[0,a)$, respectively. Row $k\geq0$ has depth $d_k=\delta+k/a$ and points
+\[
+ s+k\beta+a\Z\quad\hbox{inside}\quad[-\sqrt{2d_k},\sqrt{2d_k}].
+\]
+Let $k^*$ be the first nonempty row, $d=d_{k^*}$, and $x_1\leq x_2$ its extreme admissible points. Define
+\begin{equation}\label{eq:c}
+ c=d(x_2-x_1)-\frac{x_2^3-x_1^3}{3},\qquad G(a)=\E c.
+\end{equation}
+A single point gives $c=0$. The rows describe a covolume-one affine lattice parallel to $(a,0)$ in the parabolic region $Y\geq X^2/2$. A first row with two or more points provides a horizontal edge of its lower hull. Independence and uniformity of $\beta$ are \emph{definitions of this ideal model}; their validity as a limit of the original square-lattice construction requires a separate argument.
+
+When the first row has at least two points, its extreme points satisfy $x_1\leq0\leq x_2$. For $r=\sqrt{2d}$, extremality gives $x_1<-r+a$ and $x_2>r-a$ outside null endpoint cases; if $r<a$, two points a distance at least $a$ apart also force them to straddle zero. Consequently
+\begin{equation}\label{eq:edgeint}
+ c=\int_{x_1}^{x_2}\min_{p\in\{x_1,x_2\}}
+       \left(d-\vartheta p+\frac{\vartheta^2}{2}\right)d\vartheta.
+\end{equation}
+The minimum uses $x_1$ for $\vartheta<0$ and $x_2$ for $\vartheta>0$, which proves \eqref{eq:c} from \eqref{eq:edgeint}.
+
+\subsection{Closed form for \texorpdfstring{$0<a\leq2$}{0 < a <= 2}}
+Only rows 0 and 1 need be considered: row 1 always contains a point because $2\sqrt{2/a}\geq a$. The phase-averaged contribution of a row at depth $d$, including zero contribution from empty or single-point windows, is
+\[
+ H(d,a)=\begin{cases}
+ 0,&r<a/2,\\[2pt]
+ \displaystyle\frac{(2r-a)(r^2+2ar-a^2)}6,&r\geq a/2,
+ \end{cases}\qquad r=\sqrt{2d}.
+\]
+Put $h=a^2/8$. Conditioning on an empty row 0 and averaging the independent row-1 phase gives
+\begin{align}
+ G(a)&=G_0(a)+G_1(a),\\
+ G_0(a)&=a\int_h^{1/a}H(d,a)\,dd\nonumber\\
+ &=\frac{4\sqrt2}{15}a^{-3/2}+\frac12
+   -\frac{4\sqrt2}{9}a^{3/2}+\frac{a^3}{6}
+   -\frac{17a^6}{5760},\label{eq:g0}\\
+ G_1(a)&=a\int_0^h\left(1-\frac{2\sqrt{2\delta}}a\right)
+                     H\left(\delta+\frac1a,a\right)d\delta.
+ \label{eq:g1}
+\end{align}
+These identities hold for the stated probability model on $(0,2]$. The substitution $a=u^2$ regularizes $aG(a)\,da$ at zero. A second useful substitution is $\delta=ht^2$ in \eqref{eq:g1}.
+
+The following checks use the functions and seeds in the submitted script archive, with $2\times10^6$ draws per value. Errors are one Monte Carlo standard error, not certified bounds.
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+$a$ & Closed-form quadrature & Direct Monte Carlo\\
+\midrule
+0.3 & 2.703741144 & $2.703778730\pm0.001401674$\\
+0.7 & 0.863438595 & $0.863426845\pm0.000467014$\\
+1.5 & 0.145227292 & $0.145461269\pm0.000186349$\\
+2.0 & 0.034676824 & $0.034681144\pm0.000116720$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $a>2$, more rows can be required; row enumeration terminates once the admissible window has length at least $a$. The corrective supplies sampling code for that regime.
+
+\section{Heuristic assembly of the candidate coefficient}
+For the original compact bodies, Cauchy's formula is exact:
+\begin{equation}\label{eq:cauchy}
+ \Delta(R)=\int_0^{2\pi}(h_{RK}-h_{Q_R})(\varphi)\,d\varphi.
+\end{equation}
+At a point of $\partial(RK)$, write $q=\kappa_R$ for the curvature of the \emph{dilated} body. In local tangential and inward-normal coordinates, use
+\[
+ x=q^{-1/3}X,\qquad y=q^{1/3}Y.
+\]
+This linear rescaling has determinant one and makes the leading boundary approximation $Y=X^2/2$. The support depth scales by $q^{1/3}$, and a local slope increment satisfies $d\varphi\simeq q^{2/3}d\vartheta$ to leading order for bounded rescaled slopes. In these local slope coordinates the exact angular factor is $d\varphi=q^{2/3}(1+q^{4/3}\vartheta^2)^{-1}d\vartheta$. Uniform error control is needed before any limit can be inferred.
+
+Inside the parabolic model, the support-deficit expression
+\[
+ D_p(\vartheta)=Y_p-\vartheta X_p+\vartheta^2/2
+\]
+is covariant under the parabola-preserving map
+\[
+ (X,Y)\mapsto(X-t,Y-tX+t^2/2),\qquad \vartheta\mapsto\vartheta-t.
+\]
+For a locally finite lower hull with its monotone edge chain, an edge slope lies between the $X$-coordinates of its extreme endpoints: after making the edge horizontal, the preceding straddling property applies. This permits the intervals $[X(p_1),X(p_2)]$ to be split at each edge slope and assigned to the supporting vertices. Equation~\eqref{eq:edgeint} then gives the edge contribution on finite portions, with endpoint terms handled separately. Passing to an infinite stationary mean requires an integrability and boundary-term argument.
+
+The candidate counting rule assigns density $(6/\pi^2)\ell\,d\ell$ per unit angle to primitive vectors of length $\ell$. Siegel's primitive mean-value formula gives this factor for Haar averages over unimodular lattices \cite{S}; it is not an exact finite-radius law for rotations of $\Z^2$. Here the local vector length is $a=q^{1/3}\ell$. If the appropriate weighted counting and shear limit hold, the expected edge sum per unit normal angle becomes
+\[
+ q\frac6{\pi^2}\int_0^\infty\ell G(q^{1/3}\ell)\,d\ell
+ =\frac6{\pi^2}q^{1/3}J,\qquad
+ J=\int_0^\infty aG(a)\,da.
+\]
+Since $d\varphi=q\,ds$, this suggests
+\[
+ \Cmodel=\frac6{\pi^2}J,\qquad
+ \int_{\partial(RK)}\kappa_R^{4/3}\,ds=R^{-1/3}I_{4/3}(K).
+\]
+The unproved steps include the correct joint limiting measure, its use for the weighted edge observable, uniform parabolic approximation and control of the large-$a$ contribution. The identity is a proposed coefficient formula, not a consequence of Cauchy's formula alone.
+
+\section{Numerical evaluation and uncertainty}\label{sec:numerics}
+The local calculation on $(0,2]$ contributes about $94\%$ of the currently estimated $J$. That numerical fraction does not validate the transfer to the global hull problem.
+\begin{center}
+\begin{tabularx}{\linewidth}{lYr}
+\toprule
+Range & Method and status & Contribution to $J$\\
+\midrule
+$(0,1]$ & Independent double-precision quadrature & 0.872472643047247\\
+$[1,2]$ & Independent double-precision quadrature & 0.234689266006291\\
+$[2,3.6]$ & Original draws; Simpson quadrature & $0.043081280\pm0.000063081$\\
+$[3.6,\infty)$ & Earlier report's tail extrapolations & 0.0321--0.0329\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The first two rows are concordant numerical evaluations, not new interval certificates. Deposit [Z2] is cited as the source of an earlier finite-domain certification; that certificate and its high-precision enclosure are not reissued or extended by this corrective.
+
+Combining the table mechanically gives an estimated $J$ around $1.1823$--$1.1831$ and $\Cmodel$ around $0.7188$--$0.7193$. The range for the last row was reported in the earlier manuscript. Its original full tail outputs and fitting cutoffs were not included in the received archive, so the range has not been independently reconstructed here. It remains a reported model spread, not an enclosing interval.
+
+\subsection{Tail hypothesis}
+The earlier analysis suggests
+\begin{equation}\label{eq:tail}
+ aG(a)\sim\frac1{9a^2}\qquad(a\to\infty).
+\end{equation}
+Its heuristic mechanism is a rare first occupied row with two points, associated with $\beta$ close to zero modulo $a$. In a proposed funnel approximation, a phase-area factor of $16f(1-f)/a^4$, a contribution $c\approx a^3/24$ and a mean $\E f(1-f)=1/6$ give \eqref{eq:tail}. A proof requires an explicit uniform remainder, exclusion of other contributing configurations, and justified averaging. The sampling data are consistency checks rather than a proof of the asymptote.
+
+The corrective implements two explicit candidate extrapolations for $F(a)=aG(a)$:
+\[
+ F_A(a)=\frac{1/9}{a^2}+\frac{b}{a^3}+\frac{c}{a^4},\qquad
+ F_B(a)=\frac{A}{a^2}+\frac{b}{a^3}+\frac{c}{a^4}.
+\]
+The fit range and integration cutoff must be specified and recorded. Fitting these forms with new tail samples will produce a new numerical analysis; it cannot silently recreate an undocumented historical fit.
+
+\subsection{Uncertainty accounting}
+For independent Monte Carlo ordinates $\widehat F_i$ integrated with Simpson weights $w_i$, the sampling standard error is
+\[
+ \operatorname{SE}_{\mathrm{MC}}=
+ \left(\sum_iw_i^2\operatorname{SE}(\widehat F_i)^2\right)^{1/2}.
+\]
+The corrected value on $[2,3.6]$ is $6.3080764\times10^{-5}$, instead of the earlier unweighted-step approximation $6.2408849\times10^{-5}$. Neither value bounds Simpson discretization error. Fitted tail parameters and quadrature can depend on the same samples, so their covariance must also be handled when a combined sampling error is given.
+
+Four uncertainties remain separate: sampling error; numerical integration and rounding error; extrapolation error; and the conjectural transfer to $C_\infty$. No global confidence interval or certified enclosure for $C_\infty$ is claimed.
+
+\section{Comparison with earlier hull data and a vertex benchmark}
+\subsection{Reported fits, not recalculated in this corrective}
+The earlier report describes simulations of 8448 randomized hulls across a disc, ellipses with axis ratios 2:1 and 5:1, and the superellipse $|x|^3+|y|^3=1$, over radii from 1230 to $10^6$ [Z1]. Its positive-curvature core contains 69 means, fitted as
+\[
+ C_{\mathrm{eff}}(R)=\frac{\E\Delta(R)R^{1/3}}{I_{4/3}(K)}
+ =C-B\frac{I_{3/2}}{I_{4/3}}R^{-\gamma}.
+\]
+Selected historical fit summaries are retained for provenance:
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Fit & $C$ & $\gamma$ & $B$ & $\chi^2/\mathrm{dof}$\\
+\midrule
+69 means, all free & $0.7198\pm0.0014$ & $0.169\pm0.005$ & $0.300\pm0.009$ & 1.25\\
+69 means, $C=0.7193$ & fixed & $0.171\pm0.002$ & $0.302\pm0.007$ & 1.23\\
+Disc, all free & $0.7137\pm0.0037$ & $0.199\pm0.017$ & $0.356\pm0.033$ & 1.24\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are values reported in the received manuscript. The underlying CSV was not supplied with the script archive and these fits were not rerun. Their errors are nominal weighted-least-squares errors based on a diagonal covariance; cross-radius covariance is unavailable. The radius cutoff and model were not preregistered, and independence of historical model selection is not attested. Fixing $C$ ignores uncertainty in that fixed coefficient and can narrow the nominal error on $\gamma$. Fits with free $\gamma$ retain the regressor $I_{3/2}/I_{4/3}$ and are descriptive: a homogeneous curvature correction with exponent $1/3+\gamma$ would instead involve $I_{4/3+\gamma}$, agreeing with $I_{3/2}$ only at $\gamma=1/6$.
+
+The original extrapolation figure is omitted because its source CSV and plotting program were not supplied, and its labels used differing fixed coefficient values. The corrected fitting script exports selections, parameters, covariance, residuals and goodness-of-fit diagnostics when actual input data are provided.
+
+The superellipse has zero curvature at four axis points and does not meet the stated $C^3$, positive-curvature assumptions. Its reported fit is therefore exploratory evidence outside the leading conjecture's domain.
+
+\subsection{Independent implementation of disc hulls}
+The earlier report gives independent-code estimates $0.6303\pm0.0011$, $0.6558\pm0.0009$ and $0.6779\pm0.0008$ for $C_{\mathrm{eff}}$ at $R=1230$, 9587 and 110000. Those campaigns are historical reported results, not rerun in this corrective. Here the row-extreme hull algorithm was compared with a full lattice-point hull at three small radii and three seeds each; the maximum perimeter discrepancy was $2.85\times10^{-14}$. This checks the algorithm on those cases and does not certify the large-radius campaigns or their floating-point error.
+
+\subsection{Vertex-count comparison}
+Let $p(a)$ be the probability that the first occupied row contains at least two points. Replacing $c$ by this indicator in the same heuristic framework gives
+\[
+ \E V\simeq\frac6{\pi^2}J_V\int_{\partial(RK)}\kappa_R^{1/3}\,ds,
+ \qquad J_V=\int_0^\infty ap(a)\,da.
+\]
+Here $\int_{\partial(RK)}\kappa_R^{1/3}\,ds=R^{2/3}I_{1/3}(K)$. For a disc of radius $R$, the predicted coefficient of $R^{2/3}$ is $(12/\pi)J_V$. Repeating the supplied refined sampling gives
+\[
+ J_{V,(0,2]}=0.8612550080,\qquad
+ J_{V,[2,4]}=0.0402898983\pm0.0000365400.
+\]
+Using $ap(a)\sim8/(3a^5)$ as the \emph{entire} tail beyond 4 adds $0.0026041667$ and produces
+\[
+ \frac{12}{\pi}J_V=3.4535951\pm0.0001396
+ \quad\hbox{(Monte Carlo error only).}
+\]
+The benchmark $3.4536898915\ldots$ is quoted by Finch [F] from Balog--Deshouillers [BD]. The difference is about $9.5\times10^{-5}$, within the quoted sampling error. The tail-approximation bias and quadrature error are not included. This is a numerical consistency check on the shared framework, not a validation to relative precision $3\times10^{-5}$.
+
+The Balog--Deshouillers statement concerns averaging in radius. Huxley's abstract describes a translation average and its relationship to the radius average \cite{H}. These averaging regimes must be distinguished from rotation-and-translation averages. The full [BD] and [H] texts were not available for this corrective, and the benchmark's precise transfer remains a specialist question.
+
+\section{The exploratory second-order correction}\label{sec:second}
+The historical fits motivate investigating
+\[
+ \E\Delta(R)\stackrel{?}{=}
+ C_\infty I_{4/3}(K)R^{-1/3}
+ -B I_{3/2}(K)R^{-1/2}+o(R^{-1/2}).
+\]
+This statement is \emph{not} included in the leading conjecture. Finite-range fits cannot establish the second exponent, exclude competing corrections or logarithms, or justify the displayed remainder.
+
+An earlier cutoff heuristic associates rare shears with short neighbouring lattice vectors and suggests an additional factor $\kappa_R^{1/6}$. It then proposes
+\[
+ B_{\mathrm{cut}}=-\frac{c_0}{\pi}Z_{\mathrm{prim}}(3/4),
+ \qquad c_0=\frac{\sqrt2}{30}.
+\]
+The relevant convergent-series identity is
+\begin{equation}\label{eq:zeta}
+ Z_{\mathrm{prim}}(s)=
+ \sum_{\substack{w\in\Z^2\setminus\{0\}\\w\ \mathrm{primitive}}}
+ |w|^{-2s}
+ =\frac{4\zeta(s)\beta_D(s)}{\zeta(2s)},\qquad \Re(s)>1,
+\end{equation}
+where $\beta_D$ is the Dirichlet beta function. At $s=3/4$ the series diverges; the value in the formula for $B_{\mathrm{cut}}$ is the analytic continuation of the quotient, not an ordinary sum of positive terms. Independent numerical evaluation gives
+\[
+ Z_{\mathrm{prim}}(3/4)\approx-3.8576230953,
+ \qquad B_{\mathrm{cut}}\approx0.0578846836.
+\]
+This numerical calculation does not justify using analytic continuation to obtain the finite-radius correction. The gap between this estimate and a fitted $B\approx0.30$ cannot be assigned to missing mechanisms until the correction exponent and its limiting coefficient have been established. The earlier heuristic suggestion of an $R^{-2/9}$ relative correction is omitted as unsupported here.
+
+\section{A conditional route through empty caps}
+The identity connecting support deficits with empty-cap probabilities is a useful alternative to weighted edge counting \cite[Lemma 3.1]{NR}. For a normal angle $\varphi$, let $q_R(\varphi)=\kappa_R(\varphi)$, and define the cap and probability
+\begin{align*}
+ A_{R,\varphi}(z)&=\{x\in RK:\langle x,u_\varphi\rangle
+       \geq h_{RK}(u_\varphi)-q_R(\varphi)^{1/3}z\},\\
+ v_R(z,\varphi)&=\Pr(A_{R,\varphi}(z)\cap L=\varnothing).
+\end{align*}
+For the sufficiently large radii under consideration, $Q_R$ is nonempty. The support-deficit tail formula and Tonelli's theorem yield exactly
+\[
+ \E\Delta(R)=\int_0^{2\pi}q_R(\varphi)^{1/3}
+                  \int_0^\infty v_R(z,\varphi)\,dz\,d\varphi.
+\]
+Let $X_{\mathrm{aff}}$ denote the space of covolume-one affine lattices with normalized invariant measure $\mu$. Put
+\[
+ A(z)=\{(X,Y):X^2/2\leq Y\leq z\},\qquad
+ v_{\mathrm H}(z)=\mu\{\Lambda:\Lambda\cap A(z)=\varnothing\}.
+\]
+
+\begin{proposition}
+Assume that $v_R(z,\varphi)\to v_{\mathrm H}(z)$ for almost every $(z,\varphi)$ and that, for all sufficiently large $R$, there is a constant $A_K$ independent of $R,z,\varphi$ with
+\[
+ v_R(z,\varphi)\leq\min\{1,A_Kz^{-3/2}\}.
+\]
+Then $\Cvoid=\int_0^\infty v_{\mathrm H}(z)\,dz$ is finite and
+\[
+ \lim_{R\to\infty}R^{1/3}\E\Delta(R)=\Cvoid I_{4/3}(K).
+\]
+\end{proposition}
+\begin{proof}
+Use $q_R(\varphi)=\kappa_K(\varphi)/R$ in the preceding exact identity and apply dominated convergence. The proposed majorant is integrable in $z$; positive continuous curvature on the compact boundary is bounded. Finally, $d\varphi=\kappa_K\,ds$.
+\end{proof}
+The assumptions are stated explicitly and are not proved here. The cap area in the parabolic limit is $(4\sqrt2/3)z^{3/2}$. The avoidance bound in \cite[Lemma 3.2]{NR} suggests how to control tails once the required uniform cap-area comparison is justified. Spherical equidistribution results in \cite[Section 5]{MS} address bounded observables under precise hypotheses; applying them to the normalized cap indicators, their moving boundaries and the affine shift must be checked.
+
+Even if both assumptions are established, the identity
+\[
+ \Cvoid\stackrel{?}{=}\frac6{\pi^2}\int_0^\infty aG(a)\,da
+\]
+requires a separate stationary edge/Palm integration argument. This route divides the task into a global limit and a coefficient identity; it does not promote the current integral estimate into a proof.
+
+\section{Reproduction, provenance and questions for specialists}
+This v0.2 is a separate corrective of the received 6 October 2026 note and script archive. Their original bytes are preserved in the accompanying package. The corrective includes editable \LaTeX{} source, corrected numerical entry points, a French change log and a validation record.
+
+The corrected scripts use Python, NumPy, SciPy and pandas for finite-precision calculations. They provide frugal defaults and explicit larger-run options, recorded seeds and structured outputs. A separate script assembles sampled and extrapolated tail contributions; its model assumptions are exported. No full covariance reconstruction, new long hull campaign, independent Arb certification or global theorem certification was performed for this corrective. A CSV-dependent reanalysis remains available but was not run without its source data. The status of the cited Zenodo records was not independently verified in this session.
+
+\textbf{AI assistance and responsibility.} The author developed the source simulations and finite-domain model with substantial assistance from ChatGPT/Codex. Claude (Anthropic) contributed the initial heuristic assembly, tail and cutoff analyses and numerical checks. ChatGPT/Codex assisted with this corrective's implementation checks, mathematical status distinctions and final technical integration. These are AI-assisted checks; no independent human mathematical peer review is attested. Patrick Royer remains the author responsible for the claims and their submission.
+
+\textbf{Accessible tools.} The numerical and typesetting workflow uses freely available software, including Python, NumPy, SciPy, pandas and \LaTeX{}. This statement concerns those tools and does not imply that all AI services used are free of charge. The corrective does not change the reuse terms of the source deposits or establish a new licence for them.
+
+The priority questions are: (i) is the candidate coefficient or its integral representation already known? (ii) can the empty-cap limiting distribution and uniform tail control be established in the present normalization? (iii) can the stationary edge identity identify $\Cvoid$ with $\Cmodel$? (iv) what is the actual next-order correction, if one exists? Isolated flat points are a subsequent extension, outside the present assumptions.
+
+\begin{thebibliography}{99}
+\small
+\bibitem[NR]{NR} Binh Hong Ngoc and M. Reitzner, \emph{Expected mean width of the randomized integer convex hull}, Mathematika \textbf{67}(2) (2021), 422--433. \href{https://doi.org/10.1112/mtk.12080}{doi:10.1112/mtk.12080}; \href{https://arxiv.org/abs/2003.06864}{arXiv:2003.06864}. Published bibliographic record and preprint consulted.
+\bibitem[B]{B} I. B\'ar\'any, \emph{Random points and lattice points in convex bodies}, Bull. Amer. Math. Soc. \textbf{45} (2008), 339--365. \href{https://doi.org/10.1090/S0273-0979-08-01210-X}{doi:10.1090/S0273-0979-08-01210-X}. Bibliographic record checked.
+\bibitem[BM]{BM} I. B\'ar\'any and J. Matou\v{s}ek, \emph{The randomized integer convex hull}, Discrete Comput. Geom. \textbf{33} (2005), 3--25. \href{https://doi.org/10.1007/s00454-003-0836-1}{doi:10.1007/s00454-003-0836-1}. Author-hosted text consulted.
+\bibitem[BD]{BD} A. Balog and J.-M. Deshouillers, \emph{On some convex lattice polytopes}, in \emph{Number Theory in Progress}, vol. 2, de Gruyter (1999), 591--606. \href{https://doi.org/10.1515/9783110285581.591}{doi:10.1515/9783110285581.591}. Bibliographic metadata checked; full text not consulted.
+\bibitem[F]{F} S. Finch, \emph{Convex lattice polygons}, mathematical constants note (2003). \href{https://citeseerx.ist.psu.edu/document?doi=f490888bcfe4bcefa7ca0191182ae43f0cfca1e3&repid=rep1&type=pdf}{Access reference supplied by search}. Secondary source cited by the earlier note for the numerical [BD] benchmark; full retrieval was unsuccessful here.
+\bibitem[H]{H} M. N. Huxley, \emph{The convex hull of the lattice points inside a curve}, Period. Math. Hungar. \textbf{68} (2014), 100--118. \href{https://doi.org/10.1007/s10998-014-0024-5}{doi:10.1007/s10998-014-0024-5}. \href{https://orca.cardiff.ac.uk/id/eprint/58596/}{Institutional abstract} consulted; full text not consulted.
+\bibitem[S]{S} C. L. Siegel, \emph{A mean value theorem in geometry of numbers}, Ann. of Math. (2) \textbf{46}(2) (1945), 340--347. \href{https://doi.org/10.2307/1969027}{doi:10.2307/1969027}. Bibliographic metadata checked; applicability to this construction remains to be established.
+\bibitem[MS]{MS} J. Marklof and A. Str\"ombergsson, \emph{The distribution of free path lengths in the periodic Lorentz gas and related lattice point problems}, Ann. of Math. \textbf{172}(3) (2010), 1949--2033. \href{https://doi.org/10.4007/annals.2010.172.1949}{doi:10.4007/annals.2010.172.1949}; \href{https://arxiv.org/abs/0706.4395}{arXiv:0706.4395}. Section 5 consulted; application here is conditional.
+\bibitem[Z1]{Z1} P. Royer, \emph{Perimeter deficit of randomized integer hulls: simulations and reanalysis}, source deposit cited by the earlier note as version 0.1a, Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23110956}{doi:10.5281/zenodo.23110956}. Deposit identity supplied by the author; live record and data not verified here.
+\bibitem[Z2]{Z2} P. Royer, \emph{Pont id\'eal d\'eterministe sur [1,2]: partition exacte et encadrement rationnel d'une int\'egrale g\'eom\'etrique}, source deposit cited as edition 0.2, Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23188815}{doi:10.5281/zenodo.23188815}. Earlier finite-domain certification reported by the source; not reissued here.
+\end{thebibliography}
+\end{document}

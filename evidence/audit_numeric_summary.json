@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-07",
+  "source": "Executed numerical checks in this conversation before preparation of the corrective; numeric summaries transcribed from actual returned outputs.",
+  "status": "NUMERICAL_CONCORDANCE_NOT_GLOBAL_CERTIFICATION",
+  "independent_double_quadrature": {
+    "J_0_1": 0.8724726430472467,
+    "J_1_2": 0.23468926600629114,
+    "J_0_2": 1.1071619090535378
+  },
+  "repeated_original_draws": {
+    "J_2_3_6": 0.04308128014837834,
+    "J_2_3_6_mc_se_simpson": 6.308076417276909e-05,
+    "J_2_3_6_old_se_step": 6.240884906141052e-05,
+    "J_V_0_2": 0.8612550080287008,
+    "J_V_2_4": 0.04028989833333333,
+    "J_V_2_4_mc_se": 3.653999395987899e-05,
+    "vertex_coefficient_with_assumed_tail": 3.453595062347347,
+    "vertex_coefficient_mc_se_only": 0.00013957249582230576
+  },
+  "independent_zeta_quadrature": {
+    "Z_primitive_continued_3_4": -3.8576230953426998,
+    "B_cut": 0.05788468357202521
+  },
+  "hull_algorithm_full_point_crosscheck": {
+    "radii": [
+      3.7,
+      10,
+      25.3
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "cases": 9,
+    "maximum_absolute_perimeter_error": 2.842170943040401e-14
+  },
+  "not_reproduced": [
+    "69-point historical fits: input CSV missing",
+    "Arb certificate: certificate program and payload missing",
+    "Original full tail extrapolations: raw outputs and cutoffs missing",
+    "Large-radius hull campaigns"
+  ],
+  "excluded_claims": [
+    "Rigorous enclosure for C_infinity",
+    "Global confidence interval",
+    "Proof of leading coefficient",
+    "Second-order asymptotic proof",
+    "Confirmed bibliographic originality"
+  ]
+}

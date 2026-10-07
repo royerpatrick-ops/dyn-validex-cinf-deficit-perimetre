@@ -1,0 +1,116 @@
+{
+  "schema": "dyn-cinf-truncated-v0.2",
+  "status": "NUMERICAL_ESTIMATE_NOT_CERTIFIED",
+  "domain": [
+    0,
+    3.6
+  ],
+  "local_formula_domain": [
+    0,
+    2
+  ],
+  "J_local_02": 1.107161909053538,
+  "J_local_12": 0.23468926600629136,
+  "local_quad_error_estimate_NOT_BOUND": 1.2291966434191814e-14,
+  "local_12_quad_error_estimate_NOT_BOUND": 2.6055742675256272e-15,
+  "J_mc_2_3_6": 0.05491572598046546,
+  "J_mc_2_3_6_se_MC_ONLY": 0.009340746625853522,
+  "J_truncated_0_3_6": 1.1620776350340036,
+  "J_truncated_se_MC_ONLY": 0.009340746625853522,
+  "coefficient_truncated_6_over_pi2": 0.7064584887956031,
+  "coefficient_truncated_se_MC_ONLY": 0.00567849302540791,
+  "integration": "composite Simpson",
+  "simpson_weights": [
+    0.1333333333333333,
+    0.5333333333333332,
+    0.2666666666666666,
+    0.5333333333333332,
+    0.1333333333333333
+  ],
+  "quadrature_discretization_error": "not bounded",
+  "missing_tail": [
+    3.6,
+    "infinity"
+  ],
+  "uncertainty_statement": "SE MC seule, tirages indépendants par point; aucune borne globale ni IC global.",
+  "configuration": {
+    "n": 1000,
+    "points": 5,
+    "seed": 100,
+    "checks": true,
+    "output": "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/cinf.json"
+  },
+  "checks": [
+    {
+      "a": 0.3,
+      "G_local_formula": 2.7037411435219414,
+      "G_mc": 2.7149309902946244,
+      "G_mc_se": 0.06320929407670857,
+      "ranks": 1
+    },
+    {
+      "a": 0.7,
+      "G_local_formula": 0.8634385945544404,
+      "G_mc": 0.862801646598911,
+      "G_mc_se": 0.021033297565980057,
+      "ranks": 2
+    },
+    {
+      "a": 1.5,
+      "G_local_formula": 0.1452272924581327,
+      "G_mc": 0.16003179154621106,
+      "G_mc_se": 0.008660368555972488,
+      "ranks": 2
+    },
+    {
+      "a": 2.0,
+      "G_local_formula": 0.03467682408518599,
+      "G_mc": 0.046140756687460385,
+      "G_mc_se": 0.0060298163731265075,
+      "ranks": 2
+    }
+  ],
+  "rows": [
+    {
+      "a": 2.0,
+      "aG": 0.07241222488462082,
+      "aG_mc_se": 0.010923797115643653,
+      "n": 1000,
+      "seed": 100,
+      "ranks": 2
+    },
+    {
+      "a": 2.4,
+      "aG": 0.046174592575339866,
+      "aG_mc_se": 0.010459536020900833,
+      "n": 1000,
+      "seed": 101,
+      "ranks": 3
+    },
+    {
+      "a": 2.8,
+      "aG": 0.022085226792310286,
+      "aG_mc_se": 0.00905919126764221,
+      "n": 1000,
+      "seed": 102,
+      "ranks": 4
+    },
+    {
+      "a": 3.2,
+      "aG": 0.02568660822906048,
+      "aG_mc_se": 0.012865357448215337,
+      "n": 1000,
+      "seed": 103,
+      "ranks": 5
+    },
+    {
+      "a": 3.6,
+      "aG": 0.007840463166648291,
+      "aG_mc_se": 0.007840463166648288,
+      "n": 1000,
+      "seed": 104,
+      "ranks": 7
+    }
+  ],
+  "corrective_validation_use": "CLI_SANITY_ONLY; reduced sample sizes; does not replace historical scientific estimates."
+}

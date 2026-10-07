@@ -1,0 +1,174 @@
+{
+  "schema": "dyn-cinf-tail-assembly-v0.2",
+  "status": "CONJECTURAL_MODEL_ASSEMBLY_NOT_CERTIFIED",
+  "fit_min": 6.0,
+  "cut": 12.0,
+  "fit_a_values": [
+    6.572670690061994,
+    7.640147033118138,
+    8.880993653907424,
+    10.323367853897734,
+    12.0
+  ],
+  "selected_indices": [
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "quadrature": "scipy composite Simpson with nonuniform-grid weights",
+  "quadrature_weights": [
+    0.17649675738368947,
+    0.8476620335741347,
+    0.4786442122472807,
+    1.1453610709894178,
+    0.6467441336860148,
+    1.547612056430852,
+    0.8738807735570866,
+    2.0911336502305984,
+    0.5924653119009258
+  ],
+  "MC_base_tail_independence_assumed_from_disjoint_seed_sets": true,
+  "models": [
+    {
+      "model": "fixed_A_1_over_9",
+      "form": "f(a)=A/a^2+c/a^3+d/a^4",
+      "A_fixed": 0.1111111111111111,
+      "fitted_parameter_names": [
+        "c",
+        "d"
+      ],
+      "parameters": [
+        0.21849832354765344,
+        -2.0770988852660452
+      ],
+      "nominal_covariance_MC_model_conditional": [
+        [
+          0.14577894220886164,
+          -1.0401744758101152
+        ],
+        [
+          -1.040174475810115,
+          7.550529447005529
+        ]
+      ],
+      "physical_tail_nonnegative": true,
+      "polynomial_min_double_precision": 0.1111111111111111,
+      "physical_tail_check": "Polynomial model only, double precision; no certification of the true tail.",
+      "warning": null,
+      "chi2": 7.062115571294653,
+      "dof": 3,
+      "residuals": [
+        0.00015334574403562135,
+        -0.00030171946493226867,
+        3.476287930074748e-05,
+        0.0004965202473523095,
+        -9.197648590797891e-05
+      ],
+      "numerical_tail_3_6_cut": 0.02437872532739383,
+      "numerical_tail_se_MC_ONLY": 0.0008077780694088807,
+      "extrapolation_cut_infinity": 0.00961725905451229,
+      "extrapolation_fit_se_MC_ONLY_NOT_MODEL_ERROR": 0.000803188149656156,
+      "J_model_conditional": 1.1960736194159098,
+      "coefficient_model_conditional": 0.7271255690555701,
+      "J_se_MC_ONLY_model_conditional": 0.009445573078349074,
+      "coefficient_se_MC_ONLY_model_conditional": 0.00574221986687117,
+      "combined_MC_weights_include_fit_quadrature_dependence": true,
+      "combined_tail_MC_weights": [
+        0.17649675738368947,
+        0.8476620335741347,
+        0.4786442122472807,
+        1.1453610709894178,
+        -0.7117544852629271,
+        2.8129237866985637,
+        2.77810900856341,
+        3.578174240345138,
+        2.924072744835092
+      ]
+    },
+    {
+      "model": "free_A",
+      "form": "f(a)=A/a^2+c/a^3+d/a^4",
+      "A_fixed": null,
+      "fitted_parameter_names": [
+        "A",
+        "c",
+        "d"
+      ],
+      "parameters": [
+        0.3160287651721507,
+        -3.1573846734187025,
+        11.397210338025781
+      ],
+      "nominal_covariance_MC_model_conditional": [
+        [
+          0.0463527913290614,
+          -0.7636316198656822,
+          3.0479162305090797
+        ],
+        [
+          -0.7636316198656818,
+          12.72610548002156,
+          -51.252581141798935
+        ],
+        [
+          3.047916230509077,
+          -51.25258114179891,
+          207.96550084002993
+        ]
+      ],
+      "physical_tail_nonnegative": true,
+      "polynomial_min_double_precision": 0.1320606697346601,
+      "physical_tail_check": "Polynomial model only, double precision; no certification of the true tail.",
+      "warning": null,
+      "chi2": 6.156210150242792,
+      "dof": 2,
+      "residuals": [
+        7.930132772832575e-05,
+        -0.0001970869897835409,
+        9.015947530467716e-05,
+        0.0004558165021160169,
+        -0.0002111824776366278
+      ],
+      "numerical_tail_3_6_cut": 0.02437872532739383,
+      "numerical_tail_se_MC_ONLY": 0.0008077780694088807,
+      "extrapolation_cut_infinity": 0.01757112514869951,
+      "extrapolation_fit_se_MC_ONLY_NOT_MODEL_ERROR": 0.008395248677541751,
+      "J_model_conditional": 1.204027485510097,
+      "coefficient_model_conditional": 0.7319609398187443,
+      "J_se_MC_ONLY_model_conditional": 0.012606986413710965,
+      "coefficient_se_MC_ONLY_model_conditional": 0.007664128713600396,
+      "combined_MC_weights_include_fit_quadrature_dependence": true,
+      "combined_tail_MC_weights": [
+        0.17649675738368947,
+        0.8476620335741347,
+        0.4786442122472807,
+        1.1453610709894178,
+        10.493817097427277,
+        -19.30709960228934,
+        -7.544329898611364,
+        9.620993379578364,
+        36.41139903493184
+      ]
+    }
+  ],
+  "n_physically_admissible_models": 2,
+  "model_spread": [
+    0.7271255690555701,
+    0.7319609398187443
+  ],
+  "interpretation": "Écart entre deux choix de modèle, ni encadrement rigoureux ni intervalle de confiance global.",
+  "excluded_uncertainties": [
+    "erreur de quadrature non bornée",
+    "biais de modèle local",
+    "erreur d'extrapolation",
+    "transfert aux enveloppes entières"
+  ],
+  "published_range_reproduction": "NOT_CLAIMED: seuils originaux et données historiques non fournis",
+  "sources": {
+    "base": "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/cinf.json",
+    "tail": "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/tail.json"
+  },
+  "corrective_validation_use": "CLI_SANITY_ONLY; reduced sample sizes; does not replace historical scientific estimates."
+}

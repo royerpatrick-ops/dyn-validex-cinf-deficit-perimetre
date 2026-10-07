@@ -1,0 +1,16 @@
+[
+  {
+    "source_filename": "DYN-AUDIT_CINF_DEFICIT_PERIMETRE_scripts_v2.zip",
+    "size_bytes": 8704,
+    "sha256": "d1233ed83bf9f75fb2bad9f1e6e33a806246faea68bc886c8e6158b22a93e9fe",
+    "copy_sha256": "d1233ed83bf9f75fb2bad9f1e6e33a806246faea68bc886c8e6158b22a93e9fe",
+    "byte_identical": true
+  },
+  {
+    "source_filename": "The leading constant in the perimeter deficit of randomized integer convex hulls.pdf",
+    "size_bytes": 373408,
+    "sha256": "cae29990dbc26e705ef02431e43cb45bce74ce217b45888193e9f95e1a94f56a",
+    "copy_sha256": "cae29990dbc26e705ef02431e43cb45bce74ce217b45888193e9f95e1a94f56a",
+    "byte_identical": true
+  }
+]

@@ -1,0 +1,98 @@
+DYN-CINF — VERSION CORRECTIVE DISTINCTE v0.2
+Patrick Royer — chercheur indépendant non affilié, France
+7 octobre 2026
+
+OBJET
+Cette version corrige le manuscrit et les scripts transmis le 7 octobre 2026.
+Elle est distincte : les pièces reçues sont conservées dans originals/.
+Le manuscrit anglais reste destiné à une revue mathématique ou à une diffusion
+comme note de recherche conjecturale. Il n'annonce aucune nouvelle preuve.
+
+MODIFICATIONS SCIENTIFIQUES
+F01. Le titre parle d'une constante dominante candidate. La conjecture
+principale porte uniquement sur le terme en R^(-1/3) avec reste o(R^(-1/3)).
+L'identité entre la constante du problème global et l'intégrale du modèle local
+est explicitement une partie de la conjecture.
+
+F02. Le terme en R^(-1/2) et le coefficient ajusté B sont maintenus dans une
+section exploratoire. L'existence de ce terme, son exposant et son reste ne sont
+pas établis. Le faible B_cut ne prouve pas l'existence de mécanismes manquants.
+
+F03. La courbure du corps dilaté est notée kappa_R = kappa_K/R. La relation entre
+angle et pente rescalée est donnée à l'ordre dominant pour des pentes bornées,
+avec le facteur angulaire exact. La formule des sommets porte explicitement
+sur la frontière de RK.
+
+F04. Les identités H, G0, G1 et la contribution horizontale c sont limitées au
+modèle local spécifié. La somme infinie d'arêtes nécessite des hypothèses de
+localité, d'intégrabilité et de contrôle des termes de bord. La mesure primitive
+de Haar n'est plus assimilée à une loi exacte des rotations du réseau carré.
+
+F05. La plage 0,7188–0,7193 est une estimation historique dépendant des choix de
+queue. Ce n'est ni un encadrement rigoureux, ni un intervalle de confiance
+global. L'erreur Monte-Carlo, l'erreur de quadrature, le modèle de queue et le
+transfert global sont séparés. La certification antérieure sur [1,2] n'est ni
+réémise ni étendue par cette corrective.
+
+F06. cinf.py restitue une intégrale tronquée à 3,6 ; son ancien intitulé « J
+total » était incorrect. L'erreur Monte-Carlo de quadrature utilise désormais
+les poids de Simpson. Un assembleur distinct expose les deux extrapolations
+A/a^2 + c/a^3 + d/a^4, avec A=1/9 ou libre, et leurs choix de domaine.
+
+F07. Les ajustements historiques sur 69 moyennes sont marqués comme rapportés,
+sans nouvelle reproduction. Le CSV manque dans les pièces reçues. Les fits
+avec gamma libre et facteur I_(3/2)/I_(4/3) sont descriptifs : une correction
+géométrique homogène d'exposant 1/3+gamma utiliserait I_(4/3+gamma).
+
+F08. Le contrôle du nombre de sommets reste une concordance numérique. L'erreur
+affichée est Monte-Carlo seulement ; la queue remplacée par son équivalent dès
+a=4 n'est pas bornée. Les moyennes en rayon, en translation, et en rotation et
+translation sont distinguées.
+
+F09. La série Z_prim(s) est définie dans son domaine de convergence Re(s)>1.
+À s=3/4, la valeur utilisée est celle du prolongement analytique, dont le lien
+avec une correction à rayon fini reste heuristique.
+
+F10. Une proposition conditionnelle par probabilités de calottes vides est
+ajoutée. Sa preuve par convergence dominée est conditionnée à une convergence
+des lois et à une domination uniforme integrable. L'identité entre la constante
+ainsi obtenue et l'intégrale d'arêtes constitue une étape distincte à démontrer.
+
+MODIFICATIONS ÉDITORIALES ET TECHNIQUES
+Les équations sont composées en LaTeX dans un PDF avec métadonnées correctes.
+Le nom de publication et le statut du chercheur sont explicites. La figure
+d'extrapolation sans CSV ni programme source est retirée. Les références
+indiquent ce qui a été consulté, vérifié bibliographiquement, ou seulement cité
+depuis la source. Les DOI Zenodo sont ceux fournis par l'auteur ; leur état
+public actuel n'a pas été vérifié dans cette session.
+
+La corrective emploie SciPy en double précision ; elle ne prétend pas produire
+les décimales certifiées historiques obtenues par Arb. Les modules corrigés
+n'exécutent pas de simulation lors de leur import. Les graines, tailles de
+tirages et domaines sont enregistrés ; les défauts sont frugaux. Les résultats
+de la chaîne smoke sont des vérifications techniques à faible effectif et ne
+remplacent pas les estimations scientifiques historiques.
+
+PROVENANCE ET ASSISTANCE IA
+Les contributions de ChatGPT/Codex et de Claude sont déclarées. ChatGPT/Codex
+assiste la vérification et l'intégration technique de cette corrective. Cela ne
+constitue pas une revue indépendante humaine. Patrick Royer reste l'auteur
+responsable du contenu et de sa soumission. Les logiciels libres et gratuits
+de calcul et de composition sont mentionnés séparément des services IA.
+
+PIÈCES ET LIMITES
+manuscript/ : PDF corrigé et source éditable .tex.
+scripts/ : programmes correctifs, dépendances, guide de lancement et contrôles.
+evidence/ : contrôles effectués et périmètre de validation.
+originals/ : deux pièces reçues, conservées byte pour byte.
+SHA256SUMS.txt : empreintes des fichiers du dossier, sauf lui-même.
+
+Aucune publication, aucun envoi à un tiers et aucune nouvelle campagne longue
+n'ont été effectués. Les licences existantes des dépôts sources ne sont pas
+modifiées ; aucun nouveau texte de licence n'est établi par cette corrective.
+
+STATUT
+Modèle local corroboré ; constante globale conjecturale ; second ordre
+exploratoire. Le dossier constitue une candidate corrigée pour examen
+mathématique. La preuve du passage global et l'originalité bibliographique
+restent ouvertes.

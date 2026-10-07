@@ -1,0 +1,114 @@
+{
+  "schema": "dyn-cinf-cli-smoke-v0.2",
+  "status": "PASS_CLI_SANITY_ONLY",
+  "n_commands": 7,
+  "records": [
+    {
+      "argv": [
+        "cinf.py",
+        "--n",
+        "1000",
+        "--points",
+        "5",
+        "--checks",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/cinf.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.26,
+      "stdout": "{'a': 0.3, 'G_local_formula': np.float64(2.7037411435219414), 'G_mc': 2.7149309902946244, 'G_mc_se': 0.06320929407670857, 'ranks': 1}\n{'a': 0.7, 'G_local_formula': np.float64(0.8634385945544404), 'G_mc': 0.862801646598911, 'G_mc_se': 0.021033297565980057, 'ranks': 2}\n{'a': 1.5, 'G_local_formula': np.float64(0.1452272924581327), 'G_mc': 0.16003179154621106, 'G_mc_se': 0.008660368555972488, 'ranks': 2}\n{'a': 2.0, 'G_local_formula': np.float64(0.03467682408518599), 'G_mc': 0.046140756687460385, 'G_mc_se': 0.0060298163731265075, 'ranks': 2}\nJ_truncated_[0,3.6] = 1.16207764; SE_MC_only = 0.00934\nCoefficient tronqué (6/pi²)J = 0.706458489; queue a>3.6 absente.\nErreur de quadrature non bornée; résultat non certifié.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "tail_is.py",
+        "--n",
+        "200000",
+        "--points",
+        "9",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/tail.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.377,
+      "stdout": "a=3.6; aG=0.01081632; SE_MC_only=0.000385; ranks=7\na=4.18468; aG=0.007804208; SE_MC_only=0.00035; ranks=11\na=4.86432; aG=0.00545309; SE_MC_only=0.000314; ranks=16\na=5.65434; aG=0.003927302; SE_MC_only=0.000287; ranks=24\na=6.57267; aG=0.002381901; SE_MC_only=0.000241; ranks=37\na=7.64015; aG=0.001482118; SE_MC_only=0.000204; ranks=57\na=8.88099; aG=0.001421553; SE_MC_only=0.000217; ranks=89\na=10.3234; aG=0.001554833; SE_MC_only=0.000243; ranks=139\na=12; aG=0.0007059055; SE_MC_only=0.000177; ranks=217\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "assemble_tail.py",
+        "--base",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/cinf.json",
+        "--tail",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/tail.json",
+        "--fit-min",
+        "6",
+        "--cut",
+        "12",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/assembled.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.944,
+      "stdout": "fixed_A_1_over_9 coefficient conditionnel nominal = 0.7271255690555701 ; SE MC seule = 0.00574221986687117\nfree_A coefficient conditionnel nominal = 0.7319609398187443 ; SE MC seule = 0.007664128713600396\nÉcart de modèles: [0.7271255690555701, 0.7319609398187443] (aucun encadrement certifié ni IC global)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "vertices.py",
+        "--n",
+        "1000",
+        "--points",
+        "5",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/vertices.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.269,
+      "stdout": "Coefficient conditionnel: 3.4677666068213213 ; SE MC seule: 0.0281282231924516\nQueue au-delà de 4 non certifiée; erreur quadrature non bornée.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "vertices2.py",
+        "--n",
+        "1000",
+        "--points",
+        "5",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/vertices2.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.165,
+      "stdout": "Coefficient conditionnel: 3.4684032265936886 ; SE MC seule: 0.019808935390756257\nQueue au-delà de 4 non certifiée; erreur quadrature non bornée.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "zeta_b.py",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/zeta_b.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.752,
+      "stdout": "Z_prim(3/4), prolongement analytique = -3.857623095342726\nB_cut conjectural = 0.05788468357202561 ; aucune série convergente à s=3/4.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "hull_disc.py",
+        "--n",
+        "3",
+        "--radii",
+        "3",
+        "--output",
+        "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/hull.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.708,
+      "stdout": "{'R': 3.0, 'n': 3, 'C_eff': 0.4900196871364533, 'C_eff_se_MC_ONLY': 0.030414008114184925}\n",
+      "stderr": ""
+    }
+  ],
+  "interpretation": "Sanity tests with reduced sample sizes. No historical results replaced. Outputs are not certified and no fit of the historical CSV was executed."
+}

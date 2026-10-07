@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "pdf_pages": 8,
+  "latex_compilation_exit_code": 0,
+  "unresolved_references": false,
+  "overfull_or_underfull_boxes": false,
+  "unrendered_latex_commands": false,
+  "all_pages_rendered_and_visually_inspected": true,
+  "equations_and_tables_inspected_in_detail": [
+    1,
+    2,
+    4,
+    5,
+    7,
+    8
+  ],
+  "scope": "Layout and exact-byte preservation, not mathematical certification."
+}

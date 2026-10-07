@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use or review this work, please cite the Zenodo record and exact release."
+title: "A candidate leading constant for the perimeter deficit of randomized integer convex hulls — corrective v0.2"
+type: article
+version: "0.2"
+date-released: 2026-10-07
+authors:
+  - family-names: Royer
+    given-names: Patrick
+    affiliation: "Independent researcher, unaffiliated"
+doi: 10.5281/zenodo.23209553
+repository-code: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
+license: LicenseRef-DEL-1.1
+abstract: >-
+  Distinct corrective version of a conjectural note on a candidate leading
+  coefficient for the perimeter deficit of randomized integer convex hulls.
+keywords:
+  - randomized integer convex hull
+  - perimeter deficit
+  - lattice geometry
+  - numerical conjecture

@@ -1,0 +1,17 @@
+{
+  "s": 0.75,
+  "series_convergence_domain": "Re(s)>1",
+  "evaluation_at_s": "analytic continuation",
+  "method": "Euler–Maclaurin double precision; not interval-certified",
+  "terms": 128,
+  "c0_closed_form": 0.047140452079103175,
+  "c0_quadrature_check": 0.04714045207910321,
+  "zeta_s": -3.441285386945222,
+  "beta_s": 0.732107217627397,
+  "Z_prim_analytic_continuation": -3.857623095342726,
+  "B_cut_conjectural": 0.05788468357202561,
+  "interpretation": "Nombre conjectural de mécanisme de coupure; aucun second terme démontré ni complément nécessaire établi.",
+  "schema": "dyn-cinf-cutoff-v0.2",
+  "status": "CONJECTURAL_MECHANISM_NOT_CERTIFIED",
+  "corrective_validation_use": "CLI_SANITY_ONLY; reduced sample sizes; does not replace historical scientific estimates."
+}

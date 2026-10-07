@@ -1,0 +1,22 @@
+{
+  "schema": "dyn-cinf-hull-disc-v0.2",
+  "status": "FINITE_RADIUS_MC_NOT_ASYMPTOTIC_PROOF",
+  "configuration": {
+    "radii": [
+      3.0
+    ],
+    "n": 3,
+    "seed": 42,
+    "output": "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/hull.json"
+  },
+  "rows": [
+    {
+      "R": 3.0,
+      "n": 3,
+      "C_eff": 0.4900196871364533,
+      "C_eff_se_MC_ONLY": 0.030414008114184925
+    }
+  ],
+  "uncertainty_statement": "SE Monte-Carlo seule en double précision; aucune certification numérique ou asymptotique.",
+  "corrective_validation_use": "CLI_SANITY_ONLY; reduced sample sizes; does not replace historical scientific estimates."
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "dyn-cinf-vertices-v0.2",
+  "status": "MODEL_CHECK_NOT_CERTIFIED",
+  "rows": [
+    {
+      "a": 2.0,
+      "ap": 0.088,
+      "ap_mc_se": 0.012977843596854775,
+      "seeds": [
+        50
+      ]
+    },
+    {
+      "a": 2.5,
+      "ap": 0.0325,
+      "ap_mc_se": 0.008959577223509154,
+      "seeds": [
+        51
+      ]
+    },
+    {
+      "a": 3.0,
+      "ap": 0.009000000000000001,
+      "ap_mc_se": 0.00519094846304083,
+      "seeds": [
+        52
+      ]
+    },
+    {
+      "a": 3.5,
+      "ap": 0.007,
+      "ap_mc_se": 0.004947269496952382,
+      "seeds": [
+        53
+      ]
+    },
+    {
+      "a": 4.0,
+      "ap": 0.0,
+      "ap_mc_se": 0.0,
+      "seeds": [
+        54
+      ]
+    }
+  ],
+  "n_per_point_per_replicate": 1000,
+  "replicates": 1,
+  "J_local_02": 0.861255008029489,
+  "local_quad_error_estimate_NOT_BOUND": 6.160146819756684e-11,
+  "J_mc_2_4": 0.044,
+  "J_mc_2_4_se_MC_ONLY": 0.007363951611661665,
+  "simpson_weights": [
+    0.16666666666666666,
+    0.6666666666666666,
+    0.3333333333333333,
+    0.6666666666666666,
+    0.16666666666666666
+  ],
+  "tail_model": "a*p(a)~8/(3*a^5)",
+  "tail_4_infinity_model_estimate": 0.0026041666666666665,
+  "tail_error": "not bounded; continuation not certified",
+  "coefficient_model_conditional": 3.4677666068213213,
+  "coefficient_se_MC_ONLY": 0.0281282231924516,
+  "uncertainty_statement": "SE MC seule; erreur quadrature et queue exclues, aucun IC global.",
+  "comparison_Balog_Deshouillers_value": 3.4536898915,
+  "configuration": {
+    "n": 1000,
+    "points": 5,
+    "seed": 50,
+    "replicates": 1,
+    "checks": false,
+    "output": "/workspace/scratch/94d04c41a7e6/tmp/corrective_smoke_final/vertices.json"
+  },
+  "corrective_validation_use": "CLI_SANITY_ONLY; reduced sample sizes; does not replace historical scientific estimates."
+}

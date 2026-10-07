@@ -1,0 +1,64 @@
+{
+  "schema": "dyn-cinf-corrective-checks-v0.2",
+  "status": "PASS",
+  "n_checks": 10,
+  "checks": [
+    {
+      "name": "imports_without_execution",
+      "status": "PASS"
+    },
+    {
+      "name": "G_formula_independent_d_quadrature",
+      "status": "PASS"
+    },
+    {
+      "name": "local_integrals_previous_numeric_values",
+      "status": "PASS",
+      "J01": 0.8724726430472466,
+      "J12": 0.23468926600629136,
+      "J02": 1.107161909053538,
+      "JV02": 0.861255008029489
+    },
+    {
+      "name": "Simpson_variance_independent_simulation",
+      "status": "PASS",
+      "formula_se": 0.014719601443879744,
+      "simulated_se": 0.01457128256156377
+    },
+    {
+      "name": "short_MC_termination",
+      "status": "PASS",
+      "n": 200
+    },
+    {
+      "name": "Euler_Maclaurin_stability_and_zeta2",
+      "status": "PASS",
+      "B_cut": 0.057884683572025586
+    },
+    {
+      "name": "synthetic_tail_models_analytic_integrals",
+      "status": "PASS",
+      "fixture": "synthetic, no scientific inference"
+    },
+    {
+      "name": "synthetic_negative_tail_rejected_from_model_spread",
+      "status": "PASS",
+      "fixture": "synthetic, no scientific inference"
+    },
+    {
+      "name": "synthetic_CSV_R_filter_and_fit_exports",
+      "status": "PASS",
+      "fixture": "synthetic, no historical fit"
+    },
+    {
+      "name": "hull_reduced_points_vs_all_points_scipy",
+      "status": "PASS",
+      "radii": [
+        2,
+        3,
+        5
+      ]
+    }
+  ],
+  "scope": "Code et concordances numériques locales; aucune queue certifiée, aucun fit historique, aucune preuve asymptotique."
+}
