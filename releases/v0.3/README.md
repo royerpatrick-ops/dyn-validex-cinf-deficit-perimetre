@@ -51,4 +51,4 @@ The author-selected custom DEL 1.1 licence applies to the designated new corpus 
 
 Use `CITATION.cff`. The v0.3 version DOI reserved by Zenodo is **10.5281/zenodo.23238780** and the concept DOI is **10.5281/zenodo.23209552**. The previous preprint is version DOI 10.5281/zenodo.23209553; that identifier is **not** the new version's DOI. The source repository is https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre and the v0.3 release is https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.3.
 
-This archive was regenerated after the GitHub v0.3 release and before final Zenodo publication. See `publication/PUBLICATION_STATUS.json` for the precise deposition state recorded in this archive.
+The immutable archive deposited on GitHub and Zenodo was regenerated after the GitHub v0.3 release and before final Zenodo publication. The repository copy of `publication/PUBLICATION_STATUS.json` was then updated with the verified final publication facts; this post-publication status update does not alter the deposited proof, manuscript, certificate or archive.

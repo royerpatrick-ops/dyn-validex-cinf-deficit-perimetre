@@ -3,19 +3,60 @@
   "prepared_date": "2026-10-08",
   "package_prepared": true,
   "transmitted_to_external_codex": true,
-  "published": false,
-  "publication_phase": "GITHUB_RELEASE_PUBLISHED_ZENODO_DRAFT",
+  "published": true,
+  "publication_phase": "COMPLETED_AND_PUBLICLY_VERIFIED",
   "human_review_attested": false,
   "github_repository_target": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre",
   "github_release_published": true,
   "github_commit": "7bff23f88bb88497c29fe155c4fdf8d853207ff6",
+  "github_status_commit_before_final_update": "b83ffc813deebdd844aeb89c8deadf459e7c6595",
   "github_tag": "v0.3",
   "github_release_url": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.3",
+  "github_release_assets": [
+    {
+      "name": "DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf",
+      "sha256": "cef0c7b16bc2c33a0510789e4f9b2b9a8367367fe2a1874f4000dd2b1d3f8ed0"
+    },
+    {
+      "name": "DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip",
+      "sha256": "0d124ba1e0638eb8416819d0ce59287a8480867d58b11792653271afd2d3b744"
+    },
+    {
+      "name": "DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip.sha256",
+      "sha256": "8ba447768d33e6625220862caa3e2e0cccf1e18e5def138bd59cf31fb8aeca0e"
+    }
+  ],
   "prior_announced_zenodo_doi": "10.5281/zenodo.23209553",
   "zenodo_draft_id": "23238780",
-  "zenodo_published": false,
+  "zenodo_published": true,
   "zenodo_record_url": "https://zenodo.org/records/23238780",
   "new_version_doi": "10.5281/zenodo.23238780",
   "concept_doi": "10.5281/zenodo.23209552",
-  "note": "GitHub commit, tag and release were verified on 8 October 2026. The Zenodo new-version draft and DOI were verified; final Zenodo publication had not yet occurred when this deposited archive was generated."
+  "zenodo_files": [
+    {
+      "name": "DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf",
+      "sha256": "cef0c7b16bc2c33a0510789e4f9b2b9a8367367fe2a1874f4000dd2b1d3f8ed0"
+    },
+    {
+      "name": "DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip",
+      "sha256": "0d124ba1e0638eb8416819d0ce59287a8480867d58b11792653271afd2d3b744"
+    },
+    {
+      "name": "DEL_1_1_reference.pdf",
+      "sha256": "80e5f0da15a281709143d08566630caa999cad3ec136adae3f2c0a130eafd432"
+    }
+  ],
+  "license": {
+    "name": "Dynagénèse Ethical Licence (DEL) 1.1 — custom",
+    "spdx_identifier": null,
+    "operative_reference_unchanged": true,
+    "v0_3_scope_notice_in_archive": true,
+    "zenodo_custom_license_verified": true
+  },
+  "differences_from_prepared_package": [
+    "The verified Zenodo version and concept DOIs were added to citation and descriptive metadata.",
+    "The GitHub release contains a SHA256 sidecar; Zenodo contains the main PDF, reproducible ZIP and unchanged DEL 1.1 reference PDF.",
+    "The deposited archive records the factual pre-Zenodo-publication state; this repository status file was updated after public verification without replacing the immutable deposited archive."
+  ],
+  "note": "GitHub and Zenodo links, public downloads and SHA256 values were verified on 8 October 2026. No independent human mathematical review is attested."
 }

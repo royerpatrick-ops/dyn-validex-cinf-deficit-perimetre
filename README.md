@@ -14,7 +14,8 @@ where L is an independently uniformly rotated and translated square lattice. Exa
 The certified rounded value is **0.719233**. The order R^(−1/3) was already known and is credited to Ngoc–Reitzner (2021). This release does not establish a second term, a convergence rate, or an extension to flat or nonsmooth boundary points.
 
 **Zenodo version DOI:** [10.5281/zenodo.23238780](https://doi.org/10.5281/zenodo.23238780)<br>
-**Zenodo concept DOI:** [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552)
+**Zenodo concept DOI:** [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552)<br>
+**GitHub release:** [v0.3](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.3)
 
 ## Current presentation
 

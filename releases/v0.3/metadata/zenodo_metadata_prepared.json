@@ -1,5 +1,5 @@
 {
-  "status": "DOI_RESERVED_DRAFT",
+  "status": "PUBLISHED_VERIFIED",
   "schema_note": "Descriptive publication brief; adapt to the current Zenodo API/UI, not a ready-to-submit API payload.",
   "title": "A leading-term asymptotic for the perimeter deficit of randomized integer convex hulls",
   "version": "0.3",

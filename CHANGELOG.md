@@ -10,7 +10,7 @@
 - Distinguished proofs, numerical certificates, diagnostics, AI audit and independent human review status.
 - Prepared existing-repository/new-Zenodo-version instructions and DEL 1.1 scope metadata.
 
-The v0.3 version DOI 10.5281/zenodo.23238780 was reserved under concept DOI 10.5281/zenodo.23209552 after verification of the prior v0.2 record. The mathematical scope excludes the empirical second term and singular/flat-point extensions.
+Version 0.3 was published on GitHub and Zenodo on 8 October 2026. Its version DOI is 10.5281/zenodo.23238780 under concept DOI 10.5281/zenodo.23209552. The mathematical scope excludes the empirical second term and singular/flat-point extensions.
 
 ## Earlier materials
 
