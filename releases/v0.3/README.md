@@ -49,6 +49,6 @@ The argument and computations have been developed and checked with AI assistance
 
 The author-selected custom DEL 1.1 licence applies to the designated new corpus to the extent of the author's rights. See `LICENSE`, the unchanged licence PDF and `licenses/LICENSE_SCOPE.md`. It is not an OSI-approved open-source licence. No CC or MIT relicensing is authorized by this package. Third-party software and references retain their own terms; mathematical facts and formulas are not made exclusive by the licence.
 
-Use `CITATION.cff`. The v0.3 version DOI reserved by Zenodo is **10.5281/zenodo.23238780** and the concept DOI is **10.5281/zenodo.23209552**. The previous preprint is version DOI 10.5281/zenodo.23209553; that identifier is **not** the new version's DOI. The source repository is https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre.
+Use `CITATION.cff`. The v0.3 version DOI reserved by Zenodo is **10.5281/zenodo.23238780** and the concept DOI is **10.5281/zenodo.23209552**. The previous preprint is version DOI 10.5281/zenodo.23209553; that identifier is **not** the new version's DOI. The source repository is https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre and the v0.3 release is https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.3.
 
-This archive was regenerated after DOI reservation and before final Zenodo publication. See `publication/PUBLICATION_STATUS.json` for the precise deposition state recorded in this archive.
+This archive was regenerated after the GitHub v0.3 release and before final Zenodo publication. See `publication/PUBLICATION_STATUS.json` for the precise deposition state recorded in this archive.

@@ -4,16 +4,18 @@
   "package_prepared": true,
   "transmitted_to_external_codex": true,
   "published": false,
-  "publication_phase": "ZENODO_DRAFT_DOI_RESERVED",
+  "publication_phase": "GITHUB_RELEASE_PUBLISHED_ZENODO_DRAFT",
   "human_review_attested": false,
   "github_repository_target": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre",
-  "github_commit": null,
-  "github_tag": null,
-  "github_release_url": null,
+  "github_release_published": true,
+  "github_commit": "7bff23f88bb88497c29fe155c4fdf8d853207ff6",
+  "github_tag": "v0.3",
+  "github_release_url": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.3",
   "prior_announced_zenodo_doi": "10.5281/zenodo.23209553",
   "zenodo_draft_id": "23238780",
+  "zenodo_published": false,
   "zenodo_record_url": "https://zenodo.org/records/23238780",
   "new_version_doi": "10.5281/zenodo.23238780",
   "concept_doi": "10.5281/zenodo.23209552",
-  "note": "Zenodo new-version draft created and DOI reserved on 8 October 2026. GitHub release and final Zenodo publication were not yet completed when this archive state was generated."
+  "note": "GitHub commit, tag and release were verified on 8 October 2026. The Zenodo new-version draft and DOI were verified; final Zenodo publication had not yet occurred when this deposited archive was generated."
 }
