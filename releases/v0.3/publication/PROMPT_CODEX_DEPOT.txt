@@ -1,0 +1,33 @@
+MISSION : publier le dossier DYN-VALIDEX v0.3 préparé pour Patrick Royer.
+
+L'auteur a demandé de préparer le manuscrit unifié et son dossier, puis de les transmettre à Codex pour dépôt. Utilise l'archive DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip jointe à cette mission. Le manuscrit principal et ses sources sont dans manuscript/ ; les consignes et métadonnées préparées sont dans publication/ et metadata/.
+
+Cibles annoncées dans le dossier de l'auteur :
+- GitHub : https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre
+- DOI antérieur : https://doi.org/10.5281/zenodo.23209553
+- Auteur : Patrick Royer, chercheur indépendant sans affiliation institutionnelle.
+- Version à publier : 0.3, manuscrit daté du 8 octobre 2026.
+- Titre : A leading-term asymptotic for the perimeter deficit of randomized integer convex hulls.
+- Licence retenue : DEL 1.1 personnalisée, PDF inchangé et nouveau périmètre explicite joints.
+
+1. EXTRACTION ET CONTRÔLES
+Extraire l'archive en conservant ses noms. Exécuter python3 code/validate_release.py et comparer les sommes SHA256. Rejouer le certificat exact N=100 dans un fichier temporaire extérieur au dossier afin de préserver son manifeste. Comparer les fractions et les bornes à results/CERTIFICATE.json en ignorant le temps d'exécution. Le résultat doit donner les bornes extérieures .719232985957311632 et .719233362190182706. Les contrôles flottants/Monte-Carlo sont des diagnostics ; ne pas les présenter comme une certification de la preuve.
+
+2. VÉRIFIER LES DESTINATIONS RÉELLES
+Inspecter le dépôt GitHub et le record Zenodo dans les comptes accessibles. Les cibles ci-dessus proviennent des documents de l'auteur ; leur état public n'a pas été vérifié dans la session de préparation. Vérifier que le DOI antérieur correspond au projet et déterminer le record de version et le DOI de concept. Conserver toutes les versions, licences et archives historiques. Ne pas inventer d'affiliation, d'ORCID, de DOI, de comité de lecture ou de priorité scientifique.
+
+3. GITHUB
+Intégrer les nouveaux fichiers selon l'organisation existante, sans supprimer les notes ou résultats historiques. Identifier clairement le manuscrit v0.3 comme présentation courante. Conserver la provenance AI, la licence DEL 1.1 et ses limites de droits. Renseigner README, CITATION.cff, changement de version et notes de release avec les informations vérifiées. Faire un commit descriptif, puis une release/tag v0.3 si ce tag est disponible. Si une publication identique existe déjà, la reconnaître et renvoyer ses liens ; si le tag est occupé par un autre contenu, signaler le conflit plutôt que déplacer le tag. Joindre le PDF principal et l'archive reproductible à la release.
+
+4. ZENODO
+Créer une NOUVELLE VERSION du dépôt existant si le record vérifié le permet. Ne pas remplacer les fichiers d'une version déjà publiée et ne pas attribuer le DOI antérieur au nouveau manuscrit. Vérifier d'abord l'éventuelle intégration GitHub–Zenodo pour éviter deux dépôts du même release. Choisir un seul parcours cohérent, nouvelle version manuelle ou intégration existante, et relier les deux plateformes.
+Déposer au minimum le PDF principal et l'archive reproductible avec le texte de licence/référence approprié. Utiliser les descriptions EN/FR préparées. Le fichier zenodo_metadata_prepared.json est une fiche descriptive à adapter au schéma actuel du service, pas une requête API à envoyer telle quelle. La licence est personnalisée : ne pas la remplacer par CC BY, CC0 ou MIT et ne pas inventer de code SPDX. Respecter les permissions réelles de l'auteur.
+Utiliser le DOI nouveau réellement fourni par Zenodo ; insérer ensuite ce DOI dans les métadonnées de citation et le README, sans modifier les preuves ni annoncer un DOI futur. Si le DOI réservé impose une mise à jour de fichiers avant dépôt, régénérer les sommes SHA256 et l'archive après cette mise à jour. Ne publier qu'après les contrôles du dossier et les éventuelles exigences effectives du service.
+
+5. PORTÉE SCIENTIFIQUE À CONSERVER
+Premier terme pour un convexe FIXÉ à bord C² et courbure strictement positive. Constante encadrée rigoureusement, arrondi certifié 0,719233. L'ordre R^(−1/3) était déjà connu. Ni terme B, ni taux en R, ni extension générale aux superellipses, ni relecture humaine indépendante ne sont attestés. Préprint préparé avec assistance d'IA. Si un contrôle révèle une erreur substantielle, corriger et documenter avant de publier, ou rendre le blocage précis.
+
+6. RETOUR À L'AUTEUR
+Vérifier les liens publics et le téléchargement du PDF/ZIP. Fournir : URL GitHub, hash du commit, tag et URL de release ; URL Zenodo, nouveau DOI de version et DOI de concept ; fichiers effectivement déposés et SHA256 ; statut de la licence et toute différence nécessaire par rapport au dossier préparé. Remplir PUBLICATION_STATUS.json avec des faits vérifiés. Ne déclarer transmission, publication ou succès que si l'action correspondante a eu lieu.
+
+Le dossier de préparation n'est pas déjà publié. Cette mission vise sa publication dans les destinations vérifiées du projet, en conservant l'historique. Si un accès manque, indiquer précisément le service et l'action bloqués, sans annoncer un dépôt fictif.

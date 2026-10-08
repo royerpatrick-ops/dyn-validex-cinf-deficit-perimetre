@@ -1,49 +1,53 @@
-# A candidate leading constant for the perimeter deficit of randomized integer convex hulls — corrective v0.2
+# DYN-VALIDEX: leading perimeter-deficit asymptotic — v0.3
 
-**Patrick Royer — independent researcher, unaffiliated, France**  
-7 October 2026 · [Zenodo DOI 10.5281/zenodo.23209553](https://doi.org/10.5281/zenodo.23209553)
+**Patrick Royer · independent researcher without institutional affiliation · 8 October 2026**<br>
+**AI-assisted mathematical preprint; no independent human mathematical review is attested.**
 
-This repository is the public source companion to the distinct corrective note v0.2. It preserves the received historical material, exposes the corrected manuscript and scripts, and asks for specialist review.
+For a fixed planar convex body K with C² boundary and strictly positive curvature, the current unified manuscript derives
 
-## Scientific status
+E[P(RK) − P(conv(L ∩ RK))] = C_void (∫∂K κ^(4/3) ds) R^(−1/3) + o_K(R^(−1/3)),
 
-- The candidate leading coefficient for the global perimeter deficit is **conjectural**. Equality between the local-model integral and the finite-radius lattice asymptotic has not been proved.
-- The proposed second-order term is **exploratory**. Its existence, exponent and remainder are not established.
-- The finite-domain script checks and reduced CLI smoke runs are technical consistency checks. They do **not** prove the conjecture and are not rigorous global error bounds.
-- No new long scientific campaign, P2 campaign, RNG flow, Arb certification or global theorem certification was run for this publication.
+where L is an independently uniformly rotated and translated square lattice. Exact rational computation encloses the coefficient by
 
-## Contents
+**0.719232985957311632 < C_void < 0.719233362190182706.**
 
-- [`manuscript/DYN-MANUSCRIT_CINF_DEFICIT_PERIMETRE_v0_2.pdf`](manuscript/DYN-MANUSCRIT_CINF_DEFICIT_PERIMETRE_v0_2.pdf) — corrective manuscript (8 pages; main publication PDF).
-- [`manuscript/DYN-MANUSCRIT_CINF_DEFICIT_PERIMETRE_v0_2.tex`](manuscript/DYN-MANUSCRIT_CINF_DEFICIT_PERIMETRE_v0_2.tex) — editable LaTeX source.
-- [`scripts/`](scripts/) — corrected Python programs, dependency list and detailed usage notes.
-- [`evidence/`](evidence/) and [`validation/`](validation/) — already-produced validation records and reduced-run outputs.
-- [`originals/`](originals/) — the two received historical pieces, preserved byte for byte.
-- [`archive/DYN-CINF_CORRECTIVE_v0_2.zip`](archive/DYN-CINF_CORRECTIVE_v0_2.zip) — original corrective package as supplied, with its SHA-256 sidecar and internal manifest.
-- [`REPRODUCTION.md`](REPRODUCTION.md) — build and optional verification instructions.
-- [`REVIEW_REQUEST.md`](REVIEW_REQUEST.md) — questions for independent specialist review.
+The certified rounded value is **0.719233**. The order R^(−1/3) was already known and is credited to Ngoc–Reitzner (2021). This release does not establish a second term, a convergence rate, or an extension to flat or nonsmooth boundary points.
 
-## Reproducibility limits
+**Zenodo version DOI:** [10.5281/zenodo.23238780](https://doi.org/10.5281/zenodo.23238780)<br>
+**Zenodo concept DOI:** [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552)
 
-The historical `reanalysis_92_points.csv` and the historical Arb certification program were not present in the supplied material. Consequently, the reported 69-point fits and historical certified decimal evaluation cannot be independently reproduced from this repository. The corrected scripts use Python, NumPy, SciPy and pandas in finite precision. See [`scripts/README.md`](scripts/README.md) for all qualifications.
+## Current presentation
 
-## AI assistance and responsibility
+- [`manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf`](manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf) — current unified manuscript.
+- [`manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.tex`](manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.tex) — LaTeX source.
+- [`releases/v0.3/`](releases/v0.3/) — complete v0.3 corpus: exact certificate, reproduced results, evidence, metadata, provenance and DEL 1.1 scope.
+- [`archive/DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip`](archive/DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip) — reproducible publication archive, with SHA-256 sidecar.
+- [`RELEASE_NOTES_v0_3.md`](RELEASE_NOTES_v0_3.md) and [`CHANGELOG.md`](CHANGELOG.md) — release notes and version history.
 
-Patrick Royer developed the source simulations and finite-domain model with substantial assistance from ChatGPT/Codex. Claude (Anthropic) contributed the initial heuristic assembly, tail and cutoff analyses and numerical checks. ChatGPT/Codex assisted with corrective implementation checks, distinctions between proved, numerical and conjectural statements, documentary integration, repository preparation, metadata and publication verification. These are AI-assisted checks; **no independent human mathematical peer review is attested**. Patrick Royer remains the author responsible for the claims and submission.
+Run the integrity check from `releases/v0.3/`:
 
-The numerical and typesetting workflow uses Python, NumPy, SciPy, pandas and LaTeX. Git, GitHub and Zenodo are used for versioning and dissemination. This list does not imply that every AI service was free of charge.
+```bash
+python3 code/validate_release.py
+python3 code/cert_identity_rational.py --N 100 --output ../../../CERTIFICATE_replay.json
+```
 
-## Related deposits
+The exact fractions and outward bounds must reproduce; elapsed time can differ. Floating quadrature and Monte Carlo sections are diagnostics, not proof certification. The standard-library certificate verifies numerical evaluation of the stated series and remainder bounds, not the mathematical model identification.
 
-- [Initial development — DOI 10.5281/zenodo.23110956](https://doi.org/10.5281/zenodo.23110956) · [GitHub](https://github.com/royerpatrick-ops/dyn-validex-developpement-initial)
-- [Pont idéal 1–2 — DOI 10.5281/zenodo.23188815](https://doi.org/10.5281/zenodo.23188815) · [GitHub](https://github.com/royerpatrick-ops/dyn-validex-pont-ideal-1-2)
+## Version history and preservation
 
-Those records are prior, related deposits; this corrective has its own version, repository and DOI.
+Version 0.3 is the current presentation. Version 0.2 remains available in the repository and in its original archive; its conjectural status statements describe that historical release and are not silently rewritten. The prepublication handoff archive for v0.3 is also retained unchanged as [`archive/DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3_PREPUBLICATION.zip`](archive/DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3_PREPUBLICATION.zip).
 
-## Licence
+The prior Zenodo version is [10.5281/zenodo.23209553](https://doi.org/10.5281/zenodo.23209553). The version series has concept DOI [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552).
 
-Eligible repository material is distributed under the custom **Dynagénèse Ethical Licence (DEL) 1.1**, adapted only to identify this v0.2 corpus. The French text is authoritative; the English text is a reading translation. DEL 1.1 includes use restrictions and is not an OSI-approved open-source licence. Third-party and historical items retain their own rights and conditions. See [`licenses/LICENSE_SCOPE.md`](licenses/LICENSE_SCOPE.md) and [`metadata/RIGHTS_AND_LICENSES.md`](metadata/RIGHTS_AND_LICENSES.md).
+Related earlier deposits:
 
-## Citation
+- [Initial development — DOI 10.5281/zenodo.23110956](https://doi.org/10.5281/zenodo.23110956)
+- [Pont idéal 1–2 — DOI 10.5281/zenodo.23188815](https://doi.org/10.5281/zenodo.23188815)
 
-Use the Zenodo DOI above and the metadata in [`CITATION.cff`](CITATION.cff). If you inspect or reuse modified files, cite the exact release and commit.
+## Rights, provenance and citation
+
+The author-selected custom **DEL 1.1** licence applies to the designated v0.3 corpus to the extent of Patrick Royer’s rights. The operative PDF is unchanged and its v0.3 scope notice is explicit in [`releases/v0.3/licenses/`](releases/v0.3/licenses/). DEL 1.1 is not an OSI-approved open-source licence, has no invented SPDX identifier here, and does not replace third-party rights or establish exclusivity over mathematical facts and formulas.
+
+The work was developed and checked with AI assistance. ChatGPT/Codex contributed mathematical development, implementation, assisted verification, drafting and integration; Claude supplied the dated external AI audit and verification material preserved in the corpus. These tools are not human authors, independent reviewers or scientific guarantors.
+
+Use [`CITATION.cff`](CITATION.cff) and cite the exact release and commit when reviewing or reusing modified files.

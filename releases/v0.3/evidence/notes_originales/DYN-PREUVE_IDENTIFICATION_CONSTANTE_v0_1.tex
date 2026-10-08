@@ -1,0 +1,357 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage[provide=*,french]{babel}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=22mm,headheight=15pt]{geometry}
+\usepackage{xcolor,booktabs,tabularx,enumitem,fancyhdr,hyperref}
+\definecolor{navy}{HTML}{203C63}\definecolor{muted}{HTML}{536478}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,pdftitle={Identification de la constante de calottes et du modèle de rangées},pdfauthor={Patrick Royer}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{muted}DYN-VALIDEX | Identification de la constante}
+\fancyhead[R]{\small\color{muted}v0.1 | 8 octobre 2026}
+\fancyfoot[C]{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlist{nosep,leftmargin=18pt}\renewcommand{\arraystretch}{1.12}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}\newcommand{\Prb}{\mathbb P}
+\newcommand{\head}[1]{\vspace{3pt}{\large\bfseries\color{navy}#1}\par}
+\newcommand{\subhead}[1]{{\bfseries\color{navy}#1}\par}
+\begin{document}
+{\LARGE\bfseries\color{navy}Identification de la constante}\par
+{\large Des calottes vides au modèle exact de rangées}\par
+Patrick Royer --- chercheur indépendant, non affilié\par
+Note de démonstration distincte v0.1 --- 8 octobre 2026\par
+\vspace{3pt}\hrule\vspace{6pt}
+
+\head{1. Résultat et conventions}
+Soit $\mu$ la probabilité de Haar sur les réseaux affines de covolume $1$ du plan. Posons
+\[
+ \mathcal P=\{(x,y):y\ge x^2/2\},\quad
+ A(z)=\{(x,y):x^2/2\le y\le z\},\quad
+ C_{\rm void}=\int_0^\infty\mu\{\Lambda:\Lambda\cap A(z)=\varnothing\}\,dz.
+\]
+Les notes [CV] et [QU] établissent la convergence des calottes normalisées, puis $0<C_{\rm void}<\infty$ et l'asymptotique principale. La présente note démontre le raccord avec la fonction $G$ exactement définie dans [M].
+
+\subhead{Modèle de rangées}
+Pour $a>0$, prendre $\delta,s,\beta$ indépendantes, uniformes respectivement sur $[0,1/a)$, $[0,a)$ et $[0,a)$. Les points sont
+\[
+ (s+aj+k\beta,\delta+k/a),\qquad j,k\in\Z.
+\]
+Les rangées $k<0$ ont une profondeur négative et ne rencontrent pas $\mathcal P$. Soit $k_*$ la première rangée admissible, $d=\delta+k_*/a$ et $x_1\le x_2$ ses extrêmes dans $[-\sqrt{2d},\sqrt{2d}]$. Définir
+\[
+ c=d(x_2-x_1)-\frac{x_2^3-x_1^3}{3},\qquad G(a)=\E c.
+ \tag{1}
+\]
+Un singleton donne $c=0$. La première rangée existe : dès que sa fenêtre a longueur au moins $a$, elle contient un point.
+
+\subhead{Théorème d'identification}
+\[
+ \boxed{C_{\rm void}=\frac6{\pi^2}\int_0^\infty aG(a)\,da.}
+ \tag{2}
+\]
+L'intégrale est convergente. Le facteur $6/\pi^2$ et le cisaillement uniforme proviennent ici de la mesure marquée de Haar ; aucune hypothèse de limite des voisins de Farey n'est ajoutée.
+
+Une formule exacte pour $a\ge2$, démontrée au §5, permet de traiter toute la queue. Le calcul déterministe donne $C_{\rm void}\simeq0{,}71923317488$. Le §7 fournit un encadrement rationnel reproductible, distinct de cette approximation, qui justifie l'arrondi $0{,}719$.
+
+\textbf{Portée.} L'identité (2) est exacte ; $0{,}719$ est un arrondi, pas une égalité à $719/1000$. Les résultats sont assistés et contre-relus par IA ; aucune revue humaine indépendante ni priorité scientifique n'est attestée.
+
+\newpage
+\head{2. Déficit de support et chaîne inférieure}
+Pour un réseau affine $\Lambda$, définir
+\[
+ D_\Lambda(t)=\min_{(x,y)\in\Lambda\cap\mathcal P}
+       \left(y-tx+\frac{t^2}{2}\right)\ge0.
+ \tag{3}
+\]
+Le minimum est atteint. En effet, un réseau de rang plein a un rayon de recouvrement fini ; $\mathcal P$ contient des disques arbitrairement grands, donc des points du réseau. Pour une valeur bornée du coût et $t$ dans un compact,
+\[
+ y-tx+t^2/2\ge (x-t)^2/2
+\]
+borne $x$, puis $y$. Un seul point candidat donne une borne supérieure uniforme du minimum sur ce compact. Seuls un nombre fini de points peuvent donc y être minimiseurs.
+
+Le graphe inférieur de $\operatorname{conv}(\Lambda\cap\mathcal P)$ est une chaîne polygonale convexe. Il est défini sur toute la droite : le rayon de recouvrement fournit des points admissibles d'abscisse arbitrairement positive et négative. Sur un compact d'abscisses, deux points admissibles l'encadrent et bornent la hauteur du graphe ; les sommets correspondants appartiennent ainsi à un compact et sont en nombre fini.
+
+\subhead{Stationnarité parabolique}
+L'application affine de déterminant $1$
+\[
+ S_b(x,y)=(x+b,y+bx+b^2/2)
+\]
+préserve $\mathcal P$, et un calcul direct donne
+\[
+ D_{S_b\Lambda}(t)=D_\Lambda(t-b).
+ \tag{4}
+\]
+Haar affine est invariant sous $S_b$. Le processus $D_\Lambda$ est donc stationnaire, sans hypothèse d'ergodicité.
+
+À $t=0$, $D_\Lambda(0)$ est la première hauteur occupée. L'identité de survie, avec les frontières de mesure nulle sous la moyenne des translations, donne
+\[
+ \E_\mu D_\Lambda(0)=C_{\rm void}.
+ \tag{5}
+\]
+
+\subhead{Position de la pente d'une arête}
+Pour une arête inférieure maximale $e$, écrire ses extrêmes $p_L=(X_L,Y_L)$, $p_R=(X_R,Y_R)$, $X_L<X_R$, et sa pente $t_e$. Après $S_{-t_e}$, elle est horizontale, à profondeur $d=D_\Lambda(t_e)$. Les points de sa droite forment une progression de pas primitif $a>0$, et ses extrêmes $x_L=X_L-t_e$, $x_R=X_R-t_e$ sont ceux de cette progression dans la fenêtre symétrique $[-\sqrt{2d},\sqrt{2d}]$.
+
+S'il y a au moins deux points et $x_L>0$, le point $x_L-a$, plus proche de zéro que $x_R\ge x_L+a$, serait également admissible : contradiction. Le cas $x_R<0$ est symétrique. Ainsi
+\[
+ x_L\le0\le x_R,\qquad X_L\le t_e\le X_R.
+ \tag{6}
+\]
+
+\newpage
+\head{3. Contribution exacte et transport de masse}
+Les intervalles projetés $[X_L,X_R)$ des arêtes maximales partitionnent la droite, à leurs extrémités près. Si $e_-$ et $e_+$ sont les arêtes voisines de $e$, (6) donne
+\[
+ t_{e_-}\le X_L\le t_e\le X_R\le t_{e_+}.
+\]
+Le support inférieur est donc $p_L$ pour $t\in[X_L,t_e]$ et $p_R$ pour $t\in[t_e,X_R]$. Avec $u=t-t_e$, (3)--(4) donnent exactement
+\begin{align*}
+ \int_{X_L}^{X_R}D_\Lambda(t)\,dt
+ &=\int_{x_L}^{0}(d-ux_L+u^2/2)\,du
+   +\int_{0}^{x_R}(d-ux_R+u^2/2)\,du\\
+ &=d(x_R-x_L)-\frac{x_R^3-x_L^3}{3}
+   =:c_e\ge0.
+\end{align*}
+Ce coefficient cubique est $1/3$ pour le déficit de support. L'aire entre le graphe polygonal et la parabole serait une autre observable.
+
+\subhead{Égalité des intensités sans termes de bord}
+Définir la mesure non négative de transport
+\[
+ T_\Lambda(B,C)=\sum_e\int_{B\cap[X_L(e),X_R(e))}
+          D_\Lambda(t)\,\mathbf1_C(t_e)\,dt.
+ \tag{7}
+\]
+Sa source est $D_\Lambda(t)\,dt$ ; sa destination à $t_e$ porte la masse $c_e$. Sous $S_b$, abscisses, pentes et processus se décalent de $b$. L'espérance $\E T_\Lambda$ est donc invariante par translation diagonale.
+
+Avec $I_n=[n,n+1)$ et $I_0=[0,1)$, Tonelli et (4) donnent
+\begin{align*}
+ \E T(I_0,\R)
+ &=\sum_{n\in\Z}\E T(I_0,I_n)
+ =\sum_{n\in\Z}\E T(I_{-n},I_0)
+ =\E T(\R,I_0).
+\end{align*}
+Par (5) et l'identité précédente,
+\[
+ \boxed{C_{\rm void}=\E_\mu\sum_{t_e\in[0,1)}c_e.}
+ \tag{8}
+\]
+Les sommes et intégrales ont d'abord un sens dans $[0,\infty]$. La finitude déjà démontrée dans [QU] donne ensuite celle du membre droit. Aucun échange de quantités signées, aucun moment supérieur du déficit et aucune estimation de flux aux extrémités n'ont été utilisés.
+
+\subhead{Marquage unique}
+Chaque arête est marquée par son unique vecteur primitif parallèle orienté vers la droite. Une arête contenant plusieurs points consécutifs reste comptée une seule fois ; son déplacement total peut être un multiple de cette primitive. Réciproquement, pour une direction primitive donnée, une première rangée occupée à au moins deux points fournit exactement une arête horizontale après redressement. Une première rangée singleton ne contribue pas à (8).
+
+\newpage
+\head{4. Dépliage primitif de Haar et identification}
+Écrivons le vecteur primitif marqué $v=(a,b)$ avec $a>0$. Un représentant de la base orientée est
+\[
+ M=\begin{pmatrix}a&b\\ \beta&b\beta/a+1/a\end{pmatrix},
+ \qquad 0\le\beta<a.
+\]
+Changer le second vecteur par un multiple entier du premier remplace $\beta$ par $\beta+na$ ; le paramètre quotient est donc $\beta/a\pmod1$.
+
+La formule de Haar [MS, (7.1), lemme 7.4 et (7.17)] et le dépliage du quotient par le stabilisateur de la primitive donnent, pour toute fonction marquée non négative, la mesure
+\[
+ \frac1{\zeta(2)}\,da\,db\,\frac{d\beta}{a}.
+ \tag{9}
+\]
+Pour préciser le dépliage : les primitives de $\Z^2$ sont l'orbite de $e_1$ sous $\mathrm{SL}_2(\Z)$ ; son stabilisateur est $\left\{\left(\begin{smallmatrix}1&0\\ n&1\end{smallmatrix}\right):n\in\Z\right\}$. Déplier une somme sur cette orbite remplace le domaine fondamental des réseaux par celui de ce stabilisateur. Dans (7.17), $H=\left\{\left(\begin{smallmatrix}1&0\\ u&1\end{smallmatrix}\right):u\in\R\right\}$, avec mesure $du$ et quotient $0\le u<1$. Le coefficient est exactement $1/\zeta(2)$.
+
+Poser $b=at$, la pente marquée, fournit $da\,db=a\,da\,dt$. Après l'application affine $S_{-t}$, la base devient $(a,0)$, $(\beta,1/a)$. La translation reste uniforme sur son tore. Le rectangle
+\[
+ 0\le s<a,\qquad 0\le\delta<1/a
+\]
+est un domaine fondamental d'aire $1$ : réduire d'abord la hauteur par $(\beta,1/a)$, puis l'abscisse par $(a,0)$. La mesure de translation y est $ds\,d\delta$.
+
+Ainsi, à $(a,t)$ fixé, les trois paramètres ont exactement la loi indépendante
+\[
+ \frac{d\beta}{a}\,ds\,d\delta,
+ \qquad \beta,s\in[0,a),\quad\delta\in[0,1/a).
+ \tag{10}
+\]
+Cette densité est celle de la définition (1) : $(1/a)\times(1/a)\times a=1/a$. L'espérance conditionnelle de la contribution de l'arête, nulle si la première rangée est singleton, est donc $G(a)$.
+
+Appliquer (9)--(10) à la somme non négative (8) donne
+\[
+ C_{\rm void}
+ =\frac1{\zeta(2)}\int_0^\infty\int_0^1 aG(a)\,dt\,da
+ =\frac6{\pi^2}\int_0^\infty aG(a)\,da.
+\]
+Cela démontre (2) et l'intégrabilité de $aG(a)$. Il n'y a pas de facteur $1/2$ supplémentaire : la restriction $a>0$ marque chaque arête une fois. La mesure utilisée est celle de Haar dans le modèle limite, dont le raccord au réseau carré randomisé a été traité dans [CV] et [QU].
+
+\newpage
+\head{5. Une formule exacte pour toute la queue $a\ge2$}
+Posons $n=a^3/8\ge1$, $x=a\delta\in[0,1)$ et $k_0=\lceil n-x\rceil$. Cette rangée est la première dont la fenêtre a longueur au moins $a$. Avant elle, une rangée a au plus un point ; à elle, la fenêtre a longueur inférieure à $2a$, donc au plus deux points. Toute rangée à partir de $k_0$ est non vide.
+
+Par conséquent $c\ne0$ exige deux points à la rangée $k_0$ et toutes les rangées antérieures vides. Nous allons montrer qu'il suffit alors de vérifier la rangée immédiatement précédente.
+
+Écrire $D=x+k_0=n+f$, $0\le f<1$, et normaliser les phases et les abscisses par $a$. La demi-largeur finale est $R_f=\tfrac12\sqrt{D/n}$ ; poser
+\[
+ e=R_f-\tfrac12,\qquad
+ t_j=\tfrac12-\tfrac12\sqrt{(D-j)/n}\quad(1\le j\le k_0).
+\]
+Deux points à la rangée finale correspondent à une phase centrée $z\in[-e,e]$. La rangée précédente vide correspond à une phase centrée $z_p\in(-t_1,t_1)$. Le changement torique des phases $(s/a,\beta/a)$ vers les phases finale et précédente est de déterminant $-1$ ; ces dernières sont donc indépendantes et uniformes.
+
+Choisir le relèvement $b=z-z_p$ du cisaillement normalisé. Il vérifie
+\[
+ |b|\le e+t_1=R_f-R_{f-1}\le\tfrac12.
+\]
+À $j$ rangées en arrière, la phase relevée est $z_j=jz_p-(j-1)z$. La concavité de la racine, ou la croissance des différences successives en remontant, donne
+\[
+ \sqrt{D-j}\le j\sqrt{D-1}-(j-1)\sqrt D,
+ \qquad t_j\ge jt_1+(j-1)e.
+ \tag{11}
+\]
+Alors $|z_j|<jt_1+(j-1)e\le t_j\le1/2$. Toutes ces rangées sont vides ; aucun enroulement modulo $1$ n'a été omis. La réciproque est immédiate. Les égalités de frontière sont nulles pour la moyenne des phases.
+
+Le niveau final $d=D/a$ est uniforme sur $[h,h+1/a)$, $h=a^2/8$ : $f=(x-n)\pmod1$ est uniforme. La probabilité de vide de la rangée précédente est $1-2\sqrt{2(d-1/a)}/a$. La moyenne de $c$ sur la phase finale est
+\[
+ H(d,a)=\frac{(2r-a)(r^2+2ar-a^2)}6,\qquad r=\sqrt{2d}.
+\]
+On obtient donc la formule exacte
+\[
+ \boxed{G(a)=a\int_h^{h+1/a}
+ \left(1-\frac{2\sqrt{2(d-1/a)}}a\right)H(d,a)\,dd\quad(a\ge2).}
+ \tag{12}
+\]
+Le passage à plusieurs rangées pour $a>2$ reste réel pour les singletons ; il ne crée pas une nouvelle difficulté pour leur contribution, qui est nulle.
+
+\newpage
+\head{6. Intégrales compactes et asymptotique de queue}
+Sur $0<a\le2$, le calcul de [M] donne $G=G_0+G_1$, où
+\begin{align*}
+ G_0(a)&=\frac{4\sqrt2}{15}a^{-3/2}+\frac12
+ -\frac{4\sqrt2}{9}a^{3/2}+\frac{a^3}{6}-\frac{17a^6}{5760},\\
+ G_1(a)&=a\int_0^{a^2/8}\left(1-\frac{2\sqrt{2\delta}}a\right)
+          H(\delta+1/a,a)\,d\delta.
+\end{align*}
+Ces expressions suivent en moyennant la rangée 0, puis la rangée 1 conditionnellement au vide de la rangée 0 ; la rangée 1 est toujours non vide. Noter
+\[
+ J=\int_0^\infty aG(a)\,da=J_0+J_1+J_T,\qquad
+ J_0=\frac{32}{15}+1-\frac{128}{63}-\frac{17}{180}
+      =\frac{141}{140}.
+\]
+Les substitutions $a=2v^2$, $\delta=(a^2/8)t^2$ régularisent $J_1$ : avec $R=\sqrt{1+v^6t^2}$,
+\[
+ J_1=\frac{16}{3}\int_0^1\int_0^1
+ v^6t(1-t)(R-v^3)(R^2+4v^3R-4v^6)\,dt\,dv.
+ \tag{13}
+\]
+Pour la queue (12), poser $a=2/v$ et rationaliser les différences de racines. Avec $f\in[0,1]$,
+\[
+ J_T=\frac43\int_0^1\int_0^1
+ \frac{f(1-f)\big[v^3f-3+4\sqrt{1+v^3f}\big]}
+ {(1+\sqrt{1-v^3(1-f)})(1+\sqrt{1+v^3f})}\,df\,dv.
+ \tag{14}
+\]
+L'intégrande est continue sur le carré, y compris au coin $(v,f)=(1,0)$, où le facteur $f$ s'annule. Il n'y a plus de domaine impropre ni de différence de nombres presque égaux.
+
+\subhead{La queue devient démontrée dans ce modèle}
+Écrire $u=8/a^3$, $d=h+f/a$ dans (12). Alors
+\[
+ G(a)=\frac{a^3}{24}\int_0^1
+ [1-\sqrt{1-u(1-f)}][\sqrt{1+uf}-1]
+ [uf-3+4\sqrt{1+uf}]\,df.
+\]
+Pour $a\to\infty$, les développements des racines ont des restes uniformes en $f\in[0,1]$, ce qui donne
+\[
+ G(a)=\frac1{9a^3}+O(a^{-6}),\qquad
+ aG(a)=\frac1{9a^2}+O(a^{-5}).
+ \tag{15}
+\]
+Cette démonstration remplace, pour le modèle précis (1), l'ancienne extrapolation heuristique. Le certificat qui suit évalue la queue entière ; il n'utilise pas (15) pour extrapoler un reste non calculé.
+
+\newpage
+\head{7. Encadrement rationnel reproductible}
+Une quadrature en double précision des intégrales compactes donne, à titre de contrôle,
+\[
+ J_1\simeq0{,}100019051910681,\quad
+ J_T\simeq0{,}075929242314814,\quad
+ C_{\rm void}\simeq0{,}719233174880506.
+\]
+La certification utilise des séries et des opérations rationnelles exactes, plutôt que l'erreur indicative d'un intégrateur flottant.
+
+Avec $b_n=\binom{1/2}{n}$ et $q_n=\binom{3/2}{n}$, développer (13) après l'identité
+\[
+ (R-v^3)(R^2+4v^3R-4v^6)
+ =R^3+3v^3R^2-8v^6R+4v^9.
+\]
+Il vient
+\[
+ J_1=\frac{16}{3}\left[\frac1{20}+\frac3{320}+\frac1{24}
+ +\sum_{n=0}^\infty
+ \frac{q_n/(6n+7)-8b_n/(6n+13)}{(2n+2)(2n+3)}\right].
+ \tag{16}
+\]
+Pour une troncature $n\le N$, $N\ge2$, les restes alternés des deux puissances donnent la majoration
+\[
+ E_1(N)=\frac{16}{3(2N+4)(2N+5)}
+ \left(\frac{|q_{N+1}|}{6N+13}
+       +\frac{8|b_{N+1}|}{6N+19}\right).
+ \tag{17}
+\]
+
+Pour (14), poser $A(x)=1-\sqrt{1-x}$ et
+\[
+ P(y)=(\sqrt{1+y}-1)(y-3+4\sqrt{1+y})
+      =(y-7)\sqrt{1+y}+7+3y.
+\]
+Écrire $A(x)=\sum_{m\ge1}\alpha_mx^m$, $P(y)=\sum_{n\ge1}p_ny^n$, avec
+\[
+ \alpha_m=-(-1)^mb_m>0,\quad
+ p_1=\tfrac12,\quad p_n=b_{n-1}-7b_n\ (n\ge2).
+\]
+L'intégration terme à terme est absolument convergente et donne
+\[
+ J_T=\frac43\sum_{m,n\ge1}\alpha_mp_n
+ \frac{m!n!}{(m+n+1)!\,[3(m+n)-5]}.
+ \tag{18}
+\]
+En effet, $\sum\alpha_m=1$, $\sum|p_n|=5$ et les poids d'intégration sont positifs et bornés. Pour $T_N=\binom{2N}{N}/4^N$, une troncature carrée $m,n\le N$ a un reste absolu au plus
+\[
+ E_T(N)=\frac43\frac{T_{N-1}+12T_N}{(N+2)(N+3)(3N+1)}.
+ \tag{19}
+\]
+Cette borne vient de la réunion des deux queues, en majorant l'intégrale bêta par $1/((m+1)(m+2))$, ou symétriquement, et en utilisant $3(m+n)-5\ge3m-2$ (ou $3n-2$) pour majorer le poids inverse.
+
+\newpage
+\head{8. Certificat, conséquence globale et statuts}
+\subhead{Calcul fini vérifiable}
+Le programme joint calcule (16) et (18) en fractions rationnelles, ajoute les bornes (17) et (19), puis encadre $\pi$ par la formule de Machin
+\[
+ \pi=16\arctan(1/5)-4\arctan(1/239),
+\]
+avec les restes alternés rationnels. Si $J\in[J_-,J_+]$ et $0<\pi_-\le\pi\le\pi_+$, il renvoie
+\[
+ C_{\rm void}\in\left[\frac{6J_-}{\pi_+^2},\frac{6J_+}{\pi_-^2}\right].
+\]
+\textbf{Encadrement publié.} Pour $N=100$ et 30 termes de chaque série de Machin, l'exécution en arithmétique rationnelle donne les bornes extérieures
+\[
+ \boxed{0{,}71923298<C_{\rm void}<0{,}71923337.}
+ \tag{20}
+\]
+Le JSON joint conserve les fractions exactes et des bornes décimales extérieures à 18 chiffres. Les bornes de reste sont $E_1<4{,}607\times10^{-10}$ et $E_T<3{,}090\times10^{-7}$ pour $J$. Les comparaisons rationnelles avec $0{,}7185$, $0{,}7195$, puis $0{,}7192325$, $0{,}7192335$ justifient les arrondis $0{,}719$ et $0{,}719233$. Les approximations du §7 ne servent pas de preuve.
+
+\subhead{Conséquence pour le problème initial}
+En combinant (2) avec [CV] et [QU], pour $K$ convexe compact d'intérieur non vide, à bord $C^3$ et courbure $\kappa>0$, sous la rotation et la translation indépendantes uniformes du réseau carré,
+\[
+ \boxed{\E\big[P(RK)-P(\operatorname{conv}(L\cap RK))\big]
+ =\frac6{\pi^2}\left(\int_0^\infty aG(a)\,da\right)
+ \left(\int_{\partial K}\kappa^{4/3}\,ds\right)R^{-1/3}
+ +o(R^{-1/3}).}
+ \tag{21}
+\]
+La démonstration du coefficient principal utilise ainsi trois notes complémentaires. Elle ne démontre ni un second terme, ni un taux effectif total en $R$, ni l'extension aux points plats.
+
+\subhead{Provenance et contrôles}
+Cette note a été développée, rédigée et intégrée par ChatGPT/Codex pour Patrick Royer. Deux contre-relectures IA ont vérifié le raccord, les normalisations et le raisonnement de concavité ; une troisième branche a contrôlé numériquement (12) par un million de tirages directs à chacune des valeurs $2$, $2{,}2$, $2{,}5$, $3$, $4$, $6$. Tous les écarts sont inférieurs à $1{,}5$ erreurs standard ; ce contrôle est un diagnostic, distinct du certificat déterministe.
+
+Le programme de certification utilise uniquement Python et sa bibliothèque standard, avec arithmétique entière et rationnelle. La mise en page utilise \LaTeX. Ces outils sont librement disponibles. Aucune validation humaine indépendante, vérification par assistant de preuve formel, publication nouvelle ou priorité scientifique n'est attestée.
+
+\subhead{Références et dépendances}
+{\small
+[MS] J. Marklof et A. Strömbergsson, \emph{The distribution of free path lengths in the periodic Lorentz gas and related lattice point problems}, Annals of Mathematics \textbf{172} (2010), 1949--2033. doi:10.4007/annals.2010.172.1949 ; arXiv:0706.4395v2, §7, (7.1), (7.3), lemme 7.4 et (7.17). Source primaire consultée le 8 octobre 2026. Le dépliage primitif utilisé au §4 est explicité dans cette note.\par
+[M] P. Royer, \emph{A candidate leading constant for the perimeter deficit of randomized integer convex hulls}, corrective distincte v0.2, 7 octobre 2026. Définition de $G$ et calcul sur $(0,2]$ ; statuts conjecturaux de ce manuscrit conservés à leur date.\par
+[CV] P. Royer, \emph{Convergence des probabilités de calottes vides}, note distincte v0.1, 8 octobre 2026.\par
+[QU] P. Royer, \emph{Queues uniformes et espérance complète}, note distincte v0.1, 8 octobre 2026. Ces deux preuves sont conservées ; la présente note traite leur dernier raccord au modèle de rangées.\par
+}
+\end{document}

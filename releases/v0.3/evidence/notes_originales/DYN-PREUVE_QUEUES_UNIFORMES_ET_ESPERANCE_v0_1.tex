@@ -1,0 +1,269 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage[provide=*,french]{babel}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=22mm,headheight=15pt]{geometry}
+\usepackage{xcolor,booktabs,tabularx,enumitem,fancyhdr,hyperref}
+\definecolor{navy}{HTML}{203C63}\definecolor{muted}{HTML}{536478}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,pdftitle={Queues uniformes et espérance complète du déficit de périmètre},pdfauthor={Patrick Royer}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{muted}DYN-VALIDEX | Queues et espérance}
+\fancyhead[R]{\small\color{muted}v0.1 | 8 octobre 2026}
+\fancyfoot[C]{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlist{nosep,leftmargin=18pt}\renewcommand{\arraystretch}{1.12}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}\newcommand{\Prb}{\mathbb P}
+\newcommand{\area}[1]{\lvert #1\rvert}
+\newcommand{\head}[1]{\vspace{3pt}{\large\bfseries\color{navy}#1}\par}
+\newcommand{\subhead}[1]{{\bfseries\color{navy}#1}\par}
+\begin{document}
+{\LARGE\bfseries\color{navy}Queues uniformes et\\[3pt]espérance complète}\par
+{\large Déficit de périmètre des coques entières randomisées}\par
+Patrick Royer --- chercheur indépendant, non affilié\par
+Note de démonstration distincte v0.1 --- 8 octobre 2026\par
+\vspace{3pt}\hrule\vspace{6pt}
+
+\head{1. Énoncé et portée}
+Soit $K\subset\R^2$ un corps convexe compact d'intérieur non vide, à bord $C^3$ de courbure strictement positive. Le réseau est
+\[
+ L=\rho(\theta)(\Z^2+t),\qquad
+ \theta\sim\mathrm{Unif}[0,2\pi),\quad t\sim\mathrm{Unif}[0,1)^2,
+\]
+indépendamment. Pour la normale extérieure $u_\varphi$, notons $p_R(\varphi)$ le point de support de $RK$, $\kappa_\varphi$ la courbure de $K$ et $q_{R,\varphi}=\kappa_\varphi/R$. Avec $h=q_{R,\varphi}^{1/3}z$, posons
+\[
+ A_{R,\varphi}(z)=\{x\in RK:\langle x,u_\varphi\rangle
+       \ge h_{RK}(u_\varphi)-h\},\qquad
+ v_R(z,\varphi)=\Prb(L\cap A_{R,\varphi}(z)=\varnothing).
+\]
+\subhead{Proposition de domination}
+Il existe $R_0(K)$ et $A_K<\infty$ tels que
+\[
+ \boxed{v_R(z,\varphi)\le\min(1,A_Kz^{-3/2})}
+ \quad(R\ge R_0(K),\ z>0,\ \varphi\in[0,2\pi)).
+ \tag{1}
+\]
+La preuve donne un choix des constantes en fonction de celles du lemme d'évitement publié de Ngoc--Reitzner [NR]. Elle couvre toutes les profondeurs, y compris celles extérieures au régime parabolique local.
+
+\subhead{Conséquence avec la convergence déjà démontrée [CV]}
+Soit $\mu_{\rm aff}$ la probabilité de Haar des réseaux affines unimodulaires et
+\[
+ A(z)=\{(X,Y):X^2/2\le Y\le z\},\qquad
+ v_H(z)=\mu_{\rm aff}\{\Lambda:\Lambda\cap A(z)=\varnothing\}.
+\]
+Alors $C_{\rm void}=\int_0^\infty v_H(z)\,dz$ est universel, fini et strictement positif. Pour $Q_R=\mathrm{conv}(L\cap RK)$ et $\Delta(R)=P(RK)-P(Q_R)$,
+\[
+ \boxed{\E\Delta(R)=C_{\rm void}I_{4/3}(K)R^{-1/3}
+                           +o(R^{-1/3}),}\qquad
+ I_{4/3}(K)=\int_{\partial K}\kappa^{4/3}\,ds_K.
+ \tag{2}
+\]
+\textbf{Limite de portée.} L'identité $C_{\rm void}=(6/\pi^2)\int_0^\infty aG(a)\,da$, la valeur candidate proche de $0,719$ et le second ordre ne sont pas démontrés par cette note. (2) est une déduction sous les hypothèses indiquées, à faire relire indépendamment ; aucune priorité scientifique n'est revendiquée.
+
+\newpage
+\head{2. Disque intérieur tangent uniforme}
+Écrivons $\kappa_- =\min_\varphi\kappa_\varphi>0$ et $\kappa_+=\max_\varphi\kappa_\varphi<\infty$. On peut prendre
+\[
+ r=\frac1{\kappa_+}.
+ \tag{3}
+\]
+Nous justifions directement que le disque $D(p_K(\varphi)-ru_\varphi,r)$ est contenu dans $K$ pour chaque direction. $D(c,r)$ désigne ici le disque fermé.
+
+\subhead{Preuve par fonction support}
+La fonction support $H(\varphi)=h_K(u_\varphi)$ vérifie
+\[
+ p_K(\varphi)=H(\varphi)u_\varphi+H'(\varphi)\tau_\varphi,
+ \qquad H(\varphi)+H''(\varphi)=\frac1{\kappa_\varphi}=:\varrho(\varphi)\ge r,
+\]
+où $\tau_\varphi=(-\sin\varphi,\cos\varphi)$. Pour $0\le a\le\pi$, la différence
+\[
+ d_\varphi(a)=H(\varphi+a)-p_K(\varphi)\cdot u_{\varphi+a}
+\]
+satisfait $d_\varphi''+d_\varphi=\varrho(\varphi+a)$ et $d_\varphi(0)=d_\varphi'(0)=0$. Donc
+\[
+ d_\varphi(a)=\int_0^a\varrho(\varphi+s)\sin(a-s)\,ds
+ \ge r(1-\cos a).
+\]
+Pour $a=-b$, $0\le b\le\pi$, la fonction $b\mapsto d_\varphi(-b)$ satisfait la même équation avec $\varrho(\varphi-b)$ ; le même calcul donne donc la même inégalité. Toute direction se représente par un tel écart angulaire. Il vient
+\[
+ H(\varphi+a)\ge (p_K(\varphi)-ru_\varphi)\cdot u_{\varphi+a}+r.
+\]
+Le membre de droite est la fonction support du disque considéré. L'inégalité de support dans toutes les directions démontre son inclusion dans $K$. Par dilatation,
+\[
+ D(p_R(\varphi)-Rr u_\varphi,Rr)\subset RK.
+ \tag{4}
+\]
+
+\subhead{Aire des calottes peu profondes}
+Fixons $R\ge\sqrt2/r$ et $0<h\le\sqrt2\le Rr$. La calotte de hauteur $h$ du disque (4) est contenue dans celle de $RK$. En coordonnées normale intérieure $y$, sa section horizontale a pour longueur $2\sqrt{2Rr\,y-y^2}$. Par conséquent,
+\begin{align*}
+ \area{A_{R,\varphi}(z)}
+ &\ge\int_0^h2\sqrt{2Rr\,y-y^2}\,dy
+ \ge\frac43\sqrt{Rr}\,h^{3/2}\\
+ &=\frac43\sqrt{r\kappa_\varphi}\,z^{3/2}
+ \ge b_Kz^{3/2},\qquad b_K:=\frac43\sqrt{r\kappa_-}>0.
+ \tag{5}
+\end{align*}
+La dernière égalité est le raccord exact entre la profondeur physique $h$ et la variable normalisée $z$.
+
+\newpage
+\head{3. Grandes profondeurs et borne d'évitement}
+\subhead{Une coupure déterministe à profondeur physique $\sqrt2$}
+Tout point du plan est à distance au plus $\sqrt2/2$ d'un point de $\rho(\theta)(\Z^2+t)$ : c'est le rayon de couverture du réseau carré de maille $1$. Pour $Rr\ge\sqrt2$, le disque
+\[
+ D\left(p_R(\varphi)-\frac{\sqrt2}{2}u_\varphi,\frac{\sqrt2}{2}\right)
+\]
+est contenu dans le disque tangent (4), car la distance entre leurs centres augmentée du petit rayon est $Rr$. Il est aussi contenu dans la calotte de hauteur $\sqrt2$ : ses profondeurs normales vont de $0$ à $\sqrt2$. Il rencontre donc chaque réseau possible. Par monotonie des calottes,
+\[
+ v_R(z,\varphi)=0\quad\text{si}\quad
+ q_{R,\varphi}^{1/3}z\ge\sqrt2.
+ \tag{6}
+\]
+Le disque employé ici garde son rayon fixe. Cet argument couvre également $h>2Rr$ ; aucune approximation locale n'est utilisée dans cette plage.
+
+\subhead{Entrée publiée et application au domaine physique}
+Le lemme 3.2 de [NR] donne des constantes $\nu,c>0$, dépendant seulement de la dimension, telles que pour tout corps convexe $B$ d'aire au moins $\nu$,
+\[
+ \Prb(B\cap L=\varnothing)\le\frac c{\area B}.
+ \tag{7}
+\]
+Ce lemme s'applique à la \textbf{calotte physique déterministe} $A_{R,\varphi}(z)$, à direction $\varphi$ fixée, avec le réseau carré randomisé initial. Il n'est pas appliqué au réseau anisotrope normalisé.
+
+Prenons
+\[
+ R_0(K)=\frac{\sqrt2}{r},\qquad
+ A_K=\frac{\max(\nu,c)}{b_K}.
+ \tag{8}
+\]
+Si $h\ge\sqrt2$, (6) prouve immédiatement (1). Sinon, (5) s'applique. Deux cas suffisent :
+\begin{itemize}
+ \item Si $b_Kz^{3/2}<\nu$, alors $A_Kz^{-3/2}\ge1$, et la borne triviale $v_R\le1$ donne (1).
+ \item Si $b_Kz^{3/2}\ge\nu$, l'aire physique atteint $\nu$. Par (5), (7), $v_R\le c/(b_Kz^{3/2})\le A_Kz^{-3/2}$ ; joindre $v_R\le1$ donne (1).
+\end{itemize}
+La domination est donc valable pour toutes les directions et toutes les profondeurs $z>0$, avec des constantes indépendantes de $R\ge R_0(K)$.\hfill$\square$
+
+\textbf{Effectivité.} Les expressions (8) sont explicites en fonction de $\nu,c$. Ces deux constantes ne sont pas évaluées numériquement ici. Cette domination n'est donc pas un certificat numérique de précision pour $C_{\rm void}$.
+
+\newpage
+\head{4. Intégrabilité uniforme et constante limite}
+La note [CV] établit, sous les mêmes hypothèses, la convergence sur les intervalles bornés :
+\[
+ \varepsilon_R(Z):=\sup_{\varphi,\ 0\le z\le Z}
+             |v_R(z,\varphi)-v_H(z)|\longrightarrow0
+ \quad(R\to\infty),\qquad 0\le Z<\infty.
+ \tag{9}
+\]
+Cette preuve moyenne exactement les translations, contrôle la différence des calottes par leur aire symétrique et applique le corollaire 5.9 de Marklof--Strömbergsson [MS] à un test continu borné.
+
+\subhead{Majorant et queues}
+Par la convergence à $z$ fixé, (1) se transmet à $v_H$. Le majorant commun
+\[
+ m_K(z)=\min(1,A_Kz^{-3/2})\quad(z>0),\qquad m_K(0)=1
+\]
+est intégrable, avec
+\[
+ \int_0^\infty m_K(z)\,dz=3A_K^{2/3},\qquad
+ \int_Z^\infty v_R(z,\varphi)\,dz\le\frac{2A_K}{\sqrt Z},\qquad
+ \int_Z^\infty v_H(z)\,dz\le\frac{2A_K}{\sqrt Z}
+ \quad(Z>0).
+ \tag{10}
+\]
+La constante
+\[
+ C_{\rm void}=\int_0^\infty v_H(z)\,dz
+ \tag{11}
+\]
+est donc finie. Elle est universelle : sa définition ne dépend ni de $K$ ni de $\varphi$.
+
+\subhead{Positivité}
+La moyenne sur les translations d'un réseau unimodulaire a une intensité égale à $1$, et il en va de même après moyenne de Haar sur les réseaux. La borne de Markov donne
+\[
+ v_H(z)\ge\bigl(1-\area{A(z)}\bigr)_+
+ =\left(1-\frac{4\sqrt2}{3}z^{3/2}\right)_+.
+\]
+En intégrant jusqu'à $z_*=(3/(4\sqrt2))^{2/3}$,
+\[
+ C_{\rm void}\ge\frac35\left(\frac3{4\sqrt2}\right)^{2/3}>0.
+ \tag{12}
+\]
+Cette borne élémentaire n'identifie pas la valeur exacte de la constante.
+
+\subhead{Convergence des espérances normalisées}
+Pour $Z>0$, (9)--(10) impliquent
+\[
+ \sup_\varphi\int_0^\infty|v_R(z,\varphi)-v_H(z)|\,dz
+ \le Z\varepsilon_R(Z)+\frac{4A_K}{\sqrt Z}.
+ \tag{13}
+\]
+Fixer d'abord $Z$, laisser $R\to\infty$, puis $Z\to\infty$ prouve la convergence uniforme des intégrales complètes vers $C_{\rm void}$. Ce raisonnement justifie l'échange qui manquait au résultat tronqué.
+
+\newpage
+\head{5. Passage au déficit de périmètre complet}
+Pour $R\ge R_0(K)$, le corps $RK$ contient un disque de rayon au moins $\sqrt2$. Chaque tel disque contient les quatre sommets d'une maille carrée du réseau tourné-translaté : ils sont à distance au plus $\sqrt2$ de son centre. Ainsi $Q_R$ est non vide et de dimension deux pour tous les réseaux considérés.
+
+\subhead{Identité exacte par les calottes vides}
+La formule de Cauchy pour le périmètre est
+\[
+ \Delta(R)=\int_0^{2\pi}
+       (h_{RK}(u_\varphi)-h_{Q_R}(u_\varphi))\,d\varphi.
+\]
+L'écart des fonctions support est non négatif. L'identité d'intégration d'une variable positive par sa fonction de survie, puis Tonelli, donnent
+\[
+ \E\Delta(R)=\int_0^{2\pi}\int_0^\infty
+       \Prb\bigl((RK)_{h,\varphi}\cap L=\varnothing\bigr)\,dh\,d\varphi.
+\]
+Les éventuelles égalités de hauteur n'affectent pas l'intégrale en $h$. Avec $h=q_{R,\varphi}^{1/3}z$, on obtient exactement
+\[
+ \E\Delta(R)=\int_0^{2\pi}q_{R,\varphi}^{1/3}
+                  \int_0^\infty v_R(z,\varphi)\,dz\,d\varphi.
+ \tag{14}
+\]
+Cette identité correspond aussi au lemme 3.1 de [NR], avec $P=\pi W$ dans le plan ; aucun facteur $2$ ou $\pi$ supplémentaire n'est introduit.
+
+\subhead{Limite et invariant de courbure}
+Par (13), $\int_0^\infty v_R(z,\varphi)\,dz\to C_{\rm void}$ uniformément en $\varphi$. Comme $R^{1/3}q_{R,\varphi}^{1/3}=\kappa_\varphi^{1/3}$,
+\begin{align*}
+ \lim_{R\to\infty}R^{1/3}\E\Delta(R)
+ &=C_{\rm void}\int_0^{2\pi}\kappa_\varphi^{1/3}\,d\varphi\\
+ &=C_{\rm void}\int_{\partial K}\kappa^{4/3}\,ds_K
+ =C_{\rm void}I_{4/3}(K),
+ \tag{15}
+\end{align*}
+car $d\varphi=\kappa\,ds_K$. Cela démontre (2). Plus précisément, pour chaque $Z>0$ et $R\ge R_0(K)$,
+\[
+ |R^{1/3}\E\Delta(R)-C_{\rm void}I_{4/3}(K)|
+ \le I_{4/3}(K)\left(Z\varepsilon_R(Z)+\frac{4A_K}{\sqrt Z}\right).
+ \tag{16}
+\]
+Cette borne sépare la convergence sur les profondeurs bornées et le reste de queue. Elle ne fournit pas un taux en $R$ tant qu'aucun taux effectif pour $\varepsilon_R(Z)$ n'est établi.
+
+\newpage
+\head{6. Statuts, dépendances et prochain pont}
+\begin{tabularx}{\textwidth}{@{}p{.36\textwidth}X@{}}
+\toprule
+Élément & Portée du résultat\\
+\midrule
+Probabilités sur profondeurs bornées & Démonstration [CV], même classe de corps et même loi du réseau.\\
+Queues uniformes & Domination intégrable (1), toutes profondeurs et toutes directions, pour $R\ge R_0(K)$.\\
+Espérance complète & Passage à la limite démontré par (13)--(15).\\
+Coefficient principal global & Existence d'un coefficient universel $C_{\rm void}\in(0,\infty)$ et formule de courbure (2).\\
+Identification du modèle de rangées & Reste à démontrer : $C_{\rm void}\stackrel{?}{=}(6/\pi^2)\int_0^\infty aG(a)\,da$.\\
+Valeur candidate $\approx0,719$ & N'est pas certifiée par cette domination.\\
+Second ordre / points plats & Non traités ; les hypothèses $C^3$ et $\kappa>0$ sont conservées.\\
+\bottomrule
+\end{tabularx}
+
+\subhead{Prochain jalon}
+Construire un argument stationnaire de décomposition par arêtes, avec mesure de comptage/Palm correctement normalisée, permettant d'identifier $C_{\rm void}$ à l'intégrale du modèle de rangées. L'intégrabilité et les termes de bord de cette décomposition devront être justifiés séparément. La queue $aG(a)\sim1/(9a^2)$ demeure une hypothèse du modèle de rangées ; elle n'a pas été employée pour prouver (1) ou (2).
+
+\subhead{Provenance et vérification}
+La démonstration combine une entrée publiée [NR], la convergence [CV] issue de [MS], et les arguments géométriques et d'intégration explicités ici. ChatGPT/Codex a rédigé et intégré cette note pour Patrick Royer. Deux contre-lectures IA ont vérifié indépendamment la géométrie et les sources, puis le passage à l'espérance. Aucune revue humaine indépendante ni vérification par assistant de preuve formel n'est attestée. Aucune campagne de simulation n'est requise par la preuve ; aucune revendication de nouveauté ou d'exhaustivité bibliographique n'est formulée.
+
+\subhead{Références et dépendance documentaire}
+\small\raggedright
+[NR] Binh Hong Ngoc et M. Reitzner, \textit{Expected mean width of the randomized integer convex hull}, Mathematika \textbf{67} (2021), 422--433. \href{https://doi.org/10.1112/mtk.12080}{doi:10.1112/mtk.12080} ; \href{https://arxiv.org/abs/2003.06864}{arXiv:2003.06864}, lemmes 3.1 et 3.2. Texte primaire consulté le 8 octobre 2026. Le lemme 3.2 attribue la borne à Bárány--Matoušek et sa preuve à Bárány.
+
+[MS] J. Marklof et A. Strömbergsson, \textit{The distribution of free path lengths in the periodic Lorentz gas and related lattice point problems}, Annals of Mathematics \textbf{172} (2010), 1949--2033. \href{https://doi.org/10.4007/annals.2010.172.1949}{doi:10.4007/annals.2010.172.1949} ; \href{https://arxiv.org/pdf/0706.4395}{arXiv:0706.4395v2}, corollaire 5.9, utilisé et vérifié dans [CV].
+
+[CV] P. Royer, \textit{Convergence des probabilités de calottes vides : du réseau carré randomisé au modèle parabolique de Haar}, note distincte v0.1, 8 octobre 2026. Fichier : \texttt{DYN-PREUVE\_CONVERGENCE\_CALOTTES\_VIDES\_v0\_1.pdf}. Sa preuve reste conservée ; la présente note complète le jalon de domination qu'elle laissait ouvert.
+\end{document}

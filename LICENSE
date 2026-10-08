@@ -1,0 +1,20 @@
+DYN-VALIDEX — licence index
+
+Current corpus: version 0.3, dated 8 October 2026.
+Licensor: Patrick Royer.
+Licence: custom Dynagénèse Ethical Licence (DEL) 1.1.
+
+The operative unchanged French-language licence PDF and the v0.3 scope notice
+are published in:
+
+  releases/v0.3/licenses/DEL_1_1_reference.pdf
+  releases/v0.3/licenses/LICENSE_SCOPE.md
+
+The root repository also preserves the separate v0.2 licence materials in
+licenses/. Historical components and third-party materials retain their own
+notices and conditions.
+
+DEL 1.1 is a custom licence with ethical-use restrictions. It is not an
+OSI-approved open-source licence and no SPDX identifier is asserted here. The
+grant is limited to rights held by Patrick Royer; it does not establish
+exclusive rights over mathematical formulas or factual results.

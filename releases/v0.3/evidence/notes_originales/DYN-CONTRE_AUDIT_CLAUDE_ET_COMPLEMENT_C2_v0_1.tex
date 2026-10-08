@@ -1,0 +1,280 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage[provide=*,french]{babel}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=22mm,headheight=15pt]{geometry}
+\usepackage{xcolor,booktabs,tabularx,enumitem,fancyhdr,hyperref}
+\definecolor{navy}{HTML}{203C63}\definecolor{muted}{HTML}{536478}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,pdftitle={Contre-vérification de l'audit Claude et complément C2},pdfauthor={DYN-VALIDEX, travail assisté par IA}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{muted}DYN-VALIDEX | Contre-vérification et compléments}
+\fancyhead[R]{\small\color{muted}v0.1 | 8 octobre 2026}
+\fancyfoot[C]{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{1.5em}
+\setlist{nosep,leftmargin=18pt}\renewcommand{\arraystretch}{1.12}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}\newcommand{\Prb}{\mathbb P}
+\newcommand{\area}{\operatorname{aire}}
+\newcommand{\head}[1]{\vspace{3pt}{\large\bfseries\color{navy}#1}\par}
+\newcommand{\subhead}[1]{{\bfseries\color{navy}#1}\par}
+\begin{document}
+{\LARGE\bfseries\color{navy}Contre-vérification de l'audit Claude}\par
+{\large Corrections précises et complément de régularité $C^2$}\par
+Projet de Patrick Royer --- DYN-VALIDEX\par
+Note distincte v0.1, préparée avec assistance IA --- 8 octobre 2026\par
+\vspace{3pt}\hrule\vspace{6pt}
+
+\head{1. Verdict et portée}
+La relecture des points signalés par Claude, le rejouage intégral de son script et le contrôle des sources primaires ne révèlent pas de contradiction dans le résultat principal de [CV], [QU] et [ID]. Son audit apporte une corroboration supplémentaire. Quelques affirmations de l'audit demandent toutefois correction, et le §6 de [ID] mérite une justification autonome.
+
+Pour $K$ convexe compact d'intérieur non vide, à bord $C^3$ et à courbure $\kappa>0$, les trois notes conduisent à
+\[
+ \E\bigl[P(RK)-P(\operatorname{conv}(L\cap RK))\bigr]
+ =C_{\rm void}\left(\int_{\partial K}\kappa^{4/3}\,ds\right)R^{-1/3}
+ +o_K(R^{-1/3}),\tag{1}
+\]
+où $L=\rho(\theta)(\Z^2+t)$, avec rotation et translation uniformes indépendantes, et
+\[
+ C_{\rm void}=\int_0^\infty\Prb_{\rm Haar}\{\Lambda\cap A(z)=\varnothing\}\,dz
+ =\frac6{\pi^2}\int_0^\infty aG(a)\,da,\qquad
+ A(z)=\{x^2/2\le y\le z\}.\tag{2}
+\]
+Le certificat rationnel donne toujours
+\[
+ \boxed{0{,}71923298<C_{\rm void}<0{,}71923337.}\tag{3}
+\]
+L'égalité $C_{\rm void}=0{,}719$ n'est pas établie : $0{,}719$ est son arrondi à trois décimales. L'arrondi à six décimales est $0{,}719233$.
+
+\begin{tabularx}{\textwidth}{@{}lX@{}}\toprule
+Point & Conclusion de cette contre-vérification\\\midrule
+Chaîne CV--QU--ID & Le résultat principal reste soutenu par les preuves et les calculs.\\
+Rangées à trois points ou plus & Le calcul de $H$ s'applique ; preuve directe au §4.\\
+Régularité $C^2$ & Extension qualitative démontrée aux §§2--3, sous $\kappa>0$.\\
+Décimales du certificat Claude & Affichage vers l'intérieur ; correction extérieure au §5.\\
+Attributions & Compléter NR, Bárány et Bárány--Matoušek ; conserver le dépliage marqué.\\
+Second terme $B$ & Piste spectrale ouverte, avec deux corrections indispensables au §6.\\\bottomrule
+\end{tabularx}
+
+\textbf{Statut.} Ce document complète les notes v0.1 sans les remplacer. Il ne constitue ni une relecture humaine indépendante, ni une attestation de priorité scientifique. Le terme $B$ et les extensions aux points plats ou singuliers restent séparés du théorème (1).
+
+\newpage
+\head{2. Complément $C^2$ : approximation uniforme des calottes}
+Supposons désormais $\partial K$ de classe $C^2$ et $\kappa$ continue strictement positive. Le corps $K$ reste fixé ; les uniformités ci-dessous portent sur les normales et profondeurs, pas sur une classe de corps sans module de continuité commun. La compacité donne
+\[
+ 0<\kappa_{\min}\le\kappa_\varphi\le\kappa_{\max}<\infty.
+\]
+En coordonnées tangentielles et de profondeur intérieure au point de support de normale $\varphi$, le bord s'écrit $y=f_\varphi(u)$, avec
+\[
+ f_\varphi(0)=f_\varphi'(0)=0,\qquad f_\varphi''(0)=\kappa_\varphi.
+\]
+Les cartes peuvent être choisies sur un intervalle commun $|u|\le\eta$ : les tangentes varient continûment sur le bord compact, et la projection tangentielle reste localement inversible avec une borne uniforme. La continuité des dérivées secondes dans ces cartes fournit un module commun $\omega$, tendant vers zéro en zéro, tel que
+\[
+ |f_\varphi''(u)-\kappa_\varphi|\le\omega(|u|),\qquad
+ \left|f_\varphi(u)-\frac{\kappa_\varphi u^2}{2}\right|
+ \le\frac{u^2}{2}\omega(|u|).\tag{4}
+\]
+La seconde inégalité résulte de la formule de Taylor avec reste intégral ; aucune dérivée troisième n'intervient.
+
+\subhead{Normalisation de [CV]}
+Dans $RK$, le graphe est $y=Rf_\varphi(x/R)$. Posons $q=\kappa_\varphi/R$ et
+\[
+ X=q^{1/3}x,\qquad Y=q^{-1/3}y.
+\]
+Cette application a déterminant $1$. Avec
+\[
+ u=\kappa_\varphi^{-1/3}R^{-2/3}X,
+\]
+le graphe normalisé vaut
+\[
+ g_{R,\varphi}(X)=\kappa_\varphi^{-1/3}R^{4/3}f_\varphi(u).
+\]
+Par (4), pour $|X|\le M$,
+\[
+ \left|g_{R,\varphi}(X)-\frac{X^2}{2}\right|
+ \le\frac{X^2}{2\kappa_{\min}}
+ \omega\!\left(\kappa_{\min}^{-1/3}R^{-2/3}|X|\right)=o(1),\tag{5}
+\]
+uniformément en $\varphi$ et $X$ dans cette boîte.
+
+\subhead{Confinement et différence symétrique}
+En réduisant $\eta$, (4) implique $f_\varphi(u)\ge\kappa_\varphi u^2/4$. Le point de support est unique. Par compacité, les calottes de hauteurs tendant uniformément vers zéro sont confinées dans les cartes choisies. Ainsi, à profondeur normalisée $0\le z\le Z$ fixée, leurs abscisses vérifient $|X|\le2\sqrt Z$ pour $R$ assez grand.
+
+La section verticale de la calotte normalisée $B_{R,\varphi}(z)$ a longueur $(z-g_{R,\varphi}(X))_+$, et celle de $A(z)$, $(z-X^2/2)_+$. Leurs extrémités supérieures coïncident. L'application $r\mapsto(z-r)_+$ étant $1$-lipschitz, (5) donne
+\[
+ \sup_{\varphi,\,0\le z\le Z}
+ \area\bigl(B_{R,\varphi}(z)\mathbin\triangle A(z)\bigr)
+ \le C_{K,Z}\omega(C_{K,Z}R^{-2/3})=o(1).\tag{6}
+\]
+
+\newpage
+\head{3. Complément $C^2$ : convergence et espérance}
+La moyenne exacte sur les translations de [CV] borne la différence de deux probabilités d'évitement par l'aire de la différence symétrique. L'erreur géométrique $O(R^{-2/3})$ de [CV] est donc remplacée par (6). La moyenne sur le tore, sa continuité et le corollaire 5.9 de [MS] ne demandent aucune régularité supplémentaire du bord de $K$. Ils s'appliquent au même domaine parabolique limite.
+
+Il en résulte, pour tout $Z<\infty$, la convergence uniforme en normale et en profondeur $z\in[0,Z]$ vers la probabilité d'évitement de $A(z)$ sous Haar affine. Le taux géométrique $O(R^{-2/3})$ est perdu sous $C^2$ ; aucun taux global de convergence n'en découle.
+
+\subhead{Disque roulant sous $C^2$}
+La paramétrisation par la normale est $C^1$ car $\kappa>0$. La fonction d'appui $H$ est $C^2$ et vérifie
+\[
+ H(\varphi)+H''(\varphi)=\frac1{\kappa_\varphi}.
+\]
+Posons $r=1/\kappa_{\max}$. Au point de support $p$ de normale $n(\varphi_0)$, soit $c=p-rn(\varphi_0)$. Pour $|t|\le\pi$, définissons
+\[
+ F(t)=H(\varphi_0+t)-c\cdot n(\varphi_0+t)-r.
+\]
+On a $F(0)=F'(0)=0$ et $F''+F=\kappa_{\varphi_0+t}^{-1}-r\ge0$. La solution est
+\[
+ F(t)=\int_0^t\bigl(\kappa_{\varphi_0+v}^{-1}-r\bigr)\sin(t-v)\,dv\ge0.\tag{7}
+\]
+Pour $t\ge0$, le sinus est positif ; pour $t\le0$, il est négatif et l'orientation de l'intégrale est inversée. Tous les angles étant représentés dans $[-\pi,\pi]$, le disque $\overline B(c,r)$ est inclus dans $K$ et tangent en $p$. L'argument de disque roulant de [QU] reste donc valable.
+
+\subhead{Domination, passage à l'espérance et identification}
+L'aire de la calotte du disque intérieur, la borne d'évitement $c/\area$ et la coupure par le rayon de recouvrement de [QU] donnent, sans modification,
+\[
+ v_{R,\varphi}(z)\le\min(1,A_Kz^{-3/2}),\qquad
+ \sup_{R\ge R_0,\varphi}\int_Z^\infty v_{R,\varphi}(z)\,dz
+ \le\frac{2A_K}{\sqrt Z}.\tag{8}
+\]
+Seules les deux bornes positives de courbure et le disque roulant interviennent. La convergence sur les profondeurs bornées, puis (8), permettent le passage à l'intégrale complète. L'identification de [ID] dépend uniquement du modèle parabolique de Haar, et non de la régularité de $K$.
+
+\textbf{Théorème complété.} L'asymptotique (1), avec la même constante (2)--(3), reste valable pour tout corps convexe compact d'intérieur non vide à bord $C^2$ et à courbure strictement positive. Cette assertion est un complément distinct : les estimations quantitatives de [CV] sous $C^3$ ne sont pas réaffirmées sous $C^2$.
+
+Le disque et les ellipses sont couverts. Les superellipses usuelles $p>1$, $p\ne2$, ne sont toujours pas couvertes : pour $p>2$, la courbure s'annule aux axes ; pour $1<p<2$, le bord n'y est pas $C^2$. Aucune conclusion supplémentaire sur ces points n'est tirée ici.
+
+\newpage
+\head{4. Justification autonome de $H$ et précision de la queue}
+\subhead{Moyenne de phase, même avec trois points ou plus}
+Sur une rangée de profondeur $d$, posons $r=\sqrt{2d}$. Les points ont une phase uniforme modulo $a$. Si $2r\ge a$, la fenêtre $[-r,r]$ contient un point pour toute phase. Ses extrêmes satisfont
+\[
+ x_2\sim\operatorname{Unif}(r-a,r],\qquad
+ x_1\sim\operatorname{Unif}[-r,-r+a).
+\]
+Ces lois marginales sont valables quel que soit le nombre de points. On ne suppose pas que les extrêmes sont indépendants. La contribution est additive dans les extrêmes : avec $F_d(x)=dx-x^3/3$, fonction impaire,
+\begin{align*}
+ \E\bigl[F_d(x_2)-F_d(x_1)\bigr]
+ &=\frac2a\int_{r-a}^{r}\left(\frac{r^2x}{2}-\frac{x^3}{3}\right)\,dx\\
+ &=\frac{(2r-a)(r^2+2ar-a^2)}6=:H(d,a).\tag{9}
+\end{align*}
+Si $2r<a$, toute rangée occupée est un singleton, de contribution nulle. Ainsi (9) complète précisément le §6 de [ID], y compris lorsque la première ou la deuxième rangée comporte trois points ou plus. Les changements de phases déjà utilisés dans [ID] fournissent les lois uniformes pertinentes.
+
+Pour $0<a\le2$, on obtient directement, en intégrant la première rangée, puis le cas où elle est vide,
+\begin{align*}
+ G_0(a)&=a\int_{a^2/8}^{1/a}H(d,a)\,dd,\\
+ G_1(a)&=a\int_0^{a^2/8}
+  \left(1-\frac{2\sqrt{2d}}a\right)H(d+1/a,a)\,dd,\qquad G=G_0+G_1.
+\end{align*}
+La rangée 1 a alors une fenêtre de longueur au moins $a$. Ces formules deviennent autonomes par rapport à la note de modèle antérieure [M]. Le calcul de $G_0$ et $\int_0^2aG_0(a)\,da=141/140$ est confirmé symboliquement.
+
+\subhead{Deux premiers termes exacts de la queue du modèle}
+La formule exacte de [ID] pour $a\ge2$ peut s'écrire, avec $u=8/a^3$,
+\[
+ G(a)=\frac{a^3}{24}\int_0^1
+ \bigl(1-\sqrt{1-u(1-f)}\bigr)
+ \bigl((uf-7)\sqrt{1+uf}+7+3uf\bigr)\,df.\tag{10}
+\]
+Le développement uniforme pour $u\to0$ du produit de (10) est
+\[
+ \frac{u^2f(1-f)}4+
+ \frac{u^3f(1-f)(1+10f)}{16}+O(u^4).
+\]
+Ses intégrales sont $u^2/24+u^3/16+O(u^4)$. Ainsi
+\[
+ \boxed{G(a)=\frac1{9a^3}+\frac4{3a^6}+O(a^{-9}),\qquad
+ a^3G(a)=\frac{1+12/a^3}{9}+O(a^{-6}).}\tag{11}
+\]
+Claude a raison sur cette correction : elle est relative en $a^{-3}$, et non en $a^{-2}$. Il s'agit de la queue du modèle $G$, sans implication démontrée pour le second terme en $R$ du problème physique.
+
+\newpage
+\head{5. Rejouage numérique et affichage rigoureux}
+Le script joint a été exécuté sans modifier l'original. Les parties A à E reproduisent les valeurs de la sortie de référence, à l'exception du temps d'exécution et des dernières fluctuations d'arrondi flottant. Les neuf simulations utilisent chacune $2\cdot10^6$ tirages, avec la graine fixée du script ; les écarts sont tous inférieurs à une erreur standard en valeur absolue.
+
+\begin{tabularx}{\textwidth}{@{}lXX@{}}\toprule
+Calcul & Valeur rejouée & Nature du contrôle\\\midrule
+$J_0$ & $141/140$ & Calcul symbolique exact\\
+$J_1$ & $0{,}100019051910680863$ & Quadrature flottante\\
+$J_T$ & $0{,}0759292423148140273$ & Quadrature flottante\\
+$C_{\rm void}$ & $0{,}719233174880505782$ & Approximation, non certificat\\
+Partie C & Fractions rationnelles & Certificat avec restes explicites\\
+Densité d'arêtes & $0{,}549671818152$ & Quadrature diagnostique\\
+Borne de positivité & $0{,}393111\ldots$ & Valeur de la borne de [QU]\\\bottomrule
+\end{tabularx}
+
+\subhead{L'unique correction apportée au script}
+La partie C calcule correctement les bornes rationnelles $C_-$ et $C_+$. Mais son affichage \texttt{.18f} arrondit au plus proche. Il imprime
+\[
+ 0{,}719232985957311633<C_{\rm void}<0{,}719233362190182705.
+\]
+La décimale de gauche dépasse $C_-$, et celle de droite est inférieure à $C_+$. Ces deux affichages rétrécissent donc l'intervalle : le certificat rationnel ne les justifie pas en tant que bornes. Le raccourci de l'audit à neuf décimales, $]0{,}719232986;0{,}719233362[$, présente le même problème. Cela ne contredit pas la valeur approchée ni les bornes plus larges (3).
+
+Une copie distincte du script remplace uniquement cet affichage par des divisions entières sur les fractions exactes :
+\[
+ \underline C=10^{-18}\lfloor10^{18}C_-\rfloor,\qquad
+ \overline C=10^{-18}\lceil10^{18}C_+\rceil.
+\]
+Son rejouage certifie l'intervalle extérieur
+\[
+ \boxed{0{,}719232985957311632<C_{\rm void}
+ <0{,}719233362190182706.}\tag{12}
+\]
+Les tests rationnels d'arrondi à trois et six décimales passent également. Les erreurs de troncature annoncées, $E_1<4{,}607\cdot10^{-10}$ et $E_T<3{,}090\cdot10^{-7}$, sont reproduites. La proximité des quadratures n'est pas utilisée comme borne d'erreur.
+
+\subhead{Deux diagnostics à interpréter avec prudence}
+Le calcul $2\pi\times0{,}549671818152=3{,}453689892\ldots$ est cohérent avec la constante de Balog--Deshouillers citée dans [BB]. Il remplace la contribution d'une arête par son indicatrice et réutilise le même dépliage marqué : c'est un contrôle de normalisation, pas une preuve logiquement indépendante de ce dépliage. Il ne démontre pas, à lui seul, la convergence des nombres de sommets du réseau physique.
+
+L'écart entre l'ajustement historique $0{,}7204\pm0{,}0005$ et la constante approchée représente $2{,}33$ erreurs nominales. L'ajustement mentionné inclut une superellipse $p=3$, hors des hypothèses de (1), et les biais de modèle ne sont pas contrôlés. Des termes supérieurs pourraient expliquer l'écart ; cette cause n'est pas démontrée par l'audit.
+
+\newpage
+\head{6. Sources, attribution et limite de la piste spectrale}
+\subhead{Ce qu'il faut créditer explicitement}
+\begin{itemize}
+\item {}[NR] établit déjà l'ordre $R^{-1/3}$ en dimension deux pour les corps lisses concernés. Dans le plan, la formule de Cauchy relie largeur moyenne et périmètre. Toute affirmation antérieure selon laquelle cet ordre n'était pas démontré doit être retirée.
+\item {}[QU] reprend, dans une forme uniforme et normalisée par la courbure, la méthode de [NR, théorème 5.1] : disque intérieur, aire des calottes, puis borne d'évitement. La positivité reprend l'argument d'intensité et de Markov de [NR, lemme 3.3], ici appliqué à Haar affine ; ce n'est pas l'application littérale de leur lemme à une autre loi de réseaux.
+\item Pour la borne d'évitement de [NR, lemme 3.2], citer aussi [B, théorème 1.1]. Son texte précise que le cas plan était déjà établi dans [BM]. [BM] est également la référence du modèle de réseau translaté et tourné.
+\item {}[MS, corollaire 5.9] est bien la source d'équidistribution utilisée par [CV]. La remarque finale du §5.4 précise que ces résultats sur $\mathrm{SL}(d,\R)$ découlent du mélange diagonal sans recours à Ratner.
+\end{itemize}
+La version publiée de [NR] termine son §5 en demandant la convergence des probabilités normalisées pour les ellipsoïdes ; arXiv v1 dit plus largement « smooth $K$ ». Notre normalisation identifie leur fonction limite, en dimension deux, comme $f_K(x,u)=v_H(\kappa_u^{-1/3}x)$. L'angle pertinent pour le manuscrit est donc l'existence de la limite, l'intégrale de courbure et l'identification certifiée de la constante. La priorité au-delà des références examinées n'est pas tranchée.
+
+\subhead{Conserver la mesure marquée complète}
+Le théorème de moyenne de Siegel pour les vecteurs primitifs explique la densité marginale $1/\zeta(2)$ du vecteur marqué. Il ne justifie pas, à lui seul, la loi conjointe du cisaillement. [ID] doit conserver le dépliage de Haar marqué, explicité par [MS, §7, notamment (7.17)], puis la mesure $da\,db\,d\beta/(a\zeta(2))$. Le changement $b=at$ donne son facteur $a$, et les translations moyennées donnent les phases indépendantes. Remplacer toute cette étape par une simple mention de Siegel serait insuffisant.
+
+\subhead{Second terme : deux corrections avant toute attaque spectrale}
+Avec $s=\frac13\log(R/\kappa)$, l'identité exacte est
+\[
+ e^{-s/2}=(\kappa/R)^{1/6},\qquad
+ R^{-1/6}=\kappa^{-1/6}e^{-s/2}.\tag{13}
+\]
+Le facteur de courbure ne doit pas disparaître. En outre, la série positive
+\[
+ \sum_{w\in\Z^2\ {m primitif}}|w|^{-3/2}
+\]
+diverge. L'identification à une valeur finie d'Eisenstein de paramètre $3/4$ exige une continuation analytique ou une renormalisation explicite. La série définissant $E(z,\sigma)$ converge initialement pour $\Re\sigma>1$ ; [OS] distingue cette définition et sa continuation.
+
+La concordance d'exposants suggère une piste, sans établir un terme $B$. Il reste à définir l'observable renormalisée, ses projections spectrales et le contrôle de ses contributions en cuspide. Les notes CV--QU--ID ne fournissent pas ces étapes. Une relecture humaine du premier terme et un manuscrit unifié sont les prochaines étapes éditoriales ; aucun contact ni envoi n'a été effectué ici.
+
+\newpage
+\head{7. Références et contenu du dossier de vérification}
+\begin{description}[leftmargin=15mm,labelwidth=12mm]
+\item[CV] P. Royer, \emph{Convergence des probabilités de calottes vides vers le modèle limite}, DYN-VALIDEX, v0.1, 8 octobre 2026.
+\item[QU] P. Royer, \emph{Queues uniformes et espérance complète}, DYN-VALIDEX, v0.1, 8 octobre 2026.
+\item[ID] P. Royer, \emph{Identification de la constante : des calottes vides au modèle exact de rangées}, DYN-VALIDEX, v0.1, 8 octobre 2026.
+\item[NR] B. H. Ngoc et M. Reitzner, \emph{Expected mean width of the randomized integer convex hull}, Mathematika \textbf{67} (2021), 422--433. DOI \href{https://doi.org/10.1112/mtk.12080}{10.1112/mtk.12080}. Prépublication \href{https://arxiv.org/abs/2003.06864}{arXiv:2003.06864}. Le nom est cité selon la notice de l'éditeur ; l'audit emploie Binh--Reitzner.
+\item[MS] J. Marklof et A. Strömbergsson, \emph{The distribution of free path lengths in the periodic Lorentz gas and related lattice point problems}, Annals of Mathematics \textbf{172} (2010), 1949--2033. Prépublication contrôlée : \href{https://arxiv.org/pdf/0706.4395}{arXiv:0706.4395}, §5.4, corollaire 5.9 ; §7, décomposition de Haar.
+\item[B] I. Bárány, \emph{The chance that a convex body is lattice-point free: A relative of Buffon's needle problem}, Random Structures \& Algorithms \textbf{30} (2007), 414--426. DOI \href{https://doi.org/10.1002/rsa.20138}{10.1002/rsa.20138}. \href{https://www.renyi.hu/~barany/cikkek/106.pdf}{Texte de l'auteur}, théorème 1.1 et précision sur le cas plan p. 416.
+\item[BM] I. Bárány et J. Matoušek, \emph{The Randomized Integer Convex Hull}, Discrete \& Computational Geometry \textbf{33} (2005), 3--25. DOI \href{https://doi.org/10.1007/s00454-003-0836-1}{10.1007/s00454-003-0836-1}. \href{https://www.renyi.hu/~barany/cikkek/95.pdf}{Texte des auteurs}.
+\item[BB] A. Balog et I. Bárány, \emph{The integer hull of the set $\{xy\ge N\}$}, \href{https://arxiv.org/html/2602.06897v1}{arXiv:2602.06897v1} (2026), introduction. Le texte cite $3{,}453\ldots$ pour le résultat de Balog--Deshouillers sur les disques, avec moyenne sur le rayon. Cette référence ne certifie pas les dix décimales du diagnostic du §5.
+\item[OS] C. O'Sullivan, \emph{Formulas for non-holomorphic Eisenstein series and for the Riemann zeta function at odd integers}, version du 16 août 2018, \href{https://fsw01.bcc.cuny.edu/cormac.osullivan/Research/Eisenstein-series-Riemann-zeta3.pdf}{texte de l'auteur}, définition (1.4) et §3.2.
+\end{description}
+
+\subhead{Pièces contrôlées et reproductibilité}
+Les trois pièces Claude fournies ont été lues : la note de vérification, le script et sa sortie de référence. Le dossier associé conserve ces pièces sans modification et comprend :
+\begin{itemize}
+\item le présent PDF et son source \LaTeX ;
+\item la sortie complète du rejouage A--E, avec la même graine Monte-Carlo ;
+\item une copie du script dont seul l'affichage des bornes C2 est corrigé par arrondis extérieurs exacts, et la sortie de sa partie C ;
+\item un relevé de validation, les versions des dépendances et les empreintes SHA-256.
+\end{itemize}
+Les parties B, D et E demeurent des contrôles flottants ou statistiques. La partie C utilise des fractions rationnelles et des bornes de reste : elle porte le certificat. Les trois notes initiales et leurs sources sont jointes sans modification ; leurs certificats détaillés restent dans le dossier d'identification précédent.
+
+\subhead{Corrections à reporter lors de la fusion}
+Ajouter (9) dans [ID], remplacer les affichages intérieurs du certificat, compléter les crédits, distinguer les deux formulations de la question de [NR], puis adopter le théorème $C^2$ avec les preuves (4)--(8) et la perte de taux géométrique. Garder (11) comme correction de la queue du modèle, et (13) comme correction de la piste spectrale. Le second terme et les points plats doivent conserver leur statut ouvert.
+\end{document}

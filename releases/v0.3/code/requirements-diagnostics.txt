@@ -1,0 +1,5 @@
+# Optional: the exact certificate itself needs only the Python standard library.
+# Versions used for the supplied independent diagnostic replay:
+numpy==2.3.5
+mpmath==1.3.0
+sympy==1.14.0

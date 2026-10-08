@@ -1,0 +1,15 @@
+DYN-VALIDEX — dossier de publication v0.3 — 8 octobre 2026
+
+Auteur : Patrick Royer, chercheur indépendant sans affiliation institutionnelle.
+
+Le manuscrit unifié est dans manuscript/. Il contient la convergence des calottes vides, le contrôle uniforme des queues, le passage à l'espérance complète, l'identification par le modèle de rangées et le certificat rationnel. Le complément C² est intégré au texte.
+
+Le résultat porte sur un convexe fixé à bord C² et à courbure strictement positive. La valeur arrondie certifiée est 0,719233. Le terme suivant, les points plats et les superellipses hors hypothèses restent ouverts. Aucune relecture humaine indépendante n'est attestée.
+
+Les notes et fichiers Claude sont conservés à l'identique en tant que pièces datées. Leur statut historique ne remplace pas celui du nouveau manuscrit.
+
+La licence retenue est DEL 1.1, avec son périmètre explicite. Ne pas la remplacer par une autre licence.
+
+Pour le dépôt, joindre cette archive à Codex et lui transmettre publication/PROMPT_CODEX_DEPOT.txt. Il doit vérifier le dépôt existant, publier une nouvelle version et rendre les URL et le nouveau DOI vérifiés. Le DOI antérieur ne doit pas être attribué au nouveau texte.
+
+Ce dossier est préparé ; il n'atteste ni transmission externe automatique ni publication déjà réalisée.

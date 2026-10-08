@@ -1,0 +1,55 @@
+{
+  "version": "0.3",
+  "date": "2026-10-08",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "mpmath": "1.3.0",
+    "sympy": "1.14.0",
+    "pdflatex": "TeX Live 2023/Debian",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39"
+  },
+  "rational_certificate": {
+    "command": "python3 code/cert_identity_rational.py --N 100 --output results/CERTIFICATE.json",
+    "exit_code": 0,
+    "all_non_time_fields_equal_prior_certificate": true,
+    "lower_outward": "0.719232985957311632",
+    "upper_outward": "0.719233362190182706",
+    "six_decimal_rounding_verified": true
+  },
+  "independent_replay": {
+    "command": "python3 code/verif_notes_arrondis_exterieurs.py A B C D E",
+    "exit_code": 0,
+    "symbolic_checks": true,
+    "same_outward_bounds": true,
+    "quadrature_results_match": true,
+    "monte_carlo_parameters": 9,
+    "samples_per_parameter": 2000000,
+    "monte_carlo_role": "diagnostic, not proof"
+  },
+  "manuscript_pdf": {
+    "pages": 13,
+    "compiled_twice_after_final_changes": true,
+    "latex_warnings": 0,
+    "visual_review": "All 13 final pages inspected via rendered page contact sheets; no clipping, overlap, illegible symbols or unresolved references observed."
+  },
+  "unchanged_evidence_sha256": {
+    "evidence/claude_original/verif_notes_2026-10-08_sortie.txt": "369c4be1e87be51607ae92cbf2339bf1195d0d4b7d9b0f2036ca69c680c3fc8b",
+    "evidence/claude_original/verification_preuves_2026-10-08.md": "3de6f0cf13d60d881002477958255ca59c71cc97d8f0ac5eed75b2323bb96d76",
+    "evidence/claude_original/verif_notes_2026-10-08.py": "af96ecdfa14f5a27ed619ce66b9d9cdd199210a60f7439d7080a8d7e8f02ec1b",
+    "evidence/notes_originales/DYN-CONTRE_AUDIT_CLAUDE_ET_COMPLEMENT_C2_v0_1.tex": "993fab58df759264363dd8fbe1dadd3711a13ca511f392e53640480e7402091e",
+    "evidence/notes_originales/DYN-PREUVE_QUEUES_UNIFORMES_ET_ESPERANCE_v0_1.tex": "a49a44afb8fd1ce5a401061ff5143abfb215a7b9c58936513f1498faa4797630",
+    "evidence/notes_originales/DYN-PREUVE_CONVERGENCE_CALOTTES_VIDES_v0_1.tex": "c52da29892a07061c5e1ebefad134b51f29b3a37f26f54d82351d18c2d156db0",
+    "evidence/notes_originales/DYN-PREUVE_IDENTIFICATION_CONSTANTE_v0_1.tex": "ef5daffe8e4a85285e58ae287c248e23d22a86694cf20f04371b2c745e041b99",
+    "evidence/notes_originales/DYN-PREUVE_QUEUES_UNIFORMES_ET_ESPERANCE_v0_1.pdf": "db025ab406809fd206286b42ddf7c46b493a53bd1e61e4a8ff85876f69ff651f",
+    "evidence/notes_originales/DYN-PREUVE_IDENTIFICATION_CONSTANTE_v0_1.pdf": "7a41416e8b794b5a72613e4382dd5028e25233a007c0decbdd50cf0d8f3b9cf7",
+    "evidence/notes_originales/DYN-PREUVE_CONVERGENCE_CALOTTES_VIDES_v0_1.pdf": "ba4e1b7cc339ad7e32a60fc564f881d68501212cd4109f2eae7b6000eb4a5e78",
+    "evidence/notes_originales/DYN-CONTRE_AUDIT_CLAUDE_ET_COMPLEMENT_C2_v0_1.pdf": "e554a0e3166ea23d504bb7f3e858bd2065fba6739ea8ee93c42f114f38653878"
+  },
+  "licence_pdf_unchanged": true,
+  "human_mathematical_review_attested": false,
+  "formal_proof_assistant_verification": false,
+  "remote_publication_verified": false,
+  "transmission_to_external_codex_performed": false,
+  "archive_integrity": "Checked separately by code/validate_release.py and ZIP extraction; does not verify the mathematical proof."
+}

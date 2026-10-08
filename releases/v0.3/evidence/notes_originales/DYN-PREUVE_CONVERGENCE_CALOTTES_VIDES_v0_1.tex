@@ -1,0 +1,264 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[provide=*,french]{babel}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=22mm,headheight=15pt]{geometry}
+\usepackage{xcolor,booktabs,tabularx,enumitem,fancyhdr,hyperref}
+\definecolor{navy}{HTML}{203C63}
+\definecolor{muted}{HTML}{536478}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,pdftitle={Convergence des probabilités de calottes vides},pdfauthor={Patrick Royer}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{muted}DYN-VALIDEX | Calottes vides}
+\fancyhead[R]{\small\color{muted}v0.1 | 8 octobre 2026}
+\fancyfoot[C]{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlist{nosep,leftmargin=18pt}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}\newcommand{\Prb}{\mathbb P}
+\newcommand{\area}[1]{\lvert #1\rvert}
+\newcommand{\emptyprob}[1]{\mathbf 1\{#1=\varnothing\}}
+\newcommand{\head}[1]{\vspace{3pt}{\large\bfseries\color{navy}#1}\par}
+\newcommand{\subhead}[1]{{\bfseries\color{navy}#1}\par}
+\begin{document}
+{\LARGE\bfseries\color{navy}Convergence des probabilités\\[3pt]de calottes vides}\par
+{\large Du réseau carré randomisé au modèle parabolique de Haar}\par
+Patrick Royer --- chercheur indépendant, non affilié\par
+Note de démonstration distincte v0.1 --- 8 octobre 2026\par
+\vspace{3pt}\hrule\vspace{6pt}
+
+\head{1. Résultat et hypothèses}
+Soit $K\subset\R^2$ un corps convexe compact d'intérieur non vide, dont le bord est de classe $C^3$ et de courbure strictement positive. Pour la normale extérieure
+$u_\varphi=(\cos\varphi,\sin\varphi)$, notons $p_K(\varphi)$ l'unique point de support et $\kappa_\varphi$ sa courbure. Posons
+\[
+ p_R(\varphi)=R p_K(\varphi),\qquad q_{R,\varphi}=\frac{\kappa_\varphi}{R}.
+\]
+Le réseau initial est $L=\rho(\theta)(\Z^2+t)$, avec $\theta$ uniforme sur $[0,2\pi)$ et $t$ uniforme sur $[0,1)^2$, indépendamment. La calotte de profondeur normalisée $z\ge0$ est
+\[
+ A_{R,\varphi}(z)=\{x\in RK:\ \langle x,u_\varphi\rangle
+ \ge h_{RK}(u_\varphi)-q_{R,\varphi}^{1/3}z\},
+ \qquad v_R(z,\varphi)=\Prb(L\cap A_{R,\varphi}(z)=\varnothing).
+\]
+Soit $\mu_{\rm aff}$ la probabilité de Haar sur l'espace des réseaux affines unimodulaires. Définissons
+\[
+ A(z)=\{(X,Y):X^2/2\le Y\le z\},\qquad
+ v_H(z)=\mu_{\rm aff}\{\Lambda:\Lambda\cap A(z)=\varnothing\}.
+\]
+\subhead{Proposition}
+Sous ces hypothèses, pour tout $0\le Z_0<\infty$,
+\[
+ \boxed{\displaystyle
+ \lim_{R\to\infty}\ \sup_{\substack{\varphi\in[0,2\pi)\\0\le z\le Z_0}}
+ |v_R(z,\varphi)-v_H(z)|=0.}
+ \tag{1}
+\]
+La preuve applique un théorème publié d'équidistribution à une fonction continue bornée obtenue par moyenne exacte sur les translations. Elle ne requiert pas un théorème pour une observable non bornée près du cusp.
+
+\textbf{Portée DYN-VALIDEX.} L'hypothèse de convergence des probabilités dans la route par calottes est ainsi traitée sous le modèle randomisé indiqué. Cette note ne démontre pas encore la convergence des espérances sur toutes les profondeurs, ni l'identité avec l'intégrale du modèle de rangées, ni un second ordre. Aucun taux total de convergence et aucune priorité scientifique ne sont revendiqués.
+
+\newpage
+\head{2. Géométrie : convergence des calottes en aire}
+Les coordonnées physiques $(x,y)$ sont tangentielles et normales intérieures autour de $p_R(\varphi)$. Choisissons la tangente $\tau_\varphi=(-\sin\varphi,\cos\varphi)$ et la normale intérieure $-u_\varphi$ : le repère est orienté positivement. La transformation
+\[
+ X=q_{R,\varphi}^{1/3}x,\qquad
+ Y=q_{R,\varphi}^{-1/3}y
+ \tag{2}
+\]
+est de déterminant $1$. Notons $B_{R,\varphi}(z)$ l'image de la calotte par cette transformation après centrage.
+
+\subhead{Développement uniforme du bord}
+Dans les coordonnées du corps $K$, son bord près du point de support est le graphe
+\[
+ f_\varphi(x)=\frac{\kappa_\varphi}{2}x^2+O_K(|x|^3).
+\]
+La compacité du bord, sa régularité $C^3$ et $0<\kappa_{\min}\le\kappa_\varphi\le\kappa_{\max}$ permettent de choisir un domaine de graphe et une constante de reste indépendants de $\varphi$. Le bord de $RK$ est donc
+\[
+ y=R f_\varphi(x/R)
+   =\frac{\kappa_\varphi}{2R}x^2+O_K(|x|^3/R^2).
+\]
+Après (2), son graphe $g_{R,\varphi}$ vérifie
+\[
+ g_{R,\varphi}(X)
+ =\frac{X^2}{2}
+  +O_K(\kappa_\varphi^{-4/3}R^{-2/3}|X|^3)
+ =\frac{X^2}{2}+O_K(R^{-2/3}|X|^3).
+ \tag{3}
+\]
+
+\subhead{Confinement uniforme}
+Les calottes correspondent, dans $K$, à des hauteurs $O_K(R^{-4/3}Z_0)$. Hors d'un voisinage uniforme du point de support, la profondeur a un minimum strictement positif : l'ensemble des couples $(\varphi,x)$ concernés est compact et le point de support est unique. Les calottes sont donc confinées dans les cartes locales. En réduisant celles-ci, on a $f_\varphi(x)\ge\kappa_\varphi x^2/4$. Ainsi, pour $R$ assez grand,
+\[
+ B_{R,\varphi}(z)\subset\{|X|\le2\sqrt{Z_0},\ 0\le Y\le Z_0\}
+ \quad(0\le z\le Z_0).
+\]
+Dans cette boîte, la section verticale du domaine est exactement de longueur $(z-g_{R,\varphi}(X))_+$, où $a_+=\max(a,0)$. Celle de $A(z)$ a pour longueur $(z-X^2/2)_+$. Les deux sections ont la même borne supérieure $z$ ; leur différence symétrique est donc de longueur égale à la différence absolue de ces longueurs. Par (3),
+\begin{align*}
+ \area{B_{R,\varphi}(z)\triangle A(z)}
+ &\le \int_{-2\sqrt{Z_0}}^{2\sqrt{Z_0}}
+       |g_{R,\varphi}(X)-X^2/2|\,dX\\
+ &\le C_{K,Z_0}R^{-2/3}.
+ \tag{4}
+\end{align*}
+La borne est uniforme en $\varphi$ et $z\in[0,Z_0]$. Pour $z=0$, les domaines se réduisent au point de support normalisé et leur aire est nulle.
+
+\newpage
+\head{3. Moyenne sur les translations : deux lemmes exacts}
+Utilisons désormais les vecteurs-lignes. Pour $M\in SL(2,\R)$ et un ensemble borné mesurable $B$, définissons
+\[
+ F_B(M)=\int_{[0,1)^2}
+   \mathbf1\{(\Z^2+a)M\cap B=\varnothing\}\,da.
+ \tag{5}
+\]
+Le changement de base $M\mapsto\gamma M$, $\gamma\in SL(2,\Z)$, conserve cette moyenne : $a\mapsto a\gamma$ préserve Haar sur le tore. $F_B$ est donc une fonction de l'espace
+$X_0=SL(2,\Z)\backslash SL(2,\R)$, avec $0\le F_B\le1$.
+
+\subhead{Lemme 1. Intensité et stabilité par aire}
+Pour tout ensemble mesurable $D$ de mesure finie,
+\begin{align*}
+ \int_{[0,1)^2}\#((\Z^2+a)M\cap D)\,da
+ &=\sum_{n\in\Z^2}\int_{[0,1)^2}\mathbf1_D((n+a)M)\,da\\
+ &=\int_{\R^2}\mathbf1_D(xM)\,dx=\area D.
+ \tag{6}
+\end{align*}
+La première égalité est justifiée par Tonelli ; la dernière utilise $\det M=1$. Si deux événements de vide diffèrent, un point rencontre $B\triangle B'$. La borne de Markov appliquée au comptage donne, pour tout $M$,
+\[
+ \boxed{|F_B(M)-F_{B'}(M)|\le\area{B\triangle B'}.}
+ \tag{7}
+\]
+Cette borne est exacte et indépendante de la forme du réseau. Elle reste valable dans les régions non compactes de $X_0$.
+
+\subhead{Lemme 2. Continuité du test moyenné}
+Si $B$ est compact et $\area{\partial B}=0$, alors $F_B$ est continue et bornée sur $X_0$.
+
+\textit{Preuve.} Soit $M_j\to M$. Comme $B$ est borné et les inverses $M_j^{-1}$ restent bornés pour $j$ assez grand, seuls un nombre fini de $n\in\Z^2$ peuvent satisfaire $(n+a)M_j\in B$ pour un $a\in[0,1)^2$. Par (6) appliquée à $\partial B$, presque toute translation $a$ ne place aucun point sur cette frontière pour $M$. Pour une telle translation, chacun des points de la liste finie est soit dans l'intérieur de $B$, soit dans son complément ouvert, et l'indicatrice de vide se stabilise lorsque $j\to\infty$. La convergence dominée par $1$ donne $F_B(M_j)\to F_B(M)$. La fonction étant invariante sous le changement de base entier, la continuité descend au quotient.\hfill$\square$
+
+Les frontières paraboliques $\partial A(z)$ sont d'aire nulle. Ces deux lemmes s'appliquent donc à $F_{A(z)}$, y compris à $z=0$ où $F_{A(0)}=1$.
+
+\newpage
+\head{4. Réduction exacte au théorème d'équidistribution}
+\subhead{Centrage et ordre des matrices}
+Soit $O_\varphi\in SO(2)$ la matrice dont les colonnes sont $\tau_\varphi$ et $-u_\varphi$. En convention lignes, le réseau physique initial est $(\Z^2+t)\rho(\theta)^T$. La transformation normalisée est
+\[
+ w\longmapsto (w-p_R)O_\varphi D_q,\qquad
+ D_q=\operatorname{diag}(q^{1/3},q^{-1/3}).
+\]
+Le réseau obtenu s'écrit
+\[
+ (\Z^2+t)M-p_RO_\varphi D_q=(\Z^2+a)M,
+ \quad M=\rho(\theta)^T O_\varphi D_q,
+ \quad a=t-p_R\rho(\theta)\pmod{\Z^2}.
+ \tag{8}
+\]
+Conditionnellement à $\theta$, $a$ est exactement uniforme sur le tore. Le centrage divergent avec $R$ est ainsi absorbé, sans hypothèse diophantienne.
+
+Comme $\theta$ est uniforme, $\rho(\theta)^TO_\varphi$ est uniforme sur $SO(2)$. Posons
+\[
+ s_{R,\varphi}=\frac13\log\frac{R}{\kappa_\varphi},\qquad
+ \Phi_s=\operatorname{diag}(e^{-s},e^s)=D_q,
+ \quad \Psi_s F=\frac1{2\pi}\int_0^{2\pi}F(\rho(\alpha)\Phi_s)\,d\alpha.
+\]
+La moyenne sur $t$ puis sur $\theta$ et les bornes (4), (7) donnent
+\[
+ |v_R(z,\varphi)-\Psi_{s_{R,\varphi}}F_{A(z)}|
+ \le C_{K,Z_0}R^{-2/3}\qquad(0\le z\le Z_0).
+ \tag{9}
+\]
+
+\subhead{Théorème publié utilisé}
+Le corollaire 5.9 de Marklof--Strömbergsson [MS], au niveau de congruence $1$, donne pour tout $F\in C_b(X_0)$
+\[
+ \Psi_sF\ \longrightarrow\ \int_{X_0}F\,d\mu_0
+ \qquad(s\to\infty),
+ \tag{10}
+\]
+où $\mu_0$ est la probabilité de Haar. On prend leur $M=I$, leur paramètre de dimension $d=2$, la rotation comme application angulaire et une famille constante de tests. La mesure angulaire est absolument continue ; la différentielle de $\alpha\mapsto e_1\rho(\alpha)^{-1}$ ne s'annule pas. L'intervalle ouvert $(0,2\pi)$ omet seulement deux extrémités de mesure nulle. Leur niveau de congruence est distinct de notre courbure $q$.
+
+Par désintégration de Haar affine en Haar de la base et Haar de chaque tore de translations,
+\[
+ \int_{X_0}F_{A(z)}\,d\mu_0=v_H(z).
+\tag{11}
+\]
+Le produit désintégré de ces probabilités est invariant sous les translations, puis sous $SL(2,\R)$ ; il est donc la probabilité de Haar affine. Le lemme 2 autorise (10). Avec (9) et $s_{R,\varphi}\to\infty$, on obtient la convergence demandée pour chaque direction et profondeur fixées.
+
+\newpage
+\head{5. Uniformité et conséquences sur les profondeurs bornées}
+\subhead{Uniformité dans les directions}
+La dépendance en $\varphi$ du test fixe a disparu de la moyenne de rotations. Elle subsiste seulement dans le temps $s_{R,\varphi}$. Or
+\[
+ \inf_\varphi s_{R,\varphi}=\frac13\log\frac{R}{\kappa_{\max}}
+ \longrightarrow\infty.
+\]
+La définition même de la limite (10) entraîne
+\[
+ \sup_\varphi|\Psi_{s_{R,\varphi}}F_{A(z)}-v_H(z)|\longrightarrow0
+\]
+pour chaque $z$ fixé. Aucun taux d'équidistribution ni nouveau théorème uniforme en $\varphi$ n'est nécessaire.
+
+\subhead{Uniformité sur un intervalle de profondeurs}
+Les ensembles $A(z)$ sont emboîtés et
+\[
+ \area{A(z)}=\frac{4\sqrt2}{3}z^{3/2}.
+\]
+Pour $0\le z,z'\le Z_0$, (7) entraîne
+\[
+ \|F_{A(z)}-F_{A(z')}\|_\infty
+ \le\area{A(z)\triangle A(z')}
+ \le2\sqrt{2Z_0}\,|z-z'|.
+ \tag{12}
+\]
+Le même module vaut pour $v_H$, après intégration sur $X_0$. Un filet fini de $[0,Z_0]$, (10) aux points du filet, puis (12) donnent
+\[
+ \sup_{0\le z\le Z_0}|\Psi_sF_{A(z)}-v_H(z)|\longrightarrow0.
+\]
+La convergence est uniforme pour tout $s$ suffisamment grand. En combinant avec (9) et le minimum des temps, on obtient (1).\hfill$\square$
+
+\subhead{Corollaire : convergence des intégrales tronquées}
+Pour chaque $0\le Z_0<\infty$,
+\[
+ \sup_\varphi\left|\int_0^{Z_0}v_R(z,\varphi)\,dz
+             -\int_0^{Z_0}v_H(z)\,dz\right|\longrightarrow0.
+ \tag{13}
+\]
+En posant $C_{\rm void}(Z_0)=\int_0^{Z_0}v_H(z)\,dz$, on déduit aussi
+\[
+ R^{1/3}\int_0^{2\pi}q_{R,\varphi}^{1/3}
+          \int_0^{Z_0}v_R(z,\varphi)\,dz\,d\varphi
+ \longrightarrow C_{\rm void}(Z_0)I_{4/3}(K),
+ \tag{14}
+\]
+car $d\varphi=\kappa_\varphi\,ds_K$. Il s'agit d'une contribution tronquée de l'identité du déficit moyen ; $Z_0$ reste fixé. Passer à $Z_0\to\infty$ exige encore un contrôle uniforme des queues. L'erreur géométrique $O(R^{-2/3})$ de (9) n'est pas un taux pour l'ensemble de la convergence.
+
+\newpage
+\head{6. Registre DYN-VALIDEX et jalon suivant}
+\begin{tabularx}{\textwidth}{@{}p{.38\textwidth}X@{}}
+\toprule
+Élément & Statut et justification\\
+\midrule
+Normalization et loi de translation & Identités exactes ; déterminant $1$ et translation uniforme conditionnelle, équations (2), (8).\\
+Déformation des calottes & Aire symétrique $O_{K,Z_0}(R^{-2/3})$, uniforme sur profondeurs bornées, démontrée en (4).\\
+Test moyenné & Continu borné et stable en aire, démontré par les lemmes 1 et 2.\\
+Équidistribution & Entrée théorique publiée [MS], corollaire 5.9 ; hypothèses et convention de matrices vérifiées.\\
+Convergence des probabilités & Démonstration rédigée sous les hypothèses de la page 1, avec convergence uniforme (1).\\
+Espérance non tronquée & Non établie dans cette note ; uniformité intégrable en profondeur à fournir.\\
+Identification avec le modèle de rangées & Non établie ici : $C_{\rm void}\stackrel{?}{=}(6/\pi^2)\int_0^\infty aG(a)\,da$.\\
+Valeur $\approx0,719$ et second ordre & Non certifiés par ce résultat.\\
+\bottomrule
+\end{tabularx}
+
+\subhead{Prochain jalon précis}
+Établir, pour les mêmes corps et le même modèle randomisé, une majoration intégrable indépendante de $R$ suffisamment grand et de $\varphi$, par exemple
+\[
+ v_R(z,\varphi)\le\min(1,A_K z^{-3/2})\qquad(z>0).
+\]
+Cette assertion n'est pas une conséquence de la seule convergence (1). Le lemme 3.2 de [NR] suggère une voie par la borne d'évitement en inverse de l'aire de la calotte, avec une comparaison géométrique uniforme à démontrer sur la plage requise. Ce jalon permettrait le passage à l'espérance complète par convergence dominée.
+
+\subhead{Provenance et vérification}
+Cette proposition est une déduction des théorèmes cités et des lemmes élémentaires exposés, pas une revendication de nouveauté. Patrick Royer reste responsable de son usage et de sa soumission. ChatGPT/Codex a contribué à la rédaction et à l'intégration ; deux contre-lectures IA ont examiné séparément la géométrie et l'application d'équidistribution, puis la cohérence de l'argument. Il s'agit d'une vérification mathématique assistée par IA, sans revue humaine indépendante ni vérification par assistant de preuve formel. Aucune campagne numérique n'est nécessaire à l'argument présenté.
+
+\subhead{Références primaires}
+\small\raggedright
+[MS] J. Marklof et A. Strömbergsson, \textit{The distribution of free path lengths in the periodic Lorentz gas and related lattice point problems}, Annals of Mathematics \textbf{172} (2010), 1949--2033. DOI : \href{https://doi.org/10.4007/annals.2010.172.1949}{10.4007/annals.2010.172.1949}. Prépublication consultée : \href{https://arxiv.org/pdf/0706.4395}{arXiv:0706.4395v2}, section 5.4, corollaire 5.9, p.23 imprimée / 23e page du PDF ; définition des réseaux affines et de leur mesure, section 2.1. Consultation le 8 octobre 2026.
+
+[NR] Binh Hong Ngoc et M. Reitzner, \textit{Expected mean width of the randomized integer convex hull}, Mathematika \textbf{67} (2021), 422--433. DOI : \href{https://doi.org/10.1112/mtk.12080}{10.1112/mtk.12080}. \href{https://arxiv.org/abs/2003.06864}{arXiv:2003.06864}, lemmes 3.1 et 3.2. Référence de l'identité du déficit et piste pour le jalon de domination ; aucun résultat de queue nouveau n'est déduit ici.
+\end{document}

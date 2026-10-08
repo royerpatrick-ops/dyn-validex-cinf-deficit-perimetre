@@ -1,0 +1,518 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{xcolor,booktabs,tabularx,enumitem,fancyhdr,hyperref}
+\definecolor{navy}{HTML}{203C63}\definecolor{muted}{HTML}{536478}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,citecolor=navy,pdftitle={A leading-term asymptotic for the perimeter deficit of randomized integer convex hulls},pdfauthor={Patrick Royer}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{muted}Randomized integer convex hulls}
+\fancyhead[R]{\small\color{muted}DYN-VALIDEX | v0.3}
+\fancyfoot[C]{\small\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{1.5em}
+\setlist{nosep,leftmargin=18pt}\renewcommand{\arraystretch}{1.12}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}\newcommand{\Prob}{\mathbb P}
+\newcommand{\area}[1]{|#1|}\newcommand{\Cvoid}{C_{\mathrm{void}}}
+\newcommand{\Pcal}{\mathcal P}\newcommand{\Hrow}{\mathcal H}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}\newtheorem{remark}{Remark}
+\numberwithin{equation}{section}
+\title{\color{navy}A leading-term asymptotic for the perimeter deficit\\of randomized integer convex hulls}
+\author{Patrick Royer\\\small Independent researcher, without institutional affiliation}
+\date{Version 0.3 --- 8 October 2026\\\small AI-assisted preprint; no independent human mathematical review attested}
+\begin{document}
+\selectlanguage{english}\maketitle
+\begin{abstract}
+For a planar convex body with $C^2$ boundary and strictly positive curvature, we derive a leading-term asymptotic for the expected perimeter deficit of its randomized integer convex hull. Exact averaging over lattice translations reduces empty-cap probabilities to bounded continuous tests on the space of unimodular lattices. Expanding-circle equidistribution and an integrable uniform tail bound give the complete expectation. A stationary parabolic mass transport and primitive marked Haar unfolding identify the coefficient with an explicit row-model integral. Exact rational series evaluation yields $0.71923298<\Cvoid<0.71923337$, hence the rounded value $0.719233$. The previously established order $R^{-1/3}$ is credited separately from the limit and coefficient identification. No second-order term, effective convergence rate, flat-point extension, or scientific priority is claimed. The proofs and computations have been developed and checked with AI assistance and remain submitted for independent mathematical scrutiny.
+\end{abstract}
+\textbf{Résumé.} Pour un corps convexe plan à bord $C^2$ et à courbure strictement positive, nous établissons une asymptotique du déficit moyen de périmètre de sa coque entière randomisée. La convergence des probabilités de calottes vides, leur domination intégrable et un transport de masse dans le modèle parabolique identifient le coefficient principal. Un calcul rationnel certifie son encadrement. Le second terme, les points plats et un taux effectif restent ouverts. Les contributions des IA sont déclarées ; aucune relecture mathématique humaine indépendante n'est attestée.
+\selectlanguage{english}
+
+\section{Model, main result and relation to earlier work}
+Let $K\subset\R^2$ be a compact convex body with nonempty interior. Write $P(K)$ for its perimeter. For $R>0$, set
+\begin{equation}\label{eq:law}
+ L=\rho(\theta)(\Z^2+t),\qquad
+ \theta\sim\operatorname{Unif}[0,2\pi),\quad
+ t\sim\operatorname{Unif}[0,1)^2,
+ \qquad Q_R=\operatorname{conv}(L\cap RK),
+\end{equation}
+with independent $\theta,t$, and $\rho(\theta)$ the Euclidean rotation. Translation is taken modulo the integer lattice \emph{before} rotation. All limiting statements below concern a fixed body $K$.
+
+\begin{theorem}\label{thm:main}
+Suppose $\partial K$ is $C^2$ and its curvature $\kappa$ is strictly positive everywhere. Then
+\begin{equation}\label{eq:main}
+ \E\bigl[P(RK)-P(Q_R)\bigr]
+ =\Cvoid\left(\int_{\partial K}\kappa^{4/3}\,ds\right)R^{-1/3}
+ +o_K(R^{-1/3}).
+\end{equation}
+The coefficient is independent of $K$ and admits the identities
+\begin{equation}\label{eq:constant}
+ \Cvoid=\int_0^\infty v_H(z)\,dz
+ =\frac1{\zeta(2)}\int_0^\infty aG(a)\,da,
+ \qquad 0.71923298<\Cvoid<0.71923337.
+\end{equation}
+Here $v_H$ is the Haar-affine avoidance probability of the parabolic cap defined in Section~\ref{sec:caps}, and $G$ is the row-model expectation defined in Section~\ref{sec:rows}.
+\end{theorem}
+
+The randomized integer-hull model was studied by Bárány--Matoušek \cite{BM}. Ngoc--Reitzner \cite{NR} already prove the order $R^{-1/3}$ for the smooth planar case. Their published Section~5 asks for convergence of normalized empty-cap probabilities for ellipsoids; arXiv v1 formulates the question for smooth bodies. The present argument addresses this convergence and the coefficient identification in dimension two. Its uniform-tail method follows their Theorem~5.1, using the avoidance estimate attributed to Bárány \cite{B}, whose planar case goes back to \cite{BM}. These attributions are part of the result's scope.
+
+This manuscript consolidates the three proof notes and their regularity supplement \cite{CV,QU,ID,CA}. It develops the earlier candidate model \cite{M2}; that version's historical conjectural claims remain attached to their original date. Literature priority beyond the references checked here is not established. The presentation supplies a mathematical derivation and a numerical certificate, while distinguishing both from AI or human review status.
+
+\section{Normalized caps and their uniform geometric limit}\label{sec:caps}
+For $u_\varphi=(\cos\varphi,\sin\varphi)$, let $p_K(\varphi)$ be the support point, $\kappa_\varphi$ its curvature and $h_K$ the support function. Put
+\[
+ p_R(\varphi)=Rp_K(\varphi),\qquad q_{R,\varphi}=\kappa_\varphi/R,
+ \qquad h=q_{R,\varphi}^{1/3}z.
+\]
+For $z\ge0$, define the physical cap and its avoidance probability by
+\begin{equation}\label{eq:caps}
+ A_{R,\varphi}(z)=\{w\in RK:w\cdot u_\varphi\ge h_{RK}(u_\varphi)-h\},
+ \qquad v_R(z,\varphi)=\Prob\{L\cap A_{R,\varphi}(z)=\varnothing\}.
+\end{equation}
+Let $\mu_{\rm aff}$ be Haar probability on affine unimodular lattices, and set
+\begin{equation}\label{eq:parabola}
+ \Pcal=\{(X,Y):Y\ge X^2/2\},\quad A(z)=\{X^2/2\le Y\le z\},
+ \quad v_H(z)=\mu_{\rm aff}\{\Lambda:\Lambda\cap A(z)=\varnothing\}.
+\end{equation}
+
+Choose the positively oriented frame $(\tau_\varphi,-u_\varphi)$, where $\tau_\varphi=(-\sin\varphi,\cos\varphi)$. In coordinates tangent to $K$ and measuring inward depth, the boundary is $y=f_\varphi(x)$ with
+\[
+ f_\varphi(0)=f_\varphi'(0)=0,\qquad f_\varphi''(0)=\kappa_\varphi.
+\]
+There is a common graph interval. Indeed, an arclength parametrization $\gamma$ is $C^2$; its tangential coordinate at $\gamma(s)$ has derivative $1$ at $s$. Uniform continuity of the tangent gives a common interval where this derivative is at least $1/2$. Inverting this coordinate gives second graph derivatives jointly continuous in the support point and graph coordinate. Compactness therefore supplies a nondecreasing modulus $\omega_K(r)\to0$ such that
+\begin{equation}\label{eq:c2}
+ \left|f_\varphi(x)-\frac{\kappa_\varphi x^2}{2}\right|
+ \le\frac{x^2}{2}\omega_K(|x|).
+\end{equation}
+Also $0<\kappa_-\le\kappa_\varphi\le\kappa_+<\infty$.
+
+The boundary of $RK$ is $y=Rf_\varphi(x/R)$. Apply the determinant-one map
+\begin{equation}\label{eq:scaling}
+ X=q_{R,\varphi}^{1/3}x,\qquad Y=q_{R,\varphi}^{-1/3}y.
+\end{equation}
+Its normalized graph $g_{R,\varphi}$ satisfies, on each fixed bounded interval of $X$,
+\begin{equation}\label{eq:graph}
+ \left|g_{R,\varphi}(X)-\frac{X^2}{2}\right|
+ \le\frac{X^2}{2\kappa_-}
+ \omega_K\!\left(\kappa_-^{-1/3}R^{-2/3}|X|\right)=o(1),
+\end{equation}
+uniformly in $\varphi$.
+
+Let $B_{R,\varphi}(z)$ denote the centered, normalized cap. For every fixed $Z<\infty$, the physical depths in $K$ are $O_K(R^{-4/3}Z)$. Uniqueness of support points and compactness confine these caps to the common graph neighborhoods. Shrinking them if needed gives $f_\varphi(x)\ge\kappa_\varphi x^2/4$, hence
+\[
+ B_{R,\varphi}(z)\subset\{|X|\le2\sqrt Z,\ 0\le Y\le Z\}\qquad(0\le z\le Z)
+\]
+for all sufficiently large $R$. Their vertical sections and those of $A(z)$ end at the same height $z$. The function $r\mapsto(z-r)_+$ is $1$-Lipschitz, so
+\begin{equation}\label{eq:symdiff}
+ \sup_{\varphi,\,0\le z\le Z}|B_{R,\varphi}(z)\triangle A(z)|
+ \le C_{K,Z}\omega_K(C_{K,Z}R^{-2/3})=o(1).
+\end{equation}
+For $C^3$ boundaries the right-hand side can instead be bounded by $C_{K,Z}R^{-2/3}$. That geometric bound is not a rate for the full limit theorem.
+
+\section{Translation averages and expanding-circle equidistribution}\label{sec:cv}
+We now use row vectors. Write $X_0=\mathrm{SL}(2,\Z)\backslash\mathrm{SL}(2,\R)$ with Haar probability $\mu_0$. For a bounded measurable set $B$ and $M\in\mathrm{SL}(2,\R)$, let
+\begin{equation}\label{eq:FB}
+ F_B(M)=\int_{[0,1)^2}\mathbf1\{(\Z^2+a)M\cap B=\varnothing\}\,da.
+\end{equation}
+Integer changes of basis preserve torus measure, so $F_B$ descends to $X_0$.
+
+\begin{lemma}\label{lem:translation}
+For every measurable $D$ of finite area and every unimodular $M$,
+\[
+ \int_{[0,1)^2}\#((\Z^2+a)M\cap D)\,da=|D|.
+\]
+Consequently $|F_B(M)-F_{B'}(M)|\le|B\triangle B'|$. If $B$ is compact with boundary of area zero, then $F_B\in C_b(X_0)$.
+\end{lemma}
+\begin{proof}
+Tonelli unfolds the counting sum to $\int_{\R^2}\mathbf1_D(xM)\,dx=|D|$. A difference of avoidance indicators requires a point in the symmetric difference, giving the stated bound. For continuity, if $M_j\to M$, boundedness of $B$ and of the inverse matrices leaves only finitely many candidate integer vectors uniformly in the torus translation. Almost every translation avoids $\partial B$ by the intensity identity. Each candidate's membership then stabilizes. Dominated convergence proves continuity, which descends to the quotient.
+\end{proof}
+
+Let $O_\varphi$ have columns $\tau_\varphi,-u_\varphi$, and $D_q=\operatorname{diag}(q^{1/3},q^{-1/3})$. The normalized lattice is exactly
+\begin{equation}\label{eq:centering}
+ (\Z^2+t)\rho(\theta)^TO_\varphi D_q-p_RO_\varphi D_q
+ =(\Z^2+a)M,
+\end{equation}
+where $M=\rho(\theta)^TO_\varphi D_q$ and $a=t-p_R\rho(\theta)\pmod{\Z^2}$. Conditional on $\theta$, $a$ is precisely uniform on the torus. Thus the diverging center is absorbed without a Diophantine assumption.
+
+Define
+\[
+ s_{R,\varphi}=\frac13\log(R/\kappa_\varphi),\qquad
+ \Phi_s=\operatorname{diag}(e^{-s},e^s),\qquad
+ \Psi_sF=\frac1{2\pi}\int_0^{2\pi}F(\rho(\alpha)\Phi_s)\,d\alpha.
+\]
+Since $\rho(\theta)^TO_\varphi$ is uniformly distributed on rotations, Lemma~\ref{lem:translation} and \eqref{eq:symdiff} give
+\begin{equation}\label{eq:capreduce}
+ \sup_{\varphi,\,0\le z\le Z}
+ |v_R(z,\varphi)-\Psi_{s_{R,\varphi}}F_{A(z)}|=o(1).
+\end{equation}
+The level-one, dimension-two specialization of Marklof--Strömbergsson's Corollary~5.9 \cite{MS} yields
+\begin{equation}\label{eq:MS}
+ \Psi_sF\longrightarrow\int_{X_0}F\,d\mu_0\qquad(s\to\infty),\quad F\in C_b(X_0).
+\end{equation}
+The angular measure is absolutely continuous and the rotation map has nonvanishing spherical derivative. The omitted endpoints of $(0,2\pi)$ have measure zero. Their concluding remark in Section~5.4 states that the $\mathrm{SL}$ result follows from diagonal mixing without Ratner theory.
+
+Disintegrating Haar-affine probability into base Haar and uniform torus translations gives
+\[
+ \int_{X_0}F_{A(z)}\,d\mu_0=v_H(z).
+\]
+The cap boundary has area zero, so the continuous-test condition is met. Furthermore $\inf_\varphi s_{R,\varphi}\to\infty$. Finally,
+\[
+ |A(z)|=\frac{4\sqrt2}{3}z^{3/2},\qquad
+ \|F_{A(z)}-F_{A(z')}\|_\infty\le2\sqrt{2Z}|z-z'|\quad(0\le z,z'\le Z).
+\]
+The same modulus holds for $v_H$. Applying \eqref{eq:MS} on a finite depth mesh and using this modulus proves
+\begin{proposition}\label{prop:cv}
+For each $Z<\infty$,
+\begin{equation}\label{eq:cv}
+ \varepsilon_R(Z):=\sup_{\varphi,\,0\le z\le Z}|v_R(z,\varphi)-v_H(z)|\longrightarrow0.
+\end{equation}
+\end{proposition}
+
+\section{A uniform integrable bound at all depths}\label{sec:qu}
+We give the uniform curvature-normalized form of the method in \cite[Theorem~5.1]{NR}. Let $r=1/\kappa_+$. The support function $H(\varphi)=h_K(u_\varphi)$ is $C^2$ and satisfies $H+H''=1/\kappa_\varphi$. This follows from the $C^1$ inverse Gauss map and $p_K'(\varphi)=\tau_\varphi/\kappa_\varphi$.
+
+\begin{lemma}\label{lem:rolling}
+For every $\varphi$, $\overline B(p_K(\varphi)-ru_\varphi,r)\subset K$.
+\end{lemma}
+\begin{proof}
+Fix $\varphi_0$, set $c=p_K(\varphi_0)-ru_{\varphi_0}$ and
+\[
+ F(t)=H(\varphi_0+t)-c\cdot u_{\varphi_0+t}-r.
+\]
+Then $F(0)=F'(0)=0$ and $F''+F=\kappa_{\varphi_0+t}^{-1}-r\ge0$. For $|t|\le\pi$,
+\[
+ F(t)=\int_0^t(\kappa_{\varphi_0+v}^{-1}-r)\sin(t-v)\,dv\ge0.
+\]
+For negative $t$ both the sine and integration orientation change sign. These angles cover all support directions, proving inclusion by the support-function criterion.
+\end{proof}
+
+Suppose $R\ge R_0:=\sqrt2/r$. At physical depth $0<h\le\sqrt2$, the tangent disk of radius $Rr$ gives
+\begin{align}
+ |A_{R,\varphi}(z)|
+ &\ge\int_0^h2\sqrt{2Rry-y^2}\,dy
+ \ge\frac43\sqrt{Rr}\,h^{3/2}
+ \ge b_Kz^{3/2},\label{eq:areaqu}\\
+ b_K&=\frac43\sqrt{r\kappa_-}>0.\nonumber
+\end{align}
+For $h\ge\sqrt2$, the cap contains the disk of radius $\sqrt2/2$ centered at $p_R-(\sqrt2/2)u_\varphi$. This disk is inside the tangent disk and meets every rotated, translated square lattice, by its covering radius. Hence
+\begin{equation}\label{eq:cutoff}
+ v_R(z,\varphi)=0\quad\hbox{when }q_{R,\varphi}^{1/3}z\ge\sqrt2.
+\end{equation}
+
+The avoidance estimate \cite[Lemma~3.2]{NR}, \cite[Theorem~1.1]{B}, supplies dimension-only constants $\nu,c>0$ with
+\begin{equation}\label{eq:avoid}
+ \Prob\{L\cap B=\varnothing\}\le c/|B|\quad\hbox{for every convex body }B\hbox{ with }|B|\ge\nu.
+\end{equation}
+We apply it to the deterministic \emph{physical} cap, with the original randomized square-lattice law, not to an anisotropically normalized lattice. If $b_Kz^{3/2}<\nu$, the trivial bound suffices; otherwise \eqref{eq:areaqu} and \eqref{eq:avoid} apply. With $A_K=\max(\nu,c)/b_K$, this proves
+\begin{proposition}\label{prop:qu}
+For all $R\ge R_0$, $z>0$ and $\varphi$,
+\begin{equation}\label{eq:qu}
+ v_R(z,\varphi)\le\min(1,A_Kz^{-3/2}).
+\end{equation}
+\end{proposition}
+The constants $\nu,c$ are not evaluated numerically here. This bound establishes integrability, not a numerical approximation error in $R$.
+
+\section{The complete expectation and the curvature factor}\label{sec:expectation}
+Pointwise convergence transfers \eqref{eq:qu} to $v_H$. In particular,
+\begin{equation}\label{eq:tails}
+ \int_Z^\infty v_R(z,\varphi)\,dz\le\frac{2A_K}{\sqrt Z},\qquad
+ \int_Z^\infty v_H(z)\,dz\le\frac{2A_K}{\sqrt Z},\qquad Z>0.
+\end{equation}
+Thus $\Cvoid=\int_0^\infty v_H(z)\,dz<\infty$. Haar-affine intensity is one. The Markov argument of \cite[Lemma~3.3]{NR}, applied here directly through translation intensity, gives
+\begin{equation}\label{eq:positive}
+ v_H(z)\ge(1-|A(z)|)_+,\qquad
+ \Cvoid\ge\frac35\left(\frac3{4\sqrt2}\right)^{2/3}>0.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:L1}
+ \sup_\varphi\int_0^\infty|v_R(z,\varphi)-v_H(z)|\,dz
+ \le Z\varepsilon_R(Z)+\frac{4A_K}{\sqrt Z}\longrightarrow0,
+\end{equation}
+where the limit means first $R\to\infty$ at fixed $Z$, then $Z\to\infty$.
+
+For $R\ge R_0$, $RK$ contains a disk of radius at least $\sqrt2$. Every such disk contains the four vertices of a square-lattice cell, since each is at most $\sqrt2$ from its center. Thus $Q_R$ has dimension two for every lattice in \eqref{eq:law}. Cauchy's perimeter formula, the support-gap survival identity and Tonelli yield
+\begin{equation}\label{eq:perimeter}
+ \E[P(RK)-P(Q_R)]
+ =\int_0^{2\pi}q_{R,\varphi}^{1/3}
+       \int_0^\infty v_R(z,\varphi)\,dz\,d\varphi.
+\end{equation}
+This is also the planar form of \cite[Lemma~3.1]{NR}; $P=\pi W$ under their mean-width convention. Integrating \eqref{eq:L1}, with $d\varphi=\kappa\,ds$, gives
+\begin{equation}\label{eq:curvature}
+ \lim_{R\to\infty}R^{1/3}\E[P(RK)-P(Q_R)]
+ =\Cvoid\int_0^{2\pi}\kappa_\varphi^{1/3}\,d\varphi
+ =\Cvoid\int_{\partial K}\kappa^{4/3}\,ds.
+\end{equation}
+This proves the leading asymptotic apart from the row-model identification and numerical evaluation of the constant, which follow below.
+
+\section{Stationary parabolic support deficit}\label{sec:stationary}
+For a Haar-affine lattice $\Lambda$, define
+\begin{equation}\label{eq:D}
+ D_\Lambda(t)=\min_{(x,y)\in\Lambda\cap\Pcal}(y-tx+t^2/2)\ge0.
+\end{equation}
+The minimum exists. A lattice has a finite covering radius, and $\Pcal$ contains arbitrarily large disks. A bounded value of the cost bounds $x$ through $(x-t)^2/2$, and then bounds $y$. A single admissible candidate bounds the minimum uniformly on compact $t$-intervals, leaving finitely many possible minimizers there.
+
+The lower boundary of $\operatorname{conv}(\Lambda\cap\Pcal)$ is a locally finite polygonal chain defined over the whole real axis. Covering-radius arguments give admissible points with arbitrarily large positive and negative abscissae. On a compact abscissa interval, two bracketing points bound the lower graph height, so its vertices lie in a compact set and are finite in number.
+
+The determinant-one affine transformations
+\[
+ S_b(x,y)=(x+b,y+bx+b^2/2)
+\]
+preserve $\Pcal$ and satisfy $D_{S_b\Lambda}(t)=D_\Lambda(t-b)$. Haar-affine invariance makes this process stationary. At $t=0$, its survival function is $v_H$, with cap boundaries null under the translation average; therefore
+\begin{equation}\label{eq:ED}
+ \E_{\mu_{\rm aff}}D_\Lambda(0)=\Cvoid.
+\end{equation}
+
+Let $e$ be a maximal lower edge with endpoints $(X_L,Y_L),(X_R,Y_R)$ and slope $t_e$, where $X_L<X_R$. After $S_{-t_e}$ it is horizontal at height $d=D_\Lambda(t_e)$. Its lattice points form a primitive arithmetic progression with horizontal step $a>0$, and its extremes $x_L=X_L-t_e$, $x_R=X_R-t_e$ are those in $[-\sqrt{2d},\sqrt{2d}]$. If $x_L>0$, its predecessor $x_L-a$ would lie in this window: indeed $x_R\ge x_L+a$ and the window is symmetric. This contradicts extremality. The other side is analogous. Consequently
+\begin{equation}\label{eq:edgeposition}
+ x_L\le0\le x_R,\qquad X_L\le t_e\le X_R.
+\end{equation}
+For adjacent edges, this places their slopes on the appropriate sides of $[X_L,X_R]$. The minimizing support vertex is the left endpoint on $[X_L,t_e]$ and the right endpoint on $[t_e,X_R]$. Direct integration gives
+\begin{align}\label{eq:edgecontrib}
+ \int_{X_L}^{X_R}D_\Lambda(t)\,dt
+ &=\int_{x_L}^{0}(d-ux_L+u^2/2)\,du
+   +\int_0^{x_R}(d-ux_R+u^2/2)\,du\nonumber\\
+ &=d(x_R-x_L)-\frac{x_R^3-x_L^3}{3}=:c_e\ge0.
+\end{align}
+The cubic coefficient is $1/3$ for this support deficit; the geometric area between the chain and parabola is a different observable.
+
+\section{Nonnegative mass transport and primitive marked Haar unfolding}\label{sec:unfold}
+The projected intervals $[X_L(e),X_R(e))$ partition $\R$ up to endpoints. Define
+\[
+ T_\Lambda(B,C)=\sum_e\int_{B\cap[X_L(e),X_R(e))}
+       D_\Lambda(t)\mathbf1_C(t_e)\,dt.
+\]
+Its source is $D_\Lambda(t)\,dt$; its destination at $t_e$ carries $c_e$. Under $S_b$, both coordinates shift by $b$. With $I_n=[n,n+1)$, diagonal translation invariance and Tonelli give
+\[
+ \E T(I_0,\R)=\sum_n\E T(I_0,I_n)
+ =\sum_n\E T(I_{-n},I_0)=\E T(\R,I_0).
+\]
+Using \eqref{eq:ED},
+\begin{equation}\label{eq:mass}
+ \Cvoid=\E\sum_{t_e\in[0,1)}c_e.
+\end{equation}
+All terms are initially nonnegative extended integrals; finiteness follows from Section~\ref{sec:expectation}. No signed cancellation or boundary-flux estimate is needed.
+
+Mark each maximal edge by its unique primitive lattice vector pointing right. Several collinear points give one maximal edge, not one edge per adjacent pair. For a fixed marked direction, the first occupied row after shear gives an edge precisely when it has at least two points; a singleton contributes zero.
+
+Write the marked vector as $(a,b)$, $a>0$. A representative oriented lattice basis is
+\[
+ M=\begin{pmatrix}a&b\\\beta&b\beta/a+1/a\end{pmatrix},\qquad 0\le\beta<a.
+\]
+The primitive marked Haar measure is
+\begin{equation}\label{eq:marked}
+ \frac1{\zeta(2)}\,da\,db\,\frac{d\beta}{a}.
+\end{equation}
+To specify the unfolding: primitive integer vectors form the orbit of $e_1$ under $\mathrm{SL}(2,\Z)$. Its stabilizer consists of $\left(\begin{smallmatrix}1&0\\n&1\end{smallmatrix}\right)$, $n\in\Z$. Unfolding a nonnegative primitive sum replaces the lattice fundamental domain by the stabilizer quotient. In \cite[Section~7, Lemma~7.4 and (7.17)]{MS}, the continuous stabilizer has coordinate $u$ and Haar measure $du$; quotienting gives $0\le u<1$. Here $u=\beta/a$. The coefficient is $1/\zeta(2)$. This gives the full marked law, including shear; the primitive Siegel marginal alone would not specify that conditional law.
+
+Put $b=at$, so $da\,db=a\,da\,dt$. The shear $S_{-t}$ makes the basis $(a,0),(\beta,1/a)$. The torus translation is uniform on the area-one rectangle
+\[
+ 0\le\xi<a,\qquad0\le\delta<1/a,
+\]
+obtained by reducing height, then abscissa. Conditional on $(a,t)$, the phases have joint probability measure $(d\beta/a)\,d\xi\,d\delta$: they are independent uniform variables on their respective intervals.
+
+\section{The row model and its exact formulas}\label{sec:rows}
+For $a>0$ choose independent $\beta,\xi\in[0,a)$ and $\delta\in[0,1/a)$ uniformly. The row points are
+\begin{equation}\label{eq:rows}
+ (\xi+aj+k\beta,\delta+k/a),\qquad j,k\in\Z.
+\end{equation}
+Rows $k<0$ do not meet $\Pcal$. Let $k_*$ be the first occupied row in $\Pcal$, $d=\delta+k_*/a$ and $x_1\le x_2$ its extremes in $[-\sqrt{2d},\sqrt{2d}]$. Set
+\begin{equation}\label{eq:G}
+ c=d(x_2-x_1)-(x_2^3-x_1^3)/3,\qquad G(a)=\E c.
+\end{equation}
+The first row exists since every window of length at least $a$ contains a point. A singleton contributes zero. Applying \eqref{eq:marked} to \eqref{eq:mass}, with the stated phase law, gives
+\begin{equation}\label{eq:identity}
+ \Cvoid=\frac1{\zeta(2)}\int_0^\infty\int_0^1aG(a)\,dt\,da
+ =\frac6{\pi^2}\int_0^\infty aG(a)\,da.
+\end{equation}
+There is no additional factor $1/2$: $a>0$ orients every edge once. The identity also proves integrability of $aG(a)$.
+
+\subsection{A phase average valid for any number of row points}
+Put $r=\sqrt{2d}$. If $2r\ge a$, the rightmost row point is uniform on $(r-a,r]$, and the leftmost on $[-r,-r+a)$. These are marginal laws, requiring no independence of the extremes and holding even with three or more points. The odd function $F_d(x)=dx-x^3/3$ gives
+\begin{equation}\label{eq:H}
+ \E c=\frac2a\int_{r-a}^r(r^2x/2-x^3/3)\,dx
+ =\frac{(2r-a)(r^2+2ar-a^2)}6=:\Hrow(d,a).
+\end{equation}
+If $2r<a$, an occupied row is a singleton. This proves the phase formula without relying on an earlier heuristic model note.
+
+For $0<a\le2$, row 1 always has a window of length at least $a$. The phases of rows 0 and 1 are independent uniform modulo $a$ by an integer torus change of variables of determinant one. Thus $G=G_0+G_1$, with
+\begin{align}\label{eq:Gsmall}
+ G_0(a)&=a\int_{a^2/8}^{1/a}\Hrow(d,a)\,dd\nonumber\\
+ &=\frac{4\sqrt2}{15}a^{-3/2}+\frac12-\frac{4\sqrt2}{9}a^{3/2}
+   +\frac{a^3}{6}-\frac{17a^6}{5760},\\
+ G_1(a)&=a\int_0^{a^2/8}\left(1-\frac{2\sqrt{2d}}a\right)\Hrow(d+1/a,a)\,dd.\nonumber
+\end{align}
+The first integral accounts for row 0 when its contribution can be nonzero; the second accounts for its being empty and row 1 being first occupied. Formula~\eqref{eq:H} covers any point multiplicity in these rows.
+
+\subsection{Exact treatment of all rows when \texorpdfstring{$a\ge2$}{a >= 2}}
+Let $n=a^3/8\ge1$, $x=a\delta\in[0,1)$ and $k_0=\lceil n-x\rceil$. This is the first row whose window length is at least $a$. Earlier rows have at most one point, and this row has at most two. All later rows are nonempty. A nonzero first-row contribution therefore requires two points at $k_0$ and every earlier row empty.
+
+Write $D=x+k_0=n+f$, $0\le f<1$, and normalize phases and abscissae by $a$. Define
+\[
+ R_f=\tfrac12\sqrt{D/n},\quad e=R_f-\tfrac12,\quad
+ t_j=\tfrac12-\tfrac12\sqrt{(D-j)/n}\quad(1\le j\le k_0).
+\]
+Two points in the final row correspond to centered phase $z\in[-e,e]$. An empty preceding row corresponds to $z_p\in(-t_1,t_1)$. These two phases are independent uniform: the change from initial phase and shear to the consecutive row phases has determinant $-1$ on the torus. Take the lift $b=z-z_p$ of the normalized shear; $|b|\le e+t_1=R_f-R_{f-1}\le1/2$. The phase $j$ rows earlier lifts to $z_j=jz_p-(j-1)z$. Concavity gives
+\[
+ \sqrt{D-j}\le j\sqrt{D-1}-(j-1)\sqrt D,
+ \qquad t_j\ge jt_1+(j-1)e.
+\]
+Hence $|z_j|<jt_1+(j-1)e\le t_j\le1/2$, proving all earlier rows empty with no missed wrap modulo one. Conversely their emptiness implies emptiness of the preceding row. Boundary equalities have zero phase measure.
+
+The final height $d=D/a$ is uniform on $[h,h+1/a)$, $h=a^2/8$, since $f=(x-n)\pmod1$ is uniform. The preceding-row emptiness probability is $1-2\sqrt{2(d-1/a)}/a$. Its phase is independent of the final phase, giving the exact formula
+\begin{equation}\label{eq:Gtail}
+ G(a)=a\int_h^{h+1/a}
+       \left(1-\frac{2\sqrt{2(d-1/a)}}a\right)\Hrow(d,a)\,dd,
+ \qquad a\ge2.
+\end{equation}
+Possible first-occupied singletons before this full window remain genuine events but have zero contribution, which is why no further row case enters this integral.
+
+\section{Compact integral representations and a rational certificate}\label{sec:certificate}
+Decompose $J=\int_0^\infty aG(a)\,da=J_0+J_1+J_T$ according to the two contributions in \eqref{eq:Gsmall} and the tail \eqref{eq:Gtail}. Direct integration gives
+\[
+ J_0=\frac{32}{15}+1-\frac{128}{63}-\frac{17}{180}=\frac{141}{140}.
+\]
+For $J_1$, substitute $a=2v^2$ and $d=(a^2/8)t^2$. With $W=\sqrt{1+v^6t^2}$,
+\begin{equation}\label{eq:J1compact}
+ J_1=\frac{16}{3}\int_0^1\int_0^1
+ v^6t(1-t)(W-v^3)(W^2+4v^3W-4v^6)\,dt\,dv.
+\end{equation}
+For $J_T$, substitute $a=2/v$ and rationalize the square-root differences:
+\begin{equation}\label{eq:JTcompact}
+ J_T=\frac43\int_0^1\int_0^1
+ \frac{f(1-f)[v^3f-3+4\sqrt{1+v^3f}]}
+ {(1+\sqrt{1-v^3(1-f)})(1+\sqrt{1+v^3f})}\,df\,dv.
+\end{equation}
+Both integrands are continuous on the compact square. The apparent endpoint issue of the second formula has a positive denominator and a vanishing numerator factor.
+
+\subsection{A refinement of the model tail}
+With $u=8/a^3$ and $d=h+f/a$, formula~\eqref{eq:Gtail} becomes
+\[
+ G(a)=\frac{a^3}{24}\int_0^1[1-\sqrt{1-u(1-f)}]
+       [(uf-7)\sqrt{1+uf}+7+3uf]\,df.
+\]
+The product expands uniformly as
+\[
+ \frac{u^2f(1-f)}4+\frac{u^3f(1-f)(1+10f)}{16}+O(u^4).
+\]
+Its integral is $u^2/24+u^3/16+O(u^4)$, whence
+\begin{equation}\label{eq:tailasymp}
+ G(a)=\frac1{9a^3}+\frac4{3a^6}+O(a^{-9}),\qquad
+ a^3G(a)=\frac{1+12/a^3}{9}+O(a^{-6}).
+\end{equation}
+This corrects the former relative $a^{-2}$ heuristic. It is a statement about the row-model tail, not a second-order physical asymptotic in $R$.
+
+\subsection{Exact series and truncation errors}
+Let $b_n=\binom{1/2}{n}$ and $q_n=\binom{3/2}{n}$. The identity
+\[
+ (W-v^3)(W^2+4v^3W-4v^6)=W^3+3v^3W^2-8v^6W+4v^9
+\]
+and termwise integration yield
+\begin{equation}\label{eq:J1series}
+ J_1=\frac{16}{3}\left[\frac1{20}+\frac3{320}+\frac1{24}
+ +\sum_{n=0}^{\infty}
+ \frac{q_n/(6n+7)-8b_n/(6n+13)}{(2n+2)(2n+3)}\right].
+\end{equation}
+For $N\ge2$, the alternating binomial remainders bound the error of truncation at $n=N$ by
+\begin{equation}\label{eq:E1}
+ E_1(N)=\frac{16}{3(2N+4)(2N+5)}
+ \left(\frac{|q_{N+1}|}{6N+13}+\frac{8|b_{N+1}|}{6N+19}\right).
+\end{equation}
+
+For the tail, write $A(x)=1-\sqrt{1-x}=\sum_{m\ge1}\alpha_mx^m$ and
+\[
+ P(y)=(y-7)\sqrt{1+y}+7+3y=\sum_{n\ge1}p_ny^n,
+\]
+\[
+ \alpha_m=-(-1)^mb_m>0,
+ \qquad p_1=\tfrac12,\quad p_n=b_{n-1}-7b_n\quad(n\ge2).
+\]
+The absolutely convergent integrated series is
+\begin{equation}\label{eq:JTseries}
+ J_T=\frac43\sum_{m,n\ge1}\alpha_mp_n
+ \frac{m!n!}{(m+n+1)![3(m+n)-5]}.
+\end{equation}
+Indeed $\sum\alpha_m=1$ and $\sum|p_n|=5$, so Tonelli for absolute values justifies the exchanges. Put $T_N=\binom{2N}{N}/4^N$. The omitted $m$-tail has total coefficient mass $T_N$; the absolute $n$-tail has mass $T_{N-1}+7T_N$. For an omitted index at least $N+1$, its beta-integral weight is at most $1/[(N+2)(N+3)]$ and its remaining denominator at least $3N+1$. Adding the two possibly overlapping positive bounds gives
+\begin{equation}\label{eq:ET}
+ E_T(N)=\frac43\frac{T_{N-1}+12T_N}{(N+2)(N+3)(3N+1)}.
+\end{equation}
+
+The certificate evaluates the finite sums entirely as fractions, adds \eqref{eq:E1} and \eqref{eq:ET}, and encloses $\pi$ using
+\[
+ \pi=16\arctan(1/5)-4\arctan(1/239)
+\]
+with 30 terms and alternating rational remainders in each arctangent. From $J\in[J_-,J_+]$ and $0<\pi_-\le\pi\le\pi_+$,
+\[
+ \frac{6J_-}{\pi_+^2}\le\Cvoid\le\frac{6J_+}{\pi_-^2}.
+\]
+At $N=100$, $E_1<4.607\cdot10^{-10}$ and $E_T<3.090\cdot10^{-7}$. Exact outward decimal conversion gives
+\begin{equation}\label{eq:certified}
+ \boxed{0.719232985957311632<\Cvoid<0.719233362190182706.}
+\end{equation}
+The weaker enclosure in Theorem~\ref{thm:main} follows. Rational comparisons with the rounding thresholds certify the rounded values $0.719$ and $0.719233$. Neither is asserted to be the exact constant. The certificate verifies the evaluation of the formulas; their model identification is the mathematical argument in Sections~\ref{sec:stationary}--\ref{sec:rows}.
+
+For orientation only, floating quadratures give
+\begin{align*}
+ J_1&\simeq0.100019051910680863,\qquad J_T\simeq0.0759292423148140273,\\
+ \Cvoid&\simeq0.719233174880505782.
+\end{align*}
+These extra displayed digits have no certified significance beyond \eqref{eq:certified}.
+
+\section{Scope, open questions and provenance}
+Theorem~\ref{thm:main} is now proved under its stated assumptions by combining \eqref{eq:curvature}, \eqref{eq:identity} and \eqref{eq:certified}. Disks and ellipses are covered. The usual superellipses with $p>2$ have zero curvature at the axes, and those with $1<p<2$ are not $C^2$ there; neither class is included. No second-order coefficient, convergence rate in $R$, deterministic unrotated-lattice analogue, or implication for the Riemann hypothesis is obtained here.
+
+The manuscript concerns a fixed $K$; uniformity over a family would require shared geometric and continuity bounds. The tail refinement \eqref{eq:tailasymp} does not resolve the empirical second term. Spectral suggestions discussed in \cite{CA} remain exploratory and are not used in any proof here.
+
+\textbf{AI contributions and responsibility.} Patrick Royer formulated and directed the research questions and remains the responsible human author and submitter. ChatGPT/Codex contributed mathematical development, implementation, assisted validation, manuscript drafting and final integration. Claude supplied an external AI audit and a separately written verification script; their limitations and the outward-rounding correction are documented. Earlier exploratory inputs supplied by the author included DeepSeek notes; their precise contribution to the present proofs has not been independently reconstructed. AI systems are acknowledged as tools, not as human authors, peer reviewers or scientific guarantors. No independent human mathematical review or formal proof-assistant verification is attested.
+
+\textbf{Software and rights.} The rational certificate uses Python's standard library. Diagnostic calculations use NumPy, SciPy, mpmath and SymPy; composition and rendering use \LaTeX\ and Poppler. These are freely available tools; this statement does not assert that the AI services used were free of charge. The supplied DEL 1.1 licence and the accompanying scope notice govern the corpus to the extent of the author's rights. Third-party software and references retain their own terms. The licence grants no exclusive right over mathematical formulas or factual results.
+
+\appendix
+\section{Published inputs in the specialized form used here}
+These are mathematical restatements, with the conventions of this manuscript, rather than reproductions of the original wording.
+
+\subsection{Expanding circles}
+The $d=2$, level-one specialization of \cite[Corollary~5.9]{MS} is \eqref{eq:MS}, for bounded continuous $F$ on $X_0$ and normalized absolutely continuous angular measure. In our application the measure is uniform, $M=I$, and the family of tests is constant. Continuity is proved by Lemma~\ref{lem:translation}; the affine extension is obtained by exact torus averaging. This is why no equidistribution theorem for an unbounded cusp observable is inserted into the cap-convergence proof.
+
+\subsection{Empty-cap identity and avoidance}
+The planar specialization of \cite[Lemma~3.1]{NR}, under $P=\pi W$, is the physical-depth identity
+\[
+ \E[P(RK)-P(Q_R)]
+ =\int_0^{2\pi}\int_0^\infty
+ \Prob\{(RK)_{h,\varphi}\cap L=\varnothing\}\,dh\,d\varphi.
+\]
+It was also derived directly in Section~\ref{sec:expectation}. The $d=2$ avoidance input of \cite[Lemma~3.2]{NR} is \eqref{eq:avoid}, with dimension-only constants and the law \eqref{eq:law}; its cited primary source is \cite[Theorem~1.1]{B}, which credits the planar case to \cite{BM}.
+
+\subsection{Marked Haar measure}
+The stabilizer disintegration of \cite[Lemma~7.4, (7.17)]{MS}, combined with the primitive orbit unfolding and stabilizer quotient, gives \eqref{eq:marked}. The argument retaining the conditional shear and uniform torus translation is in Section~\ref{sec:unfold}. This is a marked counting formula, not just an unmarked mean-value assertion.
+
+\section{Reproducibility and verification status}
+The publication archive contains the \LaTeX\ source, the standard-library rational certificate and exact fractions, the corrected independent verification script and its reference outputs, source proof notes and audit provenance, licence scope, citation metadata and checksums. The minimal numerical command is
+\begin{center}\small\texttt{python code/cert\_identity\_rational.py --N 100 --output results/CERTIFICATE.json}\end{center}
+The two independent rational implementations use slightly different valid arctangent enclosures, yet yield the same outward 18-digit display. The complete Claude script replay checks symbolic identities, direct and substituted quadratures, nine Monte Carlo parameters with two million samples each, and model-tail diagnostics. Its original nearest-rounded C2 display is preserved as historical evidence; the corrected copy alone is the reference for its outward decimal bounds.
+
+\begin{tabularx}{\textwidth}{@{}lX@{}}\toprule
+Item & Status and interpretation\\\midrule
+Cap convergence / complete expectation & Mathematical derivation in Sections 2--5, relying on cited published inputs.\\
+Constant identification & Stationarity, mass transport and marked unfolding in Sections 6--8.\\
+Numerical enclosure & Exact fraction computation with proved truncation bounds, Section 9.\\
+Monte Carlo / quadratures & Diagnostics, not proof or rigorous quadrature error bounds.\\
+AI audits & Assisted checks; no independent human peer review attested.\\
+Publication & This is a prepared preprint; new public DOI and release must be recorded after deposition.\\\bottomrule
+\end{tabularx}
+
+\begin{thebibliography}{9}
+\bibitem{MS} J. Marklof and A. Strömbergsson, \emph{The distribution of free path lengths in the periodic Lorentz gas and related lattice point problems}, Annals of Mathematics \textbf{172} (2010), 1949--2033. \href{https://doi.org/10.4007/annals.2010.172.1949}{doi:10.4007/annals.2010.172.1949}. Source consulted: \href{https://arxiv.org/pdf/0706.4395}{arXiv:0706.4395}, Sections 5.4 and 7.
+\bibitem{NR} B. H. Ngoc and M. Reitzner, \emph{Expected mean width of the randomized integer convex hull}, Mathematika \textbf{67} (2021), 422--433. \href{https://doi.org/10.1112/mtk.12080}{doi:10.1112/mtk.12080}. \href{https://arxiv.org/abs/2003.06864}{arXiv:2003.06864}; the author name follows the publisher's citation format.
+\bibitem{B} I. Bárány, \emph{The chance that a convex body is lattice-point free: A relative of Buffon's needle problem}, Random Structures \& Algorithms \textbf{30} (2007), 414--426. \href{https://doi.org/10.1002/rsa.20138}{doi:10.1002/rsa.20138}. \href{https://www.renyi.hu/~barany/cikkek/106.pdf}{Author text}, Theorem 1.1.
+\bibitem{BM} I. Bárány and J. Matoušek, \emph{The Randomized Integer Convex Hull}, Discrete \& Computational Geometry \textbf{33} (2005), 3--25. \href{https://doi.org/10.1007/s00454-003-0836-1}{doi:10.1007/s00454-003-0836-1}.
+\bibitem{M2} P. Royer, \emph{A candidate leading constant for the perimeter deficit of randomized integer convex hulls}, corrective v0.2 (7 October 2026), previous preprint announced at \href{https://doi.org/10.5281/zenodo.23209553}{doi:10.5281/zenodo.23209553}. The present version replaces its conditional leading-term discussion by the derivation above.
+\bibitem{CV} P. Royer, \emph{Convergence des probabilités de calottes vides}, DYN-VALIDEX proof note v0.1 (8 October 2026), supplied unchanged in the archive.
+\bibitem{QU} P. Royer, \emph{Queues uniformes et espérance complète}, DYN-VALIDEX proof note v0.1 (8 October 2026), supplied unchanged in the archive.
+\bibitem{ID} P. Royer, \emph{Identification de la constante : des calottes vides au modèle exact de rangées}, DYN-VALIDEX proof note v0.1 (8 October 2026), supplied unchanged in the archive.
+\bibitem{CA} P. Royer, \emph{Contre-vérification de l'audit Claude : corrections précises et complément de régularité $C^2$}, AI-assisted DYN-VALIDEX note v0.1 (8 October 2026), supplied with the original Claude audit and verification script.
+\end{thebibliography}
+\end{document}

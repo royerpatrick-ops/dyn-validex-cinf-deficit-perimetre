@@ -1,0 +1,11 @@
+DYN-VALIDEX v0.3 — validation, 8 October 2026
+
+Exact rational certificate N=100 reproduced; all non-time fields equal the prior certificate.
+Independent verification parts A–E completed successfully, including symbolic identities, quadratures, exact outward enclosure and nine Monte Carlo parameters.
+The 13-page PDF compiled without warnings and all final pages were visually inspected.
+Original proof notes, Claude inputs and approved licence PDF are byte-identical to their supplied versions.
+The checksum inventory and ZIP extraction are checked by the release validation workflow.
+
+These are assisted mathematical and reproducibility checks. No independent human mathematical review or formal proof-assistant verification is attested. No new GitHub/Zenodo publication or external Codex transmission is attested.
+
+See VALIDATION.json for commands, runtime versions and detailed roles.

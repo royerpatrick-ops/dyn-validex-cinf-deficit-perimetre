@@ -15,8 +15,4 @@ keywords:
   - affine lattices
   - curvature
   - rational numerical certificate
-abstract: >-
-  AI-assisted preprint deriving a leading perimeter-deficit asymptotic for a
-  fixed planar C2 convex body with positive curvature and rigorously enclosing
-  its coefficient. The previously known order is credited. No independent
-  human mathematical review is attested.
+abstract: "AI-assisted preprint deriving a leading perimeter-deficit asymptotic for a fixed planar C2 convex body with positive curvature and identifying its coefficient. No independent human mathematical review is attested."

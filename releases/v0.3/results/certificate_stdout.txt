@@ -1,0 +1,9 @@
+{
+  "kind": "exact_rational_series_enclosure",
+  "N": 100,
+  "seconds": 0.07475209000040195,
+  "C_decimal_lower_outward": "0.719232985957311632",
+  "C_decimal_upper_outward": "0.719233362190182706",
+  "rounding_three_decimals": "0.719",
+  "rounding_three_decimals_verified": true
+}

@@ -1,0 +1,68 @@
+{
+  "status": "DOI_RESERVED_DRAFT",
+  "schema_note": "Descriptive publication brief; adapt to the current Zenodo API/UI, not a ready-to-submit API payload.",
+  "title": "A leading-term asymptotic for the perimeter deficit of randomized integer convex hulls",
+  "version": "0.3",
+  "manuscript_date": "2026-10-08",
+  "publication_date": "2026-10-08",
+  "resource_type": "preprint",
+  "creators": [
+    {
+      "family_name": "Royer",
+      "given_name": "Patrick",
+      "affiliation": null,
+      "orcid": null
+    }
+  ],
+  "languages": [
+    "eng",
+    "fra"
+  ],
+  "description_files": [
+    "metadata/DESCRIPTION_EN.txt",
+    "metadata/DESCRIPTION_FR.txt"
+  ],
+  "keywords": [
+    "randomized integer convex hull",
+    "perimeter deficit",
+    "affine lattice",
+    "curvature",
+    "empty cap",
+    "rational certificate"
+  ],
+  "license": {
+    "name": "DEL 1.1 (custom)",
+    "text_file": "licenses/DEL_1_1_reference.pdf",
+    "scope_file": "licenses/LICENSE_SCOPE.md",
+    "spdx_identifier": null
+  },
+  "previous_announced_doi": "10.5281/zenodo.23209553",
+  "previous_record_relationship_pending_verification": false,
+  "new_version_doi": "10.5281/zenodo.23238780",
+  "concept_doi": "10.5281/zenodo.23209552",
+  "intended_github_repository": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre",
+  "github_target_live_verified": true,
+  "human_mathematical_review_attested": false,
+  "references": [
+    {
+      "doi": "10.4007/annals.2010.172.1949",
+      "authors": "Marklof; Strömbergsson",
+      "year": 2010
+    },
+    {
+      "doi": "10.1112/mtk.12080",
+      "authors": "Ngoc; Reitzner",
+      "year": 2021
+    },
+    {
+      "doi": "10.1002/rsa.20138",
+      "authors": "Bárány",
+      "year": 2007
+    },
+    {
+      "doi": "10.1007/s00454-003-0836-1",
+      "authors": "Bárány; Matoušek",
+      "year": 2005
+    }
+  ]
+}
