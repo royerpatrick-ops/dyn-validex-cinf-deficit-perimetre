@@ -1,0 +1,234 @@
+% Fragment autonome de preuve — ne contient pas de préambule.
+% Casimir choisi positif sur les séries principales.
+\section{Une borne spectrale pour le cercle complet}
+
+Posons $G=\mathrm{SL}_2(\mathbb R)$, $\Gamma=\mathrm{SL}_2(\mathbb Z)$,
+$K=\mathrm{SO}_2(\mathbb R)$ et $X=\Gamma\backslash G$, muni de la
+probabilité de Haar $\mu$. Nous utilisons la représentation unitaire
+$R(u)f(g)=f(gu)$ et les moyennes
+\[
+ \mathcal M_s f=\int_K f(\Gamma k a_s)\,dk,
+ \qquad a_s=\operatorname{diag}(e^{-s},e^s),\quad s\ge0.
+\]
+Choisissons les trois champs invariants à gauche $X_0,Y_0,\Theta$ dans
+la normalisation où
+\[
+ \mathcal D=-(X_0^2+Y_0^2+\Theta^2)=\mathcal C-2\Theta^2
+\]
+est positif, et où le Casimir $\mathcal C$ agit par le Laplacien
+hyperbolique sur les fonctions invariantes à droite par $K$. Le générateur
+compact satisfait $\Theta e_n=in e_n/2$ sur un vecteur du $K$-type $n$.
+Nous prenons les réalisations autoadjointes naturelles et posons
+\[
+ W^r(X)=\operatorname{Dom}(1+\mathcal D)^{r/2},\qquad
+ \|f\|_{W^r}=\|(1+\mathcal D)^{r/2}f\|_2.
+\]
+Le choix des signes de $\mathcal C$ est donc fixé par cette identité;
+sa valeur propre dans une série principale est $\lambda\ge1/4$.
+
+\begin{proposition}[Borne spectrale d'ordre $7/4$]
+Il existe une constante $C$ telle que, pour $s\ge0$ et $f\in W^{7/4}(X)$,
+\[
+ |\mathcal M_s f-\mu(f)|
+ \le C(1+s)e^{-s}\|f\|_{W^{7/4}}.
+ \tag{S1}
+\]
+La moyenne du membre de gauche est prise avec la trace naturelle de $f$
+sur la courbe $\Gamma K a_s$.
+\end{proposition}
+
+\begin{proof}
+Écrivons $P_K=\int_K R(k)\,dk$. La moyenne recherchée est la valeur de
+$P_KR(a_s)f$ au point $\Gamma e$, ou, comme cette fonction est
+$K$-invariante, au point $i$ de la surface modulaire.
+
+Les représentations non sphériques ne contribuent pas à $P_K$.
+Dans le spectre sphérique de niveau~1, la représentation triviale donne
+$\mu(f)$; toutes les autres représentations sont tempérées, en vertu de
+l'absence de valeurs propres exceptionnelles pour le groupe modulaire.
+On conserve à la fois le spectre cuspidal et le spectre continu.
+
+Dans chaque représentation sphérique $\pi$, choisissons une base
+orthonormale $(e_n)$ de $K$-types, avec $e_0$ sphérique, et écrivons
+$f_\pi=\sum_n f_{\pi,n}e_n$. Chacun des deux vecteurs $e_n,e_0$ engendre
+un espace de dimension~1 sous $K$. La borne de Cowling--Haagerup--Howe
+s'applique donc \emph{séparément à chaque type} et donne
+\[
+ c_{\pi,n}(s)=\langle\pi(a_s)e_n,e_0\rangle,
+ \qquad |c_{\pi,n}(s)|\le\Xi(a_s).
+\]
+Avec $\alpha=5/8>1/2$, Cauchy--Schwarz donne
+\[
+ \left|\sum_n f_{\pi,n}c_{\pi,n}(s)\right|
+ \le C_\alpha\Xi(a_s)
+       \left(\sum_n(1+n^2)^\alpha|f_{\pi,n}|^2\right)^{1/2},
+ \quad C_\alpha^2=\sum_n(1+n^2)^{-\alpha}<\infty.
+ \tag{S2}
+\]
+Cette étape n'utilise aucune borne sans norme de régularité pour un
+vecteur arbitraire possédant une infinité de $K$-types.
+
+Soit $u_{\pi,0}$ la réalisation du vecteur sphérique comme forme de
+Maass ou série d'Eisenstein sur la surface modulaire, avec sa mesure
+spectrale $d\nu(\pi)$. Pour $q=9/8>1$, le noyau ponctuel
+\[
+ J_i(q)=\int |u_{\pi,0}(i)|^2(1+\lambda_\pi)^{-q}\,d\nu(\pi)
+ \tag{S3}
+\]
+est fini. L'intégrale comprend la somme cuspidale et l'intégrale
+d'Eisenstein. On peut le voir directement par le calcul fonctionnel du
+Laplacien de surface:
+\[
+ J_i(q)\le\frac1{\Gamma(q)}
+     \int_0^\infty t^{q-1}e^{-t}H_t(i,i)\,dt.
+\]
+Le noyau de chaleur local satisfait $H_t(i,i)=O_i(t^{-1})$ pour
+$0<t\le1$. Cette estimation reste vraie au point elliptique $i$:
+son stabilisateur fini ne change que la constante. En effet le noyau
+du quotient est la somme des noyaux hyperboliques sur l'orbite de $i$;
+la croissance orbitale exponentielle et la décroissance gaussienne
+du noyau pour $t\le1$ contrôlent cette somme. Pour $t\ge1$,
+$H_t(i,i)\le H_1(i,i)$ par positivité de la mesure spectrale.
+L'intégrale converge donc pour $q>1$.
+
+Appliquons Cauchy--Schwarz une seconde fois, dans la variable spectrale.
+En utilisant (S2)--(S3), nous obtenons
+\[
+ |\mathcal M_s f-\mu(f)|
+ \le C_\alpha J_i(q)^{1/2}\Xi(a_s)
+ \left(\int(1+\lambda_\pi)^q
+                  \sum_n(1+n^2)^\alpha|f_{\pi,n}|^2\,d\nu(\pi)
+ \right)^{1/2}.
+\]
+Sur le spectre sphérique non trivial, $\lambda_\pi\ge1/4$ et
+\[
+ (1+\lambda)^q(1+n^2)^\alpha
+ \le C(1+\lambda+n^2/2)^{q+\alpha}.
+\]
+L'opérateur $\mathcal D$ agit sur ce type par $\lambda+n^2/2$.
+Comme $q+\alpha=7/4$ et
+$\Xi(a_s)=O((1+s)e^{-s})$, cela prouve (S1) pour des fonctions lisses
+à support compact. Le passage à $W^{7/4}$ suit par densité et par le
+théorème de trace local sur la courbe, de codimension~2; l'ordre
+$7/4>1$ suffit pour cette trace. La preuve utilise seulement une
+estimation locale au point de départ fixé $i$, et non une compacité
+du quotient ni une borne uniforme du rayon d'injectivité dans la pointe.
+\end{proof}
+
+\section{Lissage uniforme sur le groupe}
+
+Choisissons un noyau positif $\psi_h\in C_c^\infty(G)$ de masse~1,
+supporté à distance $O(h)$ de l'identité, tel que
+\[
+ \|\psi_h\|_1=1,\qquad
+ \|\mathcal L_Z\psi_h\|_1\le C_Zh^{-1}
+\]
+pour chacun des trois champs de multiplication à gauche sur $G$.
+Posons $f_h=\int_G\psi_h(u)R(u)f\,du$.
+
+\begin{lemma}[Normes du lissage]
+Il existe $C$ indépendant de $0<h\le1$ tel que
+\[
+ \|f_h\|_{W^1}\le C\|f\|_{W^1},\qquad
+ \|f_h\|_{W^2}\le Ch^{-1}\|f\|_{W^1},\qquad
+ \|f_h\|_{W^{7/4}}\le Ch^{-3/4}\|f\|_{W^1}.
+ \tag{S4}
+\]
+Si $f$ est globalement Lipschitz pour la métrique descendue d'une
+métrique invariante à gauche sur $G$, alors
+\[
+ \|f_h-f\|_\infty\le Ch\operatorname{Lip}(f).
+ \tag{S5}
+\]
+\end{lemma}
+
+\begin{proof}
+Notons $D_Z=dR(Z)$. L'identité
+\[
+ D_ZR(u)=R(u)D_{\operatorname{Ad}(u^{-1})Z}
+\]
+et le fait que $\operatorname{Ad}(u^{-1})$ reste borné sur le support des
+noyaux donnent la première borne de (S4). Plus explicitement, écrivons
+$\operatorname{Ad}(u^{-1})Z=\sum_j c_{Zj}(u)Z_j$. Alors
+\[
+ D_Z f_h=\sum_j\int_G\psi_h(u)c_{Zj}(u)R(u)D_{Z_j}f\,du.
+\]
+Une deuxième dérivée se déplace sur le noyau par intégration par parties
+dans $u$:
+\[
+ D_YD_Z f_h
+ =-\sum_j\int_G
+    \mathcal L_Y\bigl(\psi_hc_{Zj}\bigr)(u)R(u)D_{Z_j}f\,du.
+\]
+Les fonctions $c_{Zj}$ et leurs premières dérivées sont uniformément
+bornées sur un voisinage fixe de l'identité. Le membre de droite a
+norme $L^2$ au plus $Ch^{-1}\|f\|_{W^1}$. Puisque
+$\mathcal D=-\sum_jD_{Z_j}^2$, cela contrôle
+$\|(1+\mathcal D)f_h\|_2=\|f_h\|_{W^2}$.
+L'interpolation spectrale de l'opérateur positif $1+\mathcal D$ donne
+\[
+ \|f_h\|_{W^{7/4}}
+ \le\|f_h\|_{W^1}^{1/4}\|f_h\|_{W^2}^{3/4},
+\]
+d'où la troisième borne de (S4). Ces calculs portent sur une
+représentation unitaire du groupe; les constantes ne dépendent pas
+des coordonnées de la pointe.
+
+Pour (S5), la distance sur le quotient entre $\Gamma g$ et $\Gamma gu$
+est majorée par la distance sur le groupe entre $g$ et $gu$, laquelle
+vaut la distance entre $e$ et $u$ pour la métrique invariante à gauche.
+Elle est donc $O(h)$ sur le support de $\psi_h$. Il suffit d'intégrer
+l'inégalité de Lipschitz.
+\end{proof}
+
+\begin{theorem}[Critère de Lipschitz impliquant H]
+Soit $f\in W^1(X)$ globalement Lipschitz et bornée. Alors
+\[
+ |\mathcal M_s f-\mu(f)|
+ \le C(1+s)e^{-4s/7}
+       \bigl(\|f\|_{W^1}+\operatorname{Lip}(f)\bigr).
+ \tag{S6}
+\]
+En particulier, l'hypothèse H pour $f$ vaut avec tout
+$0<\delta<1/14$.
+\end{theorem}
+
+\begin{proof}
+Les deux moyennes sont des probabilités, donc l'erreur produite par le
+lissage est au plus $2\|f_h-f\|_\infty$. Les propositions précédentes
+fournissent
+\[
+ |\mathcal M_s f-\mu(f)|
+ \le Ch\operatorname{Lip}(f)
+      +C(1+s)e^{-s}h^{-3/4}\|f\|_{W^1}.
+\]
+Choisissons $h=e^{-4s/7}$. Les deux termes ont le taux exponentiel
+$4/7$, ce qui prouve (S6). Puis
+$4/7-(1/2+\delta)=1/14-\delta>0$ permet d'absorber le facteur $1+s$
+dans la constante du $O(e^{-(1/2+\delta)s})$.
+\end{proof}
+
+\paragraph{Portée exacte.}
+Ce théorème est une implication analytique. Son application à
+$f=\Psi-E_g$ exige une preuve séparée de sa Lipschitzianité globale
+et de sa norme $W^1$. Une fonction bornée globalement Lipschitz sur
+ce quotient de volume fini appartient automatiquement à $W^1$:
+son gradient faible est borné et la mesure riemannienne est un
+multiple de Haar. Une preuve géométrique de cette Lipschitzianité
+globale suffit donc, mais elle ne doit pas être remplacée par
+l'estimation de valeur $|f|=O(\lambda_1)$ seule.
+
+\paragraph{Sources et attribution.}
+La borne par $K$-type est celle de Cowling--Haagerup--Howe, reproduite
+dans Hongyu He, \emph{Bounds on smooth matrix coefficients on
+$L^2$-spaces}, th.~3.1. L'absence d'exceptionnel de niveau~1 est rappelée
+avec attribution à Maass/Roelcke dans E.~Yoshida, \emph{On the order
+of growth of the Kloosterman zeta function}, J.~Math.~Soc.~Japan~44
+(1992), remarque~1, p.~54. La normalisation
+$\mathcal D=\mathcal C-2\Theta^2$ et les normes fractionnaires se trouvent
+notamment dans E.~Corso et D.~Ravotti, \emph{Large hyperbolic circles},
+arXiv:2208.07771, \S2.3. Leurs théorèmes d'équirépartition sont formulés
+pour un quotient compact et ne sont pas utilisés ici comme théorèmes
+sur la surface modulaire. La combinaison par les deux applications de
+Cauchy--Schwarz, le noyau ponctuel et le lissage de groupe est explicitée
+ci-dessus pour le quotient non compact, spectre continu compris.

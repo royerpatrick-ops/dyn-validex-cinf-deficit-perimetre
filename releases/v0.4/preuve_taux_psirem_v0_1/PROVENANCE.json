@@ -1,0 +1,64 @@
+{
+  "projet": "Patrick Royer — Dynagénèse, recherche indépendante",
+  "contributions": {
+    "Claude AI": "Note et script reçus, conservés inchangés; contribution singulière B calculée dans la note",
+    "Codex": "Nouvelle preuve de la Lipschitzianité du reste, estimation spectrale avec normes explicites, lissage, taux c<2/3, intégration et corollaire",
+    "contre_relecture": "Plusieurs branches Codex; aucune relecture humaine attestée"
+  },
+  "pieces_recues": [
+    {
+      "nom": "demonstration_second_terme_2026-10-09.md",
+      "sha256": "c23974c2bf61fd1ac9f9d02d65b6ccddfbab45330d637c724f129b55b449a6a4",
+      "octets": 20075,
+      "copie_inchangee": true,
+      "provenance": "Transmis par utilisateur; attribué à Claude AI"
+    },
+    {
+      "nom": "verif_second_terme.py",
+      "sha256": "092a012bf30e010c62d83644e89a6e78a92c5a3b9546cb2cc3b48766788248d1",
+      "octets": 5595,
+      "copie_inchangee": true,
+      "provenance": "Transmis par utilisateur; attribué à Claude AI"
+    }
+  ],
+  "branches": [
+    "geometrie/PREUVE_LIPSCHITZ_GLOBALE.txt",
+    "geometrie/CONTROLE_AUTONOME_F.txt",
+    "geometrie/PLI_RESIDUEL_EXACT.txt",
+    "spectral/PROPOSITION_SPECTRALE_LIP.tex",
+    "spectral/ANNEXE_LISSAGE_CHALEUR.tex",
+    "fractional/CONTRE_PREUVE_GRADIENT_POINTE.txt",
+    "obstruction/FORMULE_EXPLICITE_RESTE_POINTE.txt",
+    "obstruction/LEMME_DEUX_RANGEES.txt",
+    "obstruction/PLI_RECTANGULAIRE.txt",
+    "obstruction/CONTROLE_FORMULES.py",
+    "obstruction/CONTROLE_FORMULES_RESULTAT.json",
+    "obstruction/CONTROLE_FORMULES_STDOUT.txt",
+    "obstruction/REJEU_INTEGRATEUR.json",
+    "counterreview/CONTRE_RELECTURE_PREUVE_H.txt",
+    "arithmetique/ROUTE_ARITHMETIQUE_ET_RESTE_QUADRATIQUE.txt"
+  ],
+  "sources_classiques": [
+    {
+      "source": "Cowling–Haagerup–Howe, borne par K-types; Hongyu He th.3.1",
+      "url": "https://www.math.lsu.edu/~hongyu/pub/smooth.pdf",
+      "controle": "Lecture directe par intégrateur et contre-relecture"
+    },
+    {
+      "source": "Maass/Roelcke, absence d’exceptionnels de niveau1; Yoshida1992 Remark1 p54",
+      "url": "https://www.jstage.jst.go.jp/article/jmath1948/44/1/44_1_53/_pdf",
+      "controle": "PDF lu par branche spectrale; passage confirmé par recherche primaire Project Euclid; réouvertures directes parfois expirées"
+    }
+  ],
+  "logiciels_controle": {
+    "Python": "3.12.14",
+    "NumPy": "2.3.5",
+    "SciPy": "1.17.0",
+    "mpmath_constant_precedente": "1.3.0 à 80 décimales"
+  },
+  "rejeu_quadrature": "obstruction/REJEU_INTEGRATEUR.json, identique au contrôle de branche; une case hors domaine explicitement étiquetée",
+  "sources_recues_modifiees": false,
+  "nouvelle_simulation_aleatoire": false,
+  "licence": "DEL1.1 dans la mesure des droits détenus; voir licenses/LICENSE_SCOPE.txt",
+  "historique_preserve": "Audit précédent conservé; présente preuve déposée en version distincte."
+}

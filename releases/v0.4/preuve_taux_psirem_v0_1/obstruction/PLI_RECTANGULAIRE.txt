@@ -1,0 +1,62 @@
+PLI DU RESTE SUR UN RESEAU RECTANGULAIRE
+9 octobre 2026 — complément de régularité, sans objection à H elle-même.
+
+La soustraction de F ne supprime pas le pli horizontal. Un calcul local
+exact le démontre. Fixons 0<x<=1/2 et considérons
+  Lambda_{x,y}=Z(x,y)+Z(0,1/x),
+ainsi que les translations alpha*(x,y)+beta*(0,1/x), alpha,beta uniformes
+sur [0,1). Cette famille est un chart lisse de réseaux de covolume 1.
+
+Lorsque y=0, la première rangée est à hauteur beta/x. Posons
+  t=sqrt(2*beta/x³), p=sqrt(2*(beta+1)/x³).
+Pour y positif infinitésimal, sur une rangée horizontale qui contient
+des points, la dérivée de la hauteur du candidat gagnant est le plus petit
+m+alpha admissible dans l'intervalle [-t,t]. Si t>=1/2, chaque phase
+contient un point et l'intégrale sur alpha de cette dérivée vaut
+  -t+1/2.
+Pour 0<=t<1/2, la rangée 0 contient un point seulement quand alpha<=t ou
+alpha>=1-t. Leurs contributions m+alpha ont somme intégrale nulle, par
+symétrie. Sur les autres phases, la rangée 1 gagne et donne
+  integral_t^(1-t) [ceil(-p-alpha)+alpha] d alpha.
+
+Le déplacement de la frontière où la rangée 0 devient admissible apporte
+un terme de saut. À y=0, cette frontière vaut
+  beta_0(alpha)=x³*min(alpha,1-alpha)²/2,
+et sa dérivée à droite est -x*r_near(alpha), où r_near est alpha pour
+alpha<1/2 et alpha-1 pour alpha>1/2. Le saut de hauteur vaut 1/x.
+L'intégrale de cette correction est donc -integral_0^1 r_near(alpha)dalpha=0.
+Les événements où une rangée auparavant négative devient admissible ont
+mesure o(y), et n'apportent pas de terme de première variation. Les autres
+changements de candidat sur la même rangée ont une différence de hauteur
+O(y) dans une bande O(y), donc un effet o(y), à x fixé.
+
+On obtient ainsi la dérivée à droite
+  d_y^+ Psi(Lambda_{x,y})|_0
+    = -2*sqrt(2)/(3*x^(3/2))+1/2+Delta(x),
+où
+  Delta(x)=integral_0^(x³/8)
+    { integral_t^(1-t) [ceil(-p-alpha)+alpha]dalpha
+      -(-t+1/2) } d beta.
+
+L'expression entre crochets est de module <=p+3/2, d'où
+  |Delta(x)| <= (x³/8)*[sqrt(2*(1+x³/8))/x^(3/2)+3/2]
+             <=0,087, pour x<=1/2.
+
+Le modèle F a dérivée à droite
+  d_y^+F(x,y)|_0=-2*sqrt(2)/(3*x^(3/2)).
+Par réflexion en X, Psi(Lambda_{x,y}) et F(x,y) sont paires en y.
+Le reste possède donc le développement, à x fixé,
+  Psi(Lambda_{x,y})-F(x,y)
+    =Psi(Lambda_{x,0})-F(x,0)+c(x)*|y|+o(|y|),
+avec
+  c(x)=1/2+Delta(x), 0,413<c(x)<0,587.
+En réalité Delta(x)<=0 mais cette information n'est pas requise ici.
+
+Conséquence : pour x<eta/2 et |y| suffisamment petit, E_g=F et Psi_rem
+n'est pas C¹ en ce chart. Une preuve de H par régularité doit accepter
+ce pli ; elle peut utiliser W^{1,p} ou une régularité fractionnaire,
+mais ne peut supposer que la soustraction de F rend le reste lisse.
+
+Ce pli est compatible avec H et ne constitue pas un contre-exemple au
+taux recherché. Son amplitude tend vers |y|/2 dans la pointe, ce qui
+concorde avec le lemme indépendant des deux rangées.

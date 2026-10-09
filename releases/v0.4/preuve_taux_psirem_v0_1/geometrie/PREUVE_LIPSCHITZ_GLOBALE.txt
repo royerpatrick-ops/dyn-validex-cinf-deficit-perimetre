@@ -1,0 +1,249 @@
+PREUVE PROPOSEE : Psi_rem EST GLOBALEMENT LIPSCHITZIENNE ET W^{1,2}
+9 octobre 2026. Démonstration rédigée et contrôlée par IA seulement.
+Pas de Monte-Carlo. Aucun fichier source du 9 octobre n'a été modifié.
+
+OBJET
+
+Fixons eta dans ]0,1/2] et une coupure lisse chi égale à 1 sur [0,1/2]
+et nulle sur [1,inf[. Notons
+  Eg(Lambda)=(1/2) somme_{v primitif} F(v)*chi(|v|/eta),
+  f=Psi-Eg.
+On donne une démonstration autonome des propriétés suivantes :
+  f est bornée et globalement lipschitzienne pour les champs
+  X_A(g)=gA issus de l'action à droite de SL(2,R) ;
+  f appartient à W^{1,2}(X_2,mu) ;
+  dans lambda_1<eta/2, |X_A f|<=C_A*lambda_1 presque partout.
+Ces propriétés se substituent au lemme R de régularité C^2 de la note.
+Le déploiement spectral qui en déduit H est traité séparément.
+
+1. PARAMETRES DE POINTE ET RANGÉES
+
+Prenons un vecteur primitif v=(x,y), de longueur ell<=1/2. Dans un
+quadrant, x>0 et y>0. Choisissons son partenaire unimodulaire
+  u=(-y,x)/ell^2+b*v, b dans [-1/2,1/2] modulo 1.
+Cette paramétrisation décrit le réseau ; changer b d'un entier ne change
+pas le réseau. Les translations peuvent s'écrire a*v+c*u, a,c uniformes
+sur [0,1]^2. La phase le long des rangées est uniforme conditionnellement
+à c. La valeur de u_y=x/ell^2+b*y sera notée U.
+
+Posons tau=y/x, h=2/x. Les rangées continues rencontrant la parabole ont
+  q=q0+k*h>=0, q0 uniforme sur [0,h),
+  H(q)=(tau-sqrt(q))^2/2,
+où H(q) est la hauteur de l'extrémité basse. Le segment d'intersection
+avec la parabole a longueur 2*sqrt(q) en projection horizontale.
+
+Sur chaque rangée, définissons un candidat virtuel : premier point du
+réseau après l'extrémité basse, en autorisant ce point à dépasser
+l'extrémité haute. Sa hauteur est H(q)+y*r_q, 0<=r_q<1, avec r_q
+uniforme marginalement. Toutes les rangées sauf celle q0<x^2/4 ont
+une corde d'au moins x et leur candidat virtuel est un vrai point.
+Il ne peut y avoir qu'une rangée courte, puisque x^2/4<h.
+
+2. COMPETITION DE DEUX RANGÉES : FORMULE EXACTE
+
+L'écart des minima continus de deux rangées adjacentes est
+  G(q)=H(q+h)-H(q)
+      =1/x-(y/x)*(sqrt(q+h)-sqrt(q)).
+Il est strictement croissant en q si y>0. Une rangée autre que celle
+du minimum continu ne peut améliorer le candidat virtuel de celle-ci
+que si les deux minima continus sont à distance <=y. Un second minimum
+d'une suite unimodale H(q0+k*h) est nécessairement adjacent au premier.
+
+L'inversion de G, sur |G|<=y, utilise
+  W=sqrt(q+h)+sqrt(q)=2*tau/(1-x*G),
+  q=W^2/4-h/2+h^2/(4*W^2).
+Sur le domaine q>=0, W>=sqrt(h), d'où
+  0<=dq/dG<=2*y^2/[x*(1-x*G)^3].
+La longueur de l'intervalle |G|<=y est donc au plus
+  4*y^3/[x*(1-x*y)^3].
+Divisée par h=2/x, elle vaut au plus
+  2*y^3/(1-x*y)^3 <=16/27<1
+(on utilise x,y<=1/2). Pour une phase q0 donnée, un seul couple adjacent
+peut avoir |G|<=y. Il y a donc au plus deux candidats virtuels susceptibles
+de réaliser le minimum.
+
+Posons alpha=frac(U/y), modulo 1. La moyenne sur la phase commune des
+deux rangées est explicite. Si G>=0, la rangée q est la plus basse et
+l'amélioration du candidat par q+h vaut
+  J(G,alpha)=(1-alpha)*(y*alpha-G)_+.
+Si G<=0, l'amélioration par q vaut
+  J(G,alpha)=alpha*(y*(1-alpha)+G)_+.
+En effet les deux grilles verticales sont décalées de y*alpha ; la
+différence de deux niveaux successifs qui peut être favorable est
+respectivement -y*(1-alpha) ou -y*alpha, et la phase favorable a longueur
+(y*alpha-G)_+/y ou (y*(1-alpha)+G)_+/y.
+
+En sommant les couples pour q0 dans [0,h), la correction moyenne totale
+est exactement
+  Comp=(x/2)*integrale_{q>=0} J(G(q),alpha) dq.
+Le changement de variable t=G/y donne
+  Comp=y^4*I(r,lambda,alpha),
+  r=x/y^2, lambda=x*y,
+  I=integrale_{-1}^{1} j(t,alpha)
+        *[(1-lambda*t)^(-3)-(r^2/4)*(1-lambda*t)]_+ dt,
+avec
+  j(t,alpha)=(1-alpha)*(alpha-t)_+ pour t>=0,
+  j(t,alpha)=alpha*(1-alpha+t)_+ pour t<=0.
+Le positif-partie du facteur de densité correspond exactement au domaine
+q>=0. On a 0<=lambda<=1/4. Il est nul pour tout t si
+  r>2/(1-lambda)^2, avec 2/(1-lambda)^2<=32/9 ;
+donc I=0 dès que r>32/9.
+
+La fonction I est uniformément bornée et lipschitzienne en r,lambda,
+alpha (alpha modulo 1). Cela se voit en dérivant presque partout les
+deux facteurs sous l'intégrale : r reste <=32/9 sur leur support,
+1-lambda*t>=3/4, et j et ses dérivées sont bornées. Les extrémités
+alpha=0 et alpha=1 donnent toutes deux j=0, donc la continuité périodique
+et la borne lipschitzienne se prolongent au changement de représentant.
+
+La moyenne du minimum des candidats virtuels est donc exactement
+  F(v)+y/2-Comp.
+
+3. CORRECTION DE LA RANGÉE COURTE : FORMULE EXACTE
+
+Si q<x^2/4, écrivons q=x^2*t^2/4, 0<=t<=1. La corde est courte et le
+candidat virtuel de cette rangée est un vrai point seulement quand sa
+phase normalisée a appartient à [0,t]. Pour a>t il faut écarter ce
+candidat. La rangée suivante a une corde pleine.
+
+Pour montrer que cette suivante suffit quand l'écartement fait augmenter
+le minimum, notons L(q)=sqrt(q+h)-sqrt(q). Pour q<=x^2/4 et x<=1/2,
+  L(q+h)/L(q)<=1/2.
+En effet q/h<=1/64 et le quotient vaut
+  [sqrt(q/h+1)+sqrt(q/h)]/[sqrt(q/h+2)+sqrt(q/h+1)],
+majoré par (sqrt(65)+1)/[8*(sqrt(2)+1)]<1/2.
+Si G(q)>=-y,
+  G(q+h)>=1/(2*x)-y/2>=3/4>y.
+Toutes les rangées suivantes sont alors encore plus hautes, même après
+arrondi de leurs candidats. Si G(q)<-y, la rangée courte ne peut gagner
+contre la suivante et son écartement n'a aucun effet. Ainsi, dans tous
+les cas, la correction peut se calculer par la seule suivante.
+
+La différence de hauteur entre son candidat et celui de la rangée courte
+est
+  U+y*ceil(beta(t)-a),
+  beta(t)=(G(q)-U)/y
+    =y/(x*ell^2)-sqrt(t^2/4+2/x^3)+t/2-b.
+La correction attendue est donc exactement
+  Short=(x^3/4)*integrale_0^1 t
+            *integrale_t^1 [U+y*ceil(beta(t)-a)]_+ da dt.
+Le coefficient x^3/4 provient de la densité x/2 de q0 et de
+dq=(x^2*t/2)dt. La valeur de ceil sur ses points de discontinuité n'a
+aucune influence sur les intégrales.
+
+Nous obtenons la décomposition exacte
+  Psi(v,b)-F(v)=y/2-Comp(v,b)+Short(v,b).
+Elle inclut les compétitions et les cordes courtes, sans approximation
+ni tirage sur le partenaire b.
+
+4. BORNES LIPSCHITZIENNES DE Comp
+
+Sur le support de Comp, x/y^2<=32/9 ; ainsi ell est comparable à y.
+La phase alpha=b+x/(y*ell^2) modulo 1 a dérivées (avant réduction modulo 1)
+  alpha_x=(y^2-x^2)/(y*ell^4),
+  alpha_y=-x*(ell^2+2*y^2)/(y^2*ell^4),
+  alpha_b=1.
+Comme I est uniformément lipschitzienne, les facteurs y^4 amortissent
+ces dérivées. La variation de r=x/y^2 coûte au plus C*y^2 en x et
+C*y^3 en y ; celle de lambda=xy est encore plus petite. Pour la phase,
+  y^4*|alpha_x|<=C*y,
+  y^4*|alpha_y|<=C*y^2
+sur le support x<=C*y^2. Par conséquent, presque partout,
+  |Comp_x|+|Comp_y|<=C*ell,
+  |Comp_b|<=C*ell^4.
+Hors de ce support, Comp est identiquement nulle. Le facteur positif
+dans I assure une extension lipschitzienne à sa frontière.
+
+5. BORNES LIPSCHITZIENNES DE Short
+
+Pour 0<=t<=1, notons
+  Q(U,y,beta,t)=integrale_t^1 [U+y*ceil(beta-a)]_+ da.
+L'intégration de la marche rend cette fonction lipschitzienne, avec
+les bornes presque partout
+  |Q_U|<=1, |Q_beta|<=y, |Q_y|<=|beta|+2.
+La deuxième borne vient de ce qu'une translation delta de beta déplace
+les seuls sauts de ceil sur une portion d'a de longueur au plus delta
+(l'intervalle a a longueur <=1), chaque saut physique ayant taille y.
+Ces bornes restent valables après le positif-partie.
+
+Avec ell^2=x^2+y^2, les paramètres ont dérivées
+  U_x=(y^2-x^2)/ell^4,
+  U_y=-2*x*y/ell^4+b, U_b=y,
+  beta_x=-y/(x^2*ell^2)-2*y/ell^4+3/(x^4*A),
+  beta_y=(x^2-y^2)/(x*ell^4), beta_b=-1,
+  A=sqrt(t^2/4+2/x^3)>=sqrt(2)*x^(-3/2).
+Le terme du préfacteur différentié en x est borné par C*x, car la
+différence positive de niveaux sous l'intégrale est <=G(q)+y<=1/x+y.
+
+Pour les autres termes, après multiplication par x^3, les bornes
+élémentaires sont :
+  x^3*|U_x|<=x,
+  x^3*y*|beta_x|<=C*(x+y*sqrt(x))<=C*ell,
+  x^3*|U_y|<=C*ell,
+  x^3*(|beta|+2)<=C*(ell+x^(3/2))<=C*ell,
+  x^3*y*|beta_y|<=C*ell,
+  x^3*(|U_b|+y*|beta_b|)<=C*y*x^3<=C*ell^4.
+On obtient donc, presque partout,
+  |Short_x|+|Short_y|<=C*ell,
+  |Short_b|<=C*ell^4.
+Ces bornes n'exigent aucune dérivée de la marche ceil : elles proviennent
+des estimations lipschitziennes de son intégrale Q.
+
+6. AXES, CHANGEMENTS DE REPRESÉNTANT ET CHAMPS DE G
+
+Les fonctions se prolongent continûment aux axes. À y=0,
+  Comp=0, Short=x^2/24.
+À x=0,
+  Short=0, Comp=(y^4/2)*alpha*(1-alpha), alpha=frac(b).
+Ces formules sont cohérentes avec les limites des intégrales ci-dessus.
+Les bornes lipschitziennes uniformes se prolongent donc aux axes. Pour
+changer le signe de y, la symétrie X->-X et un choix de signe du vecteur
+primitif remplacent b par -b ; les limites sur les axes coïncident.
+La périodicité en b permet de choisir |b|<=1/2 dans chaque carte locale.
+
+Nous avons ainsi, dans toute la pointe ell<=1/2,
+  |d_v(Psi-F)|<=C,
+  |d_b(Psi-F)|<=C*ell^4.
+Sous un champ X_A(g)=gA, avec A dans une partie bornée de sl(2,R),
+  |d v|<=C_A*ell,
+  |d b|<=C_A*ell^(-2).
+La seconde borne suit de b=(u dot v)/ell^2 et |u|<=C/ell, en
+différentiant v->vA et u->uA. Il en résulte
+  |X_A(Psi-F)|<=C_A*(ell+ell^2)<=C_A'*ell
+presque partout. Pour ell<eta/2, les seuls vecteurs primitifs du support
+de la coupure sont +/-v, donc Eg=F(v). La même borne vaut pour f.
+
+7. PARTIE COMPACTE : UNE PREUVE PAR DIFFERENCE SYMETRIQUE SUFFIT
+
+Sur un compact de réseaux, les rayons de recouvrement sont bornés. Une
+calotte parabolique assez grande contient un disque de rayon supérieur
+à cette borne, donc le premier point a profondeur uniformément <=Z0
+pour toutes les translations. Si Lambda=Z^2*g, posons B_z(g)=A(z)*g^(-1).
+La moyenne sur les translations satisfait
+  |v(z;g)-v(z;g')|<=aire(B_z(g) triangle B_z(g')),
+par la borne de l'aire de la différence des images sur le tore.
+Pour g,g' dans des cartes compactes et 0<=z<=Z0, les calottes ont taille
+et périmètre bornés. Une petite variation matricielle donne donc
+  aire(B_z(g) triangle B_z(g'))<=C*dist(g,g'),
+uniformément en z. L'intégration en z donne une borne lipschitzienne
+de Psi sur ce compact, sans analyse des strates d'intersection.
+
+Sur lambda_1>=eta/2, la coupure de Siegel est localement une somme
+finie de fonctions F*chi uniformément lipschitziennes sur l'annulus
+eta/2<=|v|<=eta. Sa borne lipschitzienne est uniforme, par compacité.
+Ainsi f est lipschitzienne sur la partie complémentaire de la pointe.
+
+8. CONCLUSION ANALYTIQUE
+
+Les bornes locales des champs X_A sont uniformes sur X_2. Avec une
+métrique riemannienne invariante à gauche sur G, qui descend à Gamma\G,
+elles donnent une borne lipschitzienne globale. La fonction f est bornée
+(compacité hors pointe et |f|<=37*lambda_1/64 dans la pointe).
+Ses dérivées faibles selon une base de sl(2,R) sont bornées, et même
+O(lambda_1) dans la pointe. Puisque mu(X_2)=1,
+  f appartient à L^2 et à W^{1,2}(X_2,mu).
+
+Ce résultat fournit les hypothèses géométriques annoncées pour la voie
+spectrale Lipschitz+W^{1,2}. Il ne constitue pas, à lui seul, la preuve
+de l'estimation spectrale des moyennes de cercles, qui doit être jointe
+avec son taux et ses normes exacts.

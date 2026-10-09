@@ -1,0 +1,18 @@
+{
+  "schema": "DYN-SECOND-TERME-CONSTANTES-HAUTE-PRECISION-v0.1",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "numpy_version": "2.3.5",
+  "mpmath_version": "1.3.0",
+  "mpmath_module_path": "/workspace/scratch/e643086d8c5d/tmp/second_terme_dependencies/mpmath/__init__.py",
+  "mpmath_dps": 80,
+  "arithmetic_status": "HIGH_PRECISION_EVALUATION_NOT_INTERVAL_CERTIFICATE",
+  "Z_primitive_regularized_3_2": "-3.8576230953427280758713308830246725371583913697705410703900303597059337830561662",
+  "B_small_from_Z": "0.231538734288102513399526836540071985560719916755064391595836222683840194242762",
+  "B_large_from_Mellin_I": "0.0578846835720256283498817091350179963901799791887660978989590556709600485606905",
+  "B_total_singular_from_Z": "0.2894234178601281417494085456750899819508998959438304894947952783548002428034525",
+  "B_sum": "0.2894234178601281417494085456750899819508998959438304894947952783548002428034525",
+  "rho_Mellin_integral_target": "-2.4238160753294066116609347574620967232200581121886085858265059296590859846248591",
+  "difference_Bsum_B": "-5.2710989716152616122e-82",
+  "difference_Blarge_Bsmall_over4": "-6.5888737145190770152e-83",
+  "scope": "Z_primitive(3/2) is evaluated by analytic continuation; the positive primitive-vector series diverges. B is the singular contribution, not an unconditional identification of the complete second term."
+}

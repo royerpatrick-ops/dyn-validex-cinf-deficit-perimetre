@@ -1,0 +1,108 @@
+RELECTURE INDÉPENDANTE DE LA SECTION 9
+9 octobre 2026 — branche Mellin / arithmétique
+
+Fichier relu : output/DYN-PREUVE_TAUX_PSI_REM_v0_1.txt.
+Périmètre : assemblage Mellin, constante B, exposants du cercle,
+transfert physique et formule (P). Les preuves géométrique de
+Lipschitz et spectrale des sections 1–8 font l'objet d'autres
+contre-relectures ; le présent contrôle n'en constitue pas une
+nouvelle preuve indépendante complète.
+
+CONCLUSION
+
+Aucune erreur de signe, de normalisation ou d'exposant n'a été trouvée
+dans la conséquence (P). Elle découle effectivement de (E), (T2)
+et de l'encadrement par les paraboles q_- et q_+. Une précision de
+plage dans la description du contour est recommandée ci-dessous.
+
+1. NORMALISATION DU TERME DE MELLIN
+
+La somme primitive porte sur les deux signes. Le facteur 1/2 dans
+E_g est compensé par les deux arcs courts du cercle. La réduction
+correcte est
+
+  M_s E_g = T^(-2)/(2pi) sum_prim k(|w|/T) + O_eta(T^(-2)),
+  T=exp(s).
+
+Le pôle de Z_prim en 2 a résidu 2pi/zeta(2) et donne mu(E_g).
+Le pôle de Mellin(k) en 3/2 a résidu sqrt(2)/3. Il donne donc
+
+  (sqrt(2)/(6pi)) Z_prim(3/2) T^(-1/2).
+
+Les singularités x^(-3/2) et x^(-1) de k sont explicitement
+soustraites avant le déplacement de contour. La réduction des arcs
+et ces soustractions sont détaillées dans AUDIT_MELLIN.txt.
+
+Z_prim(3/2) est le prolongement analytique de
+4 zeta(sigma/2) beta_D(sigma/2)/zeta(sigma), et non la somme positive
+divergente en sigma=3/2. Sa valeur est négative. Par conséquent
+
+  B=-(sqrt(2)/(6pi))Z_prim(3/2)>0,
+
+et le terme de cercle est bien -B exp(-s/2).
+La valeur haute précision 0.289423417860128... concorde avec le
+recalcul reproductible antérieur, sans statut de certificat
+d'intervalles.
+
+Précision rédactionnelle recommandée : le contour décrit vers
+Re sigma=1+epsilon croise sigma=3/2 si 0<epsilon<1/2.
+L'estimation (E) pour chaque epsilon>0 reste vraie : pour epsilon
+plus grand, on choisit un epsilon' admissible plus petit et on
+affaiblit la borne. La phrase sur le contour devrait donc préciser
+sa plage 0<epsilon<1/2. Cette précision ne change aucune conclusion.
+
+2. ASSEMBLAGE DES ERREURS DU CERCLE
+
+Pour 0<delta<1/6, posons c=1/2+delta. Alors c<2/3, et (T2) donne
+une erreur O(exp(-cs)) pour Psi_rem. Le choix epsilon=1/4 dans
+(E) donne une erreur O(exp(-3s/4)), strictement plus petite, car
+c<2/3<3/4. L'erreur O(exp(-2s)) des arcs est également absorbée.
+
+On obtient donc exactement
+
+  M_s Psi=C-B exp(-s/2)+O(exp(-(1/2+delta)s)).
+
+Aucun passage à c=2/3 ni delta=1/6 n'est impliqué. Les constantes
+de l'erreur peuvent dépendre de la coupure fixée ; les quantités
+M_s Psi, C et B en sont indépendantes.
+
+3. TRANSFERT PHYSIQUE ET EXPOSANTS
+
+Avec q=kappa/R et s=(1/3)log(1/q), le changement de déterminant 1
+donne E H_q=q^(1/3)M_s Psi. En particulier,
+
+  q^(1/3)exp(-s/2)=q^(1/2),
+  q^(1/3)exp(-(1/2+delta)s)=q^(1/2+delta/3).
+
+Pour K fixé, sa courbure est bornée et minorée strictement. La
+borne est donc uniforme en direction normale et devient
+O_K,delta(R^(-1/2-delta/3)).
+
+L'encadrement géométrique utilise q_±=q(1±A_K R^(-1/2)).
+Sans dériver une quelconque fonction d'erreur, les différences des
+deux termes explicites par rapport à q valent
+
+  q_±^(1/3)-q^(1/3)=O_K(R^(-5/6)),
+  q_±^(1/2)-q^(1/2)=O_K(R^(-1)).
+
+Pour tout delta<1/6, on a 1/2+delta/3<5/9<5/6. Ces deux erreurs
+géométriques sont donc absorbées dans l'erreur annoncée. Les
+premières profondeurs des trois modèles sont bornées par 2 :
+le disque unité tangent dans les calottes dépasse le rayon de
+recouvrement sqrt(2)/2. Le confinement |x|=O_K(sqrt(R)) rend
+l'encadrement du reste cubique uniforme. Les queues de plus grande
+profondeur ne créent aucun terme supplémentaire dans ce transfert.
+
+Enfin, la formule de Cauchy utilise l'intégrale sur le cercle
+complet des directions, sans facteur supplémentaire. Avec
+dphi=kappa ds sur le bord non dilaté de K, on obtient
+
+  E[P(RK)-P(conv(L intersect RK))]
+   = C R^(-1/3) integral kappa^(4/3) ds
+     -B R^(-1/2) integral kappa^(3/2) ds
+     +O_K,delta(R^(-1/2-delta/3)).
+
+Les puissances des courbures et le signe négatif du second terme
+sont donc corrects. Le régime concerne les convexes fixes de bord
+C^3 et de courbure strictement positive ; ce contrôle ne justifie
+aucune extension aux points singuliers ni à la dimension 3.

@@ -1,0 +1,163 @@
+TENTATIVE DE TAUX POUR PSI_REM — ROUTE ARITHMETIQUE ET RESTE QUADRATIQUE
+9 octobre 2026. Agent IA Codex / audit_second_mellin.
+Pas de Monte-Carlo. Aucun fichier reçu modifié.
+
+VERDICT
+H n'est pas démontrée ici. Deux résultats utiles sont obtenus :
+(1) une soustraction supplémentaire explicite transforme le reste linéaire de la pointe en un reste QUADRATIQUE ;
+(2) ce nouveau reste a des queues de masse O(r^4), uniformément pour Haar et pour toutes les moyennes de cercle.
+La route arithmétique élémentaire via Weil bute exactement au seuil e^{-s/2}. Un contrôle plus fin des sommes de Kloosterman ou des racines de -1 modulo N pourrait améliorer ce taux, mais le traitement uniforme des poids de l'observable n'est pas achevé.
+
+A. RAFFINEMENT GEOMETRIQUE DE LA POINTE
+
+Soit v=(x,y) un vecteur primitif le plus court d'un réseau unimodulaire, ell=|v|<=1/2. Par symétrie, on suppose x>0,y>=0. Posons
+  h=2/x, tau=y/x,
+  H(q)=(tau-sqrt(q))^2/2, q>=0.
+La moyenne des droites pleines est F(v). Le décalage transverse donne une progression q_k=q_0+k h, avec q_0 uniforme sur [0,h). Sur la droite qui minimise H(q_k), le candidat VIRTUEL obtenu en arrondissant vers le premier point entier après l'extrémité basse a hauteur
+  H_min + y U,
+où U est uniforme sur [0,1), conditionnellement à q_0. Cette uniformité provient de la translation longitudinale sur le tore ; elle est vraie pour toute phase partenaire du réseau.
+
+Deux mécanismes peuvent écarter le vrai minimum de ce candidat virtuel.
+
+A1. Corde trop courte.
+La corde de la droite est trop courte pour garantir le candidat si q_min<x^2/4. Puisque x^2/4<h, cela ne concerne que le premier q_0 ; la probabilité est au plus x^3/8. La droite suivante q_min+h a une corde suffisamment longue et
+  H(q+h)-H(q) <= 1/x.
+Un de ses points admissibles a hauteur <=H_min+1/x+y. La contribution positive à E(Z*-candidat_virtuel) est donc au plus
+  x^2/8 + y x^3/8.
+
+A2. Une autre droite fournit un point plus bas.
+La fonction H est convexe et unimodale sur [0,infty). Si une autre droite bat le candidat virtuel, l'écart entre deux valeurs adjacentes, dont l'une est minimale ou intermédiaire entre le minimum et cette droite, doit avoir module <=y. Posons
+  Delta(q)=H(q+h)-H(q)
+          = h/2 - tau h/(sqrt(q+h)+sqrt(q)).
+Delta est croissante. Ecrivons d=h/2-Delta ; l'inversion exacte est
+  q(d)=tau^2 h^2/(4d^2)-h/2+d^2/(4tau^2).
+Sur les valeurs réalisables de q, d<=tau sqrt(h), donc
+  |dq/dDelta| <= tau^2 h^2/(2d^3).
+Si |Delta|<=y, alors d>=1/x-y=(1-xy)/x, d'où
+  |dq/dDelta| <= 2 y^2/[x(1-xy)^3].
+L'ensemble des q où |Delta(q)|<=y est un intervalle de longueur au plus
+  4 y^3/[x(1-xy)^3].
+Sa projection modulo h a une mesure au plus cette longueur. Comme q_0 est uniforme modulo h,
+  P(competition) <= 2 y^3/(1-xy)^3.
+La réduction de hauteur par rapport au candidat virtuel est au plus y. On conclut donc
+  -2 y^4/(1-xy)^3
+    <= Psi(Lambda)-F(v)-y/2
+    <= x^2/8 + y x^3/8.
+
+Le cas y=0 s'obtient directement (pas de compensation). Le cas x=0, y>0, est également direct : les droites verticales sont espacées de 1/y, la seconde profondeur continue est à distance <=y de la première avec probabilité au plus 2y^3, et l'arrondi vertical a moyenne y/2.
+
+Pour ell<=1/2, xy<=ell^2/2<=1/8 et y^4<=ell^4<=ell^2/4. Ainsi la minoration en valeur absolue est au plus
+  (256/343) ell^2 < (3/4) ell^2,
+et la majoration est au plus
+  (5/32) ell^2.
+RESULTAT :
+  |Psi(Lambda)-F(v)-|y|/2| <= (3/4)|v|^2.
+
+Ce raffinement a été relu indépendamment par l'agent audit_second_cusp, qui a confirmé le contrôle de l'intervalle q modulo h et la formule de compensation.
+
+B. UNE SOUSTRACTION SUPPLEMENTAIRE NE CHANGE PAS LE COEFFICIENT B
+
+Conservons la coupure chi, égale à 1 sur [0,1/2], nulle sur [1,infty), et eta<=1/2. Posons
+  g_1(x,y)= |y| chi(sqrt(x^2+y^2)/eta)/4,
+  E_1(Lambda)=Sigma_{v primitif} g_1(v),
+  f_2=Psi-E_g-E_1.
+Si lambda_1<eta/2, seuls les deux vecteurs +/-v contribuent à E_g et E_1, donc
+  f_2=Psi-F(v)-|y|/2.
+Le résultat A donne |f_2|<=3 lambda_1^2/4 dans cette pointe.
+
+Le profil transverse du modèle |y|/2 est exactement
+  Phi_1(x)= integral_R |y| chi(sqrt(x^2+y^2)/eta)/2 dy
+          = integral_x^eta t chi(t/eta) dt, x>0.
+Pour x<=eta/2,
+  Phi_1(x)=A_eta-x^2/2,
+  A_eta=integral_0^eta t chi(t/eta)dt.
+Le noyau radial k_1(x)=Phi_1(x)/x a donc un pôle Mellin en sigma=1 et aucun pôle en sigma=3/2. Le calcul de cercle et de Mellin déjà utilisé pour E_g donne, pour tout 0<epsilon<1/2,
+  M_{E_1}(s)-integral E_1 dmu = O_eta,epsilon(e^{-(1-epsilon)s}).
+Le décalage du contour à Re sigma=1+epsilon ne rencontre que le pôle de Haar en 2. Le remplacement des arcs elliptiques par le profil transverse coûte O_eta(e^{-2s}), comme pour E_g ; |y| est indépendant de x et seule la coupure varie.
+
+Remarque : le pôle de k_1 en 1 est annulé par le zéro de Z_prim en 1, car 1/zeta(sigma) s'annule en 1. Cette annulation explique la structure, mais elle n'est pas nécessaire pour le taux précédent, dont le contour reste à droite de 1.
+
+Par conséquent, l'existence d'un taux >1/2 pour f_2 est EQUIVALENTE à H pour Psi_rem=Psi-E_g. Si un taux 1/2+delta_2 est obtenu pour f_2, alors H vaut avec tout delta<=min(delta_2,1/2-epsilon). E_1 ne crée aucun second coefficient supplémentaire.
+
+C. QUEUE UNIFORME DU NOUVEAU RESTE
+
+Fixons 0<r<=min(1/2,eta/2). Dans cet ensemble, le plus court vecteur est unique modulo signe : deux vecteurs primitifs non colinéaires de longueur <=r auraient determinant non nul entier de valeur absolue <=r^2<1, impossible. Ainsi
+  |f_2| 1_{lambda_1<r}
+    <= (3/8) Sigma_{v primitif} |v|^2 1_{|v|<r}.
+Siegel donne exactement la borne de Haar
+  integral |f_2| 1_{lambda_1<r} dmu
+    <= 3 pi r^4/[16 zeta(2)].
+
+Pour la moyenne de cercle, écrivons e^{-s}=epsilon in (0,1]. Pour un vecteur primitif w de longueur q>=1, ses deux arcs où |w k_theta a_s|<r sont parametrés par
+  y=(q/epsilon)sin(theta),
+  dtheta=(epsilon/q)(1-epsilon^2 y^2/q^2)^{-1/2}dy.
+Le jacobien est <=(epsilon/q)/sqrt(1-r^2), puisque |y|<r et q>=1. Les arcs ne sont présents que pour q<=r/epsilon. Le vecteur transformé a norme <=r et le domaine y a longueur <=2r. Donc
+  M_s[ Sigma_prim |v|^2 1_{|v|<r} ]
+    <= [2 epsilon r^3/(pi sqrt(1-r^2))]
+       Sigma_{|w|<=r/epsilon}|w|^{-1}.
+Si r<epsilon, la somme est vide. Sinon, T=r/epsilon>=1. Le comptage entier elementaire N(T)<=3 pi T^2 implique par Stieltjes
+  Sigma_{|w|<=T}|w|^{-1} <=6 pi T.
+Par conséquent
+  M_s[|f_2|1_{lambda_1<r}]
+    <= [9/(2sqrt(1-r^2))]r^4
+    <=3sqrt(3)r^4 <6r^4.
+Les deux queues sont donc O(r^4), uniformément pour tous s>=0. Couper à r=e^{-as}, avec a>1/8, suffit à rendre cette partie o(e^{-s/2}). Le précédent reste linéaire exigeait a>1/6.
+
+D. PARTENAIRE ARITHMETIQUE ET SEUIL DE WEIL
+
+Pour w=(a,b) primitif, choisissons u=(c,d) entier avec ad-bc=1 et définissons
+  N=a^2+b^2,
+  beta_0=(ac+bd)/N mod 1.
+Si b!=0, alors
+  beta_0=d/b-a/(bN) mod 1,
+et d est l'inverse de a modulo b.
+
+Après la rotation puis a_s, en notant psi l'angle du vecteur w après rotation,
+  beta_s=beta_0 +(e^{2s}-e^{-2s})sin(psi)cos(psi)/|w k_theta a_s|^2 mod 1.
+Les modes de Fourier non nuls en beta_0 sont donc des sommes de Kloosterman, après completion en a modulo b.
+
+Une application de la borne de Weil terme à terme, suivie d'une somme absolue sur b<=T, coûte
+  T^{-2} Sigma_{b<=T} b^{1/2+nu}
+    =O(T^{-1/2+nu}), T~e^s.
+C'est exactement le seuil e^{-s/2}, sans économie positive. Une régularisation des poids ne peut améliorer ce seuil par cette seule méthode. Il faut exploiter l'annulation entre les modules (Kuznetsov) ou une structure supplémentaire du poids.
+
+Pour des fréquences fixées, le théorème classique de Kuznetsov sur les sommes signées de S(m,n;c)/c donne c^{1/6} (log c)^{1/3} ; après sommation partielle, cela suggère une erreur normalisée T^{-5/6+nu} pour des poids uniformément contrôlés. Le résultat ne peut être utilisé sans borne sur la dépendance en fréquences et sur les dérivées du poids quand la pointe est coupée à r=e^{-as}. Cette étape n'a pas été établie ici.
+
+E. REPARAMETRISATION PLUS SPECIFIQUE PAR RACINES DE -1
+
+L'identité de Lagrange donne
+  (ac+bd)^2+(ad-bc)^2=(a^2+b^2)(c^2+d^2),
+donc nu=ac+bd satisfait nu^2+1=0 mod N. Les quatre rotations gaussianes de w donnent le même N et la même phase beta_0. Inversement, les racines de -1 modulo N parametrent les classes de tels vecteurs sous ces quatre rotations ; ce fait peut aussi être formulé via les idéaux de Z[i], qui est principal.
+
+Après la moyenne de rotation, un poids marqué depend seulement de N et beta_0, et non de l'angle initial de w. Cela réduit les modes partenaires à des sommes pondérées de racines normalisées nu/N, nu^2=-1 mod N. Marklof–Welsh, §§1.1 et 5.3, relie précisément ces racines à l'orbite hyperbolique de i.
+
+Une borne de Weyl de taille X^{2/3+nu} pour ces racines, avec X=T^2, donnerait une erreur T^{-2/3+nu}, mieux que le seuil. Ce taux historique a été repéré dans des sources secondaires pendant la recherche, mais son énoncé primaire complet et sa dépendance en fréquence n'ont pas été relus ici. Il est donc inscrit comme PISTE A VERIFIER, pas comme outil prouvé disponible pour H. Le traitement des poids singuliers issus de f_2 resterait nécessaire même avec cet énoncé.
+
+F. BUDGET DE REGULARISATION A ETABLIR
+
+Supposons qu'une régularisation f_{r,h} du nouveau reste fournisse
+  erreur de moyenne <=C[r^4+r^{-p0}h^b+e^{-kappa s}r^{-p}h^{-q}].
+Avec r=e^{-as},h=e^{-ds}, les trois exposants sont
+  4a, bd-p0 a, kappa-pa-qd.
+Il faut montrer par des normes REELLEMENT obtenues que ces trois nombres dépassent 1/2. Le seul fait que le reste est borné et nul à la pointe ne fournit aucune valeur de p,p0,q,b.
+
+Dans le cas favorable p0=0, la meilleure balance formelle est
+  c <= kappa/[1+p/4+q/b].
+Un taux c>1/2 est donc possible uniquement si p/4+q/b<2kappa-1. Il faut verifier ce critere avec les coûts effectifs de normes et la structure géométrique des plis ; il ne constitue pas une preuve par lui-même.
+
+G. SOURCES PRIMAIRES CONSULTEES ET PORTEE
+
+- Peter Humphries, Distributing Points on the Torus via Modular Inverses, arXiv:2003.09955v2, formule (3.2) et introduction : borne de Weil pour les phases inverses modulo q.
+  https://arxiv.org/pdf/2003.09955
+- Peter Sarnak et Jacob Tsimerman, On Linnik and Selberg's Conjecture about Sums of Kloosterman Sums, Theoreme 1 et Theoreme 2 : sommes signees et dependance en frequences ; la forme naïve uniforme sans dépendance en m,n peut être fausse.
+  https://web.math.princeton.edu/facultypapers/sarnak/LinnikSelbergApr07.pdf
+- Jens Marklof et Matthew Welsh, Fine-scale distribution of roots of quadratic congruences, §§1.1 et 5.3 : lien des racines de -1 avec l'orbite de i et interpretation geometrique.
+  https://people.maths.bris.ac.uk/~majm/bib/roots_pair_correlation.pdf
+- Emilio Corso et Davide Ravotti, Large Hyperbolic Circles : hypotheses de quotient COMPACT, donc inapplicable tel quel à SL2(Z)\SL2(R).
+  https://www.emiliocorso.com/wp-content/uploads/2022/09/large_hyperbolic_circles.pdf
+- Zhiyuan Deng et Yutian Sun, Asymptotic Expansion for Expanding Spherical Averages in Real Rank One Spaces, arXiv:2601.21954v2, §1 : quotient COMPACT, même limitation.
+  https://arxiv.org/pdf/2601.21954
+
+H. OBSTRUCTION OU CONTRE-EXEMPLE A H ?
+
+Aucun contre-exemple à H pour l'observable precise Psi_rem n'a été trouvé. La limitation de Weil est une obstruction de la méthode, pas une preuve d'un terme supplémentaire de taille e^{-s/2}. La soustraction E_1 montre au contraire qu'une correction cuspide attendue |y|/2 ne produit pas un tel terme. La présence ou l'absence d'un terme du cœur à cette échelle demeure à démontrer par la régularité globale et un taux effectif adapté.

@@ -1,0 +1,150 @@
+{
+  "schema": "DYN-PREUVE-TAUX-PSI-REM-SHA256-v0.1",
+  "files": [
+    {
+      "path": "DYN-PREUVE_TAUX_PSI_REM_v0_1.txt",
+      "bytes": 22910,
+      "sha256": "53d616ae2ab173309553e8c50b1fa5630ba7d788410f4825bff67ff962498e05"
+    },
+    {
+      "path": "LIRE_D_ABORD.txt",
+      "bytes": 1964,
+      "sha256": "a56150700de905c078b66db53a6a9a01b67b13327e903e96d65ae2fc854dbb2c"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 2925,
+      "sha256": "72cbfb765c68033981f74168190fe32b67bcba95c223220b5169b6955a5b85ce"
+    },
+    {
+      "path": "STATUT.json",
+      "bytes": 1492,
+      "sha256": "0ec9940946648d228355af0b56a20ec4afc3e65b867fd9c91b52b46398d1cf65"
+    },
+    {
+      "path": "VERIFIER_SHA256.py",
+      "bytes": 651,
+      "sha256": "89d3989cb7b940f3d49413811c142849bb63269c878307a1d1ac9c0bd9d54d45"
+    },
+    {
+      "path": "antecedents/AUDIT_MELLIN.txt",
+      "bytes": 9239,
+      "sha256": "336eb967536a68fea84d603e1942cf7d58d40bc21fa90e2f5701909dc463cd93"
+    },
+    {
+      "path": "antecedents/CONSTANTES_HAUTE_PRECISION.json",
+      "bytes": 1402,
+      "sha256": "15020f60ea793086e6156d263c4579819c0f6b57770bf7d7604ae0269b86db42"
+    },
+    {
+      "path": "antecedents/RECALCUL_CONSTANTES.py",
+      "bytes": 2332,
+      "sha256": "c4f212f8d24974997da629cc819a0cef22d959d36dc228b2fa17555e13d28206"
+    },
+    {
+      "path": "antecedents/SUPPLEMENT_ENVELOPPES.txt",
+      "bytes": 5976,
+      "sha256": "8fe907d4acbb1cdaa5f3b03a45b7d9bf35c1eb004775d2cf7c388f6d8627aa69"
+    },
+    {
+      "path": "arithmetique/RELECTURE_SECTION_9.txt",
+      "bytes": 4372,
+      "sha256": "3902b7080dd3850e359678ddb0aeb2286d26d695f4b5173a00889213706f5153"
+    },
+    {
+      "path": "arithmetique/ROUTE_ARITHMETIQUE_ET_RESTE_QUADRATIQUE.txt",
+      "bytes": 11831,
+      "sha256": "3aa65bceb45a4ab7be3fb58c1a287f5f734e6204a4c953648c80dfe41a645169"
+    },
+    {
+      "path": "counterreview/CONTRE_RELECTURE_PREUVE_H.txt",
+      "bytes": 12271,
+      "sha256": "dd2638f2dcae6ce27b9331f3251e3b9a644d64eedfc1ce66ba4eb03b1a87df8b"
+    },
+    {
+      "path": "entrees/demonstration_second_terme_2026-10-09.md",
+      "bytes": 20075,
+      "sha256": "c23974c2bf61fd1ac9f9d02d65b6ccddfbab45330d637c724f129b55b449a6a4"
+    },
+    {
+      "path": "entrees/verif_second_terme.py",
+      "bytes": 5595,
+      "sha256": "092a012bf30e010c62d83644e89a6e78a92c5a3b9546cb2cc3b48766788248d1"
+    },
+    {
+      "path": "fractional/CONTRE_PREUVE_GRADIENT_POINTE.txt",
+      "bytes": 9560,
+      "sha256": "72ddf44d6f007b0494503479a4740f10f28ab93d8e4ffea83833f8fa494cf935"
+    },
+    {
+      "path": "geometrie/CONTROLE_AUTONOME_F.txt",
+      "bytes": 2094,
+      "sha256": "a63aff5974b73f4408138ac7140275157a46972fd8364cbe5fde85b63c78b644"
+    },
+    {
+      "path": "geometrie/PLI_RESIDUEL_EXACT.txt",
+      "bytes": 2336,
+      "sha256": "deb59a619da2f50aa42e58cfb1b993808880ea94e5f25ed781b615596e59dda3"
+    },
+    {
+      "path": "geometrie/PREUVE_LIPSCHITZ_GLOBALE.txt",
+      "bytes": 11255,
+      "sha256": "32040c721189fb66dcf13f7f75cc8cd30126964596b44ab85246649328684417"
+    },
+    {
+      "path": "licenses/DYN-LICENCE_DEL_v1_1.pdf",
+      "bytes": 84602,
+      "sha256": "80e5f0da15a281709143d08566630caa999cad3ec136adae3f2c0a130eafd432"
+    },
+    {
+      "path": "licenses/LICENSE_SCOPE.txt",
+      "bytes": 807,
+      "sha256": "9de9c47a1c46eb74907bc52b326d346dc0208d798ff7556c413fcd40dd6143fb"
+    },
+    {
+      "path": "obstruction/CONTROLE_FORMULES.py",
+      "bytes": 2307,
+      "sha256": "77730a9d485b606dcbd63117d2e2898fd2b7b204420743cf7445f5aa2c75c3ac"
+    },
+    {
+      "path": "obstruction/CONTROLE_FORMULES_RESULTAT.json",
+      "bytes": 4677,
+      "sha256": "8a8703153267913189402c3486fa543aa393c85c3832b62057d5fd9e0d2c9514"
+    },
+    {
+      "path": "obstruction/CONTROLE_FORMULES_STDOUT.txt",
+      "bytes": 4678,
+      "sha256": "2187e8ae77cf3d1b2e825a4719b4959cb096fbab6669ba27d9f794294ff62346"
+    },
+    {
+      "path": "obstruction/FORMULE_EXPLICITE_RESTE_POINTE.txt",
+      "bytes": 7447,
+      "sha256": "343a214f018d06eefbaf6efd0fa5f89e01fc175bb7f2cac5f4555aaf6fc0a09e"
+    },
+    {
+      "path": "obstruction/LEMME_DEUX_RANGEES.txt",
+      "bytes": 7338,
+      "sha256": "9a27cab58e7e8c539f8fffb1644a01bd3d6839d5bdab3f83f32812d16e613786"
+    },
+    {
+      "path": "obstruction/PLI_RECTANGULAIRE.txt",
+      "bytes": 3008,
+      "sha256": "75f8e02240a58443bc833200b60120c65e8fcc9c4bf229c9e20ce99ada156c8d"
+    },
+    {
+      "path": "obstruction/REJEU_INTEGRATEUR.json",
+      "bytes": 299,
+      "sha256": "b25a6e375ff6d8a85fa40a612662772ae16378abdaeb541e3dfe368b93de337d"
+    },
+    {
+      "path": "spectral/ANNEXE_LISSAGE_CHALEUR.tex",
+      "bytes": 4017,
+      "sha256": "0d0ed006827496309b611d35cc5cc6d0c53fc7aa9f92338535a5fc2d3f981179"
+    },
+    {
+      "path": "spectral/PROPOSITION_SPECTRALE_LIP.tex",
+      "bytes": 9320,
+      "sha256": "089d62080daaf12224ee8f3aad467dad1d0050e79f18c4176ba7876f9840c45c"
+    }
+  ]
+}

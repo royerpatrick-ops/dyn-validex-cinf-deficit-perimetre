@@ -1,0 +1,157 @@
+LEMME DES DEUX RANGEES : RAFFINEMENT DE LA POINTE ET DEPENDANCE AU PARTENAIRE
+9 octobre 2026 — preuve indépendante proposée à l'intégrateur.
+Statut : démonstration mathématique rédigée et contrôlée par IA ; aucune
+relecture humaine attestée. Ce lemme ne démontre pas à lui seul H.
+
+1. NOTATION ET ENONCE
+
+Soit v=(x,y) primitif, r=|v|<=1/2, et
+  Lambda(v,b)=Z v + Z u, u=(-y,x)/r² + b v,
+avec b dans R/Z. Le vecteur v n'a pas besoin d'être le plus court.
+Psi(v,b) est la moyenne sur les translations de la première hauteur
+Y d'un point dans Y>=X²/2. F(v) est le modèle des rangées continues.
+Par réflexion et changement de signe on peut supposer x>0 et y>=0.
+
+Alors, uniformément en b,
+  -y*x³/16 - 2*y⁴/(1-x*y)³
+       <= Psi(v,b)-F(v)-y/2
+       <= x²/8+y*x³/8.                                      (1)
+En particulier,
+  |Psi(v,b)-F(v)-|y|/2| <= (5/4)*r².                       (2)
+
+Pour la distance circulaire d(b,b') sur R/Z,
+  |Psi(v,b)-Psi(v,b')|
+       <= [4*y⁴/(1-x*y)³+y*x³/4] d(b,b')
+       <= 10*r⁴ d(b,b').                                  (3)
+La dérivée en b existe donc presque partout et |d_b Psi|<=10*r⁴.
+F et |y|/2 étant indépendants de b, les mêmes bornes valent pour leurs
+restes. Pour x=0 :
+  -2*|y|⁴ <= Psi(v,b)-F(v)-|y|/2 <=0,
+  Lip_b Psi<=4*|y|⁴.
+
+2. PHASE NORMALE ET CANDIDATS DISCRETS
+
+Posons a=y/x et h=2/x. Les rangées coupant la parabole sont paramétrées
+par q_j=q_0+j*h, j>=0, q_0 uniforme sur [0,h). Leur premier point continu
+a hauteur
+  H(q)=(sqrt(q)-a)²/2.
+La corde projetée en X mesure 2*sqrt(q), et le pas en X est x.
+Si q>=x²/4, le premier point du réseau après l'extrémité basse existe.
+Sa hauteur est H(q)+y*U_j avec U_j uniforme sur [0,1) conditionnellement
+à q_0. Les U_j ne sont pas indépendants : pour deux rangées voisines,
+leurs phases diffèrent d'une constante géométrique plus b (modulo 1).
+Le paramètre commun de phase reste uniforme, indépendamment de q_0.
+Si q_0<x²/4, seule la rangée 0 peut être courte. Cet événement a mesure
+  P_short=x³/8.                                            (4)
+
+3. MESURE DE LA COMPETITION ENTRE RANGEES
+
+La différence des minima continus de deux rangées voisines vaut
+  D(q)=H(q+h)-H(q)
+      =1/x-a*(sqrt(q+h)-sqrt(q)).
+Pour y>0, D est strictement croissante de D(0) vers 1/x. Sur son domaine
+inverse, d=D(q), on a
+  q(d)=[a/(1-x*d)-h*(1-x*d)/(4*a)]²,
+  q'(d)=2*x*[a²/(1-x*d)³-h²*(1-x*d)/(16*a²)]
+        <=2*y²/[x*(1-x*y)³], si |d|<=y.
+Par conséquent l'intervalle J={q>=0: |D(q)|<=y} a longueur
+  |J|<=4*y³/[x*(1-x*y)³].                                 (5)
+La probabilité que la progression q_0+j*h rencontre J est donc au plus
+  P_comp<=|J|/h<=2*y³/(1-x*y)³.                            (6)
+Cette dernière borne est <1 pour x,y<=1/2 : |J|<h. Il existe donc au
+plus UNE paire adjacente dont les minima continus diffèrent d'au plus y.
+
+La suite H(q_j) décroît puis croît : pour trouver le minimum discret,
+toute rangée autre que celle du minimum continu peut intervenir seulement
+si une voisine de ce minimum a un écart continu <=y. Sans (6), un premier
+point à hauteur <=H_min+y bat toutes les autres rangées. Sur (6), seules
+les deux rangées de la paire proche peuvent intervenir, sauf la rangée
+courte traitée au point suivant.
+
+Pour y=0, chaque rangée est horizontale et il n'y a aucune amélioration
+par compétition des hauteurs discrètes ; les résultats suivent directement
+du calcul de la rangée courte, ou par continuité.
+
+4. POURQUOI LA RANGÉE COURTE N'A QU'UNE RANGÉE DE SECOURS
+
+Supposons q_0<x²/4. Si la rangée 0 est susceptible d'être gagnante, alors
+  H(q_0)<=H(q_1)+y,
+et donc
+  a <= (1+x*y)*(sqrt(q_1)+sqrt(q_0))/2.
+Or q_0/h<=x³/8<=1/64. Il vient
+  a/sqrt(h)<= (1+x*y)*(sqrt(1+1/64)+1/8)/2 <3/4.
+Pour q>=q_1>=h, l'incrément des racines est au plus sqrt(h)/2 ; d'où
+  D(q_1)>=1/x-(3/4)*(h/2)=1/(4*x)>=y.
+La suite H est croissante sur q>=q_1, puisque a²<(3/4)²*h<q_1.
+Le candidat de la rangée 1 est donc à hauteur <=H(q_1)+y et bat toutes
+les rangées j>=2. Si la rangée 0 n'est pas susceptible d'être gagnante,
+son existence ou absence ne change pas le minimum. Ainsi la rangée courte
+ne crée jamais de compétition entre des indices séparés de plus de 1.
+
+5. PREUVE DU RAFFINEMENT D'AMPLITUDE
+
+Hors de la rangée courte, le candidat de la rangée minimisant H a excès
+moyen y/2. Une autre rangée peut l'améliorer seulement sur l'événement de
+compétition, et de moins de y. Sur l'événement court, l'excès est >=0.
+Ainsi
+  Psi-F>=y/2-(y/2)*P_short-y*P_comp,
+ce qui donne la première borne de (1).
+
+Pour la majoration, si la rangée minimisant H est courte et ne contient
+pas de point, le candidat de la suivante est à hauteur <=H_min+1/x+y :
+  H(q+h)-H(q)<=1/x.
+Sa mesure est <=P_short. Ailleurs l'excès moyen est y/2. La majoration
+  Psi-F<=y/2+(1/x+y)*P_short
+donne la seconde borne de (1).
+
+Avec r<=1/2, x*y<=1/4 et r⁴<=r²/4 : la première erreur est au plus
+  [1/64+32/27]*r² <(5/4)*r²,
+et la seconde au plus (5/32)*r². D'où (2).
+
+6. PREUVE DU CONTROLE EN b
+
+Dans une région sans compétition et sans rangée courte, une seule rangée
+détermine le minimum. Sa phase commune est uniforme : sa moyenne est
+H_min+y/2, exactement indépendante de b.
+
+Pour deux rangées adjacentes actives, on peut ancrer la phase uniforme
+sur la première. Le changement b ->b+d ne modifie que la phase relative
+de la seconde, de d modulo 1. La fonction dent de scie U(alpha) a norme
+L¹ de translation
+  integral_0^1 |U(alpha+d)-U(alpha)| d alpha
+     =2*d*(1-d)<=2*|d|, pour |d|<=1/2.
+Le minimum est une fonction 1-lipschitzienne de chacun de ses arguments.
+La variation de la moyenne conditionnelle est donc <=2*y*|d|.
+Ce coût intervient sur l'événement de compétition, de mesure <=P_comp.
+
+Sur l'événement court, on ancre la phase sur la rangée 0. Le sous-ensemble
+de phases où sa corde contient un point est indépendant de b. Si elle
+contient un point, on prend le minimum de son candidat et de celui de la
+rangée 1 ; sinon, seul le candidat de la rangée 1 subsiste. Le même coût
+L¹ <=2*y*|d| vaut dans les deux cas ; l'écart continu possiblement grand
+1/x ne varie pas avec b. Sa mesure est <=P_short.
+
+En surcomptant leur intersection, la variation totale est donc
+  <=2*y*(P_comp+P_short)*|d|,
+ce qui est (3). La constante 10 résulte de
+  4/(1-x*y)³<=256/27, et y*x³/4<=r⁴/4.
+
+7. CAS VERTICAL
+
+Si v=(0,y), les rangées deviennent des colonnes, toutes infinies au-dessus
+de leur premier point continu. La colonne la plus proche de X=0 donne
+le candidat de hauteur H_min+y*U, U uniforme. Seule sa voisine peut
+l'améliorer. Leur différence continue D est uniforme sur
+  [0,1/(2*y²)],
+donc P(D<=y)=2*y³. L'amélioration est <=y et leur phase relative varie
+de b modulo 1. On retrouve l'erreur <=2*y⁴ et le coût Lipschitz <=4*y⁴.
+
+8. PORTEE
+
+Dans la pointe lambda_1<eta/2, E_g=F(v) pour le vecteur court unique à
+signes près. Ce lemme fournit alors une expansion uniforme
+  Psi_rem(v,b)=|y|/2+O(r²),
+ainsi qu'une dépendance au partenaire O(r⁴) en norme Lipschitz.
+Il n'établit pas les dérivées en v ni un taux d'équirépartition. Il permet
+de tester ou de construire des normes de Sobolev pondérées en séparant
+la contribution universelle |y|/2 du résidu du partenaire.

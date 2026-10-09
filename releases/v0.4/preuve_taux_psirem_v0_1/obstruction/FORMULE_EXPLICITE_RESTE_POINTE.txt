@@ -1,0 +1,158 @@
+FORMULE EXPLICITE DU RESTE DANS LA POINTE ET BORNE LIPSCHITZ INTRINSEQUE
+9 octobre 2026 — résultat mathématique indépendant proposé à l'audit.
+Lire d'abord LEMME_DEUX_RANGEES.txt pour la justification des seules
+deux rangées susceptibles de gagner et la gestion de la rangée courte.
+
+1. OBJECTIF ET NOTATIONS
+
+On écrit v=(x,y), x,y>0, r=|v|<=1/2, u=(-y,x)/r²+b*v.
+Le groupe agit à droite. Les familles de translations sont uniformes.
+Posons a=y/x, h=2/x, H(q)=(sqrt(q)-a)²/2 et
+  D(q)=H(q+h)-H(q)=1/x-a*(sqrt(q+h)-sqrt(q)).
+Les rangées admissibles continues correspondent à q=q_0+j*h, avec q_0
+uniforme sur [0,h). Leur phase commune le long de v est uniforme.
+
+2. MINIMUM EXACT DE DEUX CANDIDATS AVEC DES PHASES LIEES
+
+Si les candidats sont H_0+y*U et H_0+d+y*{U+rho}, U uniforme, d>=0,
+0<=rho<1, leur minimum a moyenne
+  H_0+y/2-I_y(d,rho),
+  I_y(d,rho)=rho*[y*(1-rho)-d]_+.
+Cette formule résulte de la coupure U=1-rho : l'amélioration vaut
+y*(1-rho)-d sur la portion de mesure rho, et 0 ailleurs.
+I_y est continue et périodique en rho, Lipschitz de constante <=y.
+Elle est nulle pour d>=y et bornée par y/4.
+
+Pour deux rangées j et j+1, leur phase relative est
+  rho(q)=b+u_0x/x+(sqrt(q+h)-sqrt(q))/x (mod 1),
+où u_0x=-y/r². L'identité D(q)=1/x-a*(sqrt(q+h)-sqrt(q)) donne la
+cancellation exacte
+  rho(q)=b+x/(y*r²)-D(q)/y (mod 1).                         (A)
+Si D(q)>=0, la rangée j est la meilleure continue et on emploie rho(q).
+Si D(q)<0, la rangée j+1 est la meilleure et on emploie -rho(q).
+
+3. DECOMPOSITION EXACTE
+
+Autorisons provisoirement le premier point de chaque rangée après son
+extrémité basse, même si sa corde est trop courte. Ce modèle fictif a
+profondeur moyenne
+  F(v)+y/2-J_comp.
+La preuve du lemme des deux rangées assure qu'au plus une paire adjacente
+peut intervenir. Comme q_0 est uniforme modulo h, l'intégration sur
+toutes les paires actives est exactement (1/h) fois l'intégrale en q.
+Ainsi
+  J_comp=(x/2)*integral_0^inf I_y(|D(q)|,rho_signe(q)) d q.
+
+Avec p=x*y, lambda=x/(2*y²), c=x/(y*r²), le changement D(q)=y*t donne
+  J_comp=y⁴*integral_-1^1 W(x,y,t)*j(|t|,R(t)) d t,         (B)
+  W(x,y,t)=[(1-p*t)^(-3)-lambda²*(1-p*t)]_+,
+  j(d,R)=R*[1-R-d]_+,
+  R(t)={b+c-t} si t>=0, R(t)={-b-c+t} si t<0.
+Le poids positif impose exactement la branche inverse q>=0. En effet
+  q'(d)=2*x*[a²/(1-x*d)³-h²*(1-x*d)/(16*a²)],
+et q'(d)>=0 équivaut à la condition que l'inverse
+  sqrt(q)=a/(1-x*d)-h*(1-x*d)/(4*a)
+soit non négatif. Les dénominateurs dans (B) sont >=3/4.
+
+Une seule rangée peut être courte : q_0<x²/4. Écrivons q_0=x²*t²/4,
+0<=t<=1. Sa corde contient le premier candidat si et seulement si sa
+phase U appartient à [0,t]. Sur U>t, elle doit être retirée du minimum.
+Si le faux candidat aurait gagné, la seule alternative réelle est la
+rangée 1 (lemme des deux rangées). Il s'ensuit exactement
+  J_short=(x³/4)*integral_0^1 t*integral_t^1
+       [D_s(t)+y*({U+rho_s(t)}-U)]_+ d U d t,              (C)
+où
+  S(t)=sqrt(1+x³*t²/8),
+  D_s(t)=1/x-y*sqrt(2)*x^(-3/2)*S(t)+y*t/2,
+  rho_s(t)=b-y/(x*r²)+sqrt(2)*x^(-3/2)*S(t)-t/2.
+
+L'intégrale interne admet aussi une forme close. Avec R={rho_s(t)},
+  L_1=[1-R-t]_+, L_2=1-t-L_1,
+  K(D,y,R;t)=L_1*[D+y*R]_+ +L_2*[D-y*(1-R)]_+.
+Ainsi (C) est une intégrale simple :
+  J_short=(x³/4)*integral_0^1 t*K(D_s(t),y,{rho_s(t)};t) d t.
+La forme close montre directement la continuité périodique en R.
+
+La profondeur moyenne réelle satisfait donc l'identité exacte
+  Psi(v,b)-F(v)=y/2-J_comp(x,y,b)+J_short(x,y,b).            (D)
+Cette identité ne repose ni sur une approximation de phase indépendante
+ni sur une simulation.
+
+4. CONTROLE LIPSCHITZ POUR LES VARIATIONS DE v
+
+Fixons une variation v'=(x',y') avec |v'|<=r, et b fixe. Tous les arguments
+ci-dessous concernent des fonctions localement Lipschitz ; les dérivées
+peuvent être prises presque partout puis intégrées sur un chemin.
+
+Pour (B), W et j sont bornés. Les dérivées du poids par rapport à p et
+lambda sont bornées universellement sur sa partie positive, puisque
+  lambda² <= (1-p*t)^(-4) <= (4/3)^4.
+Le poids positif est localement Lipschitz aux frontières. La fonction j
+est périodique et Lipschitz de constante universelle en R. On a
+  |p'|<=2*r²,
+  |lambda'|<=r/(2*y²)+x*r/y³,
+  |c'|<=1/(y*r)+x/(y²*r)+2*x/(y*r²).
+Les facteurs y⁴ donnent respectivement
+  y⁴*|p'|<=2*r⁶,
+  y⁴*|lambda'|<=r*y²/2+x*r*y <=C*r³,
+  y⁴*|c'|<=y³/r+x*y²/r+2*x*y³/r² <=C*r².
+La dérivée du facteur y⁴ est <=4*r⁴. Il en résulte
+  |d_v J_comp|<=C*r², pour |v'|<=r.                        (E)
+
+Pour (C), appelons K(D,y,rho;t) l'intégrale interne. Sa dépendance en
+D et y est Lipschitz de constantes <=1. Sa dépendance en rho est
+Lipschitz de constante <=2*y : la dent de scie a une norme L¹ de
+translation <=2*|delta|, même restreinte à U dans [t,1], et la partie
+positive est 1-lipschitzienne. Enfin
+  K<=|D|+y.
+Les bornes directes, S étant compris entre 1 et sqrt(65/64), sont
+  |D_s'|<=C*[r/x²+r*x^(-3/2)+y*r*x^(-5/2)],
+  |rho_s'|<=C*[r*x^(-5/2)+1/(x*r)
+                     +y/(x²*r)+y/(x*r²)].
+Multipliées par x³ et x³*y respectivement, elles satisfont
+  x³*|D_s'|<=C*[r*x+r*x^(3/2)+y*r*sqrt(x)]<=C*r²,
+  x³*y*|rho_s'|<=C*[r*y*sqrt(x)+x²*y/r
+                           +x*y²/r+x²*y²/r²]<=C*r².
+La dérivée du facteur x³, multipliée par |D_s|+y, est également <=C*r².
+Il en résulte
+  |d_v J_short|<=C*r², pour |v'|<=r.                       (F)
+
+Toutes les estimations restent uniformes à l'approche de x=0 ou y=0.
+Pour x=0, (B) a sa limite directe ; (C) tend vers 0. Pour y=0, (B) est
+nulle dans un voisinage à x fixé et (C) vaut x²/24. Les réflexions de
+la parabole et les changements de signe des bases étendent les formules
+au voisinage des axes ; la continuité et les bornes unilatérales donnent
+les mêmes bornes Lipschitz. Le terme y/2 devient |y|/2.
+
+5. CONTROLE INTRINSEQUE SOUS LE GROUPE
+
+Soit A dans sl_2(R), ||A||<=1, et le flot g ->g*exp(t*A). La base v,u
+est transportée à droite, avec v'=v*A, donc |v'|<=r. Pour exprimer u'
+dans le chart u=Jv/r²+bv, on remarque que b=u.v/r². Les termes contenant
+b se compensent dans la dérivée, ce qui donne exactement
+  b'=[(u_0*A).v+u_0.(v*A)]/r²,
+  |b'|<=2/r².
+Le lemme des deux rangées donne Lip_b(Psi-F)<=10*r⁴, donc le coût de
+cette variation est <=20*r². Les points (E)-(F) et (D) donnent alors
+  |d_A(Psi-F)|<=|y'|/2+C*r²<=C*r.                         (G)
+
+Dans la pointe lambda_1<eta/2, E_g=F(v) pour le vecteur court unique
+à signes près. La fonction Psi_rem est donc Lipschitz pour la métrique
+de groupe, avec dérivées intrinsèques de module <=C*lambda_1 dans cette
+pointe. En particulier les dérivées faibles de premier ordre sont
+bornées et de carré intégrable dans la pointe (Haar est proportionnelle
+à r dr d angle d b).
+
+6. CONTROLES EXACTS DE COHERENCE
+
+(i) y=0 : J_comp=0, J_short=x²/24, d'où Psi=1/(2*x)+x²/24.
+(ii) x=0,b=0 : J_comp=0, J_short=0, d'où Psi=1/(24*y²)+y/2.
+(iii) x=0,b=1/2 : (B) donne J_comp=y⁴/8, d'où
+      Psi=1/(24*y²)+y/2-y⁴/8, identité indépendante connue.
+
+7. LIMITE DE CE RESULTAT
+
+(G) traite le maillon de régularité dans la pointe. Le taux H nécessite
+encore une estimation spectrale de cercle applicable à des fonctions
+ayant cette régularité faible, et la régularité sur la partie compacte.
+La présente preuve ne revendique pas ces deux maillons.

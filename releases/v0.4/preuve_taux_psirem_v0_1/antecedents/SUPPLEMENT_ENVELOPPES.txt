@@ -1,0 +1,128 @@
+SUPPLEMENT — DEUX PARABOLES PERMETTENT D'EVITER LE LEMME Q
+9 octobre 2026 ; raisonnement indépendant par IA, à relire humainement.
+
+VERDICT
+
+La piste proposée est valide. Elle ne prouve pas le lemme Q autonome tel
+qu'il est formulé dans la note. Elle permet de s'en passer pour transférer
+une asymptotique à deux termes déjà établie pour M(s) vers le déficit
+physique. Les enveloppes sont géométriques et inconditionnelles ; leur
+utilisation à l'ordre du second terme requiert l'asymptotique quantitative
+de M, donc H et le lemme E. Aucun taux de variation de M ni première
+variation de l'événement « premier point » n'est nécessaire.
+
+1. HYPOTHESES ET REPERES
+
+K est fixe, compact convexe, de bord C^3, avec courbure strictement
+positive. Les normales sont indexées par phi. Au point d'appui p_phi,
+on utilise une tangente x et une normale intérieure y, origine au bord
+de RK. Ecrivons kappa=kappa(phi), q=kappa/R. Il existe des constantes
+kappa_min>0, kappa_max<inf, r>0 et des cartes uniformes telles que
+  f_phi(xi)=kappa(phi)*xi^2/2 + O_K(|xi|^3).
+Le disque roulant intérieur tangent a rayon Rr.
+
+2. UNE COUPURE PHYSIQUE COMMUNE
+
+Fixons une constante c0>sqrt(2), par exemple c0=2. Pour R assez grand,
+le disque de centre (0,c0/2) et rayon c0/2 est inclus dans le disque
+roulant de centre (0,Rr) et rayon Rr : les deux disques sont tangents
+à l'origine et c0/2<=Rr. Il est donc inclus dans RK et dans sa calotte
+de profondeur c0.
+
+Tout réseau obtenu par rotation et translation de Z^2 a rayon de
+recouvrement sqrt(2)/2<c0/2. Cette calotte contient donc un point du
+réseau ; sa première profondeur D_R(phi) est <=c0, pour toute rotation
+et translation.
+
+La même coupure vaut pour chacune des paraboles de courbure q_tilde
+comprise entre kappa_min/(2R) et 2*kappa_max/R. En effet le même disque
+satisfait y>=x^2/c0, et il est inclus dans
+  A_q_tilde={y>=q_tilde*x^2/2}
+dès que q_tilde<=2/c0. Tous ses points sont de hauteur <=c0. La première
+profondeur H_q_tilde du modèle parabolique est donc <=c0, uniformément.
+
+Cette borne porte sur les profondeurs physiques. Elle ne supprime pas
+les queues du modèle de Haar après normalisation ; celles-ci ne sont
+pas utilisées dans cette comparaison géométrique.
+
+3. CONFINEMENT UNIFORME ET ENVELOPPES
+
+Par compacité et unicité du point d'appui dans chaque direction, une
+calotte de K de profondeur suffisamment petite est entièrement contenue
+dans sa carte locale autour de p_phi, uniformément en phi. Dans ces cartes,
+  f_phi(xi)>=kappa_min*xi^2/4
+après réduction éventuelle du voisinage. Ainsi toute calotte de RK de
+profondeur <=c0 satisfait
+  |x|<=C*sqrt(R), C=sqrt(4*c0/kappa_min).
+Les calottes des deux paraboles ci-dessous satisfont la même borne pour
+R assez grand. Le domaine de K dans un voisinage intérieur uniforme est
+exactement la région située au-dessus de sa fonction de bord ; la branche
+opposée du bord est hors de ces calottes de profondeur c0.
+
+Dans ce confinement,
+  f_R,phi(x)=R*f_phi(x/R)
+            =q*x^2/2+O_K(|x|^3/R^2).
+Pour une constante A=A(K,c0), indépendante de phi et R, posons
+  epsilon_R=A*R^(-1/2),
+  q_minus=q*(1-epsilon_R), q_plus=q*(1+epsilon_R).
+Pour R assez grand epsilon_R<1/2, et le reste de Taylor satisfait
+  q_minus*x^2/2 <= f_R,phi(x) <= q_plus*x^2/2
+pour |x|<=C*sqrt(R). À x=0 les trois expressions sont nulles ; pour
+x!=0 il suffit de diviser le reste par q*x^2/2 et d'utiliser kappa_min.
+
+Pour tout z dans [0,c0], on a donc les inclusions de calottes complètes
+  {q_plus*x^2/2<=y<=z}
+       inclus dans {points de RK de hauteur <=z}
+       inclus dans {q_minus*x^2/2<=y<=z}.
+Le confinement de chaque ensemble assure que les inégalités locales
+suffisent pour ces inclusions globales. Comme toutes les premières
+profondeurs sont <=c0, on en déduit point par point
+  H_q_minus <= D_R(phi) <= H_q_plus.
+
+4. PASSAGE A L'ESPERANCE PAR LES MOYENNES DE CERCLES
+
+La transformation (x,y)->(q_tilde^(1/3)*x,q_tilde^(-1/3)*y), de
+déterminant 1, envoie la parabole de courbure q_tilde sur Y=X^2/2.
+La moyenne exacte sur les translations absorbe le centrage, et la
+rotation uniforme donne
+  E[H_q_tilde]=q_tilde^(1/3)*M(s_q_tilde),
+  s_q_tilde=(1/3)*log(1/q_tilde).
+Aucune équirépartition n'est requise pour cette identité exacte.
+
+Supposons maintenant, pour des constantes C,B et delta_M>0, que
+  M(s)=C-B*exp(-s/2)+O(exp(-(1/2+delta_M)*s)).
+On applique cette asymptotique directement à q_minus et q_plus, sans
+estimer une dérivée de M. Elle donne uniformément en phi
+  E[H_q_tilde]=C*q_tilde^(1/3)-B*q_tilde^(1/2)
+                 +O(q_tilde^(1/2+delta_M/3)).
+Les variations entre q_tilde et q valent
+  q_tilde^(1/3)-q^(1/3)=O_K(R^(-5/6)),
+  q_tilde^(1/2)-q^(1/2)=O_K(R^(-1)).
+L'encadrement des espérances conduit donc à
+  E[D_R(phi)]=C*(kappa/R)^(1/3)-B*(kappa/R)^(1/2)
+       +O_K(R^(-5/6)+R^(-1/2-delta_M/3)).
+On peut prendre delta_phys=min(delta_M,1) et écrire le reste
+O_K(R^(-1/2-delta_phys/3)).
+
+5. CONSEQUENCE CONDITIONNELLE A H SEULEMENT, SANS Q
+
+Si H fournit delta_H>0 et si le lemme E est établi avec reste
+O_eta(exp(-(1-epsilon)*s)) pour chaque epsilon>0, alors pour tout
+  0<delta_*<min(delta_H,1/2)
+la combinaison E+H donne l'asymptotique de M avec delta_M=delta_*.
+Le reste géométrique R^(-5/6) est alors strictement plus petit que
+R^(-1/2-delta_*/3).
+
+La formule de Cauchy et dphi=kappa*ds donnent ainsi, sous H et les
+maillons autonomes validés du calcul de M,
+  E[Delta P(R)]
+   = C*R^(-1/3)*integrale_bordK kappa^(4/3) ds
+     -B*R^(-1/2)*integrale_bordK kappa^(3/2) ds
+     +O_K(R^(-1/2-delta_*/3)),
+où B=(sqrt(2)/(6*pi))*|Z_prim(3/2)| si le lemme E fournit ce coefficient.
+
+Cette dérivation exige seulement C^3 pour la géométrie locale, et aucun
+lemme de première variation, aucune densité varpi, ni borne sur le saut
+du premier point. H reste le verrou quantitatif. Les corrections ou
+réserves sur le lemme E relèvent de son audit distinct ; elles ne sont
+pas résolues par les enveloppes.

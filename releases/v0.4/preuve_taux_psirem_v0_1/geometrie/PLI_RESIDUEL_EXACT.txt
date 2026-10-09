@@ -1,0 +1,47 @@
+UN PLI SUBSISTE APRES LA SOUSTRACTION F : EXEMPLE EXACT
+9 octobre 2026 ; calcul mathématique, sans Monte-Carlo.
+
+Fixons x>0 et considérons le réseau de base v=(x,y), u=(0,1/x).
+Pour |y| assez petit, posons a=y/x. Le long d'une translation, les
+abscisses sont X_n=x(n+t), t uniforme modulo 1. La rangée de niveau
+r rencontre la parabole au moins en un point du réseau si
+  r>=h_min(a,t)=min_n[X_n^2/2-a*X_n].
+Les niveaux r sont espacés de 1/x. Pour a>0 assez petit, la première
+rangée rencontrée fournit la hauteur minimale : la différence de niveau
+1/x domine uniformément le gain de pente des rangées suivantes.
+
+Sa hauteur est r+a*X_left, où X_left est l'abscisse la plus à gauche
+des points satisfaisant X_n^2/2-a*X_n<=r. Conditionnellement à t, r est
+uniforme sur [h_min,h_min+1/x). La moyenne en t de h_min vaut
+  x^2/24-a^2/2
+car la distance entre a et la grille x(Z+t) est uniforme sur [-x/2,x/2].
+Par convergence dominée, la dérivée à droite en y=0 est donc
+  d_y^+Psi = E[X_left(a=0)]/x.
+
+Au niveau a=0, écrivons z pour le point de grille le plus proche de 0,
+z uniforme sur [-x/2,x/2]. Les autres abscisses sont z+n*x. La hauteur
+r=z^2/2+u, u uniforme sur [0,1/x]. La probabilité qu'un point n>=1
+soit présent dans la première rangée est
+  P_n=integrale_{-1/2}^{1/2}
+        [1-x^3*(n^2/2+n*t)]_+ dt.
+Par symétrie, E[X_left]=-x*somme_{n>=1} P_n, et ainsi
+  d_y^+Psi=-somme_{n>=1}P_n.
+
+Choisissons un entier N et x^3=2/N^2. Les termes n<=N-1 sont pleins,
+P_n=1-n^2/N^2 ; P_N=1/(4N) ; les termes n>=N+1 sont nuls. Donc
+  somme P_n=2N/3-1/2+1/(12N).
+De son côté la formule du modèle des droites donne
+  d_y^+F=-2*sqrt(2)/(3*x^(3/2))=-2N/3.
+Ainsi
+  Psi-F=x^2/24+(1/2-1/(12N))*|y|+o(|y|).
+La symétrie X->-X rend la fonction paire en y pour ce choix de partenaire.
+
+Pour tout eta>0, N peut être choisi assez grand pour x<eta/2. La
+transformée de Siegel Eg vaut alors exactement F au voisinage considéré.
+La même formule décrit Psi_rem. Son coefficient de pli est strictement
+positif. Psi_rem n'est donc pas C^1 globalement, même très loin dans
+la pointe. Cela n'empêche ni son caractère lipschitzien ni W^{1,2}.
+
+La décomposition exacte Psi-F=|y|/2-Comp+Short confirme cette formule :
+Comp est nulle dans un voisinage y=0 à x fixé ; Short porte la petite
+correction du coefficient 1/(12N).

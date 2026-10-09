@@ -1,0 +1,208 @@
+CONTRE-PREUVE DU GRADIENT DU RESTE EN POINTE
+9 octobre 2026 — preuve proposée, indépendante du calcul spectral.
+
+Cette pièce utilise le lemme des deux rangées démontré dans
+obstruction/LEMME_DEUX_RANGEES.txt : hors de la rangée 0 éventuellement
+courte, seule une paire ADJACENTE de rangées peut battre le candidat de
+la rangée qui minimise la hauteur continue. Elle explicite une formule
+qui permet de vérifier les dérivées en v aussi bien qu'en b.
+
+1. Coordonnées et champs du groupe
+
+Soit v=(x,y), r²=x²+y²≤1/4, x>0, y>0 et
+  u=(-y,x)/r²+bv.
+La réflexion traite les autres signes. Sous multiplication à droite
+par exp(tH), avec ||H||≤1, les dérivées au temps 0 satisfont
+  |Dx|,|Dy|,|Dr|≤r, |Db|≤2/r².                         (1)
+La dernière borne suit en différentiant b=(u·v)/r² : tous les termes
+contenant b s'annulent; il reste
+  Db=[(v_perp H)·v+v_perp·(vH)]/r⁴.
+
+Les rangées s'écrivent q_j=q_0+2j/x, q_0 uniforme modulo 2/x.
+Posons τ=y/x et
+  H(q)=(sqrt(q)−τ)²/2,
+  d(q)=H(q+2/x)−H(q)=1/x−(y/x)Δ(q),
+  Δ(q)=sqrt(q+2/x)−sqrt(q).
+Le premier point après l'extrémité basse de la rangée j a hauteur
+H(q_j)+yU_j, où U_j est uniforme dans [0,1). Pour la rangée 0 courte,
+ce « premier point » est temporairement autorisé même s'il se trouve
+après l'autre extrémité et donc hors de la parabole : c'est le modèle
+virtuel. Le défaut sera corrigé séparément.
+
+Pour deux rangées adjacentes, leurs phases satisfont
+  U_1={U_0+c(q)},
+  c(q)=(u_x+Δ(q))/x
+      =b+x/(y r²)−d(q)/y.                             (2)
+L'annulation dans (2) est essentielle : elle supprime les faux termes
+de phase de taille 1/(xy).
+
+2. Correction due à la compétition virtuelle
+
+Définissons la fonction 1-périodique en c
+  A(a,c)=∫_0^1 min(α,a+{α+c})dα−min(0,a)−1/2.
+Alors A=0 pour |a|≥1; pour |a|≤1,
+  −1≤A≤0, Lip_a A≤2, Lip_c A≤2.                      (3)
+La borne en c vient de la norme L¹ de translation de la dent de scie,
+  ∫_0^1|{α+c+h}−{α+c}|dα≤2|h|,
+et du caractère 1-lipschitzien du minimum dans chaque argument.
+Une forme close utile, pour 0≤c≤1, est
+  A(a,c)=(1−c)min(0,a+c)+c min(0,a+c−1)−min(0,a).
+Elle s'obtient en partageant la période en α<1−c et α≥1−c.
+
+Comme la progression q_j rencontre au plus une paire compétitive,
+la correction à la moyenne F+y/2 du modèle virtuel est exactement
+  C(v,b)=(x/2)∫_{q≥0, |d(q)|≤y} y A(d(q)/y,c(q))dq.
+
+Le changement d(q)=ya donne la forme normale
+  C(v,b)=y⁴∫_{−1}^1
+       [ (1−xy a)^{−3}−(x/y²)²(1−xy a)/4 ]_+
+       × A(a,b+x/(y r²)−a) da.                       (4)
+Pour vérifier (4), inverser d(q) :
+  q(d)=[τ/(1−xd)−(1−xd)/(2y)]²,
+  q'(d)=2y²/[x(1−xd)³]−x(1−xd)/(2y²).
+L'inverse physique q≥0 demande que le membre entre crochets soit ≥0;
+cela équivaut à la positivité de la densité dans (4). Ainsi la partie
+positive encode exactement le domaine physique, sans terme de bord.
+
+Posons t=x/y², z=xy et
+  K(t,z,a)=[(1−za)^{−3}−t²(1−za)/4]_+.
+On a z≤1/8, donc 1−za≥7/8. Lorsque K>0,
+  t≤2/(1−za)²≤128/49<3.
+Sur ce domaine K et ses dérivées faibles en t,z sont bornés par des
+constantes absolues. Hors de ce domaine K=0. L'opération partie positive
+est lipschitzienne, donc ces bornes suffisent aussi aux interfaces.
+
+Sur le support actif, x≤3y² et r est comparable à y. Les champs (1)
+donnent alors
+  |Dt|≤C/r,
+  |Dz|≤C r²,
+  |D(b+x/(y r²))|≤C/r².
+En différentiant faiblement (4), en utilisant (3), on obtient
+  |DC(v,b)|≤C(r⁴+r³+r⁶+r²)≤C r².                     (5)
+Aucune dérivée de A en a n'est nécessaire : a est une variable
+d'intégration fixe; seul son second argument dépend de v,b.
+Contrôle indépendant des signes dans (4) : pour x=0, b=0,
+A(a,−a)=0, donc C=0. Pour x=0, b=1/2, la fonction
+A(a,1/2−a) est le triangle négatif de hauteur −1/4 sur [−1/2,1/2],
+dont l'intégrale vaut −1/8. On retrouve exactement
+Ψ(0,y,1/2)−Ψ(0,y,0)=−y⁴/8, le contre-calcul vertical de l'audit.
+
+3. Correction due à la rangée courte
+
+La rangée 0 est courte si q_0<x²/4. Posons
+  q_0=x²z²/4, 0≤z≤1,
+  Δ(z)=sqrt(2/x+x²z²/4)−xz/2,
+  d(z)=1/x−(y/x)Δ(z),
+  c(z)=b+Δ(z)/x−y/(x r²).
+La corde contient un point exactement lorsque U_0≤z. Sur U_0>z,
+le candidat virtuel de la rangée 0 doit être supprimé et il reste celui
+de la rangée 1. Le lemme des deux rangées exclut toute autre candidate.
+La correction exacte est donc
+  S(v,b)=x³/4∫_0^1 z∫_z^1
+        [d(z)+y({α+c(z)}−α)]_+ dα dz.                  (6)
+En particulier,
+  Ψ(v,b)−F(v)=y/2+C(v,b)+S(v,b).                     (7)
+
+Pour z fixe, définissons
+  K_z(d,y,c)=∫_z^1[d+y({α+c}−α)]_+dα.
+Ses estimations globales sont
+  0≤K_z≤d_++y≤1/x+y,
+  Lip_d K_z≤1, Lip_y K_z≤1, Lip_c K_z≤2y.            (8)
+La dernière borne est valable même sur un intervalle partiel, puisque
+la norme L¹ de translation sur cet intervalle est majorée par la norme
+sur la période entière.
+
+Les dérivées faibles de K_z sont nulles si d+y<0. Dans la région active,
+  yΔ(z)≤1+xy.
+Or pour x≤1/2,
+  Δ(z)≥sqrt(2/x)−x/2≥x^{−1/2},
+d'où y≤(9/8)sqrt(x). On dispose, uniformément en z, des bornes
+  Δ(z)≤C x^{−1/2}, |∂_x Δ(z)|≤C x^{−3/2},
+  |Dd(z)|≤C r x^{−2},
+  |Dc(z)|≤C[r^{−2}+r x^{−5/2}+1/(xr)+y/(x²r)].    (9)
+La borne pour d utilise la restriction active y≤C sqrt(x).
+
+En appliquant (8)–(9) à (6), la dérivée du facteur x³ donne O(xr).
+Les autres contributions sont majorées par
+  x³ r x^{−2}=xr,
+  x³ r,
+  x³y r^{−2}≤x²,
+  x³y r x^{−5/2}=yr sqrt(x),
+  x³y/(xr)≤x²,
+  x³y²/(x²r)≤xr.
+Comme x≤r≤1/2, chacune est O(r²). Ainsi
+  |DS(v,b)|≤C r².                                     (10)
+
+Les formules restent régulières par extension : lorsque x→0 à y>0
+fixé, la correction S est identiquement nulle dans un voisinage. Lorsque
+y→0 à x>0 fixé, C est identiquement nulle dans un voisinage et
+S→x²/24, le calcul horizontal exact. Les dérivées faibles suffisent :
+les plis en y et ceux de la dent de scie donnent des fonctions
+lipschitziennes après intégration et non des discontinuités de valeur.
+
+4. Conséquence en pointe
+
+En combinant (5), (7) et (10),
+  |D_G(Ψ−F)|≤C r
+pour tout champ droit unitaire de SL(2,R), presque partout dans r≤1/2.
+Dans la région λ_1<η/2, E_g=F(v). Donc
+  |D_G Ψ_rem|≤C λ_1.
+Cette estimation, avec le lemme L, donne un contrôle W¹ de la pointe
+et une constante de Lipschitz indépendante de sa hauteur.
+
+5. Contrôle compact sans description des strates singulières
+
+Dans un voisinage à fermeture compacte d'un réseau g_0, choisir des
+représentants g dans SL(2,R) avec normes de g,g^{-1} uniformément bornées.
+Le rayon de recouvrement des réseaux Z²g y est donc borné par ρ_0.
+Choisir ρ>ρ_0 et Z_0=ρ²+2ρ+1. La calotte parabolique
+  A_{Z_0}={(X,Y):X²/2≤Y≤Z_0}
+contient un disque de rayon ρ centré en (0,Z_0/2). En effet, dans ce
+disque, Y≥Z_0/2−ρ=(ρ²+1)/2≥X²/2 et Y≤Z_0. Toute translation de
+Z²g rencontre cette calotte. La profondeur est donc ≤Z_0 partout dans
+ce voisinage.
+
+Avec π:R²→R²/Z² et l'aire normalisée du tore fixe, la moyenne exacte
+des translations est
+  Ψ(g)=∫_0^{Z_0}[1−area(π(A_z g^{-1}))]dz.             (11)
+Pour deux ensembles mesurables E,F d'aire finie,
+  |area(πE)−area(πF)|≤area(E Δ F).                    (12)
+En effet (πE)Δ(πF) est contenu dans π(EΔF), et la mesure de la projection
+d'un ensemble dans le tore est au plus son aire dans le plan.
+
+Les ensembles A_z g^{-1}, pour z≤Z_0 et g dans ce voisinage, sont
+convexes, de rayon et de périmètre uniformément bornés. Deux matrices
+g,h voisines déplacent leurs points d'au plus C||g−h||. La formule des
+ensembles parallèles d'un convexe, ou directement l'aire du tube autour
+de son bord, donne
+  area(A_zg^{-1} Δ A_zh^{-1})≤C||g−h||,
+uniformément en z. Les équations (11)–(12) prouvent que Ψ est localement
+lipschitzienne, avec constante uniforme sur tout compact.
+
+Dans le même voisinage, seuls un nombre fini de vecteurs primitifs w
+peuvent vérifier |wg|≤η. La fonction F est localement lipschitzienne
+hors de l'origine (y=0 est un pli de valeur continue et x=0 est une
+extension régulière). Donc E_g est aussi localement lipschitzienne
+avec constante uniforme sur tout compact.
+
+6. Conclusion géométrique globale
+
+La région λ_1≥η/2 est compacte (critère de Mahler). La région λ_1<η/2
+est couverte par les coordonnées de base courte ci-dessus, avec un
+vecteur primitif unique aux signes près. Les estimations du gradient
+faible sont uniformes dans les deux régions. Les changements de signe,
+de phase b modulo 1 et de base ne changent pas la fonction.
+
+Ainsi Ψ_rem est globalement lipschitzienne pour une métrique invariante
+à gauche descendue sur Γ\G. Comme elle est bornée et que Haar est une
+probabilité, elle appartient à W¹. La proposition spectrale autonome
+de la branche spectrale donne alors
+  |M_s(Ψ_rem)−μ(Ψ_rem)|≤C(1+s)e^{−4s/7}.
+Après absorption du facteur 1+s, H suit avec tout 0<δ<1/14.
+
+La preuve ne suppose pas que l'union de tous les réseaux ayant un
+vecteur horizontal soit une hypersurface isolée. Elle ne suppose pas
+non plus qu'une seule borne d'amplitude O(λ_1) contrôlerait les dérivées.
+
+Statut : preuve autonome proposée à l'intégrateur, pas une assertion
+que toutes ses dépendances ont déjà reçu une relecture humaine.

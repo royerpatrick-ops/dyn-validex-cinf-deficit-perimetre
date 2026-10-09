@@ -1,0 +1,116 @@
+% Alternative courte au lissage de groupe par noyau compact.
+\section{Version du lissage par le semi-groupe de chaleur}
+
+On conserve l'opérateur positif
+$\mathcal D=-(X_0^2+Y_0^2+\Theta^2)=\mathcal C-2\Theta^2$,
+et on définit $f_h=e^{-h^2\mathcal D}f$, pour $0<h\le1$.
+
+\begin{lemma}[Lissage par chaleur]
+Pour $f\in W^1(X)$,
+\[
+ \|f_h\|_{W^{7/4}}\le Ch^{-3/4}\|f\|_{W^1}.
+\]
+Si $f$ est de plus globalement Lipschitz et bornée, alors
+\[
+ \|f_h-f\|_\infty\le Ch\operatorname{Lip}(f).
+\]
+Les constantes sont indépendantes de la hauteur dans la pointe.
+\end{lemma}
+
+\begin{proof}
+Le calcul spectral de l'opérateur positif $\mathcal D$ donne directement
+\[
+ \|e^{-h^2\mathcal D}f\|_{W^{7/4}}
+ \le\sup_{\lambda\ge0}
+       (1+\lambda)^{3/8}e^{-h^2\lambda}\,\|f\|_{W^1}
+ \le Ch^{-3/4}\|f\|_{W^1}.
+\]
+
+Pour la seconde estimation, travailler sur le groupe $G$ avant de
+projeter sur le quotient. La métrique invariante à gauche qui rend
+$X_0,Y_0,\Theta$ orthonormaux est complète. Comme $G$ est unimodulaire,
+ces champs ont divergence nulle et $-\mathcal D$ est exactement son
+Laplacien de Laplace--Beltrami. Soit $U_t$ la diffusion de générateur
+$-\mathcal D$ sur $G$, issue de $e$. Le processus issu de $g$ a même loi
+que $gU_t$, par invariance à gauche. Sa projection sur $X$ est la diffusion
+dont le semi-groupe est $e^{-t\mathcal D}$.
+
+On a, pour $0<t\le1$,
+\[
+ \mathbb E\,d_G(e,U_t)^2\le Ct.
+ \tag{HC}
+\]
+Voici une justification qui ne fait intervenir aucun rayon d'injectivité
+dans la pointe. La courbure de la métrique homogène sur $G$ est bornée;
+prendre $k\ge0$ tel que $\mathrm{Ric}\ge-(n-1)k^2$, où $n=3$.
+La comparaison du Laplacien de la distance $r=d_G(e,\cdot)$ donne,
+au sens faible et hors du point de départ,
+\[
+ \Delta_G r^2\le2n+2(n-1)kr.
+\]
+Elle s'applique à la diffusion par arrêt sur des boules, puis passage
+à la limite; la partie de cut-locus fournit une inégalité dans le bon
+sens. Si $m(t)=\mathbb E r(U_t)^2$, Cauchy--Schwarz et
+$2a\sqrt m\le a^2+m$ donnent
+\[
+ m'(t)\le2n+2(n-1)k\sqrt{m(t)}
+       \le A+m(t),\qquad m(0)=0,
+ \quad A=2n+(n-1)^2k^2.
+\]
+La complétude et cette borne de Ricci garantissent la non-explosion;
+Gronwall donne $m(t)\le A(e^t-1)\le A(e-1)t$ pour $t\le1$, d'où (HC).
+
+Le relèvement $\widetilde f$ sur $G$ est Lipschitz de constante au plus
+$\operatorname{Lip}(f)$, puisque la distance sur le quotient est majorée
+par la distance sur le groupe. Par conséquent,
+\[
+ |f_h(\Gamma g)-f(\Gamma g)|
+ \le\operatorname{Lip}(f)\,
+      \mathbb E d_G(g,gU_{h^2})
+ =\operatorname{Lip}(f)\,
+      \mathbb E d_G(e,U_{h^2})
+ \le Ch\operatorname{Lip}(f),
+\]
+uniformément en $g$.
+\end{proof}
+
+Combiné à la proposition spectrale d'ordre $7/4$, ce lemme donne
+\[
+ |\mathcal M_s f-\mu(f)|
+ \le Ch\operatorname{Lip}(f)
+     +C(1+s)e^{-s}h^{-3/4}\|f\|_{W^1}.
+\]
+Le choix $h=e^{-4s/7}$ redonne le taux
+$O((1+s)e^{-4s/7})$, puis l'hypothèse H avec tout $\delta<1/14$.
+
+\begin{corollary}[Tous les taux strictement inférieurs à $2/3$]
+Sous les mêmes hypothèses, pour tout $0<c<2/3$ il existe $C_c$ tel que
+\[
+ |\mathcal M_s f-\mu(f)|
+ \le C_c e^{-cs}
+       \bigl(\|f\|_{W^1}+\operatorname{Lip}(f)\bigr).
+\]
+Ainsi H vaut avec tout $0<\delta<1/6$.
+\end{corollary}
+
+\begin{proof}
+Dans la preuve spectrale, les choix $q=9/8$ et $\alpha=5/8$ servaient
+seulement d'exemple. On peut prendre tous $q>1$ et $\alpha>1/2$;
+l'ordre elliptique devient $r_0=q+\alpha>3/2$ et la même preuve donne
+\[
+ |\mathcal M_s F-\mu(F)|
+ \le C_{q,\alpha}(1+s)e^{-s}\|F\|_{W^{r_0}}.
+\]
+Le calcul spectral de chaleur donne
+\[
+ \|e^{-h^2\mathcal D}f\|_{W^{r_0}}
+ \le C_{r_0}h^{-(r_0-1)}\|f\|_{W^1}.
+\]
+Avec $h=e^{-s/r_0}$, l'erreur totale est donc
+$O_{r_0}((1+s)e^{-s/r_0})$. Étant donné $0<c<2/3$, choisir
+$3/2<r_0<1/c$ et absorber le facteur $1+s$ par la marge
+$1/r_0-c>0$. Enfin, pour $\delta<1/6$, choisir
+$1/2+\delta<c<2/3$. Aucune borne au point limite $c=2/3$ n'est affirmée:
+les constantes des deux sommations divergent lorsque $q$ et $\alpha$
+approchent leurs seuils.
+\end{proof}

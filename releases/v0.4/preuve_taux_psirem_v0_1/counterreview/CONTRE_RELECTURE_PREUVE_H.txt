@@ -1,0 +1,254 @@
+CONTRE-RELECTURE INDEPENDANTE DE LA PREUVE PROPOSEE POUR H
+9 octobre 2026 — branche /root/taux_h_counterreview
+
+Objet : recherche d'erreurs fatales dans les preuves de Lipschitz globale
+et du taux de moyenne circulaire pour f=Psi−E_g. Aucun Monte-Carlo.
+
+PIECES RELUES
+  geometrie/PREUVE_LIPSCHITZ_GLOBALE.txt
+  spectral/PROPOSITION_SPECTRALE_LIP.tex
+  obstruction/LEMME_DEUX_RANGEES.txt
+  fractional/QUEUE_UNIFORME_ET_BUDGET.txt
+
+VERDICT
+La chaîne géométrique et analytique a été contre-vérifiée. Aucune erreur
+fatale n'a été trouvée. Le taux 4/7 avec facteur 1+s suit des preuves
+écrites ; la même construction donne tout exposant strictement inférieur
+à 2/3. Le point auparavant manquant est désormais fourni par une formule
+exacte séparant compétition des deux rangées et absence d'un point dans
+la rangée courte. Il ne faut pas attribuer cette preuve au document de
+Claude : elle est une preuve nouvelle proposée et relue par plusieurs
+branches IA, sans relecture humaine attestée.
+
+La seule source spectrale qui n'a pas été relue directement par cette
+branche est Yoshida, Remark 1 p.54 (absence d'exceptionnel de niveau 1).
+Elle a été ouverte et relue par la branche spectrale. Mes ouvertures du
+même PDF Jstage ont expiré. La borne CHH a été vérifiée dans le PDF de
+l'auteur de Hongyu He, théorème 3.1, et s'applique bien par K-type.
+
+1. PHASE DE LA COMPETITION : CONTRE-CALCUL
+
+Pour v=(x,y), x,y>0, ell²=x²+y², u=v_perp/ell²+bv, les grilles
+verticales de deux rangées successives diffèrent de U=u_y modulo y.
+Posons alpha=frac(U/y). Pour G=H(q+h)−H(q)=yt, les hauteurs candidates
+satisfont exactement
+  hauteur_1−hauteur_0 = U+y ceil((G−U)/y−a),
+où a, phase du premier candidat, est uniforme sur [0,1).
+
+Si t>=0, la seconde rangée améliore le candidat d'une quantité
+y(1−alpha) lorsque a>1+t−alpha. La moyenne est donc
+  J=y(1−alpha)(alpha−t)_+.
+Si t<=0, l'amélioration de la première sur le candidat de la seconde
+est, en moyenne,
+  J=y alpha(1−alpha+t)_+.
+Ce sont les deux expressions j de la preuve géométrique.
+
+Un calcul alternatif par les phases mesurées depuis les extrémités des
+cordes donne d=frac(alpha−t). Il conduit à d(1−d−t)_+ pour t>=0,
+et (1−d)(d+t)_+ pour t<=0. Ces formules sont identiques à celles
+ci-dessus, après distinction des passages de la phase modulo 1. Il
+n'y a donc pas de décalage omis dans alpha.
+
+La densité après changement q ->t est
+  dq/h = y³ [(1−xy t)^−3−(x/y²)²(1−xy t)/4]_+ dt.
+Le facteur y supplémentaire vient de l'amélioration des hauteurs,
+d'où le préfacteur y^4 de Comp. Le positif-partie traduit bien le
+domaine de l'inversion q>=0 ; il ne prolonge pas une branche parasite.
+
+La fonction j est continue, périodique et uniformément lipschitzienne
+en alpha. Le facteur de densité a un support x/y²<=32/9. Tous les
+denominateurs 1−xy t sont au moins 3/4. Le coût des dérivées des
+paramètres est amorti par y^4. Ainsi les bornes
+  |Comp_x|+|Comp_y|<=C ell,  |Comp_b|<=C ell^4
+sont justifiées, y compris à la frontière de leur support.
+
+2. CORRECTION COURTE : CONTRE-CALCUL
+
+Avec q=x²t²/4, dq=x²t dt/2 et la densité q_0 est x/2.
+Le préfacteur exact est donc x³/4. Le candidat de la rangée courte
+existe si et seulement si a<=t. L'intégration porte sur a>t, où le
+candidat virtuel doit être supprimé.
+
+Quand G(q)<−y, ce candidat ne peut pas gagner. Sinon la rangée
+suivante suffit après suppression : la borne sur le quotient des
+incréments de racines donne G(q+h)>=1/(2x)−y/2>y. Les rangées suivantes
+ne peuvent donc intervenir. Il n'y a pas de troisième rangée omise.
+
+L'intégrande exact est
+  [U+y ceil(beta(t)−a)]_+,
+  beta=(G−U)/y=y/(x ell²)−sqrt(t²/4+2/x³)+t/2−b.
+Ce signe de beta et la marche ceil sont corrects.
+
+L'intégration de cette marche sur a∈[t,1] est lipschitzienne en beta
+avec constante <=y : chaque saut de la marche a amplitude physique y,
+et la fenêtre d'a a longueur <=1. Le positif-partie ne peut augmenter
+cette amplitude. Il est donc légitime d'utiliser |Q_beta|<=y sans
+différencier ponctuellement ceil. De même |Q_U|<=1 et
+|Q_y|<=|beta|+2, à paramètres U,beta fixes.
+
+Une vérification indépendante donne les coûts
+  |Short_x|<=C(x+y sqrt(x)),
+  |Short_y|<=C(x^(3/2)+y),
+  |Short_b|<=C yx³.
+Ils impliquent les bornes annoncées C ell et C ell^4. Les phases
+rapides de beta ne détruisent donc pas la régularité globale.
+
+Les valeurs aux axes sont cohérentes :
+  Short(x,0)=x²/24,
+  Comp(0,y,b)=y^4 frac(b)(1−frac(b))/2.
+La périodicité b ->b+1 est exacte : U augmente de y et beta diminue
+de 1, laissant U+y ceil(beta−a) inchangé. Les cartes de partenaire
+se recollent donc sans saut.
+
+3. DE LA POINTE A LA LIPSCHITZIANITE GLOBALE
+
+Les champs de l'action à droite font varier v à vitesse O(ell), et
+b à vitesse O(ell^−2). Le contrôle b=O(ell^4) des dérivées de Comp et
+Short est crucial : il donne une dérivée de groupe O(ell²), en plus
+du terme O(ell) provenant de v et de |y|/2.
+
+Sur un compact de réseaux, la profondeur parabolique maximale est
+uniforme par le rayon de recouvrement. La différence des probabilités
+de vide est majorée par l'aire de la différence symétrique des deux
+calottes ramenées au tore unité. Calottes et périmètres étant uniformes
+jusqu'à cette profondeur, cela donne une borne lipschitzienne après
+intégration en z. Le même argument évite toute hypothèse erronée sur
+la non-densité d'un ensemble global de vecteurs horizontaux.
+
+E_g est localement une somme finie de F(v)chi(|v|/eta), lipschitzienne
+sur l'annulus du support. La partie hors pointe est compacte, donc
+les constantes locales s'y uniformisent. La pointe et cette partie
+compacte donnent un gradient faible borné sur le quotient entier.
+
+La métrique doit être celle descendue d'une métrique INVARIANTE A
+GAUCHE sur G, les champs étant X_A(g)=gA. Avec cette convention, une
+borne uniforme de ces champs implique Lipschitz globale. Comme le
+volume de Haar est fini, f bornée et Lipschitz appartient bien à W¹.
+
+4. TRACE SPECTRALE ET QUOTIENT NON COMPACT
+
+L'identité M_s f=(P_K R(a_s)f)(Gamma e) est exacte avec R(u)f(g)=f(gu).
+P_K élimine les représentations non sphériques. Pour chaque
+représentation sphérique tempérée, et CHAQUE K-type n, CHH donne
+  |<pi(a_s)e_n,e_0>|<=Xi(a_s).
+Il ne faut pas appliquer cette borne à un vecteur ayant une infinité
+de types sans sommation. Cauchy–Schwarz fournit précisément ce coût,
+avec poids (1+n²)^nu, nu>1/2.
+
+L'évaluation de la composante K-invariante se fait ensuite au point i
+de la surface modulaire. Le noyau diagonal du Laplacien y satisfait
+H_t(i,i)=O(t^−1) pour t<=1. Le stabilisateur fini de i n'affecte que
+la constante. Le noyau ponctuel pondéré par (1+lambda)^−beta est
+donc fini pour beta>1, spectre Eisenstein inclus. Une deuxième
+Cauchy–Schwarz justifie la norme totale d'ordre r0=beta+nu>3/2.
+
+L'opérateur elliptique D=C−2Theta² agit par lambda+n²/2 sur cette
+partie spectrale. Par conséquent
+  (1+lambda)^beta(1+n²)^nu
+       <=C(1+lambda+n²/2)^(beta+nu).
+Il n'y a pas de norme supplémentaire cachée dans cette étape.
+
+Le passage par densité donne la vraie moyenne géométrique : pour
+chaque s fixé, la courbe Gamma K a_s est compacte et l'ordre r0>1
+suffit à la trace sur une courbe de codimension 2. Son coût dépendant
+de s n'est pas utilisé dans la borne uniforme ; il sert seulement à
+identifier la fonctionnelle prolongée avec cette trace.
+
+5. LISSAGE : UN DOUTE INITIAL RESOLU
+
+La convolution de groupe employée dans la preuve n'a pas besoin de
+commuter avec le Casimir. Le calcul suivant suffit :
+  D_Z R(u)=R(u)D_{Ad(u^−1)Z},
+  D_Y int kappa(u) R(u)h du
+       =−int L_Y kappa(u) R(u)h du.
+La seconde identité se vérifie en substituant u'=exp(tY)u.
+Elle justifie exactement l'intégration par parties écrite dans la
+preuve. Les coefficients de Ad(u^−1) et leurs dérivées sont uniformes
+près de l'identité, indépendamment de la hauteur du réseau.
+
+On obtient W¹ stable, W² coût h^−1 à partir de W¹, puis pour 1<r0<2,
+  ||f_h||W^{r0}<=C h^{1−r0}||f||W¹.
+L'approximation sup O(h) suit de Lipschitz globale et de
+  dist(Gamma g,Gamma gu)<=dist_G(e,u),
+vraie pour la métrique invariante à gauche.
+
+6. EXPOSANT FINAL
+
+La combinaison exacte est
+  |M_s f−mu(f)|<=C[h+(1+s)e^−s h^{1−r0}].
+Choisir h=e^(−s/r0) donne
+  O((1+s)e^(−s/r0)).
+Pour r0=7/4, c=4/7 et H admet tout delta<1/14.
+En autorisant r0 arbitrairement près de 3/2, tout c<2/3 est obtenu
+après absorption de 1+s, donc H admet tout delta<1/6. Les bornes
+c=2/3 ou delta=1/6 EXACTES ne sont pas démontrées par cette route,
+car beta>1 et nu>1/2 sont strictes.
+
+SOURCES PRIMAIRES
+
+Hongyu He, Bounds on Smooth Matrix Coefficients on L²-spaces, th.3.1.
+https://www.math.lsu.edu/~hongyu/pub/smooth.pdf
+PDF de l'auteur lu directement via recherche web, ref turn154view1.
+Ce théorème reproduit la borne de Cowling–Haagerup–Howe par K-types.
+
+Eiji Yoshida, On the order of growth of the Kloosterman zeta function,
+J. Math. Soc. Japan 44 (1992), p.53–73, Remark 1 p.54.
+https://www.jstage.jst.go.jp/article/jmath1948/44/1/44_1_53/_pdf
+Lecture attestée par la branche spectrale, ref turn114view0 ; tentatives
+indépendantes de cette branche expirées. Attribution à Maass/Roelcke
+pour PSL2Z, sans recours à Selberg 1/4 pour tous les niveaux.
+
+CONCLUSION DE CONTRE-RELECTURE
+La preuve proposée apporte effectivement les deux éléments manquants :
+Lipschitz globale du reste spécifique, et une borne de cercle avec
+coût Sobolev explicite. Les anciens raccourcis CHH et tube dense sont
+remplacés, et non réutilisés. Le résultat est une nouvelle démonstration
+mathématique proposée, auditée par IA, à présenter comme telle.
+
+ADDENDUM — CONTRE-LECTURE DU TEXTE INTEGRE VERSION 0.1
+
+Pièce relue : output/DYN-PREUVE_TAUX_PSI_REM_v0_1.txt, version
+présente le 9 octobre 2026 à la demande de l'intégrateur.
+
+Aucune erreur fatale introduite par la fusion n'a été trouvée.
+
+Conventions contrôlées : vecteurs-lignes Z²g, action R(u)h(g)=h(gu),
+métrique invariante à gauche, champs gA. Les matrices X0,Y0,Theta
+données en section 7 satisfont les conventions de Casimir et
+D=C−2Theta². Le K-type n a valeur Theta=in/2, donc D=lambda+n²/2.
+Avec a_s=exp(−2sX0), la distance hyperbolique est bien 2s et la
+borne Xi est O((1+s)e^−s). L'identité exacte de db de section 5
+résulte de la différentiation de b=(u·v)/r² ; les termes b se
+compensent comme annoncé.
+
+La proposition (S1) pour TOUT r0>3/2 découle de beta>1 et nu>1/2
+avec beta+nu=r0. Le lissage puis l'interpolation ne sont utilisés
+que pour 3/2<r0<2. Cela suffit à tous les taux c<2/3 et aux valeurs
+delta<1/6 ; aucun seuil frontière n'est affirmé.
+
+L'assemblage avec (E) est correct : par exemple epsilon=1/4 donne
+un reste e^(−3s/4), plus rapide que tous les taux .5+delta<2/3 de
+(M). Les constantes de (M) peuvent dépendre de eta,chi et delta,
+mais C=mu(Psi), B et la moyenne non coupée en sont indépendants.
+
+Le transfert physique utilise q=kappa/R et le changement unimodulaire
+(x,y)->(q^(1/3)x,q^(−1/3)y). Il donne précisément
+E H_q=q^(1/3)M_{log(1/q)/3}Psi. Le reste de (M) devient donc
+q^(1/2+delta/3), et les puissances principales sont q^(1/3), q^(1/2).
+Les deux erreurs d'enveloppes O(R^(−5/6)) et O(R^(−1)) sont plus
+petites que R^(−1/2−delta/3) pour delta<1/6. Le passage
+dphi=kappa ds conduit bien aux invariants kappa^(4/3) et
+kappa^(3/2) et à l'exposant (P).
+
+La preuve géométrique de l'encadrement ne doit pas être confondue
+avec une dérivation de M : le texte utilise correctement les deux
+valeurs q_- et q_+ et leur développement, sans supposer M dérivable.
+La condition kappa>0 uniforme sur le bord compact garantit q_-
+positif pour R assez grand et des constantes uniformes de Taylor.
+
+La séparation des dépendances en fin de section 9 est correcte :
+(H) est établi par les sections 1–8 ; (P) utilise en plus l'audit
+Mellin, le transfert par enveloppes et l'identification préalable de
+C. Les versions historiques sont laissées inchangées. Cette
+contre-lecture n'est ni une relecture humaine ni un certificat
+d'intervalles des constantes numériques.

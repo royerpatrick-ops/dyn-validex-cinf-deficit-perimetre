@@ -1,0 +1,53 @@
+CONTROLE AUTONOME DE LA FORMULE F
+9 octobre 2026 ; aucun calcul Monte-Carlo.
+
+On suppose x>0, y>=0 ; les autres signes sont traités par le choix
+du signe de v et la symétrie horizontale de la parabole. Posons
+  a=y/x, h=2/x, q0 uniforme sur [0,h),
+  H(q)=(a-sqrt(q))^2/2.
+Les rangées continues intersectant A ont q=q0+k*h, k>=0.
+
+1. REGIME INTERIEUR, y^2<=x/2
+
+L'écart adjacent G(q)=H(q+h)-H(q) est croissant et
+  G(0)=1/x-(y/x)*sqrt(2/x)>=0.
+La première rangée positive q0 est donc toujours celle de la plus faible
+hauteur. La moyenne vaut directement
+  F=(1/h)*integrale_0^h H(q) dq
+   =a^2/2-(2*a/3)*sqrt(h)+h/4
+   =1/(2*x)-(2/3)*(y/x)*sqrt(2/x)+y^2/(2*x^2).
+En posant tau=y/(sqrt(2)*x), ceci est exactement
+  F=1/(2*x)-(4/3)*tau/sqrt(x)+tau^2.
+
+2. REGIME EXTERIEUR, y^2>=x/2
+
+La calotte A(z) rencontre une rangée si
+  |a-sqrt(q)|<=sqrt(2*z).
+Posons z_star=1/(8*y^2). Le régime extérieur assure
+  sqrt(2*z_star)=1/(2*y)<=a.
+Pour 0<=z<=z_star, les valeurs de q admissibles forment donc l'intervalle
+  [(a-sqrt(2*z))^2,(a+sqrt(2*z))^2],
+entièrement positif, de longueur 4*a*sqrt(2*z). Le pas des q est h.
+La probabilité que la progression de phase uniforme évite cet intervalle
+est donc exactement
+  1-4*a*sqrt(2*z)/h = 1-2*y*sqrt(2*z).
+À z=z_star, l'intervalle a longueur h, donc toutes les phases rencontrent
+une rangée. Par monotonie des calottes, la probabilité de vide reste
+nulle pour tout z>=z_star. Ainsi
+  F=integrale_0^z_star [1-2*y*sqrt(2*z)] dz
+   =z_star-(4*sqrt(2)*y/3)*z_star^(3/2)
+   =z_star/3=1/(24*y^2).
+
+3. CAS LIMITES
+
+Le cas y=0 est intérieur et donne F=1/(2*x).
+Pour x=0 et y!=0, les rangées sont des colonnes distantes de 1/|y|.
+La plus proche de X=0 a abscisse uniforme sur
+[-1/(2*|y|),1/(2*|y|)], donc sa profondeur moyenne X^2/2 vaut
+1/(24*y^2). Cette valeur prolonge la branche extérieure.
+
+Au raccord y^2=x/2, les deux formules donnent 1/(12*x) et leurs
+dérivées jusqu'à l'ordre 2 concordent, comme vérifié séparément.
+
+VERDICT : F est confirmé exactement, sans utiliser le Monte-Carlo,
+la formule de Mellin, le lemme L ni l'hypothèse H.

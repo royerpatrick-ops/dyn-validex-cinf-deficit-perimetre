@@ -1,22 +1,28 @@
 cff-version: 1.2.0
-message: "Please cite the unified v0.3 manuscript and the exact release."
-type: article
-title: "A leading-term asymptotic for the perimeter deficit of randomized integer convex hulls"
+message: "Please cite the verified Zenodo v0.4 record and the exact GitHub content commit. This is an AI-assisted preprint; independent human mathematical review is not attested."
+type: software
+title: "Leading and second-order asymptotics for the perimeter deficit of randomized integer convex hulls"
 authors:
   - family-names: Royer
     given-names: Patrick
-version: "0.3"
-date-released: 2026-10-08
-doi: 10.5281/zenodo.23238780
+version: "0.4"
+date-released: 2026-10-09
 repository-code: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
 keywords:
   - randomized integer convex hull
   - perimeter deficit
-  - affine lattices
-  - curvature
-  - rational numerical certificate
+  - affine lattice
+  - parabolic cap
+  - circle averages
+  - effective equidistribution
+  - second-order asymptotic
+  - Epstein zeta function
+  - Lipschitz regularity
+  - AI-assisted mathematics
 abstract: >-
-  AI-assisted preprint deriving a leading perimeter-deficit asymptotic for a
-  fixed planar C2 convex body with positive curvature and rigorously enclosing
-  its coefficient. The previously known order is credited. No independent
-  human mathematical review is attested.
+  Version 0.4 preserves the v0.3 leading-term manuscript and adds a separate
+  proof note, internally versioned 0.1, proposing an effective parabolic
+  remainder estimate and a second perimeter-deficit term for fixed planar C3
+  convex bodies with strictly positive curvature. Endpoint exponents, a
+  three-dimensional second term and flat or singular curvature are not
+  claimed. No independent human mathematical review is attested.

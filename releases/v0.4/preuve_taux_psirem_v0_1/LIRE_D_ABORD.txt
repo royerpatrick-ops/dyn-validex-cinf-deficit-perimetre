@@ -1,0 +1,36 @@
+DYN-VALIDEX — preuve du taux de Psi_rem, version 0.1, 9 octobre 2026.
+
+Commencer par DYN-PREUVE_TAUX_PSI_REM_v0_1.txt.
+Sections 1–8 : preuve complète de H, avec tout 0<delta<1/6.
+Section 9 : conséquence pour le second coefficient 2D, avec dépendances.
+
+STATUT.json et PROVENANCE.json fixent le statut et les attributions.
+La démonstration est nouvelle, proposée et contre-relue par IA.
+Une relecture humaine reste à obtenir. Pas de certificat numérique de B.
+
+Les fichiers sous antecedents/ sont des copies historiques inchangées.
+Ils décrivaient H comme ouverte : la nouvelle note fournit ce maillon.
+Leurs réserves numériques restent valables. Leurs hypothèses H sont
+maintenant remplies par les sections 1–8, dans le cadre précis annoncé.
+
+Les fragments TeX de spectral/ sont des sources sans préambule : le
+premier démontre le cas 7/4, l'annexe donne le lissage par chaleur et
+la généralisation. Le texte principal donne aussi une preuve du
+lissage par convolution, suffisante sans l'annexe chaleur.
+
+Les rapports géométriques sont des dérivations distinctes des mêmes
+corrections exactes. La branche arithmétique est complémentaire :
+elle ne prouve pas H à elle seule et ne remplace pas la preuve spectrale.
+
+obstruction/CONTROLE_FORMULES.py reproduit les quadratures déterministes.
+Il nécessite Python et SciPy (testé avec Python3.12.14, SciPy1.17.0).
+Il écrit son résultat à côté du script. Une case hors r<=1/2 est marquée
+comme telle; ces décimales ne sont pas des certificats d'intervalles.
+
+Les entrées Claude sous entrees/ sont préservées sans modification.
+Les archives, notices et théorèmes antérieurs ne sont pas réécrits.
+Aucun second terme 3D ni cas singulier n'est revendiqué.
+
+Pour contrôler l'intégrité du dossier : python VERIFIER_SHA256.py.
+Les fichiers applicatifs et PDF de licence inclus sont sous le périmètre
+précisé dans licenses/LICENSE_SCOPE.txt. Aucun dépôt public nouveau.

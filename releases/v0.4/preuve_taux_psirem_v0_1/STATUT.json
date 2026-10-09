@@ -1,0 +1,26 @@
+{
+  "projet": "DYN-VALIDEX — Patrick Royer, Dynagénèse",
+  "version": "0.1",
+  "date": "2026-10-09",
+  "statut": "NOUVELLE_DEMONSTRATION_PROPOSEE_ET_CONTRE_RELUE_PAR_IA",
+  "relecture_humaine_attestee": false,
+  "H": {
+    "statut": "DEMONTRÉE_DANS_CETTE_NOTE_SOUS_RÉSULTATS_CLASSIQUES_CITÉS",
+    "borne_explicite": "O((1+s) exp(-4s/7))",
+    "borne_generale": "O_c(exp(-cs)) pour chaque 0<c<2/3",
+    "delta": "chaque 0<delta<1/6",
+    "frontieres_demontrees": false
+  },
+  "regularite": "Psi_rem bornée, globalement Lipschitz et W^{1,2}; C^1 non revendiquée",
+  "second_terme_2D": {
+    "hypotheses": "K fixe, bord C^3, courbure strictement positive; réseau Z² tourné et translaté uniformément",
+    "coefficient": "B=-(sqrt(2)/(6*pi))*Z_prim(3/2)>0; prolongement analytique",
+    "reste": "O_{K,delta}(R^(-1/2-delta/3)), chaque 0<delta<1/6",
+    "dependances": "H présent; lemme E/Mellin et enveloppes dans antecedents; C identifié dans les notes 2D antérieures"
+  },
+  "numerique": "quadratures déterministes seulement; pas de certificat d’intervalles",
+  "nouveau_monte_carlo": false,
+  "second_terme_3D_demontre": false,
+  "historique": "Les pièces antecedents sont conservées inchangées : elles décrivaient H ouverte avant la présente preuve. Les pièces arithmetique/fractional sont des voies distinctes ou contrôles; le présent STATUT et texte intégré fixent le résultat final.",
+  "diffusion": "Dossier préparé, aucun nouveau dépôt public/DOI."
+}

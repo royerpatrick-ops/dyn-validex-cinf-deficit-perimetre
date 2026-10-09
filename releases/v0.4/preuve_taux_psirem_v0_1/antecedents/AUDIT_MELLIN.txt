@@ -1,0 +1,117 @@
+AUDIT INDEPENDANT — §§3 et 4 — 9 octobre 2026
+Entrées : demonstration_second_terme_2026-10-09.md ; verif_second_terme.py.
+Auteur de cet audit : agent IA Codex / audit_second_mellin.
+Les fichiers d'entrée n'ont pas été modifiés.
+
+1. VERDICT
+
+Les identités analytiques centrales des §§3–4 sont correctes, sous les conventions explicitées ci-dessous. En particulier, le coefficient de la transformée de Siegel coupée vaut bien
+  (sqrt(2)/(6*pi)) Z_prim(3/2) e^{-s/2}.
+L'identité
+  integral_0^infty lambda^{-3/2}(rho(lambda)-1) dlambda
+  = (pi/5) Z_prim(3/2)
+est exacte. Les facteurs 2 et pi sont cohérents, et l'identité B_grands = B_petits/4 est une conséquence algébrique de cette identité et des définitions antérieures de ces contributions.
+
+Cela ne démontre pas le second coefficient du déficit total : seule la composante E_g a été traitée. Le contrôle du reste Psi-E_g doit encore être démontré. Dire « forme close de B démontrée » est donc excessif si B désigne le coefficient du second terme de la conjecture complète. Formulation valide : « coefficient exact de la contribution singulière ; candidat B conditionnel à H et à la localisation quantitative ».
+
+2. CONVENTIONS DE SOMMATION
+
+Z_prim(sigma) désigne d'abord la somme sur TOUS les vecteurs primitifs (signes inclus), convergente seulement pour Re sigma > 2. La valeur à 3/2 est son prolongement analytique : la somme positive Sigma |w|^{-3/2} diverge. Il ne faut jamais l'écrire à sigma=3/2 comme une somme ordinaire finie ou convergente.
+
+Il faut prolonger F(x,y) à x<0 par F(|x|,y), et à x=0,y!=0 par 1/(24y^2). La singularité en l'origine est intégrable en dimension 2. Avec g=F chi/2, la somme sur les vecteurs +v et -v vaut F(v) dans la pointe où chi=1.
+
+3. MOYENNE DE CERCLE : CALCUL EXACT ET FACTEUR 1/(2*pi)
+
+Posons epsilon=e^{-s}, q=|w|, r=epsilon q. Pour epsilon suffisamment petit et |v|<eta, les deux arcs de l'ellipse sont paramétrés par
+  x= +/- sqrt(r^2-epsilon^4 y^2),
+  dtheta= epsilon dy / (q sqrt(1-epsilon^4 y^2/r^2)).
+Les deux arcs, associés au facteur 1/2 dans g, donnent exactement, pour un vecteur primitif w fixé,
+  epsilon/(2*pi*q) integral F(sqrt(r^2-epsilon^4 y^2),y)
+    chi(sqrt(r^2+(1-epsilon^4)y^2)/eta)
+    /sqrt(1-epsilon^4 y^2/r^2) dy.
+On peut intégrer sur |y|<=eta puisque chi s'annule au-delà. Comme q>=1, r>=epsilon, le facteur epsilon^4 y^2/r^2 est O_eta(epsilon^2).
+
+Remplacer x(y) par r, le rayon de chi par sqrt(r^2+y^2), et le jacobien par 1 donne
+  epsilon/(2*pi*q) Phi_tilde(r),
+puis après sommation
+  epsilon^2/(2*pi) Sigma_prim k(epsilon |w|), k(r)=Phi_tilde(r)/r.
+
+Le reste total O_eta(epsilon^2) peut être justifié sans singularité cachée : dans le régime intérieur, avec u=|y|sqrt(2/x) in [0,1],
+  F=x^{-1}(1/2-2u/3+u^2/4),
+  partial_x F=-(1-u)^2/(2x^2),
+donc |x partial_x F| <= F. Dans le régime extérieur partial_x F=0. Les perturbations ci-dessus sont relatives de taille O_eta(epsilon^2) ; le terme provenant de chi' est dominé par le même modèle sur un support légèrement agrandi. La moyenne positive dominante est uniformément bornée car
+  Phi(x)=(sqrt(2)/3)x^{-1/2}
+et le comptage elementaire des points entiers donne
+  Sigma_{|w|<=T}|w|^{-3/2}=O(T^{1/2}).
+Cette justification doit remplacer le seul « (1+O(e^{-2s})) » du manuscrit, dont la uniformité est actuellement implicite.
+
+4. TERME DE HAAR ET RESIDU DE MELLIN
+
+La symétrie x -> -x et g=F chi/2 donnent
+  integral E_g dmu = zeta(2)^{-1} integral_0^infty Phi_tilde(r) dr.
+Par ailleurs
+  integral_R2 k(|u|) du = 2*pi integral_0^infty Phi_tilde(r) dr.
+Le facteur 1/(2*pi) de la moyenne de cercle redonne donc exactement la moyenne de Haar, sans facteur 2 manquant.
+
+Quand x est assez petit par rapport à eta et eta^2, la portion retirée par chi est située dans le régime extérieur de F. Ainsi
+  Phi_tilde(x)= (sqrt(2)/3)x^{-1/2} - phi_1(x),
+  phi_1(x)= integral_R (1-chi(sqrt(x^2+y^2)/eta))/(24 y^2) dy.
+La fonction phi_1 est lisse et paire près de zéro. Par conséquent
+  k(x)= (sqrt(2)/3)x^{-3/2} - phi_1(0)x^{-1} + O_eta(x).
+
+Le facteur Mellin a un pôle à sigma=3/2 de résidu sqrt(2)/3. Le résidu de Z_prim en 2 est 2*pi/zeta(2). En déplaçant la droite de Re sigma>2 jusqu'à Re sigma=1+varepsilon, avec 0<varepsilon<1/2, on obtient
+  Sigma_prim k(|w|/T)
+    = [terme Haar en T^2]
+      + (sqrt(2)/3) Z_prim(3/2) T^{3/2}
+      + O_eta,varepsilon(T^{1+varepsilon}).
+
+La borne de Mellin O((1+|Im sigma|)^{-2}) sur la nouvelle droite nécessite de soustraire explicitement les deux puissances singulières avec une coupure lisse constante près de zéro. « k est C² à support compact » ne suffit pas à elle seule pour justifier la continuation sous Re sigma=3/2, mais la soustraction décrite ci-dessus la justifie. Le reste régulier est O(x), ses dérivées logarithmiques sont intégrables ; les deux puissances coupées ont une continuation de Mellin rapidement décroissante, par integration par parties après différentiation de la coupure.
+
+Sur Re sigma=1+varepsilon, 1/zeta(sigma) est borné. Les bornes de convexité de zeta(sigma/2) et beta(sigma/2) assurent la convergence absolue de l'intégrale restante, puisque leur produit est O((1+|t|)^{1/2+nu}) avec nu arbitrairement petit. Les contours horizontaux se contrôlent par les mêmes bornes. Ce sont des ingrédients analytiques standards, à citer ou expliciter dans une version publiable.
+
+Après multiplication par T^{-2}/(2*pi), le coefficient annoncé est donc correct. Le lemme E est un résultat sur E_g, indépendant du lemme L ; celui-ci n'intervient que dans le traitement de Psi-E_g.
+
+5. IDENTITE DE MELLIN DE RHO
+
+Pour Re sigma>0, la positivité permet Tonelli, puis le calcul de chaque contribution donne
+  integral lambda^{sigma-1} rho(lambda) dlambda
+    = pi/[4(sigma+1)(sigma+3)] Z_prim(sigma+2).
+
+Avec N(r)=pi r^2/zeta(2)+O(r log r), une integration de Stieltjes du poids (1/r-r/L^2) donne
+  rho(lambda)=1+O(lambda log^2(1/lambda)).
+La constante principale est bien 1 :
+  (pi lambda/8)*(2*pi/zeta(2))* integral_0^{1/lambda}(1-lambda^2 r^2) dr = 1.
+
+Puisque rho=0 pour lambda>=1, on a pour Re sigma>0
+  Mellin(rho)=1/sigma+ integral_0^1 lambda^{sigma-1}(rho-1) dlambda.
+Ce membre se prolonge dans Re sigma>-1 sauf le pôle en zero. Pour -1<Re sigma<0, l'intégrale sur (1,infty) du terme -1 vaut 1/sigma. On obtient donc exactement la continuation annoncée, et à sigma=-1/2 :
+  integral_0^infty lambda^{-3/2}(rho-1) dlambda = pi/5 Z_prim(3/2).
+Le comptage O(r log r) peut être démontré élémentairement : le nombre des points entiers non nuls dans un disque de rayon R est pi R²+O(R+1), par comparaison avec les carrés unités. L'inversion de Möbius donne N(r)=Sigma_{k<=r} mu(k)[pi(r/k)²+O(r/k+1)]. Le remplacement de Sigma_{k<=r} mu(k)/k² par 1/zeta(2) coûte O(r), et la somme des erreurs coûte O(r log r). L'argument Mellin est donc autonome après ajout de ces quelques lignes.
+
+6. PORTEE DE B_GRANDS=B_PETITS/4
+
+Les définitions du texte impliquent
+  B_petits = -2 sqrt(2)/(15*pi) Z_prim(3/2),
+  B_grands = -sqrt(2)/(30*pi) Z_prim(3/2),
+  B_singulier = -sqrt(2)/(6*pi) Z_prim(3/2).
+Cela prouve l'identité entre les constantes définies par les deux modèles. La présence de chacune dans le développement des arêtes antérieur dépend encore des hypothèses antérieures correspondantes. Il faut éviter de présenter les deux calculs conditionnels comme deux preuves indépendantes du second terme total.
+
+7. CE QUE LE SCRIPT VERIFIE ET CE QU'IL NE VERIFIE PAS
+
+- B_gr est affecté directement à B_pet/4 : ce contrôle est tautologique.
+- Le test de l'intégrale de rho est indépendant des formules de B, mais la somme de vecteurs est limitée à 2000 et la partie lambda<1/2000 est omise. Le script ne fournit aucune borne de ce reste.
+- La quadrature de rho pourrait être remplacée par le calcul fini exact, pour L>1 :
+  I_L=pi/5 Sigma_{|w|<L}|w|^{-3/2}
+      -pi/(4 sqrt(L)) Sigma_{|w|<L}|w|^{-1}
+      +pi/(20 L^{5/2}) Sigma_{|w|<L}|w|
+      -2 sqrt(L).
+  I_L est exactement l'intégrale sur lambda>=1/L, avec opérations réelles exactes, sans quadrature numérique. Son écart à la cible exige encore un contrôle de lambda<1/L.
+- La coupure du test Epstein (exp(1-1/(1-u²))) n'est pas égale à 1 sur un intervalle autour de zéro, contrairement à celle du lemme E. Elle vaut 1 en zéro et sa différence est O(u²), ce qui suffit pour conserver la même limite. Cette distinction doit être explicitée.
+- L'accord de quatre valeurs de T est un contrôle numérique, ni une certification de l'erreur ni une preuve du taux du lemme E.
+- Le signe negatif de Z_prim(3/2) se justifie directement : zeta(3/4)<0, beta(3/4)>0 et zeta(3/2)>0. L'explication « absence de vecteurs de longueur <1 » est une interprétation du mécanisme, pas une preuve autonome du signe.
+
+8. STATUT FINAL
+
+Identités de Mellin et coefficient de la composante singulière : VALIDES, après explicitation des conventions et des justifications techniques ci-dessus.
+Identification de B au second coefficient du déficit total : CONDITIONNELLE, non démontrée dans la note reçue.
+Valeurs décimales : évaluations numériques, non certificats rationnels ou d'intervalles.

@@ -1,0 +1,11 @@
+{
+  "type": "quadrature déterministe, sans certificat d’intervalle",
+  "rejeu_identique": true,
+  "axes_horizontaux_identite": true,
+  "difference_verticale_identite": true,
+  "nouveau_monte_carlo": false,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "cas_hors_domaine": 1
+}

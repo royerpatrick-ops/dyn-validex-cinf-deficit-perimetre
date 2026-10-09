@@ -1,0 +1,12 @@
+DYN-VALIDEX — preuve du taux de Psi_rem, version0.1, 9octobre2026.
+Patrick Royer — Dynagénèse ; DEL1.1, dans la mesure des droits détenus.
+Le PDF DYN-LICENCE_DEL_v1_1.pdf contient le texte français de référence.
+
+Périmètre : texte intégré de la nouvelle preuve, rapports de branches,
+code nouveau de contrôle, métadonnées et présentation des résultats.
+Les entrées reçues gardent leur attribution à Claude AI et leur régime
+propre. Les pièces antérieures sous antecedents/ sont conservées dans
+leur contexte et ne sont pas réattribuées. Les publications et logiciels
+cités ne sont pas relicenciés. Les idées, formules et faits mathématiques
+ne deviennent pas exclusifs. Aucune licence CC/MIT n'est substituée.
+Cette notice ne modifie pas les notices des corpus antérieurs.
