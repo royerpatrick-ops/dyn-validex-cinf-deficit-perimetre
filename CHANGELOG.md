@@ -9,7 +9,7 @@
 - Recorded Claude AI and Codex contributions, the absence of independent human mathematical review, deterministic checks, documented software versions and DEL 1.1 scope.
 - Excluded endpoint exponents, a second term in dimension 3, flat or singular curvature, and any claim that the decimal value of B is an interval certificate.
 
-Publication identifiers are recorded only after actual assignment and public verification. The version series retains concept DOI 10.5281/zenodo.23209552; v0.3 remains DOI 10.5281/zenodo.23238780.
+Published as GitHub pre-release `v0.4` from content commit `08f329dd9ae1949906ca10fc6c908c1b4a9bf65f` and as a public Zenodo preprint at version DOI 10.5281/zenodo.23258648. The version series retains concept DOI 10.5281/zenodo.23209552; v0.3 remains DOI 10.5281/zenodo.23238780. The publication receipt and checksums were committed afterward without moving the tag.
 
 ## 0.3 — prepared 8 October 2026
 

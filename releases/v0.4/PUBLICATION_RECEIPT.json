@@ -1,0 +1,108 @@
+{
+  "schema": "dyn-validex-publication-receipt-1",
+  "publication_status": "PUBLISHED",
+  "publication_date": "2026-10-09",
+  "github": {
+    "repository": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre",
+    "release": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.4",
+    "tag": "v0.4",
+    "tagged_content_commit": "08f329dd9ae1949906ca10fc6c908c1b4a9bf65f",
+    "prerelease": true,
+    "source_archive": "DYN-PUBLICATION_SECOND_TERME_v0_4.zip",
+    "source_archive_sha256": "493dd0dca1339b6bb286e424cb07a87a1be1563f7bac5ff478bd4850d0507d6d"
+  },
+  "zenodo": {
+    "record": "https://zenodo.org/records/23258648",
+    "version_doi": "10.5281/zenodo.23258648",
+    "concept_doi": "10.5281/zenodo.23209552",
+    "previous_version_doi": "10.5281/zenodo.23238780",
+    "historical_v0_2_doi": "10.5281/zenodo.23209553",
+    "resource_type": "Publication / Preprint",
+    "access": "public",
+    "files": [
+      {
+        "name": "DEL_1_1_reference.pdf",
+        "sha256": "80e5f0da15a281709143d08566630caa999cad3ec136adae3f2c0a130eafd432",
+        "zenodo_md5": "b1ba9cf103615c0ed3fd82b0776d2df7",
+        "origin": "unchanged from v0.3"
+      },
+      {
+        "name": "DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf",
+        "sha256": "cef0c7b16bc2c33a0510789e4f9b2b9a8367367fe2a1874f4000dd2b1d3f8ed0",
+        "zenodo_md5": "84d86d7fd448df666b19fb0ec6d26b93",
+        "origin": "unchanged from v0.3"
+      },
+      {
+        "name": "DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip",
+        "sha256": "0d124ba1e0638eb8416819d0ce59287a8480867d58b11792653271afd2d3b744",
+        "zenodo_md5": "46b248ff1558b73c1c6d547a914f29c9",
+        "origin": "unchanged from v0.3"
+      },
+      {
+        "name": "DYN-PUBLICATION_SECOND_TERME_v0_4.zip",
+        "sha256": "493dd0dca1339b6bb286e424cb07a87a1be1563f7bac5ff478bd4850d0507d6d",
+        "zenodo_md5": "dbffd5fc1ab0e993be18a05e8beace52"
+      },
+      {
+        "name": "DYN-PREUVE_TAUX_PSI_REM_v0_1.txt",
+        "sha256": "53d616ae2ab173309553e8c50b1fa5630ba7d788410f4825bff67ff962498e05",
+        "zenodo_md5": "7b810726bc998c5eef5843c4c94fa4c8"
+      },
+      {
+        "name": "DYN-PREUVE_TAUX_PSI_REM_v0_1.zip",
+        "sha256": "69ffdba2597fd2363ebb24752142f9e8d634bd79bd7ead5995974ae36e18a0a2",
+        "zenodo_md5": "31c976961e28b50a388cb8466f5af353"
+      },
+      {
+        "name": "LICENSE_SCOPE_v0_4.txt",
+        "sha256": "9b46828f15a8cecec0e3484ea7e919107e215e3f65a00c7cc434ca7069ca297a",
+        "zenodo_md5": "d7269e0733bd9968f5ecd860399b3772"
+      },
+      {
+        "name": "PROVENANCE.json",
+        "sha256": "72cbfb765c68033981f74168190fe32b67bcba95c223220b5169b6955a5b85ce",
+        "zenodo_md5": "be4755f8b04b3c9c0d0a2b55af9da2c4"
+      },
+      {
+        "name": "RELEASE_NOTES_v0_4.md",
+        "sha256": "440090367dfbbfcac627ee6e0de7e7d1902ce2afc6cc658c098843d86eddb0cd",
+        "zenodo_md5": "c31ab25ad2ceb27a1ff0c2ed247f7e84",
+        "note": "pre-publication snapshot contained in the immutable source package"
+      },
+      {
+        "name": "SHA256SUMS_v0_4.txt",
+        "sha256": "8b542ab19f1f78d92f236de1d0a4688d60bdb5c27d06182085b0027fef3c89f2",
+        "zenodo_md5": "5717587869258c4bf13f841879a28700",
+        "note": "sidecar lists the other nine cumulative record files"
+      }
+    ]
+  },
+  "license": {
+    "title": "Dynagénèse Ethical Licence (DEL), version 1.1 — corpus v0.4",
+    "custom": true,
+    "osi_approved": false,
+    "spdx_identifier_asserted": false,
+    "scope_notice": "LICENSE_SCOPE_v0_4.txt"
+  },
+  "scientific_status": {
+    "ai_assisted": true,
+    "independent_human_mathematical_review_attested": false,
+    "second_term_scope": "fixed planar convex body K with C3 boundary and strictly positive curvature",
+    "circle_average_rates": [
+      "O((1+s) exp(-4s/7))",
+      "O_c(exp(-cs)) for every 0<c<2/3"
+    ],
+    "coefficient": "B=-(sqrt(2)/(6*pi)) Z_prim(3/2)",
+    "coefficient_decimal": "0.289423417860128 (approximate; not an interval certificate)",
+    "remainder": "O_{K,delta}(R^(-1/2-delta/3)) for every 0<delta<1/6",
+    "not_claimed": [
+      "endpoint exponents",
+      "a three-dimensional second term",
+      "flat or singular curvature"
+    ]
+  },
+  "trace": {
+    "tag_policy": "The v0.4 tag remains on the tagged_content_commit and was not moved.",
+    "post_tag_commit": "The Git commit containing this receipt is the post-tag trace commit; its hash is intentionally not embedded here to avoid a self-reference."
+  }
+}

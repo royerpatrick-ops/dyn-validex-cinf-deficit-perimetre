@@ -35,7 +35,7 @@ The primitive Epstein zeta function is understood by analytic continuation; the 
 
 The v0.3 leading-term manuscript has a distinct $C^2$ scope and certified evaluation of $C$. The new second term requires $C^3$. The order $R^{-1/3}$ was already known and is credited to Ngoc–Reitzner (2021). No second term in dimension 3, endpoint exponent, or flat/singular-curvature case is established here.
 
-**Zenodo v0.4 version DOI:** pending actual Zenodo assignment and public verification<br>
+**Zenodo v0.4 version DOI:** [10.5281/zenodo.23258648](https://doi.org/10.5281/zenodo.23258648)<br>
 **Zenodo concept DOI:** [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552)<br>
 **Previous Zenodo version DOI (v0.3):** [10.5281/zenodo.23238780](https://doi.org/10.5281/zenodo.23238780)<br>
 **GitHub release:** [v0.4](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.4)
@@ -45,6 +45,7 @@ The v0.3 leading-term manuscript has a distinct $C^2$ scope and certified evalua
 - [`manuscript/DYN-PREUVE_TAUX_PSI_REM_v0_1.txt`](manuscript/DYN-PREUVE_TAUX_PSI_REM_v0_1.txt) — new proof note, internal version 0.1.
 - [`releases/v0.4/preuve_taux_psirem_v0_1/`](releases/v0.4/preuve_taux_psirem_v0_1/) — proof corpus, provenance, deterministic checks and counter-reviews.
 - [`archive/DYN-PREUVE_TAUX_PSI_REM_v0_1.zip`](archive/DYN-PREUVE_TAUX_PSI_REM_v0_1.zip) — preserved proof archive.
+- [`archive/SHA256SUMS_v0_4.txt`](archive/SHA256SUMS_v0_4.txt) — SHA-256 sidecar for the ten cumulative Zenodo files (the sidecar lists the other nine files; its own SHA-256 is recorded in the publication receipt).
 - [`RELEASE_NOTES_v0_4.md`](RELEASE_NOTES_v0_4.md) and [`CHANGELOG.md`](CHANGELOG.md) — release notes and version history.
 - [`manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf`](manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf) — unchanged v0.3 leading-term manuscript.
 - [`releases/v0.3/`](releases/v0.3/) — unchanged complete v0.3 corpus.
@@ -75,4 +76,4 @@ The author-selected custom **DEL 1.1** licence applies within each designated sc
 
 Claude AI supplied the antecedent note and script, preserved unchanged. ChatGPT/Codex developed the new proof, assisted verification, code, counter-reviews, drafting and integration. AI systems are tools, not human authors, independent reviewers or scientific guarantors. See [`PROVENANCE.json`](releases/v0.4/preuve_taux_psirem_v0_1/PROVENANCE.json) for the detailed trace.
 
-Use [`CITATION.cff`](CITATION.cff) and cite the exact release, content commit and verified Zenodo version when reviewing or reusing modified files.
+Use [`CITATION.cff`](CITATION.cff) and cite the exact release, tagged content commit [`08f329d`](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/commit/08f329dd9ae1949906ca10fc6c908c1b4a9bf65f), and verified Zenodo version. The machine-readable [`PUBLICATION_RECEIPT.json`](releases/v0.4/PUBLICATION_RECEIPT.json) records the public identifiers, files and checksums. The receipt is intentionally a post-tag trace file: tag `v0.4` remains fixed on the content commit above.

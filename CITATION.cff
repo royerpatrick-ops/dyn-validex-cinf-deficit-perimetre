@@ -7,7 +7,9 @@ authors:
     given-names: Patrick
 version: "0.4"
 date-released: 2026-10-09
+doi: "10.5281/zenodo.23258648"
 repository-code: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
+url: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.4"
 keywords:
   - randomized integer convex hull
   - perimeter deficit

@@ -1,0 +1,15 @@
+# DYN-VALIDEX v0.4 — SHA-256 sidecar
+# Prepared 2026-10-09. This sidecar is intentionally outside the publication archives.
+# The three v0.3 files were imported by Zenodo from record 23238780. Their local
+# counterparts match Zenodo's published MD5 checksums byte-for-byte; the first two
+# were also downloaded directly from the public record before this calculation.
+
+80e5f0da15a281709143d08566630caa999cad3ec136adae3f2c0a130eafd432  DEL_1_1_reference.pdf
+cef0c7b16bc2c33a0510789e4f9b2b9a8367367fe2a1874f4000dd2b1d3f8ed0  DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf
+0d124ba1e0638eb8416819d0ce59287a8480867d58b11792653271afd2d3b744  DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip
+493dd0dca1339b6bb286e424cb07a87a1be1563f7bac5ff478bd4850d0507d6d  DYN-PUBLICATION_SECOND_TERME_v0_4.zip
+53d616ae2ab173309553e8c50b1fa5630ba7d788410f4825bff67ff962498e05  DYN-PREUVE_TAUX_PSI_REM_v0_1.txt
+69ffdba2597fd2363ebb24752142f9e8d634bd79bd7ead5995974ae36e18a0a2  DYN-PREUVE_TAUX_PSI_REM_v0_1.zip
+9b46828f15a8cecec0e3484ea7e919107e215e3f65a00c7cc434ca7069ca297a  LICENSE_SCOPE_v0_4.txt
+72cbfb765c68033981f74168190fe32b67bcba95c223220b5169b6955a5b85ce  PROVENANCE.json
+440090367dfbbfcac627ee6e0de7e7d1902ce2afc6cc658c098843d86eddb0cd  RELEASE_NOTES_v0_4.md

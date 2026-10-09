@@ -16,4 +16,12 @@ The proof is proposed and counter-reviewed by several Codex branches. Claude AI 
 
 Author: Patrick Royer, independent researcher without institutional affiliation. AI assistance, the documented Python/NumPy/SciPy/mpmath environment and the custom DEL 1.1 scope are recorded in the corpus.
 
-GitHub content commit, release URL and Zenodo v0.4 DOI will be recorded only after they are created and publicly verified. The Zenodo concept DOI remains **10.5281/zenodo.23209552**; v0.3 remains **10.5281/zenodo.23238780**.
+Publicly verified publication identifiers:
+
+- GitHub release: <https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.4>
+- Tagged content commit: [`08f329dd9ae1949906ca10fc6c908c1b4a9bf65f`](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/commit/08f329dd9ae1949906ca10fc6c908c1b4a9bf65f)
+- Zenodo v0.4 version DOI: [10.5281/zenodo.23258648](https://doi.org/10.5281/zenodo.23258648)
+- Zenodo concept DOI: [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552)
+- Previous v0.3 DOI: [10.5281/zenodo.23238780](https://doi.org/10.5281/zenodo.23238780)
+
+The tag `v0.4` remains on the content commit. These identifiers and the cumulative Zenodo file checksums are added afterward in [`releases/v0.4/PUBLICATION_RECEIPT.json`](releases/v0.4/PUBLICATION_RECEIPT.json) without retagging.
