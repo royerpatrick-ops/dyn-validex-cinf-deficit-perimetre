@@ -1,14 +1,16 @@
 cff-version: 1.2.0
-message: "Candidate v0.5 has reserved DOI 10.5281/zenodo.23598602; publication is not yet attested. Cite the exact published version once publication has been verified."
+message: "Cite the public Zenodo v0.5 record (DOI 10.5281/zenodo.23598602) and, when relevant, the exact tagged GitHub commit. This is an AI-assisted proposed proof with no independent human mathematical review or formal verification attested."
 type: software
 title: "DYN-VALIDEX: explicit disk remainder bounds and request for human mathematical review"
 authors:
   - family-names: Royer
     given-names: Patrick
 version: "0.5"
+date-released: "2026-10-23"
 doi: "10.5281/zenodo.23598602"
-url: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
-abstract: "Proposed AI-assisted analytic bounds with a separate AI counter-review. No independent human review is attested. The bounds are uninformative at the radii already studied. Quantitative note v0.1a; DEL1.1 within the supplied scope."
+repository-code: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
+url: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.5"
+abstract: "Proposed AI-assisted analytic bounds with a separate AI counter-review. No independent human review or formal verification is attested. The bounds are very conservative and uninformative at the radii already studied; R0=2 is a validity threshold, not a practical asymptotic threshold. C51 remains partial and no completely certified mean at R=50 is claimed. Quantitative note v0.1a; DEL 1.1 within the supplied scope."
 keywords:
   - integer hull
   - perimeter deficit

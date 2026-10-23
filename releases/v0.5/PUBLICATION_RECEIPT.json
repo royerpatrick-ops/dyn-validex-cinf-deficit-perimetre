@@ -1,0 +1,132 @@
+{
+  "schema": "dyn-validex-publication-receipt-1",
+  "publication_status": "PUBLISHED",
+  "publication_date": "2026-10-23",
+  "verified_at_utc": "2026-10-23T15:20:45.229Z",
+  "github": {
+    "repository": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre",
+    "release": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.5",
+    "release_id": 421990838,
+    "release_created_at_utc": "2026-10-23T15:06:30Z",
+    "release_published_at_utc": "2026-10-23T15:13:54Z",
+    "tag": "v0.5",
+    "tagged_content_commit": "72eae7088f81861f7e8f58336356b5ff5919ff74",
+    "prerelease": true,
+    "draft": false,
+    "review_issue": "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/issues/1",
+    "review_issue_state": "open",
+    "review_issue_created_at_utc": "2026-10-23T15:18:14Z",
+    "source_archive": "DYN-PUBLICATION_CHIFFRAGE_RESTE_I43_v0_5.zip",
+    "source_archive_sha256": "15adb45b7853b8c9c7c9d7852cad62046890af3a663d6b28109e51c46df7ed13"
+  },
+  "zenodo": {
+    "record": "https://zenodo.org/records/23598602",
+    "version_doi": "10.5281/zenodo.23598602",
+    "concept_doi": "10.5281/zenodo.23209552",
+    "previous_version_doi": "10.5281/zenodo.23258648",
+    "resource_type": "Publication / Preprint",
+    "version": "0.5",
+    "access": "public/open",
+    "record_created_at_utc": "2026-10-23T15:17:10.734778Z",
+    "record_updated_at_utc": "2026-10-23T15:17:11.753453Z",
+    "file_count": 18,
+    "new_v0_5_files": [
+      {
+        "name": "DYN-CHIFFRAGE_RESTE_I43_DISQUE_v0_1a.pdf",
+        "size": 158382,
+        "sha256": "ecd2b0ac92298659cf03f8a0f9f1b3dca6cf8424e8c55314b44e8740151967f1",
+        "zenodo_md5": "92890eec1809ba4f7c39e195eb1b7c5f"
+      },
+      {
+        "name": "DYN-PUBLICATION_CHIFFRAGE_RESTE_I43_v0_5.zip",
+        "size": 412428,
+        "sha256": "15adb45b7853b8c9c7c9d7852cad62046890af3a663d6b28109e51c46df7ed13",
+        "zenodo_md5": "271b17c0821c2b6c533ae43aa3d43154",
+        "zip_entries": 26,
+        "zip_crc_check": "pass",
+        "internal_manifest_sha256_check": "25/25 pass"
+      },
+      {
+        "name": "LICENSE_SCOPE_v0_5.txt",
+        "size": 1843,
+        "sha256": "c596b7da2ed281f8efeb722b0dd86f6a5a7ff4f85be398b30cdbdb168bc23806",
+        "zenodo_md5": "b17ee8e074b024814fcc0aef0f15f641"
+      },
+      {
+        "name": "PROVENANCE_v0_5.json",
+        "size": 1657,
+        "sha256": "9d102087aaf2c958d31e91a848564b4399bebe4ffa8c992da1e35ca6b41725e4",
+        "zenodo_md5": "9cdd2ae5a14e63dcf71f9b55ba789fa4"
+      },
+      {
+        "name": "RELEASE_NOTES_v0_5.md",
+        "size": 3066,
+        "sha256": "f9131c02ec8efdb61b705a70e01ee95083b6b7b593328d8451656611f548b092",
+        "zenodo_md5": "392343e23e5cbeb05fc5e1c938ce57ea"
+      },
+      {
+        "name": "REVIEW_REQUEST_v0_5.en.md",
+        "size": 2881,
+        "sha256": "5be9d9e8dabdf28e1238662e43b011044311adcd24003212bff8fb6540879ea7",
+        "zenodo_md5": "8b81503d5f8aea1da83a6b58287c7f48"
+      },
+      {
+        "name": "REVIEW_REQUEST_v0_5.fr.md",
+        "size": 3000,
+        "sha256": "150e0dfd482da041b84b27a9c64087e056d926e3448be18b6e403f26d522636a",
+        "zenodo_md5": "1d8f68e38b5d562a3bf7658dd358cc4b"
+      },
+      {
+        "name": "SHA256SUMS_v0_5.txt",
+        "size": 666,
+        "sha256": "0dfde32b07e7714fd75ceee9a00b99800f040a1cab75e05e87346229a902bef9",
+        "zenodo_md5": "1424e70ffbfd3740b689e01e6659f140"
+      }
+    ],
+    "historical_files_carried_forward": [
+      {"name": "DEL_1_1_reference.pdf", "size": 84602, "sha256": "80e5f0da15a281709143d08566630caa999cad3ec136adae3f2c0a130eafd432", "zenodo_md5": "b1ba9cf103615c0ed3fd82b0776d2df7"},
+      {"name": "DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf", "size": 405860, "sha256": "cef0c7b16bc2c33a0510789e4f9b2b9a8367367fe2a1874f4000dd2b1d3f8ed0", "zenodo_md5": "84d86d7fd448df666b19fb0ec6d26b93"},
+      {"name": "DYN-PREUVE_TAUX_PSI_REM_v0_1.txt", "size": 22910, "sha256": "53d616ae2ab173309553e8c50b1fa5630ba7d788410f4825bff67ff962498e05", "zenodo_md5": "7b810726bc998c5eef5843c4c94fa4c8"},
+      {"name": "DYN-PREUVE_TAUX_PSI_REM_v0_1.zip", "size": 151182, "sha256": "69ffdba2597fd2363ebb24752142f9e8d634bd79bd7ead5995974ae36e18a0a2", "zenodo_md5": "31c976961e28b50a388cb8466f5af353"},
+      {"name": "DYN-PUBLICATION_DEFICIT_PERIMETRE_v0_3.zip", "size": 1623931, "sha256": "0d124ba1e0638eb8416819d0ce59287a8480867d58b11792653271afd2d3b744", "zenodo_md5": "46b248ff1558b73c1c6d547a914f29c9"},
+      {"name": "DYN-PUBLICATION_SECOND_TERME_v0_4.zip", "size": 406408, "sha256": "493dd0dca1339b6bb286e424cb07a87a1be1563f7bac5ff478bd4850d0507d6d", "zenodo_md5": "dbffd5fc1ab0e993be18a05e8beace52"},
+      {"name": "LICENSE_SCOPE_v0_4.txt", "size": 842, "sha256": "9b46828f15a8cecec0e3484ea7e919107e215e3f65a00c7cc434ca7069ca297a", "zenodo_md5": "d7269e0733bd9968f5ecd860399b3772"},
+      {"name": "PROVENANCE.json", "size": 2925, "sha256": "72cbfb765c68033981f74168190fe32b67bcba95c223220b5169b6955a5b85ce", "zenodo_md5": "be4755f8b04b3c9c0d0a2b55af9da2c4"},
+      {"name": "RELEASE_NOTES_v0_4.md", "size": 1640, "sha256": "440090367dfbbfcac627ee6e0de7e7d1902ce2afc6cc658c098843d86eddb0cd", "zenodo_md5": "c31ab25ad2ceb27a1ff0c2ed247f7e84"},
+      {"name": "SHA256SUMS_v0_4.txt", "size": 1236, "sha256": "8b542ab19f1f78d92f236de1d0a4688d60bdb5c27d06182085b0027fef3c89f2", "zenodo_md5": "5717587869258c4bf13f841879a28700"}
+    ]
+  },
+  "license": {
+    "title": "Dynagénèse Ethical Licence (DEL), version 1.1 — corpus v0.5",
+    "custom": true,
+    "osi_approved": false,
+    "spdx_identifier_asserted": false,
+    "scope_notice": "LICENSE_SCOPE_v0_5.txt"
+  },
+  "scientific_status": {
+    "author": "Patrick Royer",
+    "affiliation": "independent researcher without institutional affiliation",
+    "ai_assisted_proposed_proof": true,
+    "independent_human_mathematical_review_attested": false,
+    "formal_verification_attested": false,
+    "bound_status": "Very conservative and uninformative at the radii already studied.",
+    "R0": 2,
+    "R0_interpretation": "Validity threshold, not a practical asymptotic threshold.",
+    "C51_status": "partial",
+    "completely_certified_mean_at_R_50_claimed": false,
+    "publication_is_scientific_validation": false
+  },
+  "verification": {
+    "doi_http_status": 200,
+    "doi_final_uri": "https://zenodo.org/records/23598602",
+    "github_tag_public_files": "All eight v0.5 files downloaded from the public v0.5 tag matched the recorded sizes and SHA-256 hashes.",
+    "zenodo_public_files": "All eight new v0.5 files downloaded from the public record matched the recorded sizes and SHA-256 hashes.",
+    "github_zenodo_source_archive_identity": "The scientific ZIP has the same SHA-256 on GitHub and Zenodo.",
+    "github_zenodo_integration_before_release": "off",
+    "automatic_duplicate_deposit_detected": false
+  },
+  "trace": {
+    "tag_policy": "The v0.5 tag remains on tagged_content_commit and was not moved after publication.",
+    "post_tag_commit": "The Git commit containing this receipt and the final public-status notices is a post-tag trace commit; its hash is intentionally not embedded here to avoid self-reference."
+  }
+}
