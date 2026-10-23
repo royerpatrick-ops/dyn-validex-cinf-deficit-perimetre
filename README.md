@@ -1,79 +1,71 @@
-# DYN-VALIDEX: effective remainder and second perimeter-deficit term — v0.4
+# DYN-VALIDEX — Perimeter deficit of randomized integer convex hulls
 
-**Patrick Royer · independent researcher without institutional affiliation · 9 October 2026**<br>
-**AI-assisted mathematical preprint. The new proof is proposed and counter-reviewed by several Codex branches; no independent human mathematical review is attested.**
+Patrick Royer, independent researcher without institutional affiliation,
+Dynagénèse project. Mathematical developments, counter-checks and integration
+were carried out with AI assistance. No independent human mathematical review
+or formal proof verification is attested for the proposed proof and this supplement.
 
-Version 0.4 preserves the leading-term manuscript published in v0.3 and adds a separate proof note (internal version 0.1, 9 October 2026). Earlier manuscripts, releases and audits retain their original versions.
+## Candidate v0.5: explicit disk remainder bounds
 
-For full circle averages on the space of planar unimodular lattices, the new note derives
+**Staging status: `RELEASE_CANDIDATE_DOI_RESERVED`, 23 October 2026.**
 
-$$
-\left|\mathcal M_s\Psi_{\mathrm{rem}}-\int_X\Psi_{\mathrm{rem}}\,d\mu\right|
-=O((1+s)e^{-4s/7}),
-$$
+Reserved DOI for v0.5: https://doi.org/10.5281/zenodo.23598602
 
-and $O_c(e^{-cs})$ for every $0<c<2/3$. An exact cusp formula gives global Lipschitz and $W^{1,2}$ regularity. A spectral estimate and uniform smoothing then give the rate. The endpoint $c=2/3$ is not claimed.
+This DOI has been reserved in the existing Zenodo series. Publication and a
+new tagged content commit are not yet attested in this staging document.
 
-Combined with the documented Mellin calculation and parabolic-envelope transfer, this gives, for each fixed planar convex body $K$ with **$C^3$ boundary and strictly positive curvature**,
+The quantitative note v0.1a proposes explicit bounds
+$K_f=2.5\times10^9$, $K_E=2000$, $K_{\mathrm{geo}}=550000$, with a common
+validity threshold $R_0=2$, for the remainder of the proposed two-term disk
+perimeter-deficit expansion.
 
-$$
-\mathbb E[P(RK)-P(\operatorname{conv}(L\cap RK))]
-=C R^{-1/3}\int_{\partial K}\kappa^{4/3}\,ds
--B R^{-1/2}\int_{\partial K}\kappa^{3/2}\,ds
-+O_{K,\delta}(R^{-1/2-\delta/3}),
-\qquad 0<\delta<1/6.
-$$
+**The bound is very conservative and uninformative at the radii already
+studied.** The threshold is a validity threshold, not a practical onset of
+the asymptotic regime. These bounds do not numerically validate the two
+coefficients at those radii. C51 remains partial; a complete certified mean
+at R=50 is not claimed.
 
-Here $L$ is a uniformly rotated and translated square lattice, and
+- [Nine-page quantitative note, PDF](releases/v0.5/DYN-CHIFFRAGE_RESTE_I43_DISQUE_v0_1a.pdf)
+- [Complete source and review dossier](releases/v0.5/DYN-PUBLICATION_CHIFFRAGE_RESTE_I43_v0_5.zip)
+- [Release notes](releases/v0.5/RELEASE_NOTES_v0_5.md)
+- [Version provenance](releases/v0.5/PROVENANCE_v0_5.json)
+- [SHA-256 checksums](releases/v0.5/SHA256SUMS_v0_5.txt)
 
-$$
-B=-\frac{\sqrt2}{6\pi}Z_{\mathrm{prim}}(3/2)
-\approx0.289423417860128>0.
-$$
+The archive contains the proposed starting proof, the quantitative derivations,
+the separate AI counter-review, LaTeX sources, figures and a reproducible
+rational-arithmetic calculation. It includes no new Monte-Carlo or QMC campaign.
 
-The primitive Epstein zeta function is understood by analytic continuation; the positive vector series at $3/2$ diverges. The decimal for $B$ is a high-precision evaluation, **not an interval certificate**.
+## Human mathematical review requested
 
-The v0.3 leading-term manuscript has a distinct $C^2$ scope and certified evaluation of $C$. The new second term requires $C^3$. The order $R^{-1/3}$ was already known and is credited to Ngoc–Reitzner (2021). No second term in dimension 3, endpoint exponent, or flat/singular-curvature case is established here.
+- [Request in English](releases/v0.5/REVIEW_REQUEST_v0_5.en.md)
+- [Appel en français](releases/v0.5/REVIEW_REQUEST_v0_5.fr.md)
 
-**Zenodo v0.4 version DOI:** [10.5281/zenodo.23258648](https://doi.org/10.5281/zenodo.23258648)<br>
-**Zenodo concept DOI:** [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552)<br>
-**Previous Zenodo version DOI (v0.3):** [10.5281/zenodo.23238780](https://doi.org/10.5281/zenodo.23238780)<br>
-**GitHub release:** [v0.4](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.4)
+Localized objections, counterexamples, relevant references and corrections
+to a single step are welcome through [Issues](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/issues). The priority is
+review of the exact geometric identities, the quantitative Stieltjes/heat
+chain, and estimates that could make the remainder bound useful.
+No individual reviewer or endorsement is claimed.
 
-## Current presentation
+## Version history
 
-- [`manuscript/DYN-PREUVE_TAUX_PSI_REM_v0_1.txt`](manuscript/DYN-PREUVE_TAUX_PSI_REM_v0_1.txt) — new proof note, internal version 0.1.
-- [`releases/v0.4/preuve_taux_psirem_v0_1/`](releases/v0.4/preuve_taux_psirem_v0_1/) — proof corpus, provenance, deterministic checks and counter-reviews.
-- [`archive/DYN-PREUVE_TAUX_PSI_REM_v0_1.zip`](archive/DYN-PREUVE_TAUX_PSI_REM_v0_1.zip) — preserved proof archive.
-- [`archive/SHA256SUMS_v0_4.txt`](archive/SHA256SUMS_v0_4.txt) — SHA-256 sidecar for the ten cumulative Zenodo files (the sidecar lists the other nine files; its own SHA-256 is recorded in the publication receipt).
-- [`RELEASE_NOTES_v0_4.md`](RELEASE_NOTES_v0_4.md) and [`CHANGELOG.md`](CHANGELOG.md) — release notes and version history.
-- [`manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf`](manuscript/DYN-MANUSCRIT_DEFICIT_PERIMETRE_v0_3.pdf) — unchanged v0.3 leading-term manuscript.
-- [`releases/v0.3/`](releases/v0.3/) — unchanged complete v0.3 corpus.
+- v0.5: current quantitative supplement candidate; internal note v0.1a.
+- [v0.4 proposed proof corpus](https://doi.org/10.5281/zenodo.23258648)
+- [v0.3 historical record](https://doi.org/10.5281/zenodo.23238780)
+- [v0.2 historical record](https://doi.org/10.5281/zenodo.23209553)
+- [Zenodo concept DOI](https://doi.org/10.5281/zenodo.23209552)
 
-From the v0.4 proof folder, run:
+Historical tags, release assets, source attribution and scientific limits
+retain their original scope. The supplement does not resolve the separate
+Weyl bridge.
 
-```bash
-python3 VERIFIER_SHA256.py
-python3 obstruction/CONTROLE_FORMULES.py
-```
+## Licence and citation
 
-The second command requires SciPy and performs deterministic quadratures, not a new Monte Carlo. One diagnostic point outside the proved cusp domain is explicitly labelled. These decimals are not interval certificates. The documented check environment used Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0 and mpmath 1.3.0 (the latter for the earlier high-precision constant calculation).
+The new supplement is distributed under the custom DEL 1.1 licence within
+the rights held by Patrick Royer. See the [scope notice](releases/v0.5/LICENSE_SCOPE_v0_5.txt)
+and the operative, unchanged licence PDF included in the archive. Historical
+and third-party rights remain separate. No exclusive rights over mathematical
+facts are claimed, and DEL 1.1 is not represented as OSI-approved.
 
-## Version history and preservation
-
-Version 0.4 adds the separate second-term proof supplement without rewriting the v0.3 manuscript. Version 0.3 remains the leading-term presentation with its $C^2$ scope and certified enclosure of $C$. Version 0.2 remains available in the repository and in its original archive; its conjectural status statements describe that historical release and are not silently rewritten.
-
-The v0.3 version DOI is [10.5281/zenodo.23238780](https://doi.org/10.5281/zenodo.23238780). The historical v0.2 DOI is [10.5281/zenodo.23209553](https://doi.org/10.5281/zenodo.23209553). The version series has concept DOI [10.5281/zenodo.23209552](https://doi.org/10.5281/zenodo.23209552).
-
-Related earlier deposits:
-
-- [Initial development — DOI 10.5281/zenodo.23110956](https://doi.org/10.5281/zenodo.23110956)
-- [Pont idéal 1–2 — DOI 10.5281/zenodo.23188815](https://doi.org/10.5281/zenodo.23188815)
-
-## Rights, provenance and citation
-
-The author-selected custom **DEL 1.1** licence applies within each designated scope and to the extent of Patrick Royer’s rights. Its operative PDF is preserved unchanged in the v0.4 proof corpus. DEL 1.1 is not an OSI-approved open-source licence, has no invented SPDX identifier here, and does not replace third-party rights or establish exclusivity over mathematical facts and formulas. Earlier versions retain their own notices and rights.
-
-Claude AI supplied the antecedent note and script, preserved unchanged. ChatGPT/Codex developed the new proof, assisted verification, code, counter-reviews, drafting and integration. AI systems are tools, not human authors, independent reviewers or scientific guarantors. See [`PROVENANCE.json`](releases/v0.4/preuve_taux_psirem_v0_1/PROVENANCE.json) for the detailed trace.
-
-Use [`CITATION.cff`](CITATION.cff) and cite the exact release, tagged content commit [`08f329d`](https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/commit/08f329dd9ae1949906ca10fc6c908c1b4a9bf65f), and verified Zenodo version. The machine-readable [`PUBLICATION_RECEIPT.json`](releases/v0.4/PUBLICATION_RECEIPT.json) records the public identifiers, files and checksums. The receipt is intentionally a post-tag trace file: tag `v0.4` remains fixed on the content commit above.
+See [CITATION.cff](CITATION.cff). The reserved DOI must not be taken as
+attestation of publication; citation and public status should be completed
+from the verified publication record once available.

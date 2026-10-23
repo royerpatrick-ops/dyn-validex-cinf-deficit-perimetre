@@ -1,0 +1,32 @@
+DYN-VALIDEX — complément quantitatif du disque, publication v0.5
+Note interne v0.1a, 23 octobre 2026.
+Patrick Royer — chercheur indépendant non affilié, projet Dynagénèse.
+
+La licence personnalisée Dynagénèse Éthique (DEL), version 1.1, s'applique
+aux nouveaux contenus désignés ci-dessous, dans la mesure des droits
+détenus par Patrick Royer. Le PDF DYN-LICENCE_DEL_v1_1.pdf, copié sans
+modification, constitue le texte français opératoire ; sa traduction
+anglaise est fournie pour la lecture.
+
+Périmètre nouveau : note de chiffrage v0.1a et source LaTeX, dérivations
+géométrique/Stieltjes/spectrale, contre-lecture IA, programme d'évaluation
+du budget, résultats arithmétiques, figures, appel public à relecture,
+présentation, métadonnées et intégration du présent complément.
+
+Le manuscrit de départ sous source_math/ est conservé inchangé avec sa
+notice de portée historique. Les archives et versions antérieures gardent
+leurs notices et droits. Claude AI est crédité pour les antécédents
+signalés dans la preuve v0.4 ; le nouveau chiffrage, les contre-lectures
+et l'intégration sont assistés par ChatGPT/Codex. Les IA sont des outils,
+et ne sont pas présentées comme auteurs humains ou garants scientifiques.
+
+Les publications, logiciels, polices et autres composants tiers gardent
+leurs conditions propres et ne sont pas relicenciés. Aucun droit exclusif
+sur les idées, formules, algorithmes abstraits ou faits mathématiques n'est
+affirmé. L'assistance IA ne présume pas un droit d'auteur sur chaque sortie.
+
+DEL1.1 n'est pas une licence approuvée par l'OSI. Aucun identifiant SPDX
+n'est inventé, et aucune licence CC/MIT n'est substituée aux choix de
+l'auteur. Le code des dépendances tierces n'est pas distribué ici.
+
+© 2026 Patrick Royer, dans la mesure des droits détenus.

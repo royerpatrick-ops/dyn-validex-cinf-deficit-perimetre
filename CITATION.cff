@@ -1,30 +1,19 @@
 cff-version: 1.2.0
-message: "Please cite the verified Zenodo v0.4 record and the exact GitHub content commit. This is an AI-assisted preprint; independent human mathematical review is not attested."
+message: "Candidate v0.5 has reserved DOI 10.5281/zenodo.23598602; publication is not yet attested. Cite the exact published version once publication has been verified."
 type: software
-title: "Leading and second-order asymptotics for the perimeter deficit of randomized integer convex hulls"
+title: "DYN-VALIDEX: explicit disk remainder bounds and request for human mathematical review"
 authors:
   - family-names: Royer
     given-names: Patrick
-version: "0.4"
-date-released: 2026-10-09
-doi: "10.5281/zenodo.23258648"
-repository-code: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
-url: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre/releases/tag/v0.4"
+version: "0.5"
+doi: "10.5281/zenodo.23598602"
+url: "https://github.com/royerpatrick-ops/dyn-validex-cinf-deficit-perimetre"
+abstract: "Proposed AI-assisted analytic bounds with a separate AI counter-review. No independent human review is attested. The bounds are uninformative at the radii already studied. Quantitative note v0.1a; DEL1.1 within the supplied scope."
 keywords:
-  - randomized integer convex hull
+  - integer hull
   - perimeter deficit
-  - affine lattice
-  - parabolic cap
-  - circle averages
-  - effective equidistribution
-  - second-order asymptotic
-  - Epstein zeta function
-  - Lipschitz regularity
+  - explicit remainder
+  - circular averages
+  - Stieltjes summation
+  - heat semigroup
   - AI-assisted mathematics
-abstract: >-
-  Version 0.4 preserves the v0.3 leading-term manuscript and adds a separate
-  proof note, internally versioned 0.1, proposing an effective parabolic
-  remainder estimate and a second perimeter-deficit term for fixed planar C3
-  convex bodies with strictly positive curvature. Endpoint exponents, a
-  three-dimensional second term and flat or singular curvature are not
-  claimed. No independent human mathematical review is attested.

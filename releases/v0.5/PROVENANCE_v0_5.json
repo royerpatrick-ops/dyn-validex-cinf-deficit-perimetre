@@ -1,0 +1,42 @@
+{
+  "publication_version": "0.5",
+  "document_version": "0.1a",
+  "prepared_date": "2026-10-23",
+  "status": "RELEASE_CANDIDATE_DOI_RESERVED",
+  "previous_internal_source_zip": {
+    "name": "DYN-CHIFFRAGE_RESTE_I43_DISQUE_v0_1_sources_et_controles.zip",
+    "sha256": "75dc8d7ed0685db323a4cc8ce8d05e9e04e5851f5991d33b1a71b62af86a3640"
+  },
+  "documentary_changes": [
+    "Clarified that a fully certified R=50 mean is only an eventual result and C51 remains partial.",
+    "Added DEL1.1 operative licence and scope.",
+    "Added bilingual public human-review request and publication presentation."
+  ],
+  "mathematical_changes": null,
+  "arithmetic_program_unchanged": true,
+  "historical_source_manuscript_unchanged": true,
+  "previous_version_doi": "10.5281/zenodo.23258648",
+  "previous_tag_commit": "08f329dd9ae1949906ca10fc6c908c1b4a9bf65f",
+  "observed_main_commit": "eaf7207af6c3babd12b36976560ada9af0d1e871",
+  "new_doi": "10.5281/zenodo.23598602",
+  "new_content_commit": null,
+  "human_review_performed": false,
+  "individual_reviewers_contacted": false,
+  "license_pdf_md5": "b1ba9cf103615c0ed3fd82b0776d2df7",
+  "license_pdf_unchanged_from_v04": true,
+  "constants_unchanged": {
+    "K_f": 2500000000,
+    "K_E": 2000,
+    "K_geo": 550000,
+    "R0": 2
+  },
+  "doi_status": "reserved_in_zenodo_draft",
+  "publication_attested": false,
+  "publication_receipt": null,
+  "doi_reservation_observation": {
+    "date": "2026-10-23",
+    "source": "Integrator observation in the existing-series Zenodo v0.5 draft",
+    "publication_implied": false
+  },
+  "zenodo_github_integration_observed": "OFF; observed by integrator before release preparation"
+}

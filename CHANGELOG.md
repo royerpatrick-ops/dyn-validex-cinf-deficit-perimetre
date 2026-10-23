@@ -1,5 +1,15 @@
 # Version history
 
+## 0.5 — prepared 23 October 2026
+
+- Added the quantitative note v0.1a and its complete 26-file source, derivation, counter-review and reproducibility corpus.
+- Proposed explicit bounds `K_f=2.5e9`, `K_E=2000`, `K_geo=550000`, with validity threshold `R0=2` for the disk remainder.
+- Documented that the bound is highly conservative and uninformative at the radii already studied, that `R0=2` is not a practical asymptotic threshold, and that C51 remains partial.
+- Added bilingual requests for independent human mathematical review, while preserving the status of an AI-assisted proposed proof with no independent human review or formal verification attested.
+- Added the DEL 1.1 scope notice, publication provenance, stable checksums and the reserved version DOI `10.5281/zenodo.23598602`.
+
+The immutable content tag is to precede the final Zenodo publication check. Public identifiers, timestamps and file checksums are recorded afterward in a separate publication receipt without moving the tag.
+
 ## 0.4 — 9 October 2026
 
 - Added a separate parabolic-remainder proof, internal version 0.1.
